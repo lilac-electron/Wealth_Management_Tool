@@ -1,2 +1,3 @@
 import pandas as pd
-s
+df = pd.read_excel('example.xlsx', sheet_name='Sheet1')
+print(df)
