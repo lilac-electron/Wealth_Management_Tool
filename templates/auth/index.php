@@ -20,7 +20,28 @@
     </nav>
     
 <body>
-    
+<div class="container">
+        <div class="row">
+            <div class = "col-lg-6 m-auto">
+                <div class="card bg-light mt-5 py-3">
+                    <div class="card-title">
+                        <?php 
+                            // functions
+                        ?>
+                        <h2 class="text-center">Wealth Management Tool!</h2>
+                        <hr>
+                    </div>
+                    <div class="card-body">
+                        <h1>other info here!</h1>
+                    </div>
+                    <div class="card-footer">
+                    <h5>This is a footer!!!!</h5>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
 </body>
     
 <?php require_once("../includes/footer.php")?>
