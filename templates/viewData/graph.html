@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css')}}">
+    <title>Flask-WTF Form Test</title>
+</head>
+<body style="background:#CCC"></body>
+<body>
+    <div class="container-fluid mx-auto">
+        <div class="row">
+            <div class = "col-lg-6 m-auto">
+                <div class="card bg-light mt-5 py-3">
+                    <div class="card-title">  
+                        <h1>Graph Time!</h1>
+                    </div>
+                    <div class="card-body">
+                        {{ table_html|safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
