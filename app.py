@@ -29,9 +29,20 @@ def index():
 @app.route('/graph')
 def graph():
     df = pd.read_excel('example.xlsx')
+    cols = df[['rank', 'total_assets_us_b']]
+
+    out = cols.to_numpy().tolist()
+    out = [tuple(elt) for elt in out]
+    out = [("sdiufnd", 23213),
+    ("wksdfsdf", 123123),
+    ("iwe", 2312)]
+
+    labels = [row[0] for row in out]
+    values = [row[1] for row in out]
     # Render the HTML template with the base64-encoded image
-    table_html = df.to_html(classes='table table-striped', index=False)
-    return render_template('viewData/graph.html', table_html=table_html)
+    #table_html = df.to_html(classes='table table-striped', index=False)
+    return render_template('viewData/graph.html', labels=labels, values=values)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

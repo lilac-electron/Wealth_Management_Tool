@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css')}}">
-    <title>Flask-WTF Form Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>GRAPHS</title>
 </head>
 <body style="background:#CCC"></body>
 <body>
@@ -14,10 +15,32 @@
             <div class = "col-lg-6 m-auto">
                 <div class="card bg-light mt-5 py-3">
                     <div class="card-title">  
-                        <h1>Graph Time!</h1>
+                        <h1>Graph</h1>
                     </div>
                     <div class="card-body">
-                        {{ table_html|safe }}
+                        <canvas id="lineChart" width="900" height="400"></canvas>
+                        <script>
+                            var ctx = document.getElementById("lineChart").getContext("2d");
+                            var lineChart = new Chart(ctx, {
+                                type: "line",
+                                data:{
+                                    labels:{{labels|safe}},
+                                    datasets:[
+                                        {
+                                            label:"Data Points",
+                                            data:{{values | safe}},
+                                            fill:false;
+                                            borderColor: "rgb(75, 192, 192)",
+                                            lineTension: 0.1
+                                        }
+                                    ]
+                                    
+                                },
+                                options:{
+                                    responsive: false;
+                                }
+                            });
+                        </script>
                     </div>
                 </div>
             </div>
