@@ -18,7 +18,7 @@ def generate_excel_file(file_path, num_transactions=600, outbound_frequency=0.7,
     
     # Generate diverse sample data
     transaction_date = datetime(2023, 1, 1)
-    current_balance = 0
+    current_balance =
     
     for _ in range(num_transactions):
         # Generate a random date within a range

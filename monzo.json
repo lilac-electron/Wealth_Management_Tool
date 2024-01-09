@@ -1,0 +1,13 @@
+{
+    "access_token": "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJlYiI6IlN3QThtaWJWMXlzeGhXNmpKOCtuIiwianRpIjoiYWNjdG9rXzAwMDBBZGZOQkY1WjAwYmhsZWx2VnEiLCJ0eXAiOiJhdCIsInYiOiI2In0.hGHc8KSZOL8ZMNTyz9v1Kgs6HPK2duO1h-KuFx4Apju0bL-HrLt45IIePF75JbmIOdP0TFpLbtrp6i1XXQew3A",
+    "client_id": "oauth2client_0000AdfM5AeMUPFJkXTHnt",
+    "expires_at": 1704903457.0907688,
+    "expires_in": 107999,
+    "refresh_token": "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJlYiI6ImlSY3JoT2gyVzdGUXh3alVPMk5LIiwianRpIjoicmVmdG9rXzAwMDBBZGZOQkY5Nm1wRzdNdTF0dVQiLCJ0eXAiOiJydCIsInYiOiI2In0.fK7bBdtB55nGTWIFDI3qvZHg1W4CNIHjlZ2LmAZ7xDfrcvwOI6aQLpKxxO3rSzdQykJ_b4mwbUm1uai8UteHCw",
+    "scope": [
+        "third_party_developer_app.pre_verification"
+    ],
+    "token_type": "Bearer",
+    "user_id": "user_00009hPDVBoQ6BJJXislbV",
+    "client_secret": "mnzconf.libMV5WRpToEiz+Q64aUwZCWMLUcr110p4OSgvEY5TwSxT+SoX0xcsM7fC0fciBUrBYZIkCFLj4akwpF2qpkwQ=="
+}
