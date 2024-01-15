@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css')}}">
+    <title>Flask-WTF Form Test</title>
+</head>
+<body style="background:#CCC"></body>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class = "col-lg-6 m-auto">
+                <div class="card bg-light mt-5 py-3">
+                    <div class="card-title">   
+                        <h1>Flask-WTF Form Test</h1>
+                        <hr>
+                    </div>
+                    <div class="card-body">
+                        <!--
+                        <form method="POST" action="/">
+                            {{ form.hidden_tag() }}
+                            <p>
+                                {{ form.name.label }}<br>
+                                {{ form.name(size=20) }}<br>
+                                {% for error in form.name.errors %}
+                                    <span style="color: red;">{{ error }}</span><br>
+                                {% endfor %}
+                            </p>
+                            <p>
+                                {{ form.email.label }}<br>
+                                {{ form.email(size=20) }}<br>
+                                {% for error in form.email.errors %}
+                                    <span style="color: red;">{{ error }}</span><br>
+                                {% endfor %}
+                            </p>
+                            <p>{{ form.submit() }}</p>
+                        </form>
+                        -->
+                        <button onclick=window.location.href="https://auth.monzo.com/?client_id=$client_id&redirect_uri=$redirect_uri&response_type=code&state=$state_token">Go to Webpage</button>
+                        <!--
+                            client id : oauth2client_0000AdfM5AeMUPFJkXTHnt
+                            secret : mnzconf.libMV5WRpToEiz+Q64aUwZCWMLUcr110p4OSgvEY5TwSxT+SoX0xcsM7fC0fciBUrBYZIkCFLj4akwpF2qpkwQ==
+
+
+                        -->
+
+                        <script>
+                            // Replace these values with your actual client_id, redirect_uri, and state_token
+                            var clientId = "oauth2client_0000AdhmSEgscReJipyEwk";
+                            var redirectUri = "http://localhost";
+                            var stateToken = "mnzpub.zWgAfkCTBsc2qWnhtQ8sn/hmO/ekFdGIBhAa/PNu/Uc4rqW+mWrLO1xbsacVJpRRSp8Ni0kdFwHaeQRIDH6lsA==";
+                        
+                            // Construct the URL with the variables
+                            var authUrl = "https://auth.monzo.com/?" +
+                                "client_id=" + clientId +
+                                "&redirect_uri=" + redirectUri +
+                                "&response_type=code" +
+                                "&state=" + stateToken;
+                        
+                            // Create a card container
+                            var cardContainer = document.createElement("div");
+                            cardContainer.classList.add("container");
+                        
+                            // Create a card element
+                            var card = document.createElement("div");
+                            card.classList.add("card");
+                        
+                            // Create a link and set its href attribute
+                            var link = document.createElement("a");
+                            link.href = authUrl;
+                            link.textContent = "Click here to authenticate with Monzo";
+                        
+                            // Append the link to the card body
+                            card.appendChild(link);
+                        
+                            // Create a card body element
+                            var cardBody = document.createElement("div");
+                            cardBody.classList.add("card-body");
+                        
+                            // Append the card to the card body
+                            cardBody.appendChild(card);
+                        
+                            // Append the card body to the card container
+                            cardContainer.appendChild(cardBody);
+                        
+                            // Finally, append the card container to the document or any other desired location
+                            document.body.appendChild(cardContainer);
+                        </script>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

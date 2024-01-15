@@ -24,7 +24,9 @@ def index():
         # Access form data here (e.g., form.name.data, form.email.data)
         return "Form submitted with Name: {form.name.data}, Email: {form.email.data}"
 
-    return render_template('auth/index.html', form=form)
+    #return render_template('auth/index(redundant).html', form=form)
+
+    return render_template('index.html', form=form)
 
 @app.route('/graph')
 def graph():
