@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Fins-Fintech Wealth Tool</title>
+    <!-- Bootstrap CSS link -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="{{url_for('static', filename='js/script1.js')}}"></script>
+    <style>
+        /* Set the height of the body to 100% for Sticky Footer */
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        /* Main Content Wrapper */
+        .content {
+            flex: 1;
+        }
+        .navbar-nav .nav-link:hover {
+            border-radius: 0.375rem; /* You can adjust the value to control the level of rounding */
+        }
+        
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="bg-dark text-white p-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-12 mb-md-0 mb-2 text-center text-md-left">
+                <a href="{{url_for('dashboard')}}">
+                    <button class="btn btn-light border-0 bg-dark text-white">Fins-Fintech</button>
+                </a>
+            </div>
+            <div class="col-md-6 col-12 mb-md-0 mb-2 text-center text-md-right">
+                <button class="btn btn-light border-0 bg-dark text-white">Welcome, {{name}}</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+
+        <!-- Navbar Toggler Button for Small Screens -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links with Invisible Boxes -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link border-0 bg-light mr-2" href="{{url_for('credits')}}">Current Credits</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link border-0 bg-light mr-2" href="{{url_for('simulatedGrowth')}}">Simulated Growth</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link border-0 bg-light mr-2" href="{{url_for('assetValue')}}">Current Asset Value</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link border-0 bg-light mr-2" href="{{url_for('updateFinances')}}">Update Financial Info</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Content -->
+<div class="content">
+    <div class="container mx-auto">
+        <div class="row">
+            <div class="col-md-8">
+                <!-- Main Content -->
+                <section class="text-center mt-4">
+                    <h2>Update Financial Details</h2>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center p-2 mt-auto">
+    <p>&copy; 2024 Fins-Fintech</p>
+</footer>
+
+</body>
+</html>

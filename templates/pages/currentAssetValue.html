@@ -19,6 +19,10 @@
         .content {
             flex: 1;
         }
+        .navbar-nav .nav-link:hover {
+            border-radius: 0.375rem; /* You can adjust the value to control the level of rounding */
+        }
+        
     </style>
 </head>
 <body>
@@ -28,12 +32,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-12 mb-md-0 mb-2 text-center text-md-left">
-                <!-- Title For the Page-->
-                <button class="btn btn-light border-0 bg-dark text-white">Fins-Fintech</button>
+                <a href="{{url_for('dashboard')}}">
+                    <button class="btn btn-light border-0 bg-dark text-white">Fins-Fintech</button>
+                </a>
             </div>
-            <div class="col-md-6 col-12 text-center text-md-right">
-                <!-- "Please Log in or Register" Button with Invisible Box -->
-                <button class="btn btn-light border-0 bg-dark text-white">Please Log in or Register</button>
+            <div class="col-md-6 col-12 mb-md-0 mb-2 text-center text-md-right">
+                <button class="btn btn-light border-0 bg-dark text-white">Welcome, {{name}}</button>
             </div>
         </div>
     </div>
@@ -52,19 +56,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                    <a class="nav-link border-0 bg-light" href="#">Button 1</a>
+                    <a class="nav-link border-0 bg-light mr-2" href="{{url_for('credits')}}">Current Credits</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link border-0 bg-light" href="#">Button 2</a>
+                    <a class="nav-link border-0 bg-light mr-2" href="{{url_for('simulatedGrowth')}}">Simulated Growth</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link border-0 bg-light" href="#">Button 3</a>
+                    <a class="nav-link border-0 bg-light mr-2" href="{{url_for('assetValue')}}">Current Asset Value</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link border-0 bg-light" href="#">Button 4</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link border-0 bg-light" href="#">Button 5</a>
+                    <a class="nav-link border-0 bg-light mr-2" href="{{url_for('updateFinances')}}">Update Financial Info</a>
                 </li>
             </ul>
         </div>
@@ -78,13 +79,7 @@
             <div class="col-md-8">
                 <!-- Main Content -->
                 <section class="text-center mt-4">
-                    <h2>Please log in to access all benefits</h2>
-                </section>
-            </div>
-            <div class="col-md-4">
-                <!-- Stock Information Column -->
-                <section class="text-center mt-4">
-                    <div id="stock-info"></div>
+                    <h2>Current Asset Value</h2>
                 </section>
             </div>
         </div>
