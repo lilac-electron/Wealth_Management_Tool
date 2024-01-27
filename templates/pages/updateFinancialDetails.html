@@ -75,12 +75,20 @@
 <!-- Content -->
 <div class="content">
     <div class="container mx-auto">
-        <div class="row">
-            <div class="col-md-8">
-                <!-- Main Content -->
-                <section class="text-center mt-4">
-                    <h2>Update Financial Details</h2>
-                </section>
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-4">
+
+                <div class="card">
+                    <div class="card-header bg-dark text-white text-center">
+                        <h3>Please choose an option: </h3>
+                    </div>
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <a href="{{url_for('uploadMultiple')}}" class="btn btn-secondary btn-lg flex-fill me-2">Upload Multiple</a>
+                        </a>
+                        <a href="{{url_for('delete_files')}}" class="btn btn-secondary btn-lg flex-fill ms-2">Delete Files</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
