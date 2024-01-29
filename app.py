@@ -138,7 +138,7 @@ def register():
             writer.writerow(['House', 'Car', 'Investments', 'Checking Account', 'Stocks', 'Savings', 'Retirement Accounts'])
             writer.writerow([])
 
-        with open(csv_asset_upload_folder_path, 'w', newline='') as file:
+        with open(csv_credit_upload_folder_path, 'w', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(['Rent', 'Mortgage', 'Utilities', 'Food and Groceries','Car Payments', 'Student loan Payments', 'Pension','Streaming Subscriptions', 'Music Subscriptions', 'Misc Subscriptions', 'Health Insurance', 'House Insurance', 'Other Insurance'])
             writer.writerow([20, 400])
@@ -174,6 +174,7 @@ def uploadMultiple():
     return render_template('pages/upload_multiple.html', form=form)
 
 @app.route('/delete_files', methods=['GET', 'POST'])
+@login_required
 def delete_files():
     form = DeleteFileForm()
 
@@ -199,6 +200,7 @@ def delete_files():
         return redirect(url_for('dashboard'))
 
     return render_template('pages/deleteFiles.html', form=form)
+
 
 @app.route('/logout')
 @login_required
@@ -227,9 +229,13 @@ def graph():
     return render_template('viewData/graph.html', labels=labels, values=values)
 
 with app.app_context():
-    db.drop_all()
+    #db.drop_all()
     db.create_all()
-    users = User.query.all()
+    #sample_user = User(username="test", email="test@test.com", password=generate_password_hash("password"))
+    #db.session.add(sample_user)
+    #db.session.commit()
+    
+    #users = User.query.all()
     #print("Print Statement")
     #print(users)
     #print("End print statement")
