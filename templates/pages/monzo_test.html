@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monzo Authorization</title>
+</head>
+<body>
+
+    <h1>Monzo Authorization</h1>
+
+    <button id="authorizeButton">Authorize with Monzo</button>
+    <button id="getTokenButton">Get Access Token</button>
+
+    <script>
+        // Replace these values with your actual client_id, client_secret, redirect_uri, and state_token
+        const client_id = 'oauth2client_0000AdfM5AeMUPFJkXTHnt';
+        const client_secret = 'mnzconf.libMV5WRpToEiz+Q64aUwZCWMLUcr110p4OSgvEY5TwSxT+SoX0xcsM7fC0fciBUrBYZIkCFLj4akwpF2qpkwQ==';
+        const redirect_uri = 'your_redirect_uri';
+        const state_token = 'your_state_token';
+        
+
+        let authorizationCode;
+
+        // Function to construct the authorization URL and redirect
+        function authorizeWithMonzo() {
+            const authorizationUrl = `https://auth.monzo.com/?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=code&state=${state_token}`;
+            window.location.href = authorizationUrl;
+        }
+
+        // Function to get the access token using the authorization code
+        function getAccessToken() {
+            const apiUrl = 'https://api.monzo.com/oauth2/token';
+
+            // Replace this with the actual authorization code obtained after user authorization
+            const code = 'eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJlYiI6IlkzWGNoVWhKQ055SmUyclROdkRNIiwianRpIjoiYXV0aHpjb2RlXzAwMDBBZU5MTllHRHRSYjMwYXNIemUiLCJ0eXAiOiJhemMiLCJ2IjoiNiJ9.sLycP8DyNXBcwYv-NFvijSy6WaYSfBe4O61ekMmSXYZ5o5rcl0s8MtiXNhJ-W6Jvpgnkzu-dbhy2UeJM590GUA';
+
+            // Make a POST request to exchange the authorization code for an access token
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `grant_type=authorization_code&client_id=${client_id}&client_secret=${client_secret}&redirect_uri=${redirect_uri}&code=${code}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                alert('Access Token Obtained: ' + data.access_token);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        // Attach the functions to the button click events
+        document.getElementById('authorizeButton').addEventListener('click', authorizeWithMonzo);
+        document.getElementById('getTokenButton').addEventListener('click', getAccessToken);
+
+        // This function should be called after the user is redirected back with the authorization code
+        function setAuthorizationCode(code) {
+            authorizationCode = code;
+            document.getElementById('getTokenButton').style.display = 'block';
+        }
+
+        // Example: Call setAuthorizationCode with the actual authorization code after the redirect
+        // setAuthorizationCode('actual_authorization_code');
+    </script>
+
+</body>
+</html>

@@ -22,6 +22,32 @@
         .navbar-nav .nav-link:hover {
             border-radius: 0.375rem; /* You can adjust the value to control the level of rounding */
         }
+        .flash-messages {
+            list-style-type: none;
+            padding: 10px;
+        }
+
+        .success {
+            background-color: #d4edda; /* Green background color */
+            border: 1px solid #c3e6cb; /* Green border color */
+            color: #155724; /* Dark green text color */
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .danger {
+            background-color: #f8d7da; /* Red background color */
+            border: 1px solid #f5c6cb; /* Red border color */
+            color: #721c24; /* Dark red text color */
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+     
+        .cardTop {
+            border: none;
+            box-shadow: none;
+        }
         
     </style>
 </head>
@@ -75,16 +101,88 @@
 <!-- Content -->
 <div class="content">
     <div class="container mx-auto">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-12">
-                <!-- Main Content -->
                 <section class="text-center mt-4">
-                    <h2>Current Asset Value</h2>
+                    <h2>Asset Value</h2>
                 </section>
+            </div>
+        </div>-->
+        <div class="row mt-4">
+            <div class="col-md-6 mx-auto">
+                <div class="cardTop">
+                    <div class="card-body text-center">
+                        <h3>Total Asset Value</h3>
+                        <div class="mb-3">
+                            <tr>
+                                <td>{{ total_assets }}</td>
+                            </tr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h3>Edit your assets:</h3>
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                <ul class="flash-messages">
+                                    {% for category, message in messages %}
+                                        <li class="{{ category }}">{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        {% endwith %}
+                        <p>
+                            This seciton is asking you to update asset value based on what you now evaluate them to be
+                        </p>
+                        <form method="POST" action="/assetValue">
+                            {% for field in form %}
+                                {% if not loop.last %}
+                                    <div class="mb-3">
+                                        {{ field.label }}
+                                        
+                                        {{ field(value=value) }}
+                                    </div>
+                                {% endif %}
+                                {% if loop.last %}
+                                    {{ field }}
+                                {% endif %}
+                            {% endfor %}
+                            {{ field }}
+                            <button class="btn btn-light border-0 bg-dark text-white w-50" type="submit">Submit</button>
+                            <!--<button class="btn btn-light border-0 bg-dark text-white w-50" type="reset">Clear</button>-->
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h3>Your asset values:</h3>
+                        <p>These are the asset values that you have previously entered into the database.
+                        </p>
+                        {% for key, value in assets_data.items() %}
+                        <div class="mb-3">
+                            <tr>
+                                <td>{{ key }}</td>
+                                <td>{{ value }}</td>
+                            </tr>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 </div>
+
 
 <!-- Footer -->
 <footer class="bg-dark text-white text-center p-2 mt-auto">
