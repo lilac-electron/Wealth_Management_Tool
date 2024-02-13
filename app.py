@@ -9,6 +9,9 @@ from wtforms.validators import InputRequired, Email, Length, NumberRange
 import email_validator
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+import datetime
+import pandas_datareader.data as pdr
+import yfinance as yfin
 
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
@@ -129,6 +132,11 @@ def read_user_data(username, upload_folder_path):
 
     return asset_data, credit_data
 
+def fetch_stock_data(ticker, start_date, end_date):
+    yfin.pdr_override()
+    data = pdr.DataReader(ticker, 'yahoo', start_date, end_date).loc[:, 'Adj Close']
+    return data
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('auth/index.html')
@@ -136,7 +144,26 @@ def index():
 @app.route('/dashboard')
 @login_required
 def dashboard():
-    return render_template('pages/dashboard.html', name=current_user.username)
+    totalCredits = 0
+    for value in app.config['CREDITS'].values():
+        totalCredits += int(value)
+    totalCredits *= 12
+    totalAssets = 0
+    for value in app.config['ASSETS'].values():
+        totalAssets += int(value)
+
+
+    labels = [
+        '2015','2016','2017','2018','2019','2020','2021', '2022','2023'
+    ]
+    data = []
+    assetStart=totalAssets
+    for year in labels:
+        assetStart *= 1.08
+        data.append(assetStart)
+    #data = [0, 10, 15, 8, 22, 18, 25]
+
+    return render_template('pages/dashboard.html', name=current_user.username, total_credits=totalCredits, total_assets=totalAssets, data=data, Labels=labels)
 
 @app.route('/credits', methods=['GET', 'POST'])
 @login_required
@@ -167,7 +194,21 @@ def credits():
 @app.route('/simulatedGrowth')
 @login_required
 def simulatedGrowth():
-    return render_template('pages/simulatedGrowth.html', name=current_user.username)
+    # Define the ticker and date range
+    ticker = 'AAPL'  # Example ticker
+    start_date = "'", datetime.date(2020, 1, 1), "'"
+    print(start_date)
+    end_date = "'", datetime.date(2023, 1, 1), "'"
+    print(end_date)
+    # Fetch historical stock data for the specified ticker
+    stock_data = fetch_stock_data(ticker, start_date, end_date)
+    print(stock_data)
+    
+    # Convert DataFrame to HTML table
+    stock_table_html = stock_data.to_frame().to_html()
+    
+    #return render_template('index.html', stock_table_html=stock_table_html)
+    return render_template('pages/simulatedGrowth.html', name=current_user.username, stock_table = stock_table_html)
 @app.route('/assetValue', methods=['GET', 'POST'])
 @login_required
 def assetValue():
@@ -260,7 +301,7 @@ def register():
 
         # Define column names for asset and credit files
         asset_column_names = ['House', 'Car', 'Investments', 'Checking Account', 'Stocks', 'Savings', 'Retirement Accounts']
-        credit_column_names = ['Rent', 'Mortgage', 'Utilities', 'Food and Groceries', 'Car Payments', 'Student loan Payments', 'Pension', 'Streaming Subscriptions', 'Music Subscriptions', 'Misc Subscriptions', 'Health Insurance', 'House Insurance', 'Other Insurance']
+        credit_column_names = ['Rent', 'Mortgage', 'Utilities', 'Food and Groceries', 'Car Payments', 'Student loan Payments', 'Pension', 'Subscriptions', 'Health Insurance', 'House Insurance', 'Other Insurance']
 
         # Create dictionaries with column names as keys and 0 as values
         asset_data_dict = dict.fromkeys(asset_column_names, 0)

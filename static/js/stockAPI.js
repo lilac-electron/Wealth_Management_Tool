@@ -3,13 +3,19 @@
     const apiKey = 'TMpZtMMIblXfUYNFRADWwJn1COf6rL7a';
     const symbol = 'AAPL';
     // Calculate the day before the current day
-    const currentDate = new Date();
-    const previousDate = new Date(currentDate);
-    previousDate.setDate(currentDate.getDate() - 1);
-
     // Format the date in 'YYYY-MM-DD' format
-    //const date = previousDate.toISOString().split('T')[0];
-    const date = '2023-01-09';
+    var today = new Date();
+    var yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
+    var year = yesterday.getFullYear();
+    var month = yesterday.getMonth() + 1;
+    var day = yesterday.getDate();
+    month = (month < 10 ? '0' : '') + month;
+    day = (day < 10 ? '0' : '') + day;
+    var formattedDate = year + '-' + month + '-' + day;
+
+    //const date = '2023-01-09';
+    const date = formattedDate
     
     // Construct the API URL
     const apiUrl = `https://api.polygon.io/v1/open-close/${symbol}/${date}?adjusted=true&apiKey=${apiKey}`;
@@ -40,7 +46,7 @@
             console.error('Error fetching stock information:', error);
         });
 
-        const symbol2 = 'NFLX'
+        const symbol2 = 'NSPI'
         const apiUrl2 = `https://api.polygon.io/v1/open-close/${symbol2}/${date}?adjusted=true&apiKey=${apiKey}`;
         fetch(apiUrl2)
         .then(response => response.json())
