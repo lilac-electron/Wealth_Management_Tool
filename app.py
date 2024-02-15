@@ -21,7 +21,9 @@ import os
 import io
 import base64
 import csv 
+import numpy as np
 
+np.random.seed(seed=8)
 app = Flask(__name__)
 
 bootstrap = Bootstrap(app)
@@ -134,8 +136,24 @@ def read_user_data(username, upload_folder_path):
 
 def fetch_stock_data(ticker, start_date, end_date):
     yfin.pdr_override()
-    data = pdr.DataReader(ticker, 'yahoo', start_date, end_date).loc[:, 'Adj Close']
-    return data
+    #data = pdr.DataReader(ticker, 'yahoo', start_date, end_date).loc[:, 'Adj Close']
+    sp = pdr.get_data_yahoo(ticker, start=start_date, end=end_date)
+    sp_html = sp.to_html()
+    return sp_html, sp
+
+def check_credits():
+    try:
+        credits = app.config['CREDITS']
+    except KeyError:
+        return False
+    return True
+
+def check_assets():
+    try:
+        credits = app.config['ASSETS']
+    except KeyError:
+        return False
+    return True
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -144,26 +162,51 @@ def index():
 @app.route('/dashboard')
 @login_required
 def dashboard():
-    totalCredits = 0
-    for value in app.config['CREDITS'].values():
-        totalCredits += int(value)
-    totalCredits *= 12
-    totalAssets = 0
-    for value in app.config['ASSETS'].values():
-        totalAssets += int(value)
+    if not check_credits() or not check_assets():
+        return redirect(url_for('login'))
+    else:
+        totalCredits = 0
+        for value in app.config['CREDITS'].values():
+            totalCredits += int(value)
+        totalAssets = 0
+        for value in app.config['ASSETS'].values():
+            totalAssets += int(value)
 
+        #labels = [
+        #    '2015','2016','2017','2018','2019','2020','2021', '2022','2023'
+        #]
+        numYears = 10
+        labels = []
+        labels.append(totalAssets)
+        print (numYears*12)
+        for i in range(1,((numYears*12)+1)):
+            labels.append(i)
+        print(len(labels))
+        data = []
+        assetStart=totalAssets
+        #ticker = 'AAPL'  # Example ticker
+        ticker = '^SP500TR'
+        start_date = datetime.date(2000, 1, 1).strftime("%Y-%m-%d")
+        end_date = datetime.date(2023, 1, 1).strftime("%Y-%m-%d")
 
-    labels = [
-        '2015','2016','2017','2018','2019','2020','2021', '2022','2023'
-    ]
-    data = []
-    assetStart=totalAssets
-    for year in labels:
-        assetStart *= 1.08
+        stock_data_html, stock_data = fetch_stock_data(ticker, start_date, end_date)
+        var1=stock_data.resample('M').last().pct_change().mean().values[0]
+        var2=stock_data.resample('M').last().pct_change().std().values[0]
+        #print(var1)
+        #print(var2)
+        np.random.seed(seed=25)
         data.append(assetStart)
-    #data = [0, 10, 15, 8, 22, 18, 25]
+        for month in labels:
+            market_return = np.random.normal(var1, var2,1)[0]
+            assetStart = assetStart * (1+ market_return)
+            #print(assetStart)
+            data.append(assetStart)
+            #print( market_return)
+        #print(data)
+        
+        #data = [0, 10, 15, 8, 22, 18, 25]
 
-    return render_template('pages/dashboard.html', name=current_user.username, total_credits=totalCredits, total_assets=totalAssets, data=data, Labels=labels)
+        return render_template('pages/dashboard.html', name=current_user.username, total_credits=totalCredits, total_assets=totalAssets, data=data, Labels=labels)
 
 @app.route('/credits', methods=['GET', 'POST'])
 @login_required
@@ -195,20 +238,26 @@ def credits():
 @login_required
 def simulatedGrowth():
     # Define the ticker and date range
-    ticker = 'AAPL'  # Example ticker
-    start_date = "'", datetime.date(2020, 1, 1), "'"
+    #ticker = 'AAPL'  # Example ticker
+    ticker = '^SP500TR'
+    start_date = datetime.date(2020, 1, 1).strftime("%Y-%m-%d")
     print(start_date)
-    end_date = "'", datetime.date(2023, 1, 1), "'"
+    end_date = datetime.date(2023, 1, 1).strftime("%Y-%m-%d")
     print(end_date)
     # Fetch historical stock data for the specified ticker
-    stock_data = fetch_stock_data(ticker, start_date, end_date)
-    print(stock_data)
+    stock_data_html, stock_data = fetch_stock_data(ticker, start_date, end_date)
+    var1=stock_data.resample('M').last().pct_change().mean().values[0]
+    var2=stock_data.resample('M').last().pct_change().std().values[0]
+    for i in range (0,1000):
+        market_return = np.random.normal(var1, var2,1)[0]
+        print(market_return)
+    #print(stock_data)
     
     # Convert DataFrame to HTML table
-    stock_table_html = stock_data.to_frame().to_html()
+    #stock_table_html = stock_data.to_frame().to_html()
     
     #return render_template('index.html', stock_table_html=stock_table_html)
-    return render_template('pages/simulatedGrowth.html', name=current_user.username, stock_table = stock_table_html)
+    return render_template('pages/simulatedGrowth.html', name=current_user.username, stock_table = stock_data_html)
 @app.route('/assetValue', methods=['GET', 'POST'])
 @login_required
 def assetValue():

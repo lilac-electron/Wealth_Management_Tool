@@ -117,10 +117,39 @@
     };
 
     const config = {
-        type: 'line',
-        data: data,
-        options: { maintainAspectRatio: false }
+    type: 'line',
+    data: data,
+    options: {
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: 'Year' // X-axis label
+                    },
+                    ticks: {
+                        callback: function(value, index, values) {
+                            // Display label for every 20th data point
+                            if (index % 20 === 0) {
+                                return value;
+                            } else {
+                                return ''; // Hide other labels
+                            }
+                        }
+                    }
+                },
+                y: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: 'Asset Value'
+                    }
+                }
+            }
+        }
     };
+
 
     const myChart = new Chart(
         document.getElementById('dashboardChart'),
