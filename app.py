@@ -58,6 +58,7 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 
 class User(UserMixin, db.Model):
+    __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(15), unique=True)
     email = db.Column(db.String(50), unique=True)
@@ -566,9 +567,9 @@ def access_token(authorization_code):
         return jsonify({"error": str(e)}), 500
     
 
-with app.app_context():
+#with app.app_context():
     #db.drop_all()
-    db.create_all()
+    #db.create_all()
     #sample_user = User(username="test", email="test@test.com", password=generate_password_hash("password"))
     #db.session.add(sample_user)
     #db.session.commit()
