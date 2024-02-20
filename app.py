@@ -30,6 +30,7 @@ import base64
 import csv 
 import numpy as np
 import requests
+#FinsFintechFYP
 
 np.random.seed(seed=8)
 app = Flask(__name__)
@@ -38,8 +39,19 @@ bootstrap = Bootstrap(app)
 
 app.config['SECRET_KEY'] = 'your_secret_key'
 app.config['WTF_CSRF_SECRET_KEY'] = 'a_random_key' 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///PythonDB.db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///PythonDB.db'
 app.config['UPLOAD_FOLDER'] = 'upload_folder'
+
+SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
+    username="Finnnnnn1",
+    password="FinsFintechFYP",
+    hostname="Finnnnnn1.mysql.pythonanywhere-services.com",
+    databasename="Finnnnnn1$users",
+)
+app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
+app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
 
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
