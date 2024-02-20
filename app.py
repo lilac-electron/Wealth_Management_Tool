@@ -346,8 +346,8 @@ def register():
     if form.validate_on_submit():
         hashed_password = generate_password_hash(form.password.data)
         new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
-        db.session.add(new_user)
-        db.session.commit()
+        db.add(new_user)
+        db.commit()
         username = form.username.data
         upload_folder_path = os.path.join('upload_folder', username)
         csv_asset_upload_folder_path = os.path.join(upload_folder_path, f'{username}_assetValue.csv')
