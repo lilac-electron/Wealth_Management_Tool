@@ -1,18 +1,23 @@
-from flask import Flask, render_template
-from flask import Flask, render_template, request, redirect, url_for, flash, session
+from flask import (
+    Flask, render_template, jsonify, request, redirect, url_for, flash, session
+)
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, IntegerField
-from wtforms import StringField, PasswordField, SubmitField, validators, BooleanField, SelectMultipleField
+from wtforms import (
+    StringField, SubmitField, IntegerField, PasswordField, BooleanField, SelectMultipleField
+)
+from wtforms.validators import (
+    InputRequired, Email, Length, NumberRange, validators
+)
 from flask_wtf.file import FileField, FileAllowed, MultipleFileField
-from wtforms.validators import InputRequired, Email, Length, NumberRange
 import email_validator
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+from flask_login import (
+    LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+)
 import datetime
 import pandas_datareader.data as pdr
 import yfinance as yfin
-
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 import pandas as pd
@@ -22,6 +27,7 @@ import io
 import base64
 import csv 
 import numpy as np
+import requests
 
 np.random.seed(seed=8)
 app = Flask(__name__)
@@ -440,9 +446,122 @@ def graph():
     #table_html = df.to_html(classes='table table-striped', index=False)
     return render_template('viewData/graph.html', labels=labels, values=values)
 
-@app.route('/monzo_test')
+#@app.route('/monzo_test')
+#def monzo():
+#    return render_template('pages/monzo_test.html')
+
+@app.route('/capitalOne', methods=['GET', 'POST'])
+def capitalOne():
+    # Define the endpoint and request body
+    api_url = 'https://api-sandbox.capitalone.com/oauth2/token'
+    request_body = {
+        'client_id': '9c08b0d10faec81a311401d34e99ccf7',
+        'client_secret': '48af6fca7486763d5982ee1e5ff7bb99',
+        'grant_type': 'client_credentials'
+    }
+
+    # Make the POST request
+    response = requests.post(api_url, data=request_body, headers={'Content-Type': 'application/x-www-form-urlencoded'})
+
+    # Check if the request was successful
+    if response.status_code == 200:
+        token_data = response.json()
+        access_token = token_data['access_token']
+        print('Access Token:', access_token)
+    else:
+        print('Error:', response.text)
+    
+
+    api_url = 'https://api-sandbox.capitalone.com/deposits/products/~/search'
+    headers = {
+        'Authorization': f'Bearer {access_token}',
+        'Content-Type': 'application/json;v=5',
+        'Accept': 'application/json;v=5'
+    }
+    body = {
+        'isCollapseRate': True
+    }
+    response = requests.post(api_url, headers=headers, json=body)
+    if response.status_code == 200:
+        print('Request successful')
+        print(response.json())
+    else:
+        print('Error:', response.text)
+
+
+    return(redirect(url_for('dashboard')))
+
+
+@app.route('/monzo', methods=['GET', 'POST'])
 def monzo():
-    return render_template('pages/monzo_test.html')
+    client_id = 'oauth2client_0000AdfM5AeMUPFJkXTHnt'
+    redirect_uri = 'http://localhost'
+    state_token = 'your_state_token'
+
+    url = f"https://auth.monzo.com/?client_id={client_id}&redirect_uri={redirect_uri}&response_type=code&state={state_token}"
+    
+    return(redirect(url))
+
+@app.route('/oauth/callback')
+def oauth_callback():
+    # Get the authorization code and state token from the URL parameters
+    #authorization_code = request.args.get('code')
+    #state_token = request.args.get('state')
+
+    # Check if state_token matches the one you provided earlier
+    #expected_state_token = 'your_state_token'
+
+    #if state_token != expected_state_token:
+    #    return 'Invalid state token', 400
+
+    # Process the authorization code, exchange it for an access token, etc.
+    # You will need to implement this part according to Monzo's documentation
+
+    # For now, let's just print out the received authorization code
+    #print(f'Received authorization code: {authorization_code}')
+
+    # You can also redirect the user to another page if needed
+    # return redirect('/success')
+
+    # Return a success message
+    #return 'Authorization successful'
+    authorization_code = 'eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJlYiI6InZmWEl1VkZxSzkrSktIR3Y0WXlrIiwianRpIjoiYXV0aHpjb2RlXzAwMDBBZXdraFlDSjhUZGdEdmdKWE4iLCJ0eXAiOiJhemMiLCJ2IjoiNiJ9.5rWu7Vr4aZ8qaGvsVAHeNRV5PvsKndDueIGb6kaaf4yi0BNzcCYTI27ntpbHW3c9R1XnKqQz3XEyxxi4gJhciw'
+
+    access_token(authorization_code)
+    return(redirect(url_for('login')))
+
+def access_token(authorization_code):
+    
+
+    # Parameters for the request
+    params = {
+        'grant_type': 'authorization_code',
+        'client_id': 'oauth2client_0000AdfM5AeMUPFJkXTHnt',
+        'client_secret': 'mnzconf.libMV5WRpToEiz+Q64aUwZCWMLUcr110p4OSgvEY5TwSxT+SoX0xcsM7fC0fciBUrBYZIkCFLj4akwpF2qpkwQ==',
+        'redirect_uri': 'http://localhost',
+        'code': authorization_code
+    }
+    print('before')
+    # Make the POST request to exchange the authorization code for an access token
+    response = requests.post("https://api.monzo.com/oauth2/token", data=params)
+    print('after')
+    # Check if the request was successful (status code 200)
+    if response.status_code == 200:
+        # Print the access token
+        print("Access token:", response.json()['access_token'])
+        response = requests.get(f"https://api.monzo.com/balance?account_id=user_00009hPDVBoQ6BJJXislbV", headers={"Authorization": f"Bearer {response.json()['access_token']}"})
+
+        # Check if the request was successful (status code 200)
+        if response.status_code == 200:
+            # Return the balance as JSON
+            return jsonify(response.json())
+        else:
+            # Return the error message if the request was not successful
+            return jsonify({"error": response.text}), response.status_code
+    else:
+        # Print the error message if the request was not successful
+        print("Error:", response.text)
+    
 
 with app.app_context():
     #db.drop_all()
