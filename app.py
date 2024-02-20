@@ -533,9 +533,6 @@ def oauth_callback():
     return(redirect(url_for('login')))
 
 def access_token(authorization_code):
-    
-
-    # Parameters for the request
     params = {
         'grant_type': 'authorization_code',
         'client_id': 'oauth2client_0000AdfM5AeMUPFJkXTHnt',
@@ -543,26 +540,18 @@ def access_token(authorization_code):
         'redirect_uri': 'http://localhost',
         'code': authorization_code
     }
-    print('before')
-    # Make the POST request to exchange the authorization code for an access token
-    response = requests.post("https://api.monzo.com/oauth2/token", data=params)
-    print('after')
-    # Check if the request was successful (status code 200)
-    if response.status_code == 200:
-        # Print the access token
-        print("Access token:", response.json()['access_token'])
-        response = requests.get(f"https://api.monzo.com/balance?account_id=user_00009hPDVBoQ6BJJXislbV", headers={"Authorization": f"Bearer {response.json()['access_token']}"})
-
-        # Check if the request was successful (status code 200)
-        if response.status_code == 200:
-            # Return the balance as JSON
+    try:
+        response = requests.post("https://api.monzo.com/oauth2/token", data=params)
+        response.raise_for_status()  # Raise an exception for non-200 status codes
+        access_token = response.json().get('access_token')
+        if access_token:
+            response = requests.get("https://api.monzo.com/balance?account_id=user_00009hPDVBoQ6BJJXislbV", headers={"Authorization": f"Bearer {access_token}"})
+            response.raise_for_status()  # Raise an exception for non-200 status codes
             return jsonify(response.json())
         else:
-            # Return the error message if the request was not successful
-            return jsonify({"error": response.text}), response.status_code
-    else:
-        # Print the error message if the request was not successful
-        print("Error:", response.text)
+            return jsonify({"error": "Access token not found"}), 500
+    except requests.exceptions.RequestException as e:
+        return jsonify({"error": str(e)}), 500
     
 
 with app.app_context():
