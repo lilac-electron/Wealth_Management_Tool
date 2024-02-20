@@ -9,7 +9,7 @@ from wtforms import (
     StringField, SubmitField, IntegerField, PasswordField, BooleanField, SelectMultipleField
 )
 from wtforms.validators import (
-    InputRequired, Email, Length, NumberRange, validators
+    InputRequired, Email, Length, NumberRange#, validators
 )
 
 from wtforms import MultipleFileField
@@ -82,13 +82,13 @@ def clearAttribute():
 
 def CreditsForm(inputs_list):
     for item in inputs_list:
-        setattr(DynamicForm, f'field_{item}', IntegerField(f'Enter monthly payment for {item}', validators=[validators.NumberRange(min=0)]))
+        setattr(DynamicForm, f'field_{item}', IntegerField(f'Enter monthly payment for {item}'))
         #print(item)
     #DynamicForm.submit = SubmitField('Submit')   
 
 def AssetForm(inputs_list):
     for item in inputs_list:
-        setattr(DynamicForm2, f'field_{item}', IntegerField(f'Enter asset value for {item}', validators=[validators.NumberRange(min=0)]))
+        setattr(DynamicForm2, f'field_{item}', IntegerField(f'Enter asset value for {item}'))
         #print(item)   
 
 def list_files(directory):
