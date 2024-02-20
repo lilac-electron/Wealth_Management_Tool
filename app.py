@@ -11,7 +11,8 @@ from wtforms import (
 from wtforms.validators import (
     InputRequired, Email, Length, NumberRange, validators
 )
-from flask_wtf.file import FileField, FileAllowed#, MultipleFileField
+#from flask_wtf.file import FileField, FileAllowed, MultipleFileField
+from wtforms import MultipleFileField
 import email_validator
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import (
