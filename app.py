@@ -346,18 +346,18 @@ def register():
     if form.validate_on_submit():
         hashed_password = generate_password_hash(form.password.data)
         new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
-        db.add(new_user)
-        db.commit()
+        db.session.add(new_user)
+        db.session.commit()
         username = form.username.data
-        upload_folder_path = os.path.join('upload_folder', username)
-        csv_asset_upload_folder_path = os.path.join(upload_folder_path, f'{username}_assetValue.csv')
-        csv_credit_upload_folder_path = os.path.join(upload_folder_path, f'{username}_credits.csv')
+        #upload_folder_path = os.path.join('upload_folder', username)
+        #csv_asset_upload_folder_path = os.path.join(upload_folder_path, f'{username}_assetValue.csv')
+        #csv_credit_upload_folder_path = os.path.join(upload_folder_path, f'{username}_credits.csv')
 
         # Ensure the folder exists (create it if it doesn't)
-        os.makedirs(upload_folder_path, exist_ok=True)
+        #os.makedirs(upload_folder_path, exist_ok=True)
 
         # Set the UPLOAD_FOLDER configuration
-        app.config['UPLOAD_FOLDER'] = upload_folder_path
+        #app.config['UPLOAD_FOLDER'] = upload_folder_path
         #Create a user csv which will store their asset values
         #with open(csv_asset_upload_folder_path, 'w', newline='') as file:
         #    writer = csv.writer(file)
@@ -378,8 +378,8 @@ def register():
         credit_data_dict = dict.fromkeys(credit_column_names, 0)
 
         # Create asset and credit files with dictionaries
-        create_csv_file(csv_asset_upload_folder_path, asset_column_names, asset_data_dict)
-        create_csv_file(csv_credit_upload_folder_path, credit_column_names, credit_data_dict)
+        #create_csv_file(csv_asset_upload_folder_path, asset_column_names, asset_data_dict)
+        #create_csv_file(csv_credit_upload_folder_path, credit_column_names, credit_data_dict)
         flash('New User Created', 'success')
         return redirect (url_for('login'))
         #return '<h1>' + form.email.data + ' ' + form.username.data + ' ' + form.password.data + '</h1>'
