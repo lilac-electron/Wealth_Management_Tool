@@ -1,6 +1,8 @@
 from flask import (
     Flask, render_template, jsonify, request, redirect, url_for, flash, session
 )
+import itsdangerous
+import wtforms
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import (
@@ -9,7 +11,7 @@ from wtforms import (
 from wtforms.validators import (
     InputRequired, Email, Length, NumberRange, validators
 )
-from flask_wtf.file import FileField, FileAllowed, MultipleFileField
+from flask_wtf.file import FileField, FileAllowed#, MultipleFileField
 import email_validator
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import (
@@ -63,8 +65,8 @@ class RegistrationForm(FlaskForm):
     username = StringField('Enter Username', validators=[InputRequired(), Length(min=3, max = 15)])
     password = PasswordField('Enter Password', validators=[InputRequired(), Length(min=8, max=80)])
 
-class MultipleFileUploadForm(FlaskForm):
-    files = MultipleFileField('Upload Files', validators=[FileAllowed(['csv', 'xls', 'xlsx'], 'Only CSV and Excel files are allowed.')])
+#class MultipleFileUploadForm(FlaskForm):
+#    files = MultipleFileField('Upload Files', validators=[FileAllowed(['csv', 'xls', 'xlsx'], 'Only CSV and Excel files are allowed.')])
 
 class DeleteFileForm(FlaskForm):
     files_to_delete = SelectMultipleField('Files to Delete', coerce=str)
