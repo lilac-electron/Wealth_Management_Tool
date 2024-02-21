@@ -319,6 +319,7 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user:
+            flash("User found Password", "danger")
             if check_password_hash(user.password, form.password.data):
                 login_user(user, remember=form.remember.data)
                 username = current_user.username
