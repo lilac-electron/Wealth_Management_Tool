@@ -326,13 +326,13 @@ def login():
             if user.password == form.password.data:
                 login_user(user, remember=form.remember.data)
                 username = current_user.username
-                #upload_folder_path = os.path.join('upload_folder', username)
+                upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', username)
 
                 # Set the UPLOAD_FOLDER configuration
-                #app.config['UPLOAD_FOLDER'] = upload_folder_path
-                #assets, credits = read_user_data(username, upload_folder_path)
-                #app.config['ASSETS'] = assets
-                #app.config['CREDITS'] = credits
+                app.config['UPLOAD_FOLDER'] = upload_folder_path
+                assets, credits = read_user_data(username, upload_folder_path)
+                app.config['ASSETS'] = assets
+                app.config['CREDITS'] = credits
                 #print(assets)
                 #print(credits)
                 flash("Welcome "+ str(current_user.username)+", you have been logged in.")
@@ -355,7 +355,7 @@ def register():
         db.session.add(new_user)
         db.session.commit()
         username = form.username.data
-        upload_folder_path = os.path.join('upload_folder', username)
+        upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', username)
         csv_asset_upload_folder_path = os.path.join(upload_folder_path, f'{username}_assetValue.csv')
         csv_credit_upload_folder_path = os.path.join(upload_folder_path, f'{username}_credits.csv')
 
