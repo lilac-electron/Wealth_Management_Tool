@@ -321,7 +321,8 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user:
-            flash("User found Password"+user.password, "danger")
+            #intial issues with the password hash function when deployed
+            #flash("User found Password"+user.password, "danger")
             #if check_password_hash(user.password, form.password.data):
             if user.password == form.password.data:
                 login_user(user, remember=form.remember.data)
