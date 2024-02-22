@@ -392,29 +392,25 @@ def register():
 
     return render_template('login/register.html',form=form)
 
-@app.route('/uploadMultiple', methods=['GET', 'POST'])
+@app.route('/upload')
 @login_required
-def uploadMultiple():
-    form = MultipleFileUploadForm()
+def upload():
+    return render_template('pages/uploadForm')
 
-    if form.validate_on_submit():
-        uploaded_files = form.files.data
-        
-        for uploaded_file in uploaded_files:
-            # Securely save each file to a folder on the server
-            filename = secure_filename(uploaded_file.filename)
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            uploaded_file.save(file_path)
-
-            # Process each file or perform additional actions
-            # Example: Read the contents of a CSV file
-            #df = pd.read_csv(file_path)
-            # Perform analysis on df...
-            return "<h1>File uploaded</h1>"
-        # Redirect to a success page or perform other actions
-        return redirect(url_for('dashboard'))
-
-    return render_template('pages/upload_multiple.html', form=form)
+@app.route('/uploadAFile', methods=['GET', 'POST'])
+@login_required
+def uploadAFile():
+    if 'file' not in request.files:
+        flash('No file found', 'danger')
+    file = request.files['file']
+    if file.filename == '':
+        flash('No selected file', 'danger')
+    if file:
+        # Save the uploaded file to the specified folder
+        upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', current_user.username, '/banking_data')
+        filename = file.filename
+        file.save(os.path.join(upload_folder_path, filename))
+        flash('File uploaded successfully', 'success')
 
 @app.route('/delete_files', methods=['GET', 'POST'])
 @login_required
