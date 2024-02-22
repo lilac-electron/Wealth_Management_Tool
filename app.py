@@ -393,7 +393,7 @@ def register():
 
     return render_template('login/register.html',form=form)
 
-@app.route('/upload')
+@app.route('/upload',  methods=['GET', 'POST'])
 @login_required
 def upload():
     return render_template('templates/pages/uploadForm.html')
