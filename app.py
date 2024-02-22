@@ -396,7 +396,7 @@ def register():
 @app.route('/upload',  methods=['GET', 'POST'])
 @login_required
 def upload():
-    return render_template('pages/dashboard.html')
+    return render_template('pages/uploadForm.html')
 
 @app.route('/uploadAFile', methods=['GET', 'POST'])
 @login_required
@@ -408,7 +408,7 @@ def uploadAFile():
         flash('No selected file', 'danger')
     if file:
         # Save the uploaded file to the specified folder
-        upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', current_user.username, '/banking_data')
+        upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', current_user.username, 'banking_data')
         filename = file.filename
         file.save(os.path.join(upload_folder_path, filename))
         flash('File uploaded successfully', 'success')
