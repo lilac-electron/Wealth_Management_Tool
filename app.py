@@ -396,7 +396,7 @@ def register():
 @app.route('/upload',  methods=['GET', 'POST'])
 @login_required
 def upload():
-    return render_template('templates/pages/uploadForm.html')
+    return render_template('pages/dashboard.html')
 
 @app.route('/uploadAFile', methods=['GET', 'POST'])
 @login_required
