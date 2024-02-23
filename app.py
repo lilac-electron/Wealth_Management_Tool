@@ -274,7 +274,7 @@ def simulatedGrowth():
     var2=stock_data.resample('M').last().pct_change().std().values[0]
     for i in range (0,1000):
         market_return = np.random.normal(var1, var2,1)[0]
-        print(market_return)
+        #print(market_return)
     #print(stock_data)
     
     # Convert DataFrame to HTML table
