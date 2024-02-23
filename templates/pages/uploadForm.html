@@ -53,15 +53,16 @@
                                 </ul>
                             {% endif %}
                         {% endwith %}
-                        <!--<form method="POST" action="/uploadMultiple" enctype="multipart/form-data">
+                        <form method="post" enctype="multipart/form-data">
                             {{ form.hidden_tag() }}
-                            {{ form.files.label }}
-                            {{ form.files() }}
-                            <button type="submit">Upload Files</button>
-                        </form>-->
-                        <form method="post" enctype="multipart/form-data" action="/uploadAFile">
-                            <input type="file" name="file" id="file">
-                            <input type="submit" value="Upload">
+                            <p>
+                                {{ form.file.label }}<br>
+                                {{ form.file() }}
+                                {% if form.file.errors %}
+                                    <span style="color: red;">{{ form.file.errors[0] }}</span>
+                                {% endif %}
+                            </p>
+                            <p>{{ form.submit() }}</p>
                         </form>
                     </div>
                 </div>

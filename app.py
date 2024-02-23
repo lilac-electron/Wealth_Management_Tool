@@ -6,10 +6,10 @@ import wtforms
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import (
-    StringField, SubmitField, IntegerField, PasswordField, BooleanField, SelectMultipleField
+    StringField, SubmitField, IntegerField, PasswordField, BooleanField, SelectMultipleField,FileField
 )
 from wtforms.validators import (
-    InputRequired, Email, Length, NumberRange#, validators
+    InputRequired, Email, Length, NumberRange, DataRequired#, validators
 )
 import email_validator
 
@@ -90,6 +90,11 @@ class DynamicForm(FlaskForm):
     pass
 class DynamicForm2(FlaskForm):
     pass
+
+class UploadForm(FlaskForm):
+    file = FileField('Upload File', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
 def clearAttribute():
     DynamicForm = [attr for attr in DynamicForm if  not(attr.startswith('field_'))]
 
@@ -396,23 +401,14 @@ def register():
 @app.route('/upload',  methods=['GET', 'POST'])
 @login_required
 def upload():
-    form = None
-    return render_template('pages/uploadForm.html', form=form)
-
-@app.route('/uploadAFile', methods=['GET', 'POST'])
-@login_required
-def uploadAFile():
-    if 'file' not in request.files:
-        flash('No file found', 'danger')
-    file = request.files['file']
-    if file.filename == '':
-        flash('No selected file', 'danger')
-    if file:
-        # Save the uploaded file to the specified folder
-        upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', current_user.username, 'banking_data')
+    form = UploadForm()
+    if form.validate_on_submit():
+        file = form.file.data
         filename = file.filename
-        file.save(os.path.join(upload_folder_path, filename))
+        file.save('Wealth_Managment_Tool/upload_folder', current_user.username, 'banking_data' + filename)
         flash('File uploaded successfully', 'success')
+        return redirect('/upload')  # Redirect to the same page after successful upload
+    return render_template('pages/uploadForm.html', form=form)
 
 @app.route('/delete_files', methods=['GET', 'POST'])
 @login_required
