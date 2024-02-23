@@ -396,7 +396,8 @@ def register():
 @app.route('/upload',  methods=['GET', 'POST'])
 @login_required
 def upload():
-    return render_template('pages/uploadForm.html')
+    form = None
+    return render_template('pages/uploadForm.html', form)
 
 @app.route('/uploadAFile', methods=['GET', 'POST'])
 @login_required
@@ -447,6 +448,17 @@ def delete_files():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+
+
+
+
+
+
+
+
+
+
 @app.route('/graph')
 def graph():
     df = pd.read_excel('example.xlsx')
