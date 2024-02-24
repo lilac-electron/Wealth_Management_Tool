@@ -6,17 +6,18 @@
     <title>Account Information</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <div class="container mt-5">
-        <div id="header"></div>
-        <script src="{{url_for('static', filename='js/header.js')}}"></script>
-        <script>
-            const name = "{{ name }}";
-            generateHeader(name);
-        </script>
 
-        <div id="navbar"></div>
+<body>
+    <div id="header"></div>
+        <script src="{{url_for('static', filename='js/header.js')}}"></script>
+    <script>
+        const name = "{{ name }}";
+        generateHeader(name);
+    </script>
+
+    <div id="navbar"></div>
         <script src="{{url_for('static', filename='js/navbar.js')}}"></script>
+    <div class="container mx-auto">
 
         <div class="card mb-4">
             <div class="card-header">
