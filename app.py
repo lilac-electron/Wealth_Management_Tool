@@ -457,7 +457,7 @@ def upload():
 @login_required
 def transactions():
     # Read data from JSON file
-    with open('simulatedData.json', 'r') as f:
+    with open('Wealth_Managment_Tool/simulatedData.json', 'r') as f:
         account_data = json.load(f)
 
     # Extract account information
