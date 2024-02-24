@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Information</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <!--Header JS reference-->
+<script src="{{url_for('static', filename='js/header.js')}}"></script>
+<script>
+    const name = "{{ name }}";
+    generateHeader(name);
+</script>
+
+<!--Navbar JS reference-->
+<script src="{{url_for('static', filename='js/navbar.js')}}"></script>
+    <h1>Account Information</h1>
+    <p><strong>Account Number:</strong> {{ account.account_number }}</p>
+    <p><strong>Sort Code:</strong> {{ account.sort_code }}</p>
+    <p><strong>Balance:</strong> {{ account.balance }} {{ account.currency }}</p>
+    <p><strong>Account Holder:</strong> {{ account.account_holder }}</p>
+
+    <h2>Transactions</h2>
+    <ul>
+    {% for transaction in account.transactions %}
+        <li>
+            <strong>Transaction ID:</strong> {{ transaction.transaction_id }}<br>
+            <strong>Date:</strong> {{ transaction.date }}<br>
+            <strong>Amount:</strong> {{ transaction.amount }}<br>
+            <strong>Description:</strong> {{ transaction.description }}<br>
+            <strong>Category:</strong> {{ transaction.category }}<br>
+            {% if transaction.merchant %}
+                <strong>Merchant:</strong> {{ transaction.merchant.name }}<br>
+                <strong>Merchant Category:</strong> {{ transaction.merchant.category }}<br>
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

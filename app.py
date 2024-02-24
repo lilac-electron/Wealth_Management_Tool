@@ -480,7 +480,8 @@ def transactions():
     account_dict = account.to_dict()
 
     # Render JSON response
-    return jsonify(account=account_dict)
+    #return jsonify(account=account_dict)
+    return render_template('pages/transactions.html', account=account)
 
 @app.route('/delete_files', methods=['GET', 'POST'])
 @login_required
