@@ -32,6 +32,7 @@ import csv
 import numpy as np
 import requests
 import json
+
 #FinsFintechFYP
 
 np.random.seed(seed=8)
@@ -96,6 +97,27 @@ class UploadForm(FlaskForm):
     file = FileField('Upload File', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
+class Transaction:
+    def __init__(self, transaction_id, date, amount, description, category, merchant=None):
+        self.transaction_id = transaction_id
+        self.date = date
+        self.amount = amount
+        self.description = description
+        self.category = category
+        self.merchant = merchant
+
+    def to_dict(self):
+        transaction_dict = {
+            "transaction_id": self.transaction_id,
+            "date": self.date,
+            "amount": self.amount,
+            "description": self.description,
+            "category": self.category
+        }
+        if self.merchant:
+            transaction_dict["merchant"] = self.merchant
+        return transaction_dict
+
 class Account:
     def __init__(self, account_number, sort_code, balance, currency, account_holder, transactions):
         self.account_number = account_number
@@ -116,26 +138,6 @@ class Account:
         }
         return account_dict
 
-class Transaction:
-    def __init__(self, transaction_id, date, amount, description, category, merchant=None):
-        self.transaction_id = transaction_id
-        self.date = date
-        self.amount = amount
-        self.description = description
-        self.category = category
-        self.merchant = merchant
-
-    def to_dict(self):
-        transaction_dict = {
-            "transaction_id": self.transaction_id,
-            "date": self.date,
-            "amount": self.amount,
-            "description": self.description,
-            "category": self.category
-        }
-        if self.merchant:
-            transaction_dict["merchant"] = self.merchant.to_dict()
-        return transaction_dict
 
 
 def clearAttribute():
