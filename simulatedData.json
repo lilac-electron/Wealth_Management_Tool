@@ -1,95 +1,277 @@
 {
-    "account": {
-      "account_number": "12345678",
-      "sort_code": "12-34-56",
-      "balance": 2500.00,
-      "currency": "GBP",
-      "account_holder": "John Doe"
-    },
-    "transactions": [
-      {
-        "transaction_id": "txn001",
-        "date": "2024-02-23",
-        "amount": -50.25,
-        "description": "Tesco Grocery Store",
-        "category": "Groceries",
-        "merchant": {
-          "address": {
-            "address": "123 Main Street",
-            "city": "London",
-            "country": "GB",
-            "latitude": 51.511,
-            "longitude": -0.123,
-            "postcode": "SW1A 1AA",
-            "region": "Greater London"
-          },
-          "created": "2010-05-15T09:25:47Z",
-          "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
-          "id": "merch_00008zIcpbAKe8shBxXUtl",
-          "logo": "https://example.com/tesco_logo.jpg",
-          "emoji": "🛒",
-          "name": "Tesco",
-          "category": "grocery_store"
-        }
-      },
-      {
-        "transaction_id": "txn002",
-        "date": "2024-02-22",
-        "amount": -30.00,
-        "description": "BP Fuel Station",
-        "category": "Transportation",
-        "merchant": {
-          "address": {
-            "address": "456 Elm Street",
-            "city": "London",
-            "country": "GB",
-            "latitude": 51.511,
-            "longitude": -0.123,
-            "postcode": "SW1A 1AA",
-            "region": "Greater London"
-          },
-          "created": "2008-12-01T15:37:23Z",
-          "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
-          "id": "merch_00008zIcpbAKe8shBxXUtm",
-          "logo": "https://example.com/bp_logo.jpg",
-          "emoji": "⛽",
-          "name": "BP",
-          "category": "fuel_station"
-        }
-      },
-      {
-        "transaction_id": "txn003",
-        "date": "2024-02-21",
-        "amount": 1000.00,
-        "description": "Salary Deposit",
-        "category": "Income",
-        "merchant": null
-      },
-      {
-        "transaction_id": "txn004",
-        "date": "2024-02-20",
-        "amount": -150.00,
-        "description": "Amazon Online Purchase",
-        "category": "Shopping",
-        "merchant": {
-          "address": {
-            "address": "Seattle, WA",
-            "city": "Seattle",
-            "country": "US",
-            "latitude": 47.6062,
-            "longitude": -122.3321,
-            "postcode": "98101",
-            "region": "Washington"
-          },
-          "created": "1994-07-05T13:00:00Z",
-          "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
-          "id": "merch_00008zIcpbAKe8shBxXUtn",
-          "logo": "https://example.com/amazon_logo.jpg",
-          "emoji": "📦",
-          "name": "Amazon",
-          "category": "online_retail"
-        }
+  "account": {
+    "account_number": "12345678",
+    "sort_code": "12-34-56",
+    "balance": 2500.00,
+    "currency": "GBP",
+    "account_holder": "John Doe"
+  },
+  "transactions": [
+    {
+      "transaction_id": "txn001",
+      "date": "2024-02-23",
+      "amount": -50.25,
+      "description": "Tesco Grocery Store",
+      "category": "Groceries",
+      "merchant": {
+        "address": {
+          "address": "123 Main Street",
+          "city": "London",
+          "country": "GB",
+          "latitude": 51.511,
+          "longitude": -0.123,
+          "postcode": "SW1A 1AA",
+          "region": "Greater London"
+        },
+        "created": "2010-05-15T09:25:47Z",
+        "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+        "id": "merch_00008zIcpbAKe8shBxXUtl",
+        "logo": "https://example.com/tesco_logo.jpg",
+        "emoji": "🛒",
+        "name": "Tesco",
+        "category": "grocery_store"
       }
-    ]
-  }
-  
+    },
+    {
+      "transaction_id": "txn002",
+      "date": "2024-02-22",
+      "amount": -30.00,
+      "description": "BP Fuel Station",
+      "category": "Transportation",
+      "merchant": {
+        "address": {
+          "address": "456 Elm Street",
+          "city": "London",
+          "country": "GB",
+          "latitude": 51.511,
+          "longitude": -0.123,
+          "postcode": "SW1A 1AA",
+          "region": "Greater London"
+        },
+        "created": "2008-12-01T15:37:23Z",
+        "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+        "id": "merch_00008zIcpbAKe8shBxXUtm",
+        "logo": "https://example.com/bp_logo.jpg",
+        "emoji": "⛽",
+        "name": "BP",
+        "category": "fuel_station"
+      }
+    },
+    {
+      "transaction_id": "txn003",
+      "date": "2024-02-21",
+      "amount": 1000.00,
+      "description": "Salary Deposit",
+      "category": "Income",
+      "merchant": null
+    },
+    {
+      "transaction_id": "txn004",
+      "date": "2024-02-20",
+      "amount": -150.00,
+      "description": "Amazon Online Purchase",
+      "category": "Shopping",
+      "merchant": {
+        "address": {
+          "address": "Seattle, WA",
+          "city": "Seattle",
+          "country": "US",
+          "latitude": 47.6062,
+          "longitude": -122.3321,
+          "postcode": "98101",
+          "region": "Washington"
+        },
+        "created": "1994-07-05T13:00:00Z",
+        "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+        "id": "merch_00008zIcpbAKe8shBxXUtn",
+        "logo": "https://example.com/amazon_logo.jpg",
+        "emoji": "📦",
+        "name": "Amazon",
+        "category": "online_retail"
+      }
+    },
+    {
+      "transaction_id": "txn005",
+      "date": "2024-02-19",
+      "amount": -20.00,
+      "description": "Starbucks Coffee",
+      "category": "Food & Drink",
+      "merchant": {
+        "address": {
+          "address": "100 High Street",
+          "city": "London",
+          "country": "GB",
+          "latitude": 51.5074,
+          "longitude": -0.1278,
+          "postcode": "W1D 1AA",
+          "region": "Greater London"
+        },
+        "created": "2002-03-15T08:30:00Z",
+        "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+        "id": "merch_00008zIcpbAKe8shBxXUto",
+        "logo": "https://example.com/starbucks_logo.jpg",
+        "emoji": "☕️",
+        "name": "Starbucks",
+        "category": "coffee_shop"
+      }
+    },
+    {
+      "transaction_id": "txn006",
+      "date": "2024-02-18",
+      "amount": -75.00,
+      "description": "Dinner at Nando's",
+      "category": "Dining Out",
+      "merchant": {
+        "address": {
+          "address": "10 High Road",
+          "city": "London",
+          "country": "GB",
+          "latitude": 51.5111,
+          "longitude": -0.1234,
+          "postcode": "E1 1AA",
+          "region": "Greater London"
+        },
+        "created": "2005-11-20T19:00:00Z",
+        "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+        "id": "merch_00008zIcpbAKe8shBxXUtq",
+        "logo": "https://example.com/nandos_logo.jpg",
+        "emoji": "🍗",
+        "name": "Nando's",
+        "category": "restaurant"
+      }
+    },
+    {
+      "transaction_id": "txn007",
+      "date": "2024-02-17",
+      "amount": -200.00,
+      "description": "Monthly Rent",
+      "category": "Bills & Utilities",
+      "merchant": null
+    },
+    {
+      "transaction_id": "txn008",
+      "date": "2024-02-16",
+      "amount": -40.00,
+      "description": "Movie Tickets",
+      "category": "Entertainment",
+      "merchant": {
+        "address": {
+          "address": "123 Cinema Street",
+          "city": "London",
+          "country": "GB",
+          "latitude": 51.5034,
+          "longitude": -0.1234,
+          "postcode": "WC2H 7AA",
+          "region": "Greater London"
+        },
+        "created": "2000-08-10T18:00:00Z",
+        "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+        "id": "merch_00008zIcpbAKe8shBxXUtr",
+        "logo": "https://example.com/cinema_logo.jpg",
+        "emoji": "🎬",
+        "name": "Cinema",
+        "category": "entertainment"
+      }
+    },
+    {
+      "transaction_id": "txn009",
+      "date": "2024-02-15",
+      "amount": -15.00,
+      "description": "Lunch at Subway",
+      "category": "Dining Out",
+      "merchant": {
+        "address": {
+          "address": "20 Sub Street",
+          "city": "London",
+          "country": "GB",
+          "latitude": 51.514,
+          "longitude": -0.123,
+          "postcode": "EC1 1AA",
+          "region": "Greater London"
+        },
+        "created": "2003-07-25T12:00:00Z",
+        "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+        "id": "merch_00008zIcpbAKe8shBxXUts",
+        "logo": "https://example.com/subway_logo.jpg",
+        "emoji": "🥪",
+        "name": "Subway",
+        "category": "restaurant"
+      }
+    },
+    {
+      "transaction_id": "txn010",
+      "date": "2024-02-14",
+      "amount": -120.00,
+      "description": "Shopping at H&M",
+      "category": "Shopping",
+      "merchant": {
+        "address": {
+          "address": "35 Fashion Street",
+          "city": "London",
+          "country": "GB",
+          "latitude": 51.517,
+          "longitude": -0.12,
+          "postcode": "E1 6AA",
+          "region": "Greater London"
+        },
+        "created": "2001-05-20T10:00:00Z",
+        "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+        "id": "merch_00008zIcpbAKe8shBxXUtt",
+        "logo": "https://example.com/hm_logo.jpg",
+        "emoji": "👗",
+        "name": "H&M",
+        "category": "fashion_store"
+      }
+    },
+    {
+      "transaction_id": "txn011",
+      "date": "2024-02-13",
+      "amount": -20.00,
+      "description": "Uber Ride",
+      "category": "Transportation",
+      "merchant": {
+        "address": {
+          "address": "1 Uber Street",
+          "city": "London",
+          "country": "GB",
+          "latitude": 51.518,
+          "longitude": -0.121,
+          "postcode": "SW1 1AA",
+          "region": "Greater London"
+        },
+        "created": "2012-09-30T08:00:00Z",
+        "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+        "id": "merch_00008zIcpbAKe8shBxXUtv",
+        "logo": "https://example.com/uber_logo.jpg",
+        "emoji": "🚗",
+        "name": "Uber",
+        "category": "transportation"
+      }
+    },
+    {
+      "transaction_id": "txn012",
+      "date": "2024-02-12",
+      "amount": -25.00,
+      "description": "Dinner at McDonald's",
+      "category": "Dining Out",
+      "merchant": {
+        "address": {
+          "address": "50 Fast Food Street",
+          "city": "London",
+          "country": "GB",
+          "latitude": 51.519,
+          "longitude": -0.122,
+          "postcode": "SE1 1AA",
+          "region": "Greater London"
+        },
+        "created": "2004-11-10T19:30:00Z",
+        "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+        "id": "merch_00008zIcpbAKe8shBxXUtw",
+        "logo": "https://example.com/mcdonalds_logo.jpg",
+        "emoji": "🍔",
+        "name": "McDonald's",
+        "category": "restaurant"
+      }
+    }
+  ]
+}
