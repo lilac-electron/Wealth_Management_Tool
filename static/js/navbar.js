@@ -21,6 +21,9 @@ function generateNavbar() {
                         <a class="nav-link border-0 bg-light mr-2" href="/assetValue">Current Asset Value</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link border-0 bg-light mr-2" href="/transactions">Track Transactions</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link border-0 bg-light mr-2" href="/updateFinances">Update Financial Info</a>
                     </li>
                 </ul>
