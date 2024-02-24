@@ -31,6 +31,7 @@ import base64
 import csv 
 import numpy as np
 import requests
+import json
 #FinsFintechFYP
 
 np.random.seed(seed=8)
@@ -94,6 +95,48 @@ class DynamicForm2(FlaskForm):
 class UploadForm(FlaskForm):
     file = FileField('Upload File', validators=[DataRequired()])
     submit = SubmitField('Submit')
+
+class Account:
+    def __init__(self, account_number, sort_code, balance, currency, account_holder, transactions):
+        self.account_number = account_number
+        self.sort_code = sort_code
+        self.balance = balance
+        self.currency = currency
+        self.account_holder = account_holder
+        self.transactions = transactions
+
+    def to_dict(self):
+        account_dict = {
+            "account_number": self.account_number,
+            "sort_code": self.sort_code,
+            "balance": self.balance,
+            "currency": self.currency,
+            "account_holder": self.account_holder,
+            "transactions": [txn.to_dict() for txn in self.transactions]
+        }
+        return account_dict
+
+class Transaction:
+    def __init__(self, transaction_id, date, amount, description, category, merchant=None):
+        self.transaction_id = transaction_id
+        self.date = date
+        self.amount = amount
+        self.description = description
+        self.category = category
+        self.merchant = merchant
+
+    def to_dict(self):
+        transaction_dict = {
+            "transaction_id": self.transaction_id,
+            "date": self.date,
+            "amount": self.amount,
+            "description": self.description,
+            "category": self.category
+        }
+        if self.merchant:
+            transaction_dict["merchant"] = self.merchant.to_dict()
+        return transaction_dict
+
 
 def clearAttribute():
     DynamicForm = [attr for attr in DynamicForm if  not(attr.startswith('field_'))]
@@ -409,6 +452,33 @@ def upload():
         flash('File uploaded successfully', 'success')
         return redirect('/upload')  # Redirect to the same page after successful upload
     return render_template('pages/uploadForm.html', form=form)
+
+@app.route('/transactions')
+@login_required
+def transactions():
+    # Read data from JSON file
+    with open('simulatedData.json', 'r') as f:
+        account_data = json.load(f)
+
+    # Extract account information
+    account_info = account_data['account']
+    transactions_data = account_data['transactions']
+
+    # Instantiate Account object
+    account = Account(
+        account_number=account_info['account_number'],
+        sort_code=account_info['sort_code'],
+        balance=account_info['balance'],
+        currency=account_info['currency'],
+        account_holder=account_info['account_holder'],
+        transactions=[Transaction(**txn_data) for txn_data in transactions_data]
+    )
+
+    # Convert account object to dictionary
+    account_dict = account.to_dict()
+
+    # Render JSON response
+    return jsonify(account=account_dict)
 
 @app.route('/delete_files', methods=['GET', 'POST'])
 @login_required

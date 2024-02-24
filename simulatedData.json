@@ -1,0 +1,95 @@
+{
+    "account": {
+      "account_number": "12345678",
+      "sort_code": "12-34-56",
+      "balance": 2500.00,
+      "currency": "GBP",
+      "account_holder": "John Doe"
+    },
+    "transactions": [
+      {
+        "transaction_id": "txn001",
+        "date": "2024-02-23",
+        "amount": -50.25,
+        "description": "Tesco Grocery Store",
+        "category": "Groceries",
+        "merchant": {
+          "address": {
+            "address": "123 Main Street",
+            "city": "London",
+            "country": "GB",
+            "latitude": 51.511,
+            "longitude": -0.123,
+            "postcode": "SW1A 1AA",
+            "region": "Greater London"
+          },
+          "created": "2010-05-15T09:25:47Z",
+          "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+          "id": "merch_00008zIcpbAKe8shBxXUtl",
+          "logo": "https://example.com/tesco_logo.jpg",
+          "emoji": "🛒",
+          "name": "Tesco",
+          "category": "grocery_store"
+        }
+      },
+      {
+        "transaction_id": "txn002",
+        "date": "2024-02-22",
+        "amount": -30.00,
+        "description": "BP Fuel Station",
+        "category": "Transportation",
+        "merchant": {
+          "address": {
+            "address": "456 Elm Street",
+            "city": "London",
+            "country": "GB",
+            "latitude": 51.511,
+            "longitude": -0.123,
+            "postcode": "SW1A 1AA",
+            "region": "Greater London"
+          },
+          "created": "2008-12-01T15:37:23Z",
+          "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+          "id": "merch_00008zIcpbAKe8shBxXUtm",
+          "logo": "https://example.com/bp_logo.jpg",
+          "emoji": "⛽",
+          "name": "BP",
+          "category": "fuel_station"
+        }
+      },
+      {
+        "transaction_id": "txn003",
+        "date": "2024-02-21",
+        "amount": 1000.00,
+        "description": "Salary Deposit",
+        "category": "Income",
+        "merchant": null
+      },
+      {
+        "transaction_id": "txn004",
+        "date": "2024-02-20",
+        "amount": -150.00,
+        "description": "Amazon Online Purchase",
+        "category": "Shopping",
+        "merchant": {
+          "address": {
+            "address": "Seattle, WA",
+            "city": "Seattle",
+            "country": "US",
+            "latitude": 47.6062,
+            "longitude": -122.3321,
+            "postcode": "98101",
+            "region": "Washington"
+          },
+          "created": "1994-07-05T13:00:00Z",
+          "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+          "id": "merch_00008zIcpbAKe8shBxXUtn",
+          "logo": "https://example.com/amazon_logo.jpg",
+          "emoji": "📦",
+          "name": "Amazon",
+          "category": "online_retail"
+        }
+      }
+    ]
+  }
+  
