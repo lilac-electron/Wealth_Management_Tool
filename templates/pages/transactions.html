@@ -165,8 +165,11 @@
             var transactionsToAdd = Math.min(remainingTransactions, 10); // Load up to 10 transactions
             var transactionsHtml = '';
             // Generate HTML for additional transactions
-            {% for transaction in current_account.transactions[currentCount:] %}
-                {% if loop.index <= 10 %}
+            {% for transaction in current_account.transactions %}
+                {% if loop.index > 10 %}
+                    break; // Stop loop after 10 transactions
+                {% endif %}
+                {% if loop.index > currentCount %}
                     transactionsHtml += '<li class="list-group-item">';
                     transactionsHtml += '<p class="card-text"><strong>Transaction ID:</strong> {{ transaction.transaction_id }}</p>';
                     transactionsHtml += '<p class="card-text"><strong>Date:</strong> {{ transaction.date }}</p>';
@@ -192,6 +195,7 @@
             loadMoreTransactions();
         });
     });
+
 
     </script>
 </body>
