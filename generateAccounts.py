@@ -12,18 +12,25 @@ def generate_postcode():
 def generate_transactions():
     transactions = []
     current_date = datetime(2024, 1, 1)
+    timeSinceBills = 0
     for _ in range(300):
         transaction_date = current_date.strftime('%Y-%m-%d')
         amount = round(random.uniform(-300, 300), 2)
         if amount < 0:
             description = random.choice(["Groceries", "Transportation", "Shopping", "Food & Drink", "Dining Out", "Bills & Utilities", "Entertainment"])
-            if description == "Bills & Utilities":
+            if description == "Bills & Utilities" and timeSinceBills >= 28:
                 amount = 550
             category = description
-        else:
+            timeSinceBills += 1
+        elif amount >= 0 and timeSinceBills >= 28:
             amount = 2500
             description = "Salary Deposit"
             category = "Income"
+            timeSinceBills = 0
+        else:
+            amount = -10
+            description = "Dining out"
+            category = description
         merchant = {
             "address": {
                 "address": str(random.randint(1, 100)) + " " + random.choice(["High Street", "Main Street", "Elm Street", "Park Avenue", "Station Road"]),
