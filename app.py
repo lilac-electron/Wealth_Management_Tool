@@ -518,7 +518,7 @@ def transactions():
     credit_card_dict = credit_card.to_dict()
 
     # Render HTML template with both account and credit card information
-    return render_template('pages/transactions.html', current_account=account_dict, credit_card=credit_card_dict)
+    return render_template('pages/transactions.html', current_account=account_dict, credit_card=credit_card_dict, name=current_user.username,)
 
 @app.route('/delete_files', methods=['GET', 'POST'])
 @login_required
