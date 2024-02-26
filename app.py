@@ -148,7 +148,7 @@ class Account:
             "transactions": [txn.to_dict() for txn in self.transactions],
             "total_in": self.account_total_in,
             "total_out": self.account_total_out,
-            "merchant": self.top_merchant
+            "top_merchant": self.top_merchant
         }
         return account_dict
 
@@ -182,7 +182,7 @@ class CreditCard:
             "transactions": [txn.to_dict() for txn in self.transactions],
             "total_in": self.credit_total_in,
             "total_out": self.credit_total_out,
-            "merchant": self.top_merchant
+            "top_merchant": self.top_merchant
         }
         return credit_card_dict
 
