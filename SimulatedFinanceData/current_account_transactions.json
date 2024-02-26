@@ -1,0 +1,4570 @@
+{
+    "account": {
+        "account_number": "12345678",
+        "sort_code": "12-34-56",
+        "balance": 2500.0,
+        "currency": "GBP",
+        "account_holder": "John Doe"
+    },
+    "transactions": [
+        {
+            "transaction_id": "txn001",
+            "date": "2024-01-01",
+            "amount": -261.46,
+            "description": "Entertainment",
+            "category": "Entertainment",
+            "merchant": {
+                "address": {
+                    "address": "57 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4754,
+                    "longitude": -0.2157,
+                    "postcode": "YR56 6",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_90f80e5cc0cd4f123341e9",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\uded2",
+                "name": "McDonald's",
+                "category": "online_retail"
+            }
+        },
+        {
+            "transaction_id": "txn002",
+            "date": "2024-01-06",
+            "amount": -237.81,
+            "description": "Shopping",
+            "category": "Shopping",
+            "merchant": {
+                "address": {
+                    "address": "75 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.545,
+                    "longitude": 0.0709,
+                    "postcode": "AG13 5",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_d937a0fc840ebb5361b2d1",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\u2615\ufe0f",
+                "name": "BP",
+                "category": "restaurant"
+            }
+        },
+        {
+            "transaction_id": "txn003",
+            "date": "2024-01-08",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn004",
+            "date": "2024-01-10",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn005",
+            "date": "2024-01-12",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn006",
+            "date": "2024-01-15",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn007",
+            "date": "2024-01-18",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn008",
+            "date": "2024-01-22",
+            "amount": -193.96,
+            "description": "Groceries",
+            "category": "Groceries",
+            "merchant": {
+                "address": {
+                    "address": "84 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4872,
+                    "longitude": -0.1082,
+                    "postcode": "PY42 3",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_814270b1b2436cd9f3d0ab",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83e\udd6a",
+                "name": "H&M",
+                "category": "restaurant"
+            }
+        },
+        {
+            "transaction_id": "txn009",
+            "date": "2024-01-27",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn010",
+            "date": "2024-01-28",
+            "amount": -7.43,
+            "description": "Groceries",
+            "category": "Groceries",
+            "merchant": {
+                "address": {
+                    "address": "10 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5306,
+                    "longitude": -0.0179,
+                    "postcode": "XK82 0",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_a53a51f9c74dd5c3f836c5",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udc57",
+                "name": "Amazon",
+                "category": "coffee_shop"
+            }
+        },
+        {
+            "transaction_id": "txn011",
+            "date": "2024-01-29",
+            "amount": -280.1,
+            "description": "Groceries",
+            "category": "Groceries",
+            "merchant": {
+                "address": {
+                    "address": "20 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4643,
+                    "longitude": -0.1985,
+                    "postcode": "JY77 2",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_77f746bfc36b90e1c78918",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udfea",
+                "name": "Subway",
+                "category": "restaurant"
+            }
+        },
+        {
+            "transaction_id": "txn012",
+            "date": "2024-01-30",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn013",
+            "date": "2024-02-03",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn014",
+            "date": "2024-02-04",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn015",
+            "date": "2024-02-05",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn016",
+            "date": "2024-02-08",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn017",
+            "date": "2024-02-13",
+            "amount": -184.26,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "83 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5269,
+                    "longitude": -0.2297,
+                    "postcode": "KI54 4",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_0b11df8eb77154b190c544",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\u2615\ufe0f",
+                "name": "McDonald's",
+                "category": "fuel_station"
+            }
+        },
+        {
+            "transaction_id": "txn018",
+            "date": "2024-02-16",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn019",
+            "date": "2024-02-20",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn020",
+            "date": "2024-02-23",
+            "amount": -14.71,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "10 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5108,
+                    "longitude": -0.09,
+                    "postcode": "NQ02 8",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_3c6e5214bc5301f151db10",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\u26fd",
+                "name": "Subway",
+                "category": "fashion_store"
+            }
+        },
+        {
+            "transaction_id": "txn021",
+            "date": "2024-02-27",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn022",
+            "date": "2024-02-29",
+            "amount": 550,
+            "description": "Bills & Utilities",
+            "category": "Bills & Utilities",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn023",
+            "date": "2024-03-02",
+            "amount": 550,
+            "description": "Bills & Utilities",
+            "category": "Bills & Utilities",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn024",
+            "date": "2024-03-04",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn025",
+            "date": "2024-03-06",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn026",
+            "date": "2024-03-10",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn027",
+            "date": "2024-03-11",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn028",
+            "date": "2024-03-16",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn029",
+            "date": "2024-03-20",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn030",
+            "date": "2024-03-24",
+            "amount": -202.83,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "69 Station Road",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5206,
+                    "longitude": -0.0745,
+                    "postcode": "NW06 2",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_761a224316dd77b6558c21",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\uded2",
+                "name": "Nando's",
+                "category": "transportation"
+            }
+        },
+        {
+            "transaction_id": "txn031",
+            "date": "2024-03-29",
+            "amount": -183.36,
+            "description": "Entertainment",
+            "category": "Entertainment",
+            "merchant": {
+                "address": {
+                    "address": "55 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.494,
+                    "longitude": -0.0524,
+                    "postcode": "LH76 6",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_925b4f61f8c0de3d2bd42a",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83e\udd6a",
+                "name": "Nando's",
+                "category": "coffee_shop"
+            }
+        },
+        {
+            "transaction_id": "txn032",
+            "date": "2024-04-03",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn033",
+            "date": "2024-04-05",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn034",
+            "date": "2024-04-06",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn035",
+            "date": "2024-04-08",
+            "amount": 550,
+            "description": "Bills & Utilities",
+            "category": "Bills & Utilities",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn036",
+            "date": "2024-04-10",
+            "amount": -178.58,
+            "description": "Entertainment",
+            "category": "Entertainment",
+            "merchant": {
+                "address": {
+                    "address": "45 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5352,
+                    "longitude": 0.0768,
+                    "postcode": "TU72 7",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_840253367844bce84e9104",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udc57",
+                "name": "Tesco",
+                "category": "fuel_station"
+            }
+        },
+        {
+            "transaction_id": "txn037",
+            "date": "2024-04-15",
+            "amount": -167.57,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "85 Station Road",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5244,
+                    "longitude": -0.1429,
+                    "postcode": "EP23 2",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_0dc7f47ced4458fe4cf0b1",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udfa5",
+                "name": "Tesco",
+                "category": "restaurant"
+            }
+        },
+        {
+            "transaction_id": "txn038",
+            "date": "2024-04-16",
+            "amount": -96.93,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "34 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4678,
+                    "longitude": -0.2454,
+                    "postcode": "BE14 0",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_2ee2889dd2a53310cfee25",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83e\udd6a",
+                "name": "Uber",
+                "category": "restaurant"
+            }
+        },
+        {
+            "transaction_id": "txn039",
+            "date": "2024-04-17",
+            "amount": -181.28,
+            "description": "Food & Drink",
+            "category": "Food & Drink",
+            "merchant": {
+                "address": {
+                    "address": "50 Station Road",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.549,
+                    "longitude": -0.0843,
+                    "postcode": "JB10 2",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_40d031d6cc26afdb214b42",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\u2615\ufe0f",
+                "name": "H&M",
+                "category": "grocery_store"
+            }
+        },
+        {
+            "transaction_id": "txn040",
+            "date": "2024-04-22",
+            "amount": -146.68,
+            "description": "Groceries",
+            "category": "Groceries",
+            "merchant": {
+                "address": {
+                    "address": "21 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5477,
+                    "longitude": -0.0706,
+                    "postcode": "YM96 3",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_3e570c8163d83da168adb1",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf54",
+                "name": "McDonald's",
+                "category": "online_retail"
+            }
+        },
+        {
+            "transaction_id": "txn041",
+            "date": "2024-04-24",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn042",
+            "date": "2024-04-25",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn043",
+            "date": "2024-04-29",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn044",
+            "date": "2024-04-30",
+            "amount": -268.08,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "69 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5248,
+                    "longitude": -0.0717,
+                    "postcode": "OY93 0",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_e13192bc7daaae44b1638e",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\u2615\ufe0f",
+                "name": "McDonald's",
+                "category": "coffee_shop"
+            }
+        },
+        {
+            "transaction_id": "txn045",
+            "date": "2024-05-03",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn046",
+            "date": "2024-05-06",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn047",
+            "date": "2024-05-07",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn048",
+            "date": "2024-05-09",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn049",
+            "date": "2024-05-14",
+            "amount": -48.94,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "50 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5325,
+                    "longitude": -0.1435,
+                    "postcode": "CZ06 7",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_3a1d8917632cc155a18f8b",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf54",
+                "name": "Amazon",
+                "category": "transportation"
+            }
+        },
+        {
+            "transaction_id": "txn050",
+            "date": "2024-05-17",
+            "amount": -6.49,
+            "description": "Groceries",
+            "category": "Groceries",
+            "merchant": {
+                "address": {
+                    "address": "94 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5453,
+                    "longitude": 0.085,
+                    "postcode": "MK43 5",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_f48f062adb9e182d81f0bd",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udfea",
+                "name": "Cinema",
+                "category": "restaurant"
+            }
+        },
+        {
+            "transaction_id": "txn051",
+            "date": "2024-05-20",
+            "amount": 550,
+            "description": "Bills & Utilities",
+            "category": "Bills & Utilities",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn052",
+            "date": "2024-05-23",
+            "amount": -99.37,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "52 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5072,
+                    "longitude": 0.0725,
+                    "postcode": "HC43 1",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_007869382e62a688d5f2cb",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\u2615\ufe0f",
+                "name": "BP",
+                "category": "fuel_station"
+            }
+        },
+        {
+            "transaction_id": "txn053",
+            "date": "2024-05-25",
+            "amount": 550,
+            "description": "Bills & Utilities",
+            "category": "Bills & Utilities",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn054",
+            "date": "2024-05-27",
+            "amount": -297.59,
+            "description": "Entertainment",
+            "category": "Entertainment",
+            "merchant": {
+                "address": {
+                    "address": "91 Station Road",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5335,
+                    "longitude": -0.0403,
+                    "postcode": "IP61 7",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_f7ae472df1f8396e423307",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf54",
+                "name": "Tesco",
+                "category": "fashion_store"
+            }
+        },
+        {
+            "transaction_id": "txn055",
+            "date": "2024-05-31",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn056",
+            "date": "2024-06-01",
+            "amount": -150.71,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "97 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5387,
+                    "longitude": 0.0381,
+                    "postcode": "KP20 3",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_9c5fb4d6eef66bab442b75",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\uded2",
+                "name": "Nando's",
+                "category": "fashion_store"
+            }
+        },
+        {
+            "transaction_id": "txn057",
+            "date": "2024-06-03",
+            "amount": -174.93,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "28 Station Road",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4893,
+                    "longitude": -0.0819,
+                    "postcode": "UC45 4",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_965f07b048e7fbcd3de5bd",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf57",
+                "name": "Starbucks",
+                "category": "coffee_shop"
+            }
+        },
+        {
+            "transaction_id": "txn058",
+            "date": "2024-06-08",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn059",
+            "date": "2024-06-11",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn060",
+            "date": "2024-06-16",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn061",
+            "date": "2024-06-19",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn062",
+            "date": "2024-06-24",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn063",
+            "date": "2024-06-25",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn064",
+            "date": "2024-06-28",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn065",
+            "date": "2024-06-29",
+            "amount": 550,
+            "description": "Bills & Utilities",
+            "category": "Bills & Utilities",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn066",
+            "date": "2024-07-01",
+            "amount": 550,
+            "description": "Bills & Utilities",
+            "category": "Bills & Utilities",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn067",
+            "date": "2024-07-06",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn068",
+            "date": "2024-07-08",
+            "amount": -232.67,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "37 Station Road",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4655,
+                    "longitude": 0.0541,
+                    "postcode": "PA76 4",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_db7ef0e180d4ef1c195b7b",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83e\udd6a",
+                "name": "Starbucks",
+                "category": "entertainment"
+            }
+        },
+        {
+            "transaction_id": "txn069",
+            "date": "2024-07-12",
+            "amount": -103.58,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "91 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4662,
+                    "longitude": -0.216,
+                    "postcode": "ZM54 9",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_d306629acab4ab89c831bf",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\ude97",
+                "name": "BP",
+                "category": "fashion_store"
+            }
+        },
+        {
+            "transaction_id": "txn070",
+            "date": "2024-07-17",
+            "amount": -14.44,
+            "description": "Entertainment",
+            "category": "Entertainment",
+            "merchant": {
+                "address": {
+                    "address": "87 Station Road",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4923,
+                    "longitude": -0.0046,
+                    "postcode": "RU04 6",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_3f398105a3c8516e5ac3a8",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\u26fd",
+                "name": "Uber",
+                "category": "coffee_shop"
+            }
+        },
+        {
+            "transaction_id": "txn071",
+            "date": "2024-07-21",
+            "amount": -153.51,
+            "description": "Entertainment",
+            "category": "Entertainment",
+            "merchant": {
+                "address": {
+                    "address": "48 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5165,
+                    "longitude": -0.2436,
+                    "postcode": "HC26 9",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_6e8bfcded49fd56d30716e",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\uded2",
+                "name": "Starbucks",
+                "category": "restaurant"
+            }
+        },
+        {
+            "transaction_id": "txn072",
+            "date": "2024-07-25",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn073",
+            "date": "2024-07-26",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn074",
+            "date": "2024-07-29",
+            "amount": -128.69,
+            "description": "Food & Drink",
+            "category": "Food & Drink",
+            "merchant": {
+                "address": {
+                    "address": "5 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5205,
+                    "longitude": -0.1992,
+                    "postcode": "ET66 7",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_330037165efde74d6802d8",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udfa5",
+                "name": "Nando's",
+                "category": "grocery_store"
+            }
+        },
+        {
+            "transaction_id": "txn075",
+            "date": "2024-07-30",
+            "amount": 550,
+            "description": "Bills & Utilities",
+            "category": "Bills & Utilities",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn076",
+            "date": "2024-08-02",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn077",
+            "date": "2024-08-06",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn078",
+            "date": "2024-08-07",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn079",
+            "date": "2024-08-12",
+            "amount": -272.5,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "73 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4723,
+                    "longitude": 0.0746,
+                    "postcode": "AQ34 1",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_d368ac10c8e417365faf60",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udfea",
+                "name": "Subway",
+                "category": "entertainment"
+            }
+        },
+        {
+            "transaction_id": "txn080",
+            "date": "2024-08-17",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn081",
+            "date": "2024-08-18",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn082",
+            "date": "2024-08-22",
+            "amount": -68.53,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "89 Park Avenue",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5293,
+                    "longitude": -0.0372,
+                    "postcode": "VD83 9",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_a6ffee7945641dc91a4cd3",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udce6",
+                "name": "BP",
+                "category": "coffee_shop"
+            }
+        },
+        {
+            "transaction_id": "txn083",
+            "date": "2024-08-27",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn084",
+            "date": "2024-08-31",
+            "amount": -252.99,
+            "description": "Entertainment",
+            "category": "Entertainment",
+            "merchant": {
+                "address": {
+                    "address": "21 Park Avenue",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5269,
+                    "longitude": 0.0606,
+                    "postcode": "NI19 0",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_5418651cd1457d2597ea62",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udfa5",
+                "name": "McDonald's",
+                "category": "restaurant"
+            }
+        },
+        {
+            "transaction_id": "txn085",
+            "date": "2024-09-04",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn086",
+            "date": "2024-09-09",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn087",
+            "date": "2024-09-10",
+            "amount": -189.65,
+            "description": "Food & Drink",
+            "category": "Food & Drink",
+            "merchant": {
+                "address": {
+                    "address": "92 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4706,
+                    "longitude": 0.0005,
+                    "postcode": "AY34 9",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_0059ac3cd595340768f7f9",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf54",
+                "name": "Amazon",
+                "category": "online_retail"
+            }
+        },
+        {
+            "transaction_id": "txn088",
+            "date": "2024-09-15",
+            "amount": -251.24,
+            "description": "Shopping",
+            "category": "Shopping",
+            "merchant": {
+                "address": {
+                    "address": "11 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.537,
+                    "longitude": -0.1159,
+                    "postcode": "KL42 4",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_24c49fe040d2030f3e85ae",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\uded2",
+                "name": "McDonald's",
+                "category": "online_retail"
+            }
+        },
+        {
+            "transaction_id": "txn089",
+            "date": "2024-09-19",
+            "amount": -234.11,
+            "description": "Food & Drink",
+            "category": "Food & Drink",
+            "merchant": {
+                "address": {
+                    "address": "58 Park Avenue",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5003,
+                    "longitude": -0.0847,
+                    "postcode": "MK44 2",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_d20942c479cadcfafffd88",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\ude97",
+                "name": "McDonald's",
+                "category": "grocery_store"
+            }
+        },
+        {
+            "transaction_id": "txn090",
+            "date": "2024-09-20",
+            "amount": -245.36,
+            "description": "Food & Drink",
+            "category": "Food & Drink",
+            "merchant": {
+                "address": {
+                    "address": "61 Station Road",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5286,
+                    "longitude": 0.066,
+                    "postcode": "EZ39 7",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_1f4561e50dd65599fd36aa",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\u26fd",
+                "name": "Cinema",
+                "category": "transportation"
+            }
+        },
+        {
+            "transaction_id": "txn091",
+            "date": "2024-09-23",
+            "amount": -134.93,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "6 Park Avenue",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.531,
+                    "longitude": -0.1126,
+                    "postcode": "WW86 5",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_ec8af264fae719d3fae34c",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\u2615\ufe0f",
+                "name": "Cinema",
+                "category": "online_retail"
+            }
+        },
+        {
+            "transaction_id": "txn092",
+            "date": "2024-09-27",
+            "amount": -292.36,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "30 Station Road",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.455,
+                    "longitude": -0.2085,
+                    "postcode": "DF40 1",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_1cc5b361606fe90f3294b9",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\u2615\ufe0f",
+                "name": "H&M",
+                "category": "transportation"
+            }
+        },
+        {
+            "transaction_id": "txn093",
+            "date": "2024-09-28",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn094",
+            "date": "2024-10-02",
+            "amount": -221.98,
+            "description": "Food & Drink",
+            "category": "Food & Drink",
+            "merchant": {
+                "address": {
+                    "address": "37 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4526,
+                    "longitude": 0.0412,
+                    "postcode": "BC83 3",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_a13d2e7a73a8b3770e7a00",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf57",
+                "name": "McDonald's",
+                "category": "coffee_shop"
+            }
+        },
+        {
+            "transaction_id": "txn095",
+            "date": "2024-10-06",
+            "amount": -79.04,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "27 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4934,
+                    "longitude": 0.0916,
+                    "postcode": "OF55 5",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_01913bf5ea4ba62b2ebc2c",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\uded2",
+                "name": "Cinema",
+                "category": "grocery_store"
+            }
+        },
+        {
+            "transaction_id": "txn096",
+            "date": "2024-10-07",
+            "amount": -162.6,
+            "description": "Groceries",
+            "category": "Groceries",
+            "merchant": {
+                "address": {
+                    "address": "58 Station Road",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5003,
+                    "longitude": 0.0437,
+                    "postcode": "NW74 0",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_6480e2b9419f13f10f38bc",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udfa5",
+                "name": "Tesco",
+                "category": "entertainment"
+            }
+        },
+        {
+            "transaction_id": "txn097",
+            "date": "2024-10-11",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn098",
+            "date": "2024-10-13",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn099",
+            "date": "2024-10-16",
+            "amount": -0.81,
+            "description": "Groceries",
+            "category": "Groceries",
+            "merchant": {
+                "address": {
+                    "address": "26 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4612,
+                    "longitude": -0.205,
+                    "postcode": "XV99 4",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_0c1adecb329839baf2cd7d",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\ude97",
+                "name": "H&M",
+                "category": "restaurant"
+            }
+        },
+        {
+            "transaction_id": "txn100",
+            "date": "2024-10-21",
+            "amount": -99.02,
+            "description": "Entertainment",
+            "category": "Entertainment",
+            "merchant": {
+                "address": {
+                    "address": "50 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5014,
+                    "longitude": -0.1367,
+                    "postcode": "YU73 8",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_2a0563084fb29b324baab4",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\ude97",
+                "name": "Tesco",
+                "category": "transportation"
+            }
+        },
+        {
+            "transaction_id": "txn101",
+            "date": "2024-10-22",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn102",
+            "date": "2024-10-23",
+            "amount": -110.32,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "89 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5269,
+                    "longitude": -0.0902,
+                    "postcode": "XB40 7",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_e4713075a55e18e215aa30",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udfa5",
+                "name": "Cinema",
+                "category": "fashion_store"
+            }
+        },
+        {
+            "transaction_id": "txn103",
+            "date": "2024-10-27",
+            "amount": -165.58,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "72 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4597,
+                    "longitude": -0.2493,
+                    "postcode": "OT05 5",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_9cc719dba92eda68a2330f",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf57",
+                "name": "McDonald's",
+                "category": "fuel_station"
+            }
+        },
+        {
+            "transaction_id": "txn104",
+            "date": "2024-10-31",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn105",
+            "date": "2024-11-05",
+            "amount": -290.58,
+            "description": "Entertainment",
+            "category": "Entertainment",
+            "merchant": {
+                "address": {
+                    "address": "6 Park Avenue",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4677,
+                    "longitude": -0.1798,
+                    "postcode": "DN03 1",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_00979bfcaf3a9f0138bbc3",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf57",
+                "name": "H&M",
+                "category": "fashion_store"
+            }
+        },
+        {
+            "transaction_id": "txn106",
+            "date": "2024-11-07",
+            "amount": -81.2,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "47 Station Road",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4602,
+                    "longitude": 0.0146,
+                    "postcode": "UN22 9",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_c68b3b730eda4c76cfdf28",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf57",
+                "name": "Cinema",
+                "category": "fashion_store"
+            }
+        },
+        {
+            "transaction_id": "txn107",
+            "date": "2024-11-09",
+            "amount": 550,
+            "description": "Bills & Utilities",
+            "category": "Bills & Utilities",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn108",
+            "date": "2024-11-14",
+            "amount": -35.4,
+            "description": "Groceries",
+            "category": "Groceries",
+            "merchant": {
+                "address": {
+                    "address": "51 Station Road",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4554,
+                    "longitude": -0.0276,
+                    "postcode": "BV28 8",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_5eb5d940dc8fad17c29329",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udce6",
+                "name": "McDonald's",
+                "category": "coffee_shop"
+            }
+        },
+        {
+            "transaction_id": "txn109",
+            "date": "2024-11-15",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn110",
+            "date": "2024-11-20",
+            "amount": -284.05,
+            "description": "Groceries",
+            "category": "Groceries",
+            "merchant": {
+                "address": {
+                    "address": "71 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5351,
+                    "longitude": -0.0952,
+                    "postcode": "UU93 0",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_658490e58432d69a05096c",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\u2615\ufe0f",
+                "name": "Starbucks",
+                "category": "online_retail"
+            }
+        },
+        {
+            "transaction_id": "txn111",
+            "date": "2024-11-21",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn112",
+            "date": "2024-11-25",
+            "amount": -199.46,
+            "description": "Food & Drink",
+            "category": "Food & Drink",
+            "merchant": {
+                "address": {
+                    "address": "24 Station Road",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.51,
+                    "longitude": 0.0387,
+                    "postcode": "QC53 0",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_1d715f7965b5ad0783a32a",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udfea",
+                "name": "Cinema",
+                "category": "entertainment"
+            }
+        },
+        {
+            "transaction_id": "txn113",
+            "date": "2024-11-27",
+            "amount": 550,
+            "description": "Bills & Utilities",
+            "category": "Bills & Utilities",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn114",
+            "date": "2024-11-28",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn115",
+            "date": "2024-12-03",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn116",
+            "date": "2024-12-04",
+            "amount": -185.24,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "39 Station Road",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4796,
+                    "longitude": -0.0051,
+                    "postcode": "LU89 1",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_eff1ab1ff52ab12b4285cc",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udfea",
+                "name": "BP",
+                "category": "coffee_shop"
+            }
+        },
+        {
+            "transaction_id": "txn117",
+            "date": "2024-12-08",
+            "amount": -124.52,
+            "description": "Food & Drink",
+            "category": "Food & Drink",
+            "merchant": {
+                "address": {
+                    "address": "82 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4695,
+                    "longitude": 0.0561,
+                    "postcode": "EZ56 7",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_2392be4a0222ccd5dd04b6",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf54",
+                "name": "BP",
+                "category": "entertainment"
+            }
+        },
+        {
+            "transaction_id": "txn118",
+            "date": "2024-12-11",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn119",
+            "date": "2024-12-14",
+            "amount": -6.71,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "95 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5447,
+                    "longitude": -0.0696,
+                    "postcode": "EP16 0",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_1f748cd135986a7e89da47",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udfa5",
+                "name": "Subway",
+                "category": "fashion_store"
+            }
+        },
+        {
+            "transaction_id": "txn120",
+            "date": "2024-12-16",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn121",
+            "date": "2024-12-18",
+            "amount": -258.25,
+            "description": "Food & Drink",
+            "category": "Food & Drink",
+            "merchant": {
+                "address": {
+                    "address": "81 Station Road",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5231,
+                    "longitude": -0.0007,
+                    "postcode": "JK20 3",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_02773ca8ee794870f84b4c",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\ude97",
+                "name": "Nando's",
+                "category": "grocery_store"
+            }
+        },
+        {
+            "transaction_id": "txn122",
+            "date": "2024-12-20",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn123",
+            "date": "2024-12-23",
+            "amount": -145.69,
+            "description": "Shopping",
+            "category": "Shopping",
+            "merchant": {
+                "address": {
+                    "address": "53 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5178,
+                    "longitude": 0.0949,
+                    "postcode": "WS40 3",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_902e81b1b3d9dbdf287384",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udc57",
+                "name": "BP",
+                "category": "transportation"
+            }
+        },
+        {
+            "transaction_id": "txn124",
+            "date": "2024-12-28",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn125",
+            "date": "2025-01-01",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn126",
+            "date": "2025-01-03",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn127",
+            "date": "2025-01-07",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn128",
+            "date": "2025-01-11",
+            "amount": -43.56,
+            "description": "Entertainment",
+            "category": "Entertainment",
+            "merchant": {
+                "address": {
+                    "address": "83 Park Avenue",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4963,
+                    "longitude": -0.2367,
+                    "postcode": "UR06 5",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_c9e190c0ba2f9f1f9602aa",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf57",
+                "name": "Nando's",
+                "category": "fuel_station"
+            }
+        },
+        {
+            "transaction_id": "txn129",
+            "date": "2025-01-16",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn130",
+            "date": "2025-01-19",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn131",
+            "date": "2025-01-24",
+            "amount": -100.64,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "20 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4679,
+                    "longitude": -0.0917,
+                    "postcode": "MF32 8",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_58a4b30261a138bef52216",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\ude97",
+                "name": "Starbucks",
+                "category": "coffee_shop"
+            }
+        },
+        {
+            "transaction_id": "txn132",
+            "date": "2025-01-28",
+            "amount": -240.47,
+            "description": "Food & Drink",
+            "category": "Food & Drink",
+            "merchant": {
+                "address": {
+                    "address": "1 Park Avenue",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5087,
+                    "longitude": -0.1103,
+                    "postcode": "ES35 5",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_169582ec10eb88a60c4fb5",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\u2615\ufe0f",
+                "name": "McDonald's",
+                "category": "online_retail"
+            }
+        },
+        {
+            "transaction_id": "txn133",
+            "date": "2025-02-02",
+            "amount": -251.32,
+            "description": "Shopping",
+            "category": "Shopping",
+            "merchant": {
+                "address": {
+                    "address": "98 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5033,
+                    "longitude": -0.1607,
+                    "postcode": "GM52 3",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_4dfdf8269d9330b3a04ca0",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udce6",
+                "name": "Amazon",
+                "category": "fuel_station"
+            }
+        },
+        {
+            "transaction_id": "txn134",
+            "date": "2025-02-06",
+            "amount": -268.04,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "93 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.457,
+                    "longitude": -0.0573,
+                    "postcode": "IX04 2",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_6df48df954b67525650924",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\ude97",
+                "name": "Starbucks",
+                "category": "entertainment"
+            }
+        },
+        {
+            "transaction_id": "txn135",
+            "date": "2025-02-10",
+            "amount": -289.39,
+            "description": "Shopping",
+            "category": "Shopping",
+            "merchant": {
+                "address": {
+                    "address": "43 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4517,
+                    "longitude": 0.0713,
+                    "postcode": "OJ93 7",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_d1258723127159c8a88765",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf54",
+                "name": "Uber",
+                "category": "restaurant"
+            }
+        },
+        {
+            "transaction_id": "txn136",
+            "date": "2025-02-12",
+            "amount": 550,
+            "description": "Bills & Utilities",
+            "category": "Bills & Utilities",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn137",
+            "date": "2025-02-13",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn138",
+            "date": "2025-02-14",
+            "amount": -145.64,
+            "description": "Shopping",
+            "category": "Shopping",
+            "merchant": {
+                "address": {
+                    "address": "25 Station Road",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5284,
+                    "longitude": -0.1348,
+                    "postcode": "SV91 0",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_aa05d5564211956d2c96b2",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udc57",
+                "name": "Cinema",
+                "category": "entertainment"
+            }
+        },
+        {
+            "transaction_id": "txn139",
+            "date": "2025-02-16",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn140",
+            "date": "2025-02-19",
+            "amount": -202.35,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "90 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4885,
+                    "longitude": -0.0161,
+                    "postcode": "YD04 1",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_3a98613e69aee524bbc4f8",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udc57",
+                "name": "H&M",
+                "category": "coffee_shop"
+            }
+        },
+        {
+            "transaction_id": "txn141",
+            "date": "2025-02-22",
+            "amount": -184.67,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "1 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.537,
+                    "longitude": -0.0877,
+                    "postcode": "KU95 0",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_3eb7ffe69839dfb9d4c98f",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\uded2",
+                "name": "McDonald's",
+                "category": "entertainment"
+            }
+        },
+        {
+            "transaction_id": "txn142",
+            "date": "2025-02-24",
+            "amount": 550,
+            "description": "Bills & Utilities",
+            "category": "Bills & Utilities",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn143",
+            "date": "2025-03-01",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn144",
+            "date": "2025-03-06",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn145",
+            "date": "2025-03-07",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn146",
+            "date": "2025-03-11",
+            "amount": -170.1,
+            "description": "Shopping",
+            "category": "Shopping",
+            "merchant": {
+                "address": {
+                    "address": "37 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5102,
+                    "longitude": -0.1293,
+                    "postcode": "HH31 3",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_85667c03d876ee4b3ed4cf",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udc57",
+                "name": "Cinema",
+                "category": "coffee_shop"
+            }
+        },
+        {
+            "transaction_id": "txn147",
+            "date": "2025-03-13",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn148",
+            "date": "2025-03-18",
+            "amount": -297.82,
+            "description": "Groceries",
+            "category": "Groceries",
+            "merchant": {
+                "address": {
+                    "address": "9 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4784,
+                    "longitude": -0.1292,
+                    "postcode": "HN78 4",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_879717f6f05389909ffa83",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf54",
+                "name": "Nando's",
+                "category": "transportation"
+            }
+        },
+        {
+            "transaction_id": "txn149",
+            "date": "2025-03-21",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn150",
+            "date": "2025-03-23",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn151",
+            "date": "2025-03-28",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn152",
+            "date": "2025-04-02",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn153",
+            "date": "2025-04-07",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn154",
+            "date": "2025-04-11",
+            "amount": -116.76,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "26 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4651,
+                    "longitude": -0.0424,
+                    "postcode": "TM79 9",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_4198ee5606c314bd5c6dd0",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udfa5",
+                "name": "Nando's",
+                "category": "fuel_station"
+            }
+        },
+        {
+            "transaction_id": "txn155",
+            "date": "2025-04-16",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn156",
+            "date": "2025-04-20",
+            "amount": -123.9,
+            "description": "Shopping",
+            "category": "Shopping",
+            "merchant": {
+                "address": {
+                    "address": "73 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.507,
+                    "longitude": -0.1005,
+                    "postcode": "KR65 0",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_1677b6c66c1bbec6d8bb1f",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\u26fd",
+                "name": "Cinema",
+                "category": "entertainment"
+            }
+        },
+        {
+            "transaction_id": "txn157",
+            "date": "2025-04-21",
+            "amount": -128.21,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "60 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5347,
+                    "longitude": -0.0478,
+                    "postcode": "JF81 5",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_73b40f8532a4fdac1b2a99",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udfea",
+                "name": "Amazon",
+                "category": "fashion_store"
+            }
+        },
+        {
+            "transaction_id": "txn158",
+            "date": "2025-04-24",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn159",
+            "date": "2025-04-26",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn160",
+            "date": "2025-04-27",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn161",
+            "date": "2025-04-29",
+            "amount": -292.6,
+            "description": "Groceries",
+            "category": "Groceries",
+            "merchant": {
+                "address": {
+                    "address": "46 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4669,
+                    "longitude": 0.0968,
+                    "postcode": "ST50 8",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_c2f3a4d50fd7385100e1f3",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udfa5",
+                "name": "BP",
+                "category": "fashion_store"
+            }
+        },
+        {
+            "transaction_id": "txn162",
+            "date": "2025-04-30",
+            "amount": 550,
+            "description": "Bills & Utilities",
+            "category": "Bills & Utilities",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn163",
+            "date": "2025-05-04",
+            "amount": -77.54,
+            "description": "Shopping",
+            "category": "Shopping",
+            "merchant": {
+                "address": {
+                    "address": "34 Park Avenue",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4664,
+                    "longitude": -0.1828,
+                    "postcode": "DL38 8",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_001d4283b966231a95b30d",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udfea",
+                "name": "Amazon",
+                "category": "grocery_store"
+            }
+        },
+        {
+            "transaction_id": "txn164",
+            "date": "2025-05-08",
+            "amount": -52.21,
+            "description": "Shopping",
+            "category": "Shopping",
+            "merchant": {
+                "address": {
+                    "address": "37 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5018,
+                    "longitude": -0.0593,
+                    "postcode": "EV66 1",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_7349352b010b97d4252774",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\u26fd",
+                "name": "BP",
+                "category": "restaurant"
+            }
+        },
+        {
+            "transaction_id": "txn165",
+            "date": "2025-05-12",
+            "amount": -29.69,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "89 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4676,
+                    "longitude": -0.1248,
+                    "postcode": "BH34 2",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_f34b560fe6176853445033",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\ude97",
+                "name": "Nando's",
+                "category": "transportation"
+            }
+        },
+        {
+            "transaction_id": "txn166",
+            "date": "2025-05-14",
+            "amount": -247.95,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "80 Park Avenue",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5002,
+                    "longitude": -0.2018,
+                    "postcode": "CF01 2",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_0595d1bdfc6d09b472e3eb",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf54",
+                "name": "Tesco",
+                "category": "coffee_shop"
+            }
+        },
+        {
+            "transaction_id": "txn167",
+            "date": "2025-05-19",
+            "amount": -1.46,
+            "description": "Entertainment",
+            "category": "Entertainment",
+            "merchant": {
+                "address": {
+                    "address": "99 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4805,
+                    "longitude": -0.0701,
+                    "postcode": "SI87 9",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_3b66a429f374db966051bd",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udc57",
+                "name": "Tesco",
+                "category": "fashion_store"
+            }
+        },
+        {
+            "transaction_id": "txn168",
+            "date": "2025-05-23",
+            "amount": -25.77,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "49 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4643,
+                    "longitude": 0.0053,
+                    "postcode": "DW90 6",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_65b0cae141a05c7901beae",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udc57",
+                "name": "Tesco",
+                "category": "coffee_shop"
+            }
+        },
+        {
+            "transaction_id": "txn169",
+            "date": "2025-05-26",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn170",
+            "date": "2025-05-28",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn171",
+            "date": "2025-05-29",
+            "amount": -160.82,
+            "description": "Shopping",
+            "category": "Shopping",
+            "merchant": {
+                "address": {
+                    "address": "94 Park Avenue",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5449,
+                    "longitude": -0.1248,
+                    "postcode": "JZ06 7",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_53018f529d4690ad2eac9d",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udc57",
+                "name": "Uber",
+                "category": "online_retail"
+            }
+        },
+        {
+            "transaction_id": "txn172",
+            "date": "2025-06-01",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn173",
+            "date": "2025-06-06",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn174",
+            "date": "2025-06-11",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn175",
+            "date": "2025-06-12",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn176",
+            "date": "2025-06-16",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn177",
+            "date": "2025-06-17",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn178",
+            "date": "2025-06-20",
+            "amount": -2.01,
+            "description": "Shopping",
+            "category": "Shopping",
+            "merchant": {
+                "address": {
+                    "address": "26 Park Avenue",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4509,
+                    "longitude": 0.0904,
+                    "postcode": "DA32 6",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_d318a3a62663d5498d753b",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udfea",
+                "name": "Cinema",
+                "category": "restaurant"
+            }
+        },
+        {
+            "transaction_id": "txn179",
+            "date": "2025-06-25",
+            "amount": -40.91,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "84 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4586,
+                    "longitude": -0.2271,
+                    "postcode": "DU79 2",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_354eba0ec2ebf80a8cc640",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\u2615\ufe0f",
+                "name": "Starbucks",
+                "category": "fuel_station"
+            }
+        },
+        {
+            "transaction_id": "txn180",
+            "date": "2025-06-27",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn181",
+            "date": "2025-06-28",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn182",
+            "date": "2025-07-01",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn183",
+            "date": "2025-07-03",
+            "amount": -219.14,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "83 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4623,
+                    "longitude": 0.0079,
+                    "postcode": "AD73 3",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_ea3e86aa7e299a6fc8c295",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf54",
+                "name": "Nando's",
+                "category": "grocery_store"
+            }
+        },
+        {
+            "transaction_id": "txn184",
+            "date": "2025-07-08",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn185",
+            "date": "2025-07-09",
+            "amount": 550,
+            "description": "Bills & Utilities",
+            "category": "Bills & Utilities",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn186",
+            "date": "2025-07-14",
+            "amount": -94.52,
+            "description": "Shopping",
+            "category": "Shopping",
+            "merchant": {
+                "address": {
+                    "address": "91 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4784,
+                    "longitude": 0.0963,
+                    "postcode": "IW78 7",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_a0d4f2f9dd57730ba7e956",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\uded2",
+                "name": "Tesco",
+                "category": "online_retail"
+            }
+        },
+        {
+            "transaction_id": "txn187",
+            "date": "2025-07-17",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn188",
+            "date": "2025-07-20",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn189",
+            "date": "2025-07-24",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn190",
+            "date": "2025-07-29",
+            "amount": -232.78,
+            "description": "Food & Drink",
+            "category": "Food & Drink",
+            "merchant": {
+                "address": {
+                    "address": "52 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.548,
+                    "longitude": -0.1734,
+                    "postcode": "AG61 1",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_691ee143a33c78b015dc88",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\uded2",
+                "name": "Starbucks",
+                "category": "online_retail"
+            }
+        },
+        {
+            "transaction_id": "txn191",
+            "date": "2025-08-02",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn192",
+            "date": "2025-08-03",
+            "amount": -191.76,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "18 Station Road",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4675,
+                    "longitude": -0.1768,
+                    "postcode": "PW39 4",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_ebd3e0f4d3619b2aa85fbf",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf54",
+                "name": "Subway",
+                "category": "online_retail"
+            }
+        },
+        {
+            "transaction_id": "txn193",
+            "date": "2025-08-06",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn194",
+            "date": "2025-08-10",
+            "amount": -128.67,
+            "description": "Entertainment",
+            "category": "Entertainment",
+            "merchant": {
+                "address": {
+                    "address": "1 Park Avenue",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5354,
+                    "longitude": -0.0224,
+                    "postcode": "NJ49 7",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_810613f4991fa7be3b50b7",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf54",
+                "name": "Tesco",
+                "category": "entertainment"
+            }
+        },
+        {
+            "transaction_id": "txn195",
+            "date": "2025-08-14",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn196",
+            "date": "2025-08-18",
+            "amount": -12.56,
+            "description": "Entertainment",
+            "category": "Entertainment",
+            "merchant": {
+                "address": {
+                    "address": "59 Station Road",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5155,
+                    "longitude": 0.0332,
+                    "postcode": "LS71 2",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_e04b61d391dbdb54cb8999",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udce6",
+                "name": "Amazon",
+                "category": "grocery_store"
+            }
+        },
+        {
+            "transaction_id": "txn197",
+            "date": "2025-08-20",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn198",
+            "date": "2025-08-23",
+            "amount": -189.0,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "48 Park Avenue",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5103,
+                    "longitude": -0.1607,
+                    "postcode": "JK25 5",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_0d7afe479e5494e6b4d866",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\u2615\ufe0f",
+                "name": "Cinema",
+                "category": "restaurant"
+            }
+        },
+        {
+            "transaction_id": "txn199",
+            "date": "2025-08-24",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn200",
+            "date": "2025-08-27",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn201",
+            "date": "2025-08-29",
+            "amount": -40.6,
+            "description": "Groceries",
+            "category": "Groceries",
+            "merchant": {
+                "address": {
+                    "address": "49 Park Avenue",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4875,
+                    "longitude": 0.009,
+                    "postcode": "GL32 1",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_ca8d849a4fd33dc14bfee7",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udce6",
+                "name": "Nando's",
+                "category": "grocery_store"
+            }
+        },
+        {
+            "transaction_id": "txn202",
+            "date": "2025-09-01",
+            "amount": -225.9,
+            "description": "Food & Drink",
+            "category": "Food & Drink",
+            "merchant": {
+                "address": {
+                    "address": "19 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4754,
+                    "longitude": -0.0356,
+                    "postcode": "QO77 1",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_aadc54bc3df07514a54168",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83e\udd6a",
+                "name": "Uber",
+                "category": "entertainment"
+            }
+        },
+        {
+            "transaction_id": "txn203",
+            "date": "2025-09-04",
+            "amount": -1.56,
+            "description": "Entertainment",
+            "category": "Entertainment",
+            "merchant": {
+                "address": {
+                    "address": "93 Station Road",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4701,
+                    "longitude": -0.2209,
+                    "postcode": "OW38 1",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_a1a1f67b1d0a254bbd7cdf",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf57",
+                "name": "Nando's",
+                "category": "fuel_station"
+            }
+        },
+        {
+            "transaction_id": "txn204",
+            "date": "2025-09-08",
+            "amount": -211.59,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "95 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4896,
+                    "longitude": -0.0193,
+                    "postcode": "SK00 4",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_11ed78a17e31ee00c11f1f",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf54",
+                "name": "Nando's",
+                "category": "online_retail"
+            }
+        },
+        {
+            "transaction_id": "txn205",
+            "date": "2025-09-11",
+            "amount": -34.16,
+            "description": "Food & Drink",
+            "category": "Food & Drink",
+            "merchant": {
+                "address": {
+                    "address": "67 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.534,
+                    "longitude": -0.0754,
+                    "postcode": "IS90 6",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_ec85056db9cd051f7ded3e",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udce6",
+                "name": "Starbucks",
+                "category": "fuel_station"
+            }
+        },
+        {
+            "transaction_id": "txn206",
+            "date": "2025-09-14",
+            "amount": 550,
+            "description": "Bills & Utilities",
+            "category": "Bills & Utilities",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn207",
+            "date": "2025-09-17",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn208",
+            "date": "2025-09-19",
+            "amount": 550,
+            "description": "Bills & Utilities",
+            "category": "Bills & Utilities",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn209",
+            "date": "2025-09-20",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn210",
+            "date": "2025-09-24",
+            "amount": -218.84,
+            "description": "Shopping",
+            "category": "Shopping",
+            "merchant": {
+                "address": {
+                    "address": "42 Park Avenue",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5158,
+                    "longitude": -0.1355,
+                    "postcode": "IN26 4",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_6cfd14e4a7ca52ebefa62b",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udce6",
+                "name": "Cinema",
+                "category": "grocery_store"
+            }
+        },
+        {
+            "transaction_id": "txn211",
+            "date": "2025-09-29",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn212",
+            "date": "2025-09-30",
+            "amount": -286.18,
+            "description": "Groceries",
+            "category": "Groceries",
+            "merchant": {
+                "address": {
+                    "address": "2 Park Avenue",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4743,
+                    "longitude": -0.1766,
+                    "postcode": "RA94 2",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_9d0c1e0499280ad6ff0f75",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\u2615\ufe0f",
+                "name": "McDonald's",
+                "category": "grocery_store"
+            }
+        },
+        {
+            "transaction_id": "txn213",
+            "date": "2025-10-03",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn214",
+            "date": "2025-10-07",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn215",
+            "date": "2025-10-09",
+            "amount": -236.43,
+            "description": "Food & Drink",
+            "category": "Food & Drink",
+            "merchant": {
+                "address": {
+                    "address": "87 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4575,
+                    "longitude": -0.0725,
+                    "postcode": "OE18 1",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_e96c561d91832a31bffe15",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udce6",
+                "name": "Nando's",
+                "category": "restaurant"
+            }
+        },
+        {
+            "transaction_id": "txn216",
+            "date": "2025-10-12",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn217",
+            "date": "2025-10-14",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn218",
+            "date": "2025-10-17",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn219",
+            "date": "2025-10-19",
+            "amount": -181.8,
+            "description": "Groceries",
+            "category": "Groceries",
+            "merchant": {
+                "address": {
+                    "address": "9 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5014,
+                    "longitude": -0.2192,
+                    "postcode": "NA99 6",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_bbb6dfe579a6be82f58597",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf54",
+                "name": "H&M",
+                "category": "restaurant"
+            }
+        },
+        {
+            "transaction_id": "txn220",
+            "date": "2025-10-21",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn221",
+            "date": "2025-10-23",
+            "amount": -139.69,
+            "description": "Entertainment",
+            "category": "Entertainment",
+            "merchant": {
+                "address": {
+                    "address": "57 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5408,
+                    "longitude": -0.2216,
+                    "postcode": "RG31 5",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_197bee8dd17451d2fe010a",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\u2615\ufe0f",
+                "name": "Uber",
+                "category": "fashion_store"
+            }
+        },
+        {
+            "transaction_id": "txn222",
+            "date": "2025-10-28",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn223",
+            "date": "2025-11-01",
+            "amount": -102.76,
+            "description": "Food & Drink",
+            "category": "Food & Drink",
+            "merchant": {
+                "address": {
+                    "address": "73 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4954,
+                    "longitude": -0.1864,
+                    "postcode": "XC21 3",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_5f830a7102b0e62a3bd712",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\u26fd",
+                "name": "Subway",
+                "category": "grocery_store"
+            }
+        },
+        {
+            "transaction_id": "txn224",
+            "date": "2025-11-03",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn225",
+            "date": "2025-11-07",
+            "amount": -289.23,
+            "description": "Entertainment",
+            "category": "Entertainment",
+            "merchant": {
+                "address": {
+                    "address": "95 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5,
+                    "longitude": 0.0624,
+                    "postcode": "DY79 8",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_44587a1cab5224b2fb5f24",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf54",
+                "name": "Subway",
+                "category": "grocery_store"
+            }
+        },
+        {
+            "transaction_id": "txn226",
+            "date": "2025-11-12",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn227",
+            "date": "2025-11-17",
+            "amount": -245.89,
+            "description": "Entertainment",
+            "category": "Entertainment",
+            "merchant": {
+                "address": {
+                    "address": "77 Park Avenue",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4683,
+                    "longitude": 0.0475,
+                    "postcode": "DZ18 7",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_238334b3e053ed942f5352",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\u2615\ufe0f",
+                "name": "Uber",
+                "category": "fashion_store"
+            }
+        },
+        {
+            "transaction_id": "txn228",
+            "date": "2025-11-22",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn229",
+            "date": "2025-11-23",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn230",
+            "date": "2025-11-24",
+            "amount": -263.83,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "60 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.547,
+                    "longitude": -0.0887,
+                    "postcode": "BU62 3",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_5421922b6991cd498e2440",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf54",
+                "name": "BP",
+                "category": "grocery_store"
+            }
+        },
+        {
+            "transaction_id": "txn231",
+            "date": "2025-11-27",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn232",
+            "date": "2025-11-29",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn233",
+            "date": "2025-12-02",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn234",
+            "date": "2025-12-06",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn235",
+            "date": "2025-12-10",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn236",
+            "date": "2025-12-15",
+            "amount": -263.96,
+            "description": "Entertainment",
+            "category": "Entertainment",
+            "merchant": {
+                "address": {
+                    "address": "6 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4827,
+                    "longitude": -0.1791,
+                    "postcode": "EE50 2",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_2483dd1f541b11958ce6d7",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udce6",
+                "name": "Nando's",
+                "category": "fuel_station"
+            }
+        },
+        {
+            "transaction_id": "txn237",
+            "date": "2025-12-17",
+            "amount": -287.87,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "94 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4847,
+                    "longitude": -0.1831,
+                    "postcode": "MX52 2",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_4244978a51cdb3d3ed60a7",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udfea",
+                "name": "Subway",
+                "category": "fuel_station"
+            }
+        },
+        {
+            "transaction_id": "txn238",
+            "date": "2025-12-20",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn239",
+            "date": "2025-12-23",
+            "amount": -98.9,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "40 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.505,
+                    "longitude": -0.0895,
+                    "postcode": "FZ99 1",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_ebb8dd8d2a6744587b6228",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\uded2",
+                "name": "H&M",
+                "category": "online_retail"
+            }
+        },
+        {
+            "transaction_id": "txn240",
+            "date": "2025-12-27",
+            "amount": -142.03,
+            "description": "Entertainment",
+            "category": "Entertainment",
+            "merchant": {
+                "address": {
+                    "address": "2 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5054,
+                    "longitude": -0.061,
+                    "postcode": "KU75 3",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_7300da5e4b706c7fc9880a",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\u2615\ufe0f",
+                "name": "McDonald's",
+                "category": "transportation"
+            }
+        },
+        {
+            "transaction_id": "txn241",
+            "date": "2025-12-28",
+            "amount": -53.7,
+            "description": "Shopping",
+            "category": "Shopping",
+            "merchant": {
+                "address": {
+                    "address": "38 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5167,
+                    "longitude": -0.0593,
+                    "postcode": "EF17 0",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_51871ad3593fe426b2e1ff",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udce6",
+                "name": "McDonald's",
+                "category": "fuel_station"
+            }
+        },
+        {
+            "transaction_id": "txn242",
+            "date": "2025-12-29",
+            "amount": -201.02,
+            "description": "Shopping",
+            "category": "Shopping",
+            "merchant": {
+                "address": {
+                    "address": "5 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4779,
+                    "longitude": 0.0034,
+                    "postcode": "GU07 3",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_9dcbc8d19471ab5975c6e7",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udf57",
+                "name": "Uber",
+                "category": "online_retail"
+            }
+        },
+        {
+            "transaction_id": "txn243",
+            "date": "2025-12-30",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn244",
+            "date": "2026-01-03",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn245",
+            "date": "2026-01-04",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn246",
+            "date": "2026-01-08",
+            "amount": -177.52,
+            "description": "Groceries",
+            "category": "Groceries",
+            "merchant": {
+                "address": {
+                    "address": "10 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5332,
+                    "longitude": -0.2448,
+                    "postcode": "CC20 2",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_19e340e7bda98e2cb5c76f",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\uded2",
+                "name": "Subway",
+                "category": "coffee_shop"
+            }
+        },
+        {
+            "transaction_id": "txn247",
+            "date": "2026-01-11",
+            "amount": 550,
+            "description": "Bills & Utilities",
+            "category": "Bills & Utilities",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn248",
+            "date": "2026-01-15",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn249",
+            "date": "2026-01-16",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn250",
+            "date": "2026-01-18",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn251",
+            "date": "2026-01-20",
+            "amount": -189.2,
+            "description": "Food & Drink",
+            "category": "Food & Drink",
+            "merchant": {
+                "address": {
+                    "address": "63 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4894,
+                    "longitude": -0.1687,
+                    "postcode": "FA90 3",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_cbb27c9e7c8e129179b2af",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udce6",
+                "name": "H&M",
+                "category": "entertainment"
+            }
+        },
+        {
+            "transaction_id": "txn252",
+            "date": "2026-01-23",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn253",
+            "date": "2026-01-25",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn254",
+            "date": "2026-01-26",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn255",
+            "date": "2026-01-29",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn256",
+            "date": "2026-02-01",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn257",
+            "date": "2026-02-06",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn258",
+            "date": "2026-02-08",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn259",
+            "date": "2026-02-11",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn260",
+            "date": "2026-02-13",
+            "amount": -284.77,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "5 Station Road",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5332,
+                    "longitude": 0.0857,
+                    "postcode": "CP54 5",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_7feb88daff973f42b335fd",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udce6",
+                "name": "Nando's",
+                "category": "transportation"
+            }
+        },
+        {
+            "transaction_id": "txn261",
+            "date": "2026-02-16",
+            "amount": -165.64,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "14 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4771,
+                    "longitude": -0.0652,
+                    "postcode": "TQ89 3",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_363f9e6c63ffd7b502410b",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udfea",
+                "name": "Uber",
+                "category": "coffee_shop"
+            }
+        },
+        {
+            "transaction_id": "txn262",
+            "date": "2026-02-19",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn263",
+            "date": "2026-02-22",
+            "amount": -273.62,
+            "description": "Shopping",
+            "category": "Shopping",
+            "merchant": {
+                "address": {
+                    "address": "85 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.509,
+                    "longitude": 0.0207,
+                    "postcode": "UU07 4",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_4789282cd68afa7fabc5d7",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udce6",
+                "name": "BP",
+                "category": "grocery_store"
+            }
+        },
+        {
+            "transaction_id": "txn264",
+            "date": "2026-02-27",
+            "amount": -227.45,
+            "description": "Groceries",
+            "category": "Groceries",
+            "merchant": {
+                "address": {
+                    "address": "14 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5494,
+                    "longitude": -0.1806,
+                    "postcode": "HH93 8",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_887eb09688f9d7e1e70840",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83e\udd6a",
+                "name": "Tesco",
+                "category": "fashion_store"
+            }
+        },
+        {
+            "transaction_id": "txn265",
+            "date": "2026-03-01",
+            "amount": -117.33,
+            "description": "Shopping",
+            "category": "Shopping",
+            "merchant": {
+                "address": {
+                    "address": "62 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5388,
+                    "longitude": -0.198,
+                    "postcode": "SF99 7",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_73d8798de5f22c1013f690",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udc57",
+                "name": "McDonald's",
+                "category": "online_retail"
+            }
+        },
+        {
+            "transaction_id": "txn266",
+            "date": "2026-03-06",
+            "amount": -139.17,
+            "description": "Entertainment",
+            "category": "Entertainment",
+            "merchant": {
+                "address": {
+                    "address": "88 Park Avenue",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5162,
+                    "longitude": 0.0084,
+                    "postcode": "LV21 7",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_ac8d03ab3e3d2fc23995c5",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udc57",
+                "name": "Cinema",
+                "category": "fuel_station"
+            }
+        },
+        {
+            "transaction_id": "txn267",
+            "date": "2026-03-07",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn268",
+            "date": "2026-03-12",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn269",
+            "date": "2026-03-14",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn270",
+            "date": "2026-03-18",
+            "amount": -249.54,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "62 Park Avenue",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5262,
+                    "longitude": -0.0463,
+                    "postcode": "AO02 3",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_ba598ee227e6416c19e98d",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\ude97",
+                "name": "BP",
+                "category": "online_retail"
+            }
+        },
+        {
+            "transaction_id": "txn271",
+            "date": "2026-03-21",
+            "amount": -152.94,
+            "description": "Shopping",
+            "category": "Shopping",
+            "merchant": {
+                "address": {
+                    "address": "27 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5273,
+                    "longitude": -0.0543,
+                    "postcode": "VS92 5",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_8e5eb3cddef6d9dccc9c3b",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\uded2",
+                "name": "H&M",
+                "category": "fashion_store"
+            }
+        },
+        {
+            "transaction_id": "txn272",
+            "date": "2026-03-25",
+            "amount": -122.68,
+            "description": "Groceries",
+            "category": "Groceries",
+            "merchant": {
+                "address": {
+                    "address": "72 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5403,
+                    "longitude": 0.0944,
+                    "postcode": "DA02 5",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_b8996b6b5224a8c9dc933c",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83e\udd6a",
+                "name": "Amazon",
+                "category": "grocery_store"
+            }
+        },
+        {
+            "transaction_id": "txn273",
+            "date": "2026-03-26",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn274",
+            "date": "2026-03-31",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn275",
+            "date": "2026-04-03",
+            "amount": -127.49,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "76 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5487,
+                    "longitude": 0.0315,
+                    "postcode": "KQ76 5",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_35d696a0c20eeb91c6facc",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udce6",
+                "name": "Uber",
+                "category": "online_retail"
+            }
+        },
+        {
+            "transaction_id": "txn276",
+            "date": "2026-04-07",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn277",
+            "date": "2026-04-08",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn278",
+            "date": "2026-04-12",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn279",
+            "date": "2026-04-17",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn280",
+            "date": "2026-04-21",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn281",
+            "date": "2026-04-26",
+            "amount": -113.41,
+            "description": "Entertainment",
+            "category": "Entertainment",
+            "merchant": {
+                "address": {
+                    "address": "28 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5066,
+                    "longitude": 0.0252,
+                    "postcode": "LR98 5",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_ac0cdd80897960f5cd7a22",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udfa5",
+                "name": "Cinema",
+                "category": "entertainment"
+            }
+        },
+        {
+            "transaction_id": "txn282",
+            "date": "2026-04-30",
+            "amount": -45.56,
+            "description": "Food & Drink",
+            "category": "Food & Drink",
+            "merchant": {
+                "address": {
+                    "address": "51 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5277,
+                    "longitude": 0.0716,
+                    "postcode": "TK45 8",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_09f002273e95060da2888b",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\ude97",
+                "name": "Cinema",
+                "category": "restaurant"
+            }
+        },
+        {
+            "transaction_id": "txn283",
+            "date": "2026-05-04",
+            "amount": -214.76,
+            "description": "Food & Drink",
+            "category": "Food & Drink",
+            "merchant": {
+                "address": {
+                    "address": "28 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4878,
+                    "longitude": -0.1581,
+                    "postcode": "VE76 5",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_494dbee36d210e606ef1b0",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83e\udd6a",
+                "name": "Cinema",
+                "category": "fuel_station"
+            }
+        },
+        {
+            "transaction_id": "txn284",
+            "date": "2026-05-06",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn285",
+            "date": "2026-05-09",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn286",
+            "date": "2026-05-11",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn287",
+            "date": "2026-05-16",
+            "amount": -66.41,
+            "description": "Groceries",
+            "category": "Groceries",
+            "merchant": {
+                "address": {
+                    "address": "16 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4594,
+                    "longitude": 0.0821,
+                    "postcode": "KQ28 6",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_7c232e86d1183dc6e066ae",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udce6",
+                "name": "BP",
+                "category": "coffee_shop"
+            }
+        },
+        {
+            "transaction_id": "txn288",
+            "date": "2026-05-21",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn289",
+            "date": "2026-05-26",
+            "amount": -91.6,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "33 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4563,
+                    "longitude": 0.0323,
+                    "postcode": "EO40 3",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_5528e326037a8aed33cb39",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\uded2",
+                "name": "Cinema",
+                "category": "fashion_store"
+            }
+        },
+        {
+            "transaction_id": "txn290",
+            "date": "2026-05-29",
+            "amount": -31.98,
+            "description": "Food & Drink",
+            "category": "Food & Drink",
+            "merchant": {
+                "address": {
+                    "address": "81 Main Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4828,
+                    "longitude": 0.0264,
+                    "postcode": "EH73 1",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_975248931131cb92539d82",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83e\udd6a",
+                "name": "H&M",
+                "category": "online_retail"
+            }
+        },
+        {
+            "transaction_id": "txn291",
+            "date": "2026-05-30",
+            "amount": -256.77,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "9 Park Avenue",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4722,
+                    "longitude": -0.0405,
+                    "postcode": "ZJ74 7",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_5ee5eb085ffd76814ec45b",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83e\udd6a",
+                "name": "H&M",
+                "category": "online_retail"
+            }
+        },
+        {
+            "transaction_id": "txn292",
+            "date": "2026-06-01",
+            "amount": -209.67,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "53 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5079,
+                    "longitude": -0.0474,
+                    "postcode": "SO84 7",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_8ff2be9fd98605484cbea8",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\u2615\ufe0f",
+                "name": "H&M",
+                "category": "coffee_shop"
+            }
+        },
+        {
+            "transaction_id": "txn293",
+            "date": "2026-06-05",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn294",
+            "date": "2026-06-06",
+            "amount": -286.69,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "37 Park Avenue",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.5003,
+                    "longitude": 0.0622,
+                    "postcode": "RN71 6",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_4aeb021acbab639b42240d",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83e\udd6a",
+                "name": "BP",
+                "category": "fuel_station"
+            }
+        },
+        {
+            "transaction_id": "txn295",
+            "date": "2026-06-11",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn296",
+            "date": "2026-06-15",
+            "amount": -173.83,
+            "description": "Food & Drink",
+            "category": "Food & Drink",
+            "merchant": {
+                "address": {
+                    "address": "70 Elm Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.519,
+                    "longitude": 0.0651,
+                    "postcode": "PA06 0",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_2fa7f9b3a7f6f00c671d09",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83d\udc57",
+                "name": "Cinema",
+                "category": "coffee_shop"
+            }
+        },
+        {
+            "transaction_id": "txn297",
+            "date": "2026-06-16",
+            "amount": 2500,
+            "description": "Salary Deposit",
+            "category": "Income",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn298",
+            "date": "2026-06-18",
+            "amount": -100.0,
+            "description": "Transportation",
+            "category": "Transportation",
+            "merchant": {
+                "address": {
+                    "address": "83 Park Avenue",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4832,
+                    "longitude": -0.1633,
+                    "postcode": "OR34 4",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_c021598e0d4a5da7555f0f",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udfea",
+                "name": "Starbucks",
+                "category": "fashion_store"
+            }
+        },
+        {
+            "transaction_id": "txn299",
+            "date": "2026-06-23",
+            "amount": 550,
+            "description": "Bills & Utilities",
+            "category": "Bills & Utilities",
+            "merchant": null
+        },
+        {
+            "transaction_id": "txn300",
+            "date": "2026-06-26",
+            "amount": -10.31,
+            "description": "Dining Out",
+            "category": "Dining Out",
+            "merchant": {
+                "address": {
+                    "address": "88 High Street",
+                    "city": "London",
+                    "country": "GB",
+                    "latitude": 51.4918,
+                    "longitude": -0.1689,
+                    "postcode": "KL43 8",
+                    "region": "Greater London"
+                },
+                "created": "2010-01-01T00:00:00Z",
+                "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+                "id": "merch_730e6847ec8db50d087d6d",
+                "logo": "https://example.com/merchant_logo.jpg",
+                "emoji": "\ud83c\udfa5",
+                "name": "BP",
+                "category": "entertainment"
+            }
+        }
+    ]
+}

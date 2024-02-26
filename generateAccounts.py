@@ -17,8 +17,11 @@ def generate_transactions():
         amount = round(random.uniform(-300, 300), 2)
         if amount < 0:
             description = random.choice(["Groceries", "Transportation", "Shopping", "Food & Drink", "Dining Out", "Bills & Utilities", "Entertainment"])
+            if description == "Bills & Utilities":
+                amount = 550
             category = description
         else:
+            amount = 2500
             description = "Salary Deposit"
             category = "Income"
         merchant = {
@@ -63,7 +66,7 @@ data = {
 }
 
 # Save to JSON file
-with open('current_account_transactions.json', 'w') as file:
+with open('SimulatedFinanceData/current_account_transactions.json', 'w') as file:
     json.dump(data, file, indent=4)
 
 print("JSON file generated successfully.")
