@@ -127,6 +127,13 @@ class Account:
         self.currency = currency
         self.account_holder = account_holder
         self.transactions = transactions
+        self.account_total_in = 0
+        self.account_total_out = 0 
+        for transaction in self.transactions:
+            if transaction.amount > 0 :
+                self.account_total_in += transaction.amount
+            else:
+                self.account_total_out += transaction.amount
 
     def to_dict(self):
         account_dict = {
@@ -135,7 +142,9 @@ class Account:
             "balance": self.balance,
             "currency": self.currency,
             "account_holder": self.account_holder,
-            "transactions": [txn.to_dict() for txn in self.transactions]
+            "transactions": [txn.to_dict() for txn in self.transactions],
+            "total_in": self.credit_total_in,
+            "total_out": self.credit_total_out
         }
         return account_dict
 
@@ -147,6 +156,15 @@ class CreditCard:
         self.credit_limit = credit_limit
         self.currency = currency
         self.transactions = transactions
+        self.credit_total_in = 0
+        self.credit_total_out = 0 
+        for transaction in self.transactions:
+            if transaction.amount > 0 :
+                self.credit_total_in += transaction.amount
+            else:
+                self.credit_total_out += transaction.amount
+        
+    
 
     def to_dict(self):
         credit_card_dict = {
@@ -155,7 +173,9 @@ class CreditCard:
             "card_holder": self.card_holder,
             "credit_limit": self.credit_limit,
             "currency": self.currency,
-            "transactions": [txn.to_dict() for txn in self.transactions]
+            "transactions": [txn.to_dict() for txn in self.transactions],
+            "total_in": self.credit_total_in,
+            "total_out": self.credit_total_out
         }
         return credit_card_dict
 
@@ -516,7 +536,9 @@ def transactions():
         balance=account_info['balance'],
         currency=account_info['currency'],
         account_holder=account_info['account_holder'],
-        transactions=[Transaction(**txn_data) for txn_data in account_transactions_data]
+        transactions=[Transaction(**txn_data) for txn_data in account_transactions_data],
+        total_in = account_info['total_in'],
+        total_out = account_info['total_out']
     )
 
     # Instantiate Credit Card object
@@ -526,7 +548,9 @@ def transactions():
         card_holder=credit_card_info['card_holder'],
         credit_limit=credit_card_info['credit_limit'],
         currency=credit_card_info['currency'],
-        transactions=[Transaction(**txn_data) for txn_data in credit_card_transactions_data]
+        transactions=[Transaction(**txn_data) for txn_data in credit_card_transactions_data],
+        total_in = credit_card_info['total_in'],
+        total_out = credit_card_info['total_out']
     )
 
     # Convert account and credit card objects to dictionaries
