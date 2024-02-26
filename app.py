@@ -138,6 +138,26 @@ class Account:
         }
         return account_dict
 
+class CreditCard:
+    def __init__(self, card_number, expiry_date, card_holder, credit_limit, currency, transactions):
+        self.card_number = card_number
+        self.expiry_date = expiry_date
+        self.card_holder = card_holder
+        self.credit_limit = credit_limit
+        self.currency = currency
+        self.transactions = transactions
+
+    def to_dict(self):
+        credit_card_dict = {
+            "card_number": self.card_number,
+            "expiry_date": self.expiry_date,
+            "card_holder": self.card_holder,
+            "credit_limit": self.credit_limit,
+            "currency": self.currency,
+            "transactions": [txn.to_dict() for txn in self.transactions]
+        }
+        return credit_card_dict
+
 
 
 def clearAttribute():
@@ -458,13 +478,20 @@ def upload():
 @app.route('/transactions')
 @login_required
 def transactions():
-    # Read data from JSON file
-    with open('Wealth_Managment_Tool/simulatedData.json', 'r') as f:
+    # Read data from JSON files for both account and credit card
+    with open('currentAccountSimulatedData.json', 'r') as f:
         account_data = json.load(f)
+
+    with open('creditSimulatedData.json', 'r') as f:
+        credit_card_data = json.load(f)
 
     # Extract account information
     account_info = account_data['account']
-    transactions_data = account_data['transactions']
+    account_transactions_data = account_data['transactions']
+
+    # Extract credit card information
+    credit_card_info = credit_card_data['credit_card']
+    credit_card_transactions_data = credit_card_data['transactions']
 
     # Instantiate Account object
     account = Account(
@@ -473,15 +500,25 @@ def transactions():
         balance=account_info['balance'],
         currency=account_info['currency'],
         account_holder=account_info['account_holder'],
-        transactions=[Transaction(**txn_data) for txn_data in transactions_data]
+        transactions=[Transaction(**txn_data) for txn_data in account_transactions_data]
     )
 
-    # Convert account object to dictionary
-    account_dict = account.to_dict()
+    # Instantiate Credit Card object
+    credit_card = CreditCard(
+        card_number=credit_card_info['card_number'],
+        expiry_date=credit_card_info['expiry_date'],
+        card_holder=credit_card_info['card_holder'],
+        credit_limit=credit_card_info['credit_limit'],
+        currency=credit_card_info['currency'],
+        transactions=[Transaction(**txn_data) for txn_data in credit_card_transactions_data]
+    )
 
-    # Render JSON response
-    #return jsonify(account=account_dict)
-    return render_template('pages/transactions.html', account=account)
+    # Convert account and credit card objects to dictionaries
+    account_dict = account.to_dict()
+    credit_card_dict = credit_card.to_dict()
+
+    # Render HTML template with both account and credit card information
+    return render_template('pages/transactions.html', account=account_dict, credit_card=credit_card_dict)
 
 @app.route('/delete_files', methods=['GET', 'POST'])
 @login_required

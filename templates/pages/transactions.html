@@ -9,35 +9,71 @@
 
 <body>
     <div id="header"></div>
-        <script src="{{url_for('static', filename='js/header.js')}}"></script>
+    <script src="{{url_for('static', filename='js/header.js')}}"></script>
     <script>
         const name = "{{ name }}";
         generateHeader(name);
     </script>
 
     <div id="navbar"></div>
-        <script src="{{url_for('static', filename='js/navbar.js')}}"></script>
+    <script src="{{url_for('static', filename='js/navbar.js')}}"></script>
     <div class="container mx-auto">
 
         <div class="card mb-4 mt-4">
             <div class="card-header text-center">
-                <h1>Account Information</h1>
+                <h1>Current Account Information</h1>
             </div>
             <div class="card-body">
-                <p class="card-text"><strong>Account Number:</strong> {{ account.account_number }}</p>
-                <p class="card-text"><strong>Sort Code:</strong> {{ account.sort_code }}</p>
-                <p class="card-text"><strong>Balance:</strong> {{ account.balance }} {{ account.currency }}</p>
-                <p class="card-text"><strong>Account Holder:</strong> {{ account.account_holder }}</p>
+                <p class="card-text"><strong>Account Number:</strong> {{ current_account.account_number }}</p>
+                <p class="card-text"><strong>Sort Code:</strong> {{ current_account.sort_code }}</p>
+                <p class="card-text"><strong>Balance:</strong> {{ current_account.balance }} {{ current_account.currency }}</p>
+                <p class="card-text"><strong>Account Holder:</strong> {{ current_account.account_holder }}</p>
             </div>
         </div>
 
         <div class="card">
-            <div class="card-header">
-                <h2>Transactions</h2>
+            <div class="card-header  text-center">
+                <h2>Current Account Transactions</h2>
             </div>
             <div class="card-body">
                 <ul class="list-group">
-                    {% for transaction in account.transactions %}
+                    {% for transaction in current_account.transactions %}
+                        <li class="list-group-item">
+                            <p class="card-text"><strong>Transaction ID:</strong> {{ transaction.transaction_id }}</p>
+                            <p class="card-text"><strong>Date:</strong> {{ transaction.date }}</p>
+                            <p class="card-text"><strong>Amount:</strong> {{ transaction.amount }}</p>
+                            <p class="card-text"><strong>Description:</strong> {{ transaction.description }}</p>
+                            <p class="card-text"><strong>Category:</strong> {{ transaction.category }}</p>
+                            {% if transaction.merchant %}
+                                <p class="card-text"><strong>Merchant:</strong> {{ transaction.merchant.name }}</p>
+                                <p class="card-text"><strong>Merchant Category:</strong> {{ transaction.merchant.category }}</p>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mb-4 mt-4">
+            <div class="card-header text-center">
+                <h1>Credit Card Information</h1>
+            </div>
+            <div class="card-body">
+                <p class="card-text"><strong>Card Number:</strong> {{ credit_card.card_number }}</p>
+                <p class="card-text"><strong>Expiry Date:</strong> {{ credit_card.expiry_date }}</p>
+                <p class="card-text"><strong>Card Holder:</strong> {{ credit_card.card_holder }}</p>
+                <p class="card-text"><strong>Credit Limit:</strong> {{ credit_card.credit_limit }}</p>
+                <p class="card-text"><strong>Currency:</strong> {{ credit_card.currency }}</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header  text-center">
+                <h2>Credit Card Transactions</h2>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    {% for transaction in credit_card.transactions %}
                         <li class="list-group-item">
                             <p class="card-text"><strong>Transaction ID:</strong> {{ transaction.transaction_id }}</p>
                             <p class="card-text"><strong>Date:</strong> {{ transaction.date }}</p>

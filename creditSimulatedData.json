@@ -1,0 +1,112 @@
+{
+    "credit_card": {
+      "card_number": "1234 5678 9012 3456",
+      "expiry_date": "2026-12",
+      "card_holder": "John Doe",
+      "credit_limit": 5000.00,
+      "currency": "GBP"
+    },
+    "transactions": [
+      {
+        "transaction_id": "txn001",
+        "date": "2026-02-23",
+        "amount": -150.25,
+        "description": "Amazon Online Purchase",
+        "category": "Shopping",
+        "merchant": {
+          "address": {
+            "address": "London, UK",
+            "city": "London",
+            "country": "GB",
+            "latitude": 51.5074,
+            "longitude": -0.1278,
+            "postcode": "SW1A 1AA",
+            "region": "Greater London"
+          },
+          "created": "1994-07-05T13:00:00Z",
+          "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+          "id": "merch_00008zIcpbAKe8shBxXUtn",
+          "logo": "https://example.com/amazon_logo.jpg",
+          "emoji": "📦",
+          "name": "Amazon",
+          "category": "online_retail"
+        }
+      },
+      {
+        "transaction_id": "txn002",
+        "date": "2026-02-22",
+        "amount": -50.00,
+        "description": "Netflix Subscription",
+        "category": "Subscriptions",
+        "merchant": {
+          "address": {
+            "address": "London, UK",
+            "city": "London",
+            "country": "GB",
+            "latitude": 51.5074,
+            "longitude": -0.1278,
+            "postcode": "SW1A 1AA",
+            "region": "Greater London"
+          },
+          "created": "1997-08-29T12:00:00Z",
+          "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+          "id": "merch_00008zIcpbAKe8shBxXUtm",
+          "logo": "https://example.com/netflix_logo.jpg",
+          "emoji": "📺",
+          "name": "Netflix",
+          "category": "streaming_service"
+        }
+      },
+      {
+        "transaction_id": "txn003",
+        "date": "2026-02-21",
+        "amount": -30.00,
+        "description": "Dining at Nando's",
+        "category": "Dining Out",
+        "merchant": {
+          "address": {
+            "address": "London, UK",
+            "city": "London",
+            "country": "GB",
+            "latitude": 51.5074,
+            "longitude": -0.1278,
+            "postcode": "SW1A 1AA",
+            "region": "Greater London"
+          },
+          "created": "2007-09-12T18:00:00Z",
+          "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+          "id": "merch_00008zIcpbAKe8shBxXUtq",
+          "logo": "https://example.com/nandos_logo.jpg",
+          "emoji": "🍗",
+          "name": "Nando's",
+          "category": "restaurant"
+        }
+      },
+      {
+        "transaction_id": "txn004",
+        "date": "2026-02-20",
+        "amount": -25.00,
+        "description": "Coffee at Starbucks",
+        "category": "Dining Out",
+        "merchant": {
+          "address": {
+            "address": "London, UK",
+            "city": "London",
+            "country": "GB",
+            "latitude": 51.5074,
+            "longitude": -0.1278,
+            "postcode": "SW1A 1AA",
+            "region": "Greater London"
+          },
+          "created": "1971-03-30T07:00:00Z",
+          "group_id": "grp_00008zIcpbBOaAr7TTP3sv",
+          "id": "merch_00008zIcpbAKe8shBxXUtr",
+          "logo": "https://example.com/starbucks_logo.jpg",
+          "emoji": "☕",
+          "name": "Starbucks",
+          "category": "cafe"
+        }
+      }
+    ]
+  }
+  
