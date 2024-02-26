@@ -157,34 +157,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        $(document).ready(function() {
-        // Function to load more transactions
-        function loadMoreTransactions() {
-            var currentCount = $('#current-account-transactions').children().length;
-            var remainingTransactions = {{ current_account.transactions|length }} - currentCount;
-            var transactionsToAdd = Math.min(remainingTransactions, 10); // Load up to 10 transactions
-            var transactionsHtml = '';
-            // Generate HTML for additional transactions
-            {% for transaction in current_account.transactions[10:] %}
-                {% if loop.index <= 10 %}
-                    transactionsHtml += '<li class="list-group-item">';
-                    // Transaction details here
-                    transactionsHtml += '</li>';
-                {% endif %}
-            {% endfor %}
-            $('#current-account-transactions').append(transactionsHtml);
-            // Hide the "click for more" button if no more transactions to load
-            if (remainingTransactions <= 10) {
-                $('#load-more-transactions').hide();
-            }
+        $(document).ready(function(){
+    // Initially hide all transactions beyond the first ten
+    $(".transaction-item:gt(9)").hide();
+
+    // Handle click event on "click for more" button
+    $("#showMoreBtn").click(function(){
+        // Show the next ten transactions
+        $(".transaction-item:hidden:lt(10)").slideDown();
+        
+        // Hide the "click for more" button if there are no more hidden transactions
+        if ($(".transaction-item:hidden").length === 0) {
+            $("#showMoreBtn").hide();
         }
-
-        // Event listener for "click for more" button
-        $('#load-more-transactions').click(function() {
-            loadMoreTransactions();
-        });
     });
-
+});
     </script>
 </body>
 </html>
