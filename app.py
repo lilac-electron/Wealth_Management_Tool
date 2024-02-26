@@ -168,7 +168,7 @@ class CreditCard:
                 self.credit_total_in += transaction.amount
             else:
                 self.credit_total_out += transaction.amount
-                self.merchant_count[transaction.merchant] = self.merchant_count.get(transaction.merchant, 0)+1
+                self.merchant_count[transaction.merchant['category']] = self.merchant_count.get(transaction.merchant['category'], 0)+1
         self.top_merchant = max(self.merchant_count, key=self.merchant_count.get)
     
 
