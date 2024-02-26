@@ -1,5 +1,10 @@
 function generateNavbar() {
     const navbar = `
+    <style>
+        .nav-link:hover {
+            border-radius: 10px;
+        }
+    </style>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
 
