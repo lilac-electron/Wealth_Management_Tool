@@ -25,41 +25,43 @@
                 <h1>Your Accounts</h1>
             </div>
             <div class="card-body">
-                <!-- Current Account -->
-                <div class="card mb-3">
-                    <div class="card-header" id="current-account-header">
-                        <h5 class="mb-0">
-                            <button class="btn btn-link" data-toggle="collapse" data-target="#current-account-collapse" aria-expanded="true" aria-controls="current-account-collapse">
-                                Current Account
-                            </button>
-                        </h5>
-                    </div>
-                    <div id="current-account-collapse" class="collapse show" aria-labelledby="current-account-header" data-parent="#account-accordion">
-                        <div class="card-body">
-                            <p class="card-text"><strong>Account Number:</strong> {{ current_account.account_number }}</p>
-                            <p class="card-text"><strong>Sort Code:</strong> {{ current_account.sort_code }}</p>
-                            <p class="card-text"><strong>Balance:</strong> {{ current_account.balance }} {{ current_account.currency }}</p>
-                            <p class="card-text"><strong>Account Holder:</strong> {{ current_account.account_holder }}</p>
+                <div id="account-accordion">
+                    <!-- Current Account -->
+                    <div class="card mb-3">
+                        <div class="card-header" id="current-account-header">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#current-account-collapse" aria-expanded="true" aria-controls="current-account-collapse">
+                                    Current Account
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="current-account-collapse" class="collapse show" aria-labelledby="current-account-header" data-parent="#account-accordion">
+                            <div class="card-body">
+                                <p class="card-text"><strong>Account Number:</strong> {{ current_account.account_number }}</p>
+                                <p class="card-text"><strong>Sort Code:</strong> {{ current_account.sort_code }}</p>
+                                <p class="card-text"><strong>Balance:</strong> {{ current_account.balance }} {{ current_account.currency }}</p>
+                                <p class="card-text"><strong>Account Holder:</strong> {{ current_account.account_holder }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Credit Card -->
-                <div class="card mb-3">
-                    <div class="card-header" id="credit-card-header">
-                        <h5 class="mb-0">
-                            <button class="btn btn-link" data-toggle="collapse" data-target="#credit-card-collapse" aria-expanded="true" aria-controls="credit-card-collapse">
-                                Credit Card
-                            </button>
-                        </h5>
-                    </div>
-                    <div id="credit-card-collapse" class="collapse" aria-labelledby="credit-card-header" data-parent="#account-accordion">
-                        <div class="card-body">
-                            <p class="card-text"><strong>Card Number:</strong> {{ credit_card.card_number }}</p>
-                            <p class="card-text"><strong>Expiry Date:</strong> {{ credit_card.expiry_date }}</p>
-                            <p class="card-text"><strong>Card Holder:</strong> {{ credit_card.card_holder }}</p>
-                            <p class="card-text"><strong>Credit Limit:</strong> {{ credit_card.credit_limit }}</p>
-                            <p class="card-text"><strong>Currency:</strong> {{ credit_card.currency }}</p>
+                    
+                    <!-- Credit Card -->
+                    <div class="card mb-3">
+                        <div class="card-header" id="credit-card-header">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#credit-card-collapse" aria-expanded="true" aria-controls="credit-card-collapse">
+                                    Credit Card
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="credit-card-collapse" class="collapse" aria-labelledby="credit-card-header" data-parent="#account-accordion">
+                            <div class="card-body">
+                                <p class="card-text"><strong>Card Number:</strong> {{ credit_card.card_number }}</p>
+                                <p class="card-text"><strong>Expiry Date:</strong> {{ credit_card.expiry_date }}</p>
+                                <p class="card-text"><strong>Card Holder:</strong> {{ credit_card.card_holder }}</p>
+                                <p class="card-text"><strong>Credit Limit:</strong> {{ credit_card.credit_limit }}</p>
+                                <p class="card-text"><strong>Currency:</strong> {{ credit_card.currency }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
