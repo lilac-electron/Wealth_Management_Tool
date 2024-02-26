@@ -495,10 +495,10 @@ def upload():
 @login_required
 def transactions():
     # Read data from JSON files for both account and credit card
-    with open('Wealth_Managment_Tool/current_account_transactions.json', 'r') as f:
+    with open('Wealth_Managment_Tool/SimualtedFinanceData/current_account_transactions.json', 'r') as f:
         account_data = json.load(f)
 
-    with open('Wealth_Managment_Tool/creditSimulatedData.json', 'r') as f:
+    with open('Wealth_Managment_Tool/SimualtedFinanceData/creditSimulatedData.json', 'r') as f:
         credit_card_data = json.load(f)
 
     # Extract account information
