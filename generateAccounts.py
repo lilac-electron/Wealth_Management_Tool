@@ -31,6 +31,7 @@ def generate_transactions():
             amount = -10
             description = "Dining out"
             category = description
+            timeSinceBills += 1
         merchant = {
             "address": {
                 "address": str(random.randint(1, 100)) + " " + random.choice(["High Street", "Main Street", "Elm Street", "Park Avenue", "Station Road"]),
