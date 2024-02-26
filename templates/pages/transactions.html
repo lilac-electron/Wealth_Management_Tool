@@ -163,7 +163,7 @@
 
         // Function to load more transactions
         function loadMoreTransactions() {
-            var transactions = {{ current_account.transactions }};
+            var transactions = {{ current_account.transactions|tojson }};
             var remainingTransactions = transactions.length - lastIndexLoaded;
             var transactionsToAdd = Math.min(remainingTransactions, 10); // Load up to 10 transactions
             var transactionsHtml = '';
@@ -200,6 +200,7 @@
             loadMoreTransactions();
         });
     });
+
     </script>
 </body>
 </html>
