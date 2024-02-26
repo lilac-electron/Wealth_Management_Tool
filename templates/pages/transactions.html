@@ -86,8 +86,9 @@
                         </div>
                         <div id="current-account-transaction-collapse" class="collapse show" aria-labelledby="current-account-transaction-header" data-parent="#transaction-accordion">
                             <div class="card-body">
-                                <ul class="list-group">
-                                    {% for transaction in current_account.transactions %}
+                                <ul class="list-group" id="current-account-transactions">
+                                    <!-- Render the first ten transactions initially -->
+                                    {% for transaction in current_account.transactions[:10] %}
                                         <li class="list-group-item">
                                             <p class="card-text"><strong>Transaction ID:</strong> {{ transaction.transaction_id }}</p>
                                             <p class="card-text"><strong>Date:</strong> {{ transaction.date }}</p>
@@ -101,9 +102,12 @@
                                         </li>
                                     {% endfor %}
                                 </ul>
+                                <!-- "Click for more" button -->
+                                <button class="btn btn-primary mt-3" id="load-more-transactions">Click for more</button>
                             </div>
                         </div>
                     </div>
+                    
                     
                     <!-- Credit Card Transactions -->
                     <div class="card mb-3">
@@ -152,5 +156,35 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+        // Function to load more transactions
+        function loadMoreTransactions() {
+            var currentCount = $('#current-account-transactions').children().length;
+            var remainingTransactions = {{ current_account.transactions|length }} - currentCount;
+            var transactionsToAdd = Math.min(remainingTransactions, 10); // Load up to 10 transactions
+            var transactionsHtml = '';
+            // Generate HTML for additional transactions
+            {% for transaction in current_account.transactions[10:] %}
+                {% if loop.index <= 10 %}
+                    transactionsHtml += '<li class="list-group-item">';
+                    // Transaction details here
+                    transactionsHtml += '</li>';
+                {% endif %}
+            {% endfor %}
+            $('#current-account-transactions').append(transactionsHtml);
+            // Hide the "click for more" button if no more transactions to load
+            if (remainingTransactions <= 10) {
+                $('#load-more-transactions').hide();
+            }
+        }
+
+        // Event listener for "click for more" button
+        $('#load-more-transactions').click(function() {
+            loadMoreTransactions();
+        });
+    });
+
+    </script>
 </body>
 </html>
