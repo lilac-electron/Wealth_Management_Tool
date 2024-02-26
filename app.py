@@ -135,10 +135,10 @@ class Account:
                 self.account_total_in += transaction.amount
             else:
                 self.account_total_out += transaction.amount
-                if self.merchant_count[transaction.merchant]:
-                    self.merchant_count[transaction.merchant] += 1
+                if self.merchant_count[transaction.merchant['category']]:
+                    self.merchant_count[transaction.merchant['category']] += 1
                 else:
-                    self.merchant_count[transaction.merchant] = 1
+                    self.merchant_count[transaction.merchant['category']] = 1
                 #self.merchant_count[transaction.merchant] = self.merchant_count.get(transaction.merchant, 0)+1
         self.top_merchant = max(self.merchant_count, key=self.merchant_count.get)
 
