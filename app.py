@@ -280,8 +280,13 @@ def dashboard():
         assetStart=totalAssets
         #ticker = 'AAPL'  # Example ticker
         ticker = '^SP500TR'
-        start_date = datetime.date(2000, 1, 1).strftime("%Y-%m-%d")
-        end_date = datetime.date(2023, 1, 1).strftime("%Y-%m-%d")
+        # Create datetime objects for start and end dates
+        start_date = datetime.datetime(2000, 1, 1)
+        end_date = datetime.datetime(2023, 1, 1)
+
+        # Format datetime objects as strings and assign to original variable names
+        start_date = start_date.strftime("%Y-%m-%d")
+        end_date = end_date.strftime("%Y-%m-%d")
 
         stock_data_html, stock_data = fetch_stock_data(ticker, start_date, end_date)
         var1=stock_data.resample('M').last().pct_change().mean().values[0]
