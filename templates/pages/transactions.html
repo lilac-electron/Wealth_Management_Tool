@@ -157,8 +157,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        var transactionsToAdd = {{ transactions_to_add }};
-
         $(document).ready(function() {
             // Function to load more transactions
             function loadMoreTransactions() {
@@ -166,27 +164,34 @@
                 var remainingTransactions = {{ current_account.transactions|length }} - currentCount;
                 var transactionsHtml = '';
 
-                // Generate HTML for additional transactions
+                // Iterate through transactions to add
                 {% for transaction in current_account.transactions[10:] %}
-                    {% if loop.index <= transactionsToAdd %}
-                        transactionsHtml += '<li class="list-group-item">';
-                        transactionsHtml += '<p class="card-text"><strong>Transaction ID:</strong> {{ transaction.transaction_id }}</p>';
-                        transactionsHtml += '<p class="card-text"><strong>Date:</strong> {{ transaction.date }}</p>';
-                        transactionsHtml += '<p class="card-text"><strong>Amount:</strong> {{ transaction.amount }}</p>';
-                        transactionsHtml += '<p class="card-text"><strong>Description:</strong> {{ transaction.description }}</p>';
-                        transactionsHtml += '<p class="card-text"><strong>Category:</strong> {{ transaction.category }}</p>';
-                        {% if transaction.merchant %}
-                            transactionsHtml += '<p class="card-text"><strong>Merchant:</strong> {{ transaction.merchant.name }}</p>';
-                            transactionsHtml += '<p class="card-text"><strong>Merchant Category:</strong> {{ transaction.merchant.category }}</p>';
-                        {% endif %}
-                        transactionsHtml += '</li>';
+                    // Break loop if reached the desired number of transactions to add
+                    if (remainingTransactions <= 0) {
+                        break;
+                    }
+
+                    // Generate HTML for transaction
+                    transactionsHtml += '<li class="list-group-item">';
+                    transactionsHtml += '<p class="card-text"><strong>Transaction ID:</strong> {{ transaction.transaction_id }}</p>';
+                    transactionsHtml += '<p class="card-text"><strong>Date:</strong> {{ transaction.date }}</p>';
+                    transactionsHtml += '<p class="card-text"><strong>Amount:</strong> {{ transaction.amount }}</p>';
+                    transactionsHtml += '<p class="card-text"><strong>Description:</strong> {{ transaction.description }}</p>';
+                    transactionsHtml += '<p class="card-text"><strong>Category:</strong> {{ transaction.category }}</p>';
+                    {% if transaction.merchant %}
+                        transactionsHtml += '<p class="card-text"><strong>Merchant:</strong> {{ transaction.merchant.name }}</p>';
+                        transactionsHtml += '<p class="card-text"><strong>Merchant Category:</strong> {{ transaction.merchant.category }}</p>';
                     {% endif %}
+                    transactionsHtml += '</li>';
+
+                    remainingTransactions--;
                 {% endfor %}
 
+                // Append generated HTML to the transactions container
                 $('#current-account-transactions').append(transactionsHtml);
 
                 // Hide the "click for more" button if no more transactions to load
-                if (remainingTransactions <= transactionsToAdd) {
+                if (remainingTransactions <= 0) {
                     $('#load-more-transactions').hide();
                 }
             }
