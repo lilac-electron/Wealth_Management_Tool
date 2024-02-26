@@ -479,7 +479,7 @@ def upload():
 @login_required
 def transactions():
     # Read data from JSON files for both account and credit card
-    with open('Wealth_Managment_Tool/currentAccountSimulatedData.json', 'r') as f:
+    with open('Wealth_Managment_Tool/current_account_transactions.json', 'r') as f:
         account_data = json.load(f)
 
     with open('Wealth_Managment_Tool/creditSimulatedData.json', 'r') as f:
@@ -556,6 +556,15 @@ def logout():
     return redirect(url_for('index'))
 
 
+import json
+import random
+from datetime import datetime, timedelta
+
+# Function to generate random UK postal codes
+def generate_postcode():
+    letters = [chr(random.randint(65, 90)) for _ in range(2)]
+    numbers = [str(random.randint(0, 9)) for _ in range(2)]
+    return ''.join(letters) + ''.join(numbers) + ' ' + ''.join([str(random.randint(0, 9)) for _ in range(1)])
 
 
 
