@@ -143,8 +143,8 @@ class Account:
             "currency": self.currency,
             "account_holder": self.account_holder,
             "transactions": [txn.to_dict() for txn in self.transactions],
-            "total_in": self.credit_total_in,
-            "total_out": self.credit_total_out
+            "total_in": self.account_total_in,
+            "total_out": self.account_total_out
         }
         return account_dict
 
