@@ -129,11 +129,14 @@ class Account:
         self.transactions = transactions
         self.account_total_in = 0
         self.account_total_out = 0 
+        self.merchant_count = {}
         for transaction in self.transactions:
             if transaction.amount > 0 :
                 self.account_total_in += transaction.amount
             else:
                 self.account_total_out += transaction.amount
+                self.merchant_count[transaction.merchant] = self.merchant_count.get(transaction.merchant, 0)+1
+        self.top_merchant = max(self.merchant_count, key=self.merchant_count.get)
 
     def to_dict(self):
         account_dict = {
@@ -144,7 +147,8 @@ class Account:
             "account_holder": self.account_holder,
             "transactions": [txn.to_dict() for txn in self.transactions],
             "total_in": self.account_total_in,
-            "total_out": self.account_total_out
+            "total_out": self.account_total_out,
+            "merchant": self.top_merchant
         }
         return account_dict
 
@@ -158,12 +162,14 @@ class CreditCard:
         self.transactions = transactions
         self.credit_total_in = 0
         self.credit_total_out = 0 
+        self.merchant_count = {}
         for transaction in self.transactions:
             if transaction.amount > 0 :
                 self.credit_total_in += transaction.amount
             else:
                 self.credit_total_out += transaction.amount
-        
+                self.merchant_count[transaction.merchant] = self.merchant_count.get(transaction.merchant, 0)+1
+        self.top_merchant = max(self.merchant_count, key=self.merchant_count.get)
     
 
     def to_dict(self):
@@ -175,7 +181,8 @@ class CreditCard:
             "currency": self.currency,
             "transactions": [txn.to_dict() for txn in self.transactions],
             "total_in": self.credit_total_in,
-            "total_out": self.credit_total_out
+            "total_out": self.credit_total_out,
+            "merchant": self.top_merchant
         }
         return credit_card_dict
 
