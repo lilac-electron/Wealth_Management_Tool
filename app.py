@@ -137,6 +137,8 @@ class Account:
                 self.account_total_out += transaction.amount
                 self.merchant_count[transaction.merchant['category']] = self.merchant_count.get(transaction.merchant['category'], 0)+1
         self.top_merchant = max(self.merchant_count, key=self.merchant_count.get)
+        self.account_total_in = round(float(self.credit_account_in), 2)
+        self.account_total_out = round(float(self.credit_account_out), 2)
 
     def to_dict(self):
         account_dict = {
@@ -170,6 +172,8 @@ class CreditCard:
                 self.credit_total_out += transaction.amount
                 self.merchant_count[transaction.merchant['category']] = self.merchant_count.get(transaction.merchant['category'], 0)+1
         self.top_merchant = max(self.merchant_count, key=self.merchant_count.get)
+        self.credit_total_in = round(float(self.credit_total_in), 2)
+        self.credit_total_out = round(float(self.credit_total_out), 2)
     
 
     def to_dict(self):
