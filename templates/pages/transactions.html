@@ -68,6 +68,76 @@
             </div>
         </div>
 
+        <!-- Transactions -->
+        <div class="card mb-4 mt-4">
+            <div class="card-header text-center">
+                <h1>Transactions</h1>
+            </div>
+            <div class="card-body">
+                <div id="transaction-accordion">
+                    <!-- Current Account Transactions -->
+                    <div class="card mb-3">
+                        <div class="card-header" id="current-account-transaction-header">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#current-account-transaction-collapse" aria-expanded="true" aria-controls="current-account-transaction-collapse">
+                                    Current Account Transactions
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="current-account-transaction-collapse" class="collapse show" aria-labelledby="current-account-transaction-header" data-parent="#transaction-accordion">
+                            <div class="card-body">
+                                <ul class="list-group">
+                                    {% for transaction in current_account.transactions %}
+                                        <li class="list-group-item">
+                                            <p class="card-text"><strong>Transaction ID:</strong> {{ transaction.transaction_id }}</p>
+                                            <p class="card-text"><strong>Date:</strong> {{ transaction.date }}</p>
+                                            <p class="card-text"><strong>Amount:</strong> {{ transaction.amount }}</p>
+                                            <p class="card-text"><strong>Description:</strong> {{ transaction.description }}</p>
+                                            <p class="card-text"><strong>Category:</strong> {{ transaction.category }}</p>
+                                            {% if transaction.merchant %}
+                                                <p class="card-text"><strong>Merchant:</strong> {{ transaction.merchant.name }}</p>
+                                                <p class="card-text"><strong>Merchant Category:</strong> {{ transaction.merchant.category }}</p>
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Credit Card Transactions -->
+                    <div class="card mb-3">
+                        <div class="card-header" id="credit-card-transaction-header">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#credit-card-transaction-collapse" aria-expanded="true" aria-controls="credit-card-transaction-collapse">
+                                    Credit Card Transactions
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="credit-card-transaction-collapse" class="collapse" aria-labelledby="credit-card-transaction-header" data-parent="#transaction-accordion">
+                            <div class="card-body">
+                                <ul class="list-group">
+                                    {% for transaction in credit_card.transactions %}
+                                        <li class="list-group-item">
+                                            <p class="card-text"><strong>Transaction ID:</strong> {{ transaction.transaction_id }}</p>
+                                            <p class="card-text"><strong>Date:</strong> {{ transaction.date }}</p>
+                                            <p class="card-text"><strong>Amount:</strong> {{ transaction.amount }}</p>
+                                            <p class="card-text"><strong>Description:</strong> {{ transaction.description }}</p>
+                                            <p class="card-text"><strong>Category:</strong> {{ transaction.category }}</p>
+                                            {% if transaction.merchant %}
+                                                <p class="card-text"><strong>Merchant:</strong> {{ transaction.merchant.name }}</p>
+                                                <p class="card-text"><strong>Merchant Category:</strong> {{ transaction.merchant.category }}</p>
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Analysis -->
         <div class="card mb-4 mt-4">
             <div class="card-header text-center">
