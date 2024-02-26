@@ -158,29 +158,37 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
+        // Keep track of the index of the last loaded transaction
+        var lastIndexLoaded = 0;
+
         // Function to load more transactions
         function loadMoreTransactions() {
-            var currentCount = $('#current-account-transactions').children().length;
-            var remainingTransactions = {{ current_account.transactions|length }} - currentCount;
+            var transactions = {{ current_account.transactions }};
+            var remainingTransactions = transactions.length - lastIndexLoaded;
             var transactionsToAdd = Math.min(remainingTransactions, 10); // Load up to 10 transactions
             var transactionsHtml = '';
+
             // Generate HTML for additional transactions
-            {% for transaction in current_account.transactions[10:] %}
-                {% if loop.index <= 10 %}
-                    transactionsHtml += '<li class="list-group-item">';
-                    transactionsHtml += '<p class="card-text"><strong>Transaction ID:</strong> {{ transaction.transaction_id }}</p>';
-                    transactionsHtml += '<p class="card-text"><strong>Date:</strong> {{ transaction.date }}</p>';
-                    transactionsHtml += '<p class="card-text"><strong>Amount:</strong> {{ transaction.amount }}</p>';
-                    transactionsHtml += '<p class="card-text"><strong>Description:</strong> {{ transaction.description }}</p>';
-                    transactionsHtml += '<p class="card-text"><strong>Category:</strong> {{ transaction.category }}</p>';
-                    {% if transaction.merchant %}
-                        transactionsHtml += '<p class="card-text"><strong>Merchant:</strong> {{ transaction.merchant.name }}</p>';
-                        transactionsHtml += '<p class="card-text"><strong>Merchant Category:</strong> {{ transaction.merchant.category }}</p>';
-                    {% endif %}
-                    transactionsHtml += '</li>';
-                {% endif %}
-            {% endfor %}
+            for (var i = lastIndexLoaded; i < lastIndexLoaded + transactionsToAdd; i++) {
+                var transaction = transactions[i];
+                transactionsHtml += '<li class="list-group-item">';
+                transactionsHtml += '<p class="card-text"><strong>Transaction ID:</strong> ' + transaction.transaction_id + '</p>';
+                transactionsHtml += '<p class="card-text"><strong>Date:</strong> ' + transaction.date + '</p>';
+                transactionsHtml += '<p class="card-text"><strong>Amount:</strong> ' + transaction.amount + '</p>';
+                transactionsHtml += '<p class="card-text"><strong>Description:</strong> ' + transaction.description + '</p>';
+                transactionsHtml += '<p class="card-text"><strong>Category:</strong> ' + transaction.category + '</p>';
+                if (transaction.merchant) {
+                    transactionsHtml += '<p class="card-text"><strong>Merchant:</strong> ' + transaction.merchant.name + '</p>';
+                    transactionsHtml += '<p class="card-text"><strong>Merchant Category:</strong> ' + transaction.merchant.category + '</p>';
+                }
+                transactionsHtml += '</li>';
+            }
+
             $('#current-account-transactions').append(transactionsHtml);
+
+            // Update the index of the last loaded transaction
+            lastIndexLoaded += transactionsToAdd;
+
             // Hide the "click for more" button if no more transactions to load
             if (remainingTransactions <= 10) {
                 $('#load-more-transactions').hide();
@@ -192,9 +200,6 @@
             loadMoreTransactions();
         });
     });
-
-
-
     </script>
 </body>
 </html>
