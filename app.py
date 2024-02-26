@@ -537,8 +537,8 @@ def transactions():
         currency=account_info['currency'],
         account_holder=account_info['account_holder'],
         transactions=[Transaction(**txn_data) for txn_data in account_transactions_data],
-        total_in = account_info['total_in'],
-        total_out = account_info['total_out']
+        total_in = account_info['account_total_in'],
+        total_out = account_info['account_total_out']
     )
 
     # Instantiate Credit Card object
@@ -549,8 +549,8 @@ def transactions():
         credit_limit=credit_card_info['credit_limit'],
         currency=credit_card_info['currency'],
         transactions=[Transaction(**txn_data) for txn_data in credit_card_transactions_data],
-        total_in = credit_card_info['total_in'],
-        total_out = credit_card_info['total_out']
+        total_in = credit_card_info['credit_total_in'],
+        total_out = credit_card_info['credit_total_out']
     )
 
     # Convert account and credit card objects to dictionaries
