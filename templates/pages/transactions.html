@@ -158,20 +158,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
-            // Function to load more transactions
-            function loadMoreTransactions() {
-                var currentCount = $('#current-account-transactions').children().length;
-                var remainingTransactions = {{ current_account.transactions|length }} - currentCount;
-                var transactionsHtml = '';
-
-                // Iterate through transactions to add
-                {% for transaction in current_account.transactions[10:] %}
-                    // Break loop if reached the desired number of transactions to add
-                    if (remainingTransactions <= 0) {
-                        break;
-                    }
-
-                    // Generate HTML for transaction
+        // Function to load more transactions
+        function loadMoreTransactions() {
+            var currentCount = $('#current-account-transactions').children().length;
+            var remainingTransactions = {{ current_account.transactions|length }} - currentCount;
+            var transactionsToAdd = Math.min(remainingTransactions, 10); // Load up to 10 transactions
+            var transactionsHtml = '';
+            // Generate HTML for additional transactions
+            {% for transaction in current_account.transactions[10:] %}
+                {% if loop.index <= 10 %}
                     transactionsHtml += '<li class="list-group-item">';
                     transactionsHtml += '<p class="card-text"><strong>Transaction ID:</strong> {{ transaction.transaction_id }}</p>';
                     transactionsHtml += '<p class="card-text"><strong>Date:</strong> {{ transaction.date }}</p>';
@@ -183,24 +178,21 @@
                         transactionsHtml += '<p class="card-text"><strong>Merchant Category:</strong> {{ transaction.merchant.category }}</p>';
                     {% endif %}
                     transactionsHtml += '</li>';
-
-                    remainingTransactions--;
-                {% endfor %}
-
-                // Append generated HTML to the transactions container
-                $('#current-account-transactions').append(transactionsHtml);
-
-                // Hide the "click for more" button if no more transactions to load
-                if (remainingTransactions <= 0) {
-                    $('#load-more-transactions').hide();
-                }
+                {% endif %}
+            {% endfor %}
+            $('#current-account-transactions').append(transactionsHtml);
+            // Hide the "click for more" button if no more transactions to load
+            if (remainingTransactions <= 10) {
+                $('#load-more-transactions').hide();
             }
+        }
 
-            // Event listener for "click for more" button
-            $('#load-more-transactions').click(function() {
-                loadMoreTransactions();
-            });
+        // Event listener for "click for more" button
+        $('#load-more-transactions').click(function() {
+            loadMoreTransactions();
         });
+    });
+
     </script>
 </body>
 </html>
