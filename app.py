@@ -282,12 +282,22 @@ def dashboard():
         #ticker = 'AAPL'  # Example ticker
         ticker = '^SP500TR'
         # Create datetime objects for start and end dates
-        start_date = datetime.datetime(2000, 1, 1)
-        end_date = datetime.datetime(2023, 1, 1)
+        #start_date = datetime.datetime(2000, 1, 1)
 
+        #end_date = datetime.datetime(2023, 1, 1)
         # Format datetime objects as strings and assign to original variable names
+       # start_date = start_date.strftime("%Y-%m-%d")
+        #end_date = end_date.strftime("%Y-%m-%d")
+        from dateutil import parser
+
+        # Parse date strings into datetime objects
+        start_date = parser.parse("2000-01-01")
+        end_date = parser.parse("2023-01-01")
+
+        # Format datetime objects as strings
         start_date = start_date.strftime("%Y-%m-%d")
         end_date = end_date.strftime("%Y-%m-%d")
+
 
         stock_data_html, stock_data = fetch_stock_data(ticker, start_date, end_date)
         var1=stock_data.resample('M').last().pct_change().mean().values[0]
