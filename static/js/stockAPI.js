@@ -45,9 +45,21 @@
             // Handle errors
             console.error('Error fetching stock information:', error);
         });
+        var today = new Date();
+        var yesterday = new Date(today);
+        yesterday.setDate(today.getDate() - 30);
+        var year = yesterday.getFullYear();
+        var month = yesterday.getMonth() + 1;
+        var day = yesterday.getDate();
+        month = (month < 10 ? '0' : '') + month;
+        day = (day < 10 ? '0' : '') + day;
+        var formattedDate = year + '-' + month + '-' + day;
+
+        //const date = '2023-01-09';
+        const date2 = formattedDate
 
         const symbol2 = 'NSPI'
-        const apiUrl2 = `https://api.polygon.io/v1/open-close/${symbol2}/${date}?adjusted=true&apiKey=${apiKey}`;
+        const apiUrl2 = `https://api.polygon.io/v1/open-close/${symbol2}/${date2}?adjusted=true&apiKey=${apiKey}`;
         fetch(apiUrl2)
         .then(response => response.json())
         .then(data => {
