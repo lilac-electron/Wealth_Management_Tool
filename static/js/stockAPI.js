@@ -6,7 +6,7 @@
     // Format the date in 'YYYY-MM-DD' format
     var today = new Date();
     var yesterday = new Date(today);
-    yesterday.setDate(today.getDate() - 1);
+    yesterday.setDate(today.getDate() - 5);
     var year = yesterday.getFullYear();
     var month = yesterday.getMonth() + 1;
     var day = yesterday.getDate();
