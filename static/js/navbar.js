@@ -5,7 +5,7 @@ function generateNavbar() {
             border-radius: 10px;
         }
     </style>
-    <nav class="navbar navbar-expand-lg navbar-light bg-red">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
 
             <!-- Navbar Toggler Button for Small Screens -->
