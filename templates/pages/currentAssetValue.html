@@ -135,8 +135,7 @@
                 <div class="card">
                     <div class="card-body text-center">
                         <h3>Your asset values:</h3>
-                        <p>These are the asset values that you have previously entered into the database.
-                        </p>
+                        <p>These are the asset values that you have previously entered into the database.</p>
                         {% for key, value in assets_data.items() %}
                         <div class="mb-3">
                             <tr>
@@ -145,7 +144,9 @@
                             </tr>
                         </div>
                         {% endfor %}
-                        <canvas id="pieChart" width="400" height="400"></canvas>
+                        <div class="d-flex justify-content-center">
+                            <canvas id="pieChart" width="400" height="400"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
