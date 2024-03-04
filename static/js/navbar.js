@@ -20,10 +20,10 @@ function generateNavbar() {
                         <a class="nav-link border-0 bg-light mr-2" href="/credits">Current Credits</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link border-0 bg-light mr-2" href="/simulatedGrowth">Simulated Growth</a>
+                        <a class="nav-link border-0 bg-light mr-2" href="/assetValue">Current Asset Value</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link border-0 bg-light mr-2" href="/assetValue">Current Asset Value</a>
+                        <a class="nav-link border-0 bg-light mr-2" href="/simulatedGrowth">Simulated Growth</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link border-0 bg-light mr-2" href="/transactions">Track Transactions</a>

@@ -117,10 +117,10 @@
                         <form method="POST" action="/credits" id="myForm">
                             {% for field in form %}
                                 {% if not loop.last %}
-                                    <div class="mb-3">
+                                    <div>
                                         {{ field.label }}
                                     </div>
-                                    <div>
+                                    <div class="mb-3">
                                         {{ field(value=value) }}
                                     </div>
                                 {% endif %}
