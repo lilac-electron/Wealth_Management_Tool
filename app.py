@@ -537,7 +537,7 @@ def transactions():
     account_transactions_data = account_data['transactions']
 
     # Extract credit card information
-    credit_card_info = credit_card_data['credit_card']
+    credit_card_info = credit_card_data['account']
     credit_card_transactions_data = credit_card_data['transactions']
 
     # Instantiate Account object
