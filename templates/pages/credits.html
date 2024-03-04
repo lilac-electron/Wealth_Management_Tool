@@ -152,6 +152,9 @@
                             </tr>
                         </div>
                         {% endfor %}
+                        <div class="d-flex justify-content-center">
+                            <canvas id="pieChart" width="400" height="400"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -160,7 +163,50 @@
 
 </div>
 
+<script>
+    // Get data from Flask passed dictionary
+    const dataFromFlask = {{ credits_data | tojson }};
 
+    // Extract labels and values from the dictionary
+    const labels = Object.keys(dataFromFlask);
+    const values = Object.values(dataFromFlask);
+
+    // Get the canvas element
+    const ctx = document.getElementById('pieChart').getContext('2d');
+
+    // Create the pie chart
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Pie Chart',
+                data: values,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(255, 206, 86, 0.5)',
+                    'rgba(75, 192, 192, 0.5)',
+                    'rgba(153, 102, 255, 0.5)',
+                    'rgba(255, 159, 64, 0.5)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: false,
+            maintainAspectRatio: false
+        }
+    });
+</script>
 <!-- Footer -->
 <footer class="bg-dark text-white text-center p-2 mt-auto">
     <p>&copy; 2024 Fins-Fintech</p>
