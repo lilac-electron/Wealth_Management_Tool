@@ -529,7 +529,7 @@ def transactions():
     with open('Wealth_Managment_Tool/SimulatedFinanceData/current_account_transactions.json', 'r') as f:
         account_data = json.load(f)
 
-    with open('Wealth_Managment_Tool/SimulatedFinanceData/creditSimulatedData.json', 'r') as f:
+    with open('Wealth_Managment_Tool/SimulatedFinanceData/credit_card_transactions.json', 'r') as f:
         credit_card_data = json.load(f)
 
     # Extract account information
