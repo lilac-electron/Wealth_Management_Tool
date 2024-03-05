@@ -521,6 +521,8 @@ def login():
                 listOfDictionaries = excel_to_dict(app.config['UPLOAD_FOLDER'])
                 app.config['ASSETS'] = listOfDictionaries['assets'][0]
                 app.config['CREDITS'] = listOfDictionaries['credits'][0]
+                app.config['RETIREMENT'] = listOfDictionaries['retirement'][0]
+                app.config['SAVINGS'] = listOfDictionaries['savings'][0]
                 #print(assets)
                 #print(credits)
                 flash("Welcome "+ str(current_user.username)+", you have been logged in.")
@@ -684,9 +686,13 @@ def double_form():
         if form1.validate():
             field1_value = form1.field1.data
             card_content1 = f'Form 1 Field: {field1_value}'
+            app.config['RETIREMENT']['Retirement Age'] = field1_value
+            write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'retirement', app.config['RETIREMENT'])
         elif form2.validate():
             field2_value = form2.field2.data
             card_content2 = f'Form 2 Field: {field2_value}'
+            app.config['SAVINGS']['Saving Goal'] = field2_value
+            write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'savings', app.config['SAVINGS'])
 
     ### INSERT FUNCTION TO SAVE THE FORM INPUTS, AND SET THE OPPOSITE CARD TO THE SUBMISSION OF PREVIOUSLY SAVED IF APPLICABLE
     
