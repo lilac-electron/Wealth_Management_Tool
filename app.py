@@ -196,8 +196,6 @@ class Form1(FlaskForm):
 class Form2(FlaskForm):
     field2 = StringField('Field 2', validators=[InputRequired()])
 
-
-
 def clearAttribute():
     DynamicForm = [attr for attr in DynamicForm if  not(attr.startswith('field_'))]
 
@@ -215,6 +213,25 @@ def AssetForm(inputs_list):
 def list_files(directory):
     file_names = [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
     return file_names
+
+def create_excel_file(file_path, sheet_data):
+    # Create a Pandas Excel writer using xlsxwriter as the engine
+    writer = pd.ExcelWriter(file_path)
+    
+    # Iterate through the sheet data
+    for sheet_name, column_names in sheet_data.items():
+        # Create a DataFrame with column names
+        df = pd.DataFrame(columns=column_names)
+        
+        # Fill the DataFrame with zeros below the column names
+        for col in column_names:
+            df[col] = [0]
+        
+        # Write the DataFrame to the Excel file
+        df.to_excel(writer, sheet_name=sheet_name, index=False)
+    
+    # Save the Excel file
+    writer._save()
 
 def create_csv_file(file_path, column_names, data_dict):
     with open(file_path, 'w', newline='') as file:
@@ -480,8 +497,8 @@ def register():
         db.session.commit()
         username = form.username.data
         upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', username)
-        csv_asset_upload_folder_path = os.path.join(upload_folder_path, f'{username}_assetValue.csv')
-        csv_credit_upload_folder_path = os.path.join(upload_folder_path, f'{username}_credits.csv')
+        #csv_asset_upload_folder_path = os.path.join(upload_folder_path, f'{username}_assetValue.csv')
+        #csv_credit_upload_folder_path = os.path.join(upload_folder_path, f'{username}_credits.csv')
 
         # Ensure the folder exists (create it if it doesn't)
         os.makedirs(upload_folder_path, exist_ok=True)
@@ -503,13 +520,21 @@ def register():
         asset_column_names = ['House', 'Car', 'Investments', 'Checking Account', 'Stocks', 'Savings', 'Retirement Accounts']
         credit_column_names = ['Rent', 'Mortgage', 'Utilities', 'Food and Groceries', 'Car Payments', 'Student loan Payments', 'Pension', 'Subscriptions', 'Health Insurance', 'House Insurance', 'Other Insurance']
 
+        sheet_data = {
+            'credits': credit_column_names,  # List for 'credits' sheet
+            'assets': asset_column_names,      # List for 'assets' sheet
+            'retirement': ['Retirement Age'],  # List for 'retirement' sheet
+            'savings': ['Saving Goal'] # List for 'savings' sheet
+        }
         # Create dictionaries with column names as keys and 0 as values
-        asset_data_dict = dict.fromkeys(asset_column_names, 0)
-        credit_data_dict = dict.fromkeys(credit_column_names, 0)
+        #asset_data_dict = dict.fromkeys(asset_column_names, 0)
+        #credit_data_dict = dict.fromkeys(credit_column_names, 0)
 
         # Create asset and credit files with dictionaries
-        create_csv_file(csv_asset_upload_folder_path, asset_column_names, asset_data_dict)
-        create_csv_file(csv_credit_upload_folder_path, credit_column_names, credit_data_dict)
+        #create_csv_file(csv_asset_upload_folder_path, asset_column_names, asset_data_dict)
+        #create_csv_file(csv_credit_upload_folder_path, credit_column_names, credit_data_dict)
+        upload_folder_path = os.path.join(upload_folder_path, f'{username}_values.xlsx')
+        create_excel_file(upload_folder_path, sheet_data=sheet_data)
         flash('New User Created', 'success')
         return redirect (url_for('login'))
         #return '<h1>' + form.email.data + ' ' + form.username.data + ' ' + form.password.data + '</h1>'
@@ -616,6 +641,8 @@ def double_form():
         elif form2.validate():
             field2_value = form2.field2.data
             card_content2 = f'Form 2 Field: {field2_value}'
+
+    ### INSERT FUNCTION TO SAVE THE FORM INPUTS, AND SET THE OPPOSITE CARD TO THE SUBMISSION OF PREVIOUSLY SAVED IF APPLICABLE
     
     return render_template('pages/doubleForm.html', form1=form1, form2=form2, card_content1=card_content1, card_content2=card_content2)
 
