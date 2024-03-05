@@ -685,14 +685,14 @@ def double_form():
     if request.method == 'POST':
         if form1.validate():
             field1_value = form1.field1.data
-            card_content1 = f'Form 1 Field: {field1_value}'
+            card_content1 = f'New savings goal: {field1_value}'
             app.config['RETIREMENT']['Retirement Age'] = field1_value
             write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'retirement', app.config['RETIREMENT'])
             old_savings = app.config['SAVINGS']['Saving Goal']
             card_content2 = f'Previous savings goal: {old_savings}'
         elif form2.validate():
             field2_value = form2.field2.data
-            card_content2 = f'Form 2 Field: {field2_value}'
+            card_content2 = f'New desired retirement age: {field2_value}'
             app.config['SAVINGS']['Saving Goal'] = field2_value
             write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'savings', app.config['SAVINGS'])
             old_retirement = app.config['RETIREMENT']['Retirement Age']
