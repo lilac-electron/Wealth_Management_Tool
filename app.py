@@ -233,6 +233,23 @@ def create_excel_file(file_path, sheet_data):
     # Save the Excel file
     writer.save()
 
+def excel_to_dict(file_path):
+    # Read the Excel file
+    xls = pd.ExcelFile(file_path)
+    
+    # Initialize an empty dictionary to store sheet data
+    excel_dict = {}
+    
+    # Iterate through each sheet in the Excel file
+    for sheet_name in xls.sheet_names:
+        # Read the sheet into a DataFrame
+        df = pd.read_excel(xls, sheet_name)
+        
+        # Convert the DataFrame to a dictionary and add it to the excel_dict
+        excel_dict[sheet_name] = df.to_dict(orient='records')
+    
+    return excel_dict
+
 def create_csv_file(file_path, column_names, data_dict):
     with open(file_path, 'w', newline='') as file:
         writer = csv.DictWriter(file, fieldnames=column_names)
@@ -467,13 +484,14 @@ def login():
             if user.password == form.password.data:
                 login_user(user, remember=form.remember.data)
                 username = current_user.username
-                upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', username)
+                upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', username, f'{username}_values.xlsx')
 
                 # Set the UPLOAD_FOLDER configuration
                 app.config['UPLOAD_FOLDER'] = upload_folder_path
-                assets, credits = read_user_data(username, upload_folder_path)
-                app.config['ASSETS'] = assets
-                app.config['CREDITS'] = credits
+                #assets, credits = read_user_data(username, upload_folder_path)
+                listOfDictionaries = excel_to_dict(app.config['UPLOAD_FOLDER'])
+                app.config['ASSETS'] = listOfDictionaries['assets'][0]
+                app.config['CREDITS'] = listOfDictionaries['credits'][0]
                 #print(assets)
                 #print(credits)
                 flash("Welcome "+ str(current_user.username)+", you have been logged in.")
@@ -502,7 +520,7 @@ def register():
 
         # Ensure the folder exists (create it if it doesn't)
         os.makedirs(upload_folder_path, exist_ok=True)
-
+        upload_folder_path = os.path.join(upload_folder_path, f'{username}_values.xlsx')
         # Set the UPLOAD_FOLDER configuration
         app.config['UPLOAD_FOLDER'] = upload_folder_path
         #Create a user csv which will store their asset values
@@ -533,8 +551,7 @@ def register():
         # Create asset and credit files with dictionaries
         #create_csv_file(csv_asset_upload_folder_path, asset_column_names, asset_data_dict)
         #create_csv_file(csv_credit_upload_folder_path, credit_column_names, credit_data_dict)
-        upload_folder_path = os.path.join(upload_folder_path, f'{username}_values.xlsx')
-        create_excel_file(upload_folder_path, sheet_data=sheet_data)
+        create_excel_file(app.config['UPLOAD_FOLDER'], sheet_data=sheet_data)
         flash('New User Created', 'success')
         return redirect (url_for('login'))
         #return '<h1>' + form.email.data + ' ' + form.username.data + ' ' + form.password.data + '</h1>'
