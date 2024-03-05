@@ -608,7 +608,7 @@ def double_form():
             # Process form 2 data
             return f'Form 2 Field: {field2_value}'
         
-    return render_template('doubleForm.html')
+    return render_template('pages/doubleForm.html')
 
 @app.route('/logout')
 @login_required
