@@ -18,6 +18,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import (
     LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 )
+from openpyxl import Workbook, load_workbook
 import datetime
 from datetime import datetime
 import pandas_datareader.data as pdr
@@ -250,6 +251,32 @@ def excel_to_dict(file_path):
     
     return excel_dict
 
+def write_dict_to_excel(file_path, sheet_name, data_dict):
+    # Load the workbook or create a new one if it doesn't exist
+    try:
+        wb = load_workbook(file_path)
+    except FileNotFoundError:
+        wb = Workbook()
+    
+    # Select the worksheet or create a new one if it doesn't exist
+    if sheet_name in wb.sheetnames:
+        ws = wb[sheet_name]
+    else:
+        ws = wb.create_sheet(title=sheet_name)
+
+    # Write the keys in the first row
+    keys = list(data_dict.keys())
+    for col, key in enumerate(keys, start=1):
+        ws.cell(row=1, column=col, value=key)
+
+    # Write the values in the second row
+    values = list(data_dict.values())
+    for col, value in enumerate(values, start=1):
+        ws.cell(row=2, column=col, value=value)
+
+    # Save the workbook
+    wb.save(file_path)
+
 def create_csv_file(file_path, column_names, data_dict):
     with open(file_path, 'w', newline='') as file:
         writer = csv.DictWriter(file, fieldnames=column_names)
@@ -445,16 +472,17 @@ def assetValue():
     #input_list = ['value1', 'value2', 'value3']  # Replace with your list
     input_list = app.config['ASSETS'].keys()
     form =  DynamicForm2()
-    upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', f'{current_user.username}/{current_user.username}_assetValue.csv')
-    print(upload_folder_path)
+    #upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', f'{current_user.username}/{current_user.username}_assetValue.csv')
+    #print(upload_folder_path)
     if request.method == 'POST' and form.validate_on_submit():
-        print("test 1")
+        #print("test 1")
         entered_data = {key.lstrip('field_'): value for key, value in request.form.items() if key.startswith('field_')}
-        print("test 1")
+        #print("test 1")
         app.config['ASSETS'] = entered_data
-        print("test 1")
-        write_csv_file(upload_folder_path, entered_data)
-        print("test 1")
+        #print("test 1")
+        #write_csv_file(upload_folder_path, entered_data)
+        write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'assets', entered_data)
+        #print("test 1")
         #print("Entered data:", entered_data)
         flash("Data entered successfully", "success")
 
