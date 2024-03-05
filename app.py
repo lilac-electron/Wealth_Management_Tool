@@ -231,7 +231,7 @@ def create_excel_file(file_path, sheet_data):
         df.to_excel(writer, sheet_name=sheet_name, index=False)
     
     # Save the Excel file
-    writer._save()
+    writer.save()
 
 def create_csv_file(file_path, column_names, data_dict):
     with open(file_path, 'w', newline='') as file:
