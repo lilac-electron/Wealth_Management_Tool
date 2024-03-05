@@ -190,6 +190,12 @@ class CreditCard:
         }
         return credit_card_dict
 
+class Form1(FlaskForm):
+    field1 = StringField('Field 1', validators=[InputRequired()])
+
+class Form2(FlaskForm):
+    field2 = StringField('Field 2', validators=[InputRequired()])
+
 
 
 def clearAttribute():
@@ -598,19 +604,19 @@ def delete_files():
 @app.route('/double_form', methods=['GET', 'POST'])
 @login_required
 def double_form():
-    card_content1 = None
-    card_content2 = None
+    form1 = Form1(request.form)
+    form2 = Form2(request.form)
+    card_content = None
+
     if request.method == 'POST':
-        if 'field1' in request.form:  # Check if form 1 is submitted
-            field1_value = request.form.get('field1')
-            # Construct card content with form 1 field value
-            card_content1 = f'Form 1 Field: {field1_value}'
-        elif 'field2' in request.form:  # Check if form 2 is submitted
-            field2_value = request.form.get('field2')
-            # Construct card content with form 2 field value
-            card_content2 = f'Form 2 Field: {field2_value}'
-        
-    return render_template('pages/doubleForm.html', card_content1=card_content1, card_content2=card_content2)
+        if form1.validate():
+            field1_value = form1.field1.data
+            card_content = f'Form 1 Field: {field1_value}'
+        elif form2.validate():
+            field2_value = form2.field2.data
+            card_content = f'Form 2 Field: {field2_value}'
+    
+    return render_template('doubleForm.html', form1=form1, form2=form2, card_content=card_content)
 
 @app.route('/logout')
 @login_required

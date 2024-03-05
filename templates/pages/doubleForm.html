@@ -12,48 +12,48 @@
 </head>
 <body>
     <div class="container">
+        <!-- Form 1 -->
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Form 1</h2>
+                <form method="POST">
+                    {{ form1.csrf_token }}
+                    {{ form1.field1.label }} {{ form1.field1 }}
+                    <button type="submit">Submit Form 1</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Form 2 -->
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Form 2</h2>
+                <form method="POST">
+                    {{ form2.csrf_token }}
+                    {{ form2.field2.label }} {{ form2.field2 }}
+                    <button type="submit">Submit Form 2</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Card content -->
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        Form 1
+                        Form Result
                     </div>
                     <div class="card-body">
-                        {% if card_content1 %}
-                            <p>{{ card_content1 }}</p>
+                        {% if card_content %}
+                            <p>{{ card_content }}</p>
                         {% else %}
-                            <form id="form1">
-                                <!-- Form fields for form 1 -->
-                                <input type="text" name="field1">
-                                <!-- Add more fields as needed -->
-                                <button type="submit">Submit Form 1</button>
-                            </form>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        Form 2
-                    </div>
-                    <div class="card-body">
-                        {% if card_content2 %}
-                            <p>{{ card_content2 }}</p>
-                        {% else %}
-                            <form id="form2">
-                                <!-- Form fields for form 1 -->
-                                <input type="text" name="field2">
-                                <!-- Add more fields as needed -->
-                                <button type="submit">Submit Form 2</button>
-                            </form>
+                            <p>No form submitted yet.</p>
                         {% endif %}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    
 </body>
+
 </html>
