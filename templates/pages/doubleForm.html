@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Example</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Form 1
+                    </div>
+                    <div class="card-body">
+                        <form id="form1">
+                            <!-- Form fields for form 1 -->
+                            <input type="text" name="field1">
+                            <!-- Add more fields as needed -->
+                            <button type="submit">Submit Form 1</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Form 2
+                    </div>
+                    <div class="card-body">
+                        <form id="form2">
+                            <!-- Form fields for form 2 -->
+                            <input type="text" name="field2">
+                            <!-- Add more fields as needed -->
+                            <button type="submit">Submit Form 2</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript code to handle form submission and toggling visibility -->
+    <script>
+        // Function to hide all forms
+        function hideForms() {
+            document.getElementById("form1").style.display = "none";
+            document.getElementById("form2").style.display = "none";
+        }
+
+        // Function to show a specific form
+        function showForm(formId) {
+            hideForms();
+            document.getElementById(formId).style.display = "block";
+        }
+
+        // Initially hide all forms
+        hideForms();
+    </script>
+</body>
+</html>

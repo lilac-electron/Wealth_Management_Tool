@@ -595,6 +595,20 @@ def delete_files():
 
     return render_template('pages/deleteFiles.html', form=form)
 
+@app.route('/double_form', methods=['GET', 'POST'])
+@login_required
+def double_form():
+    if request.method == 'POST':
+        if 'field1' in request.form:  # Check if form 1 is submitted
+            field1_value = request.form.get('field1')
+            # Process form 1 data
+            return f'Form 1 Field: {field1_value}'
+        elif 'field2' in request.form:  # Check if form 2 is submitted
+            field2_value = request.form.get('field2')
+            # Process form 2 data
+            return f'Form 2 Field: {field2_value}'
+        
+    return render_template('doubleForm.html')
 
 @app.route('/logout')
 @login_required
