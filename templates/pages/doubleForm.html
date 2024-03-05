@@ -19,12 +19,16 @@
                         Form 1
                     </div>
                     <div class="card-body">
-                        <form id="form1">
-                            <!-- Form fields for form 1 -->
-                            <input type="text" name="field1">
-                            <!-- Add more fields as needed -->
-                            <button type="submit">Submit Form 1</button>
-                        </form>
+                        {% if card_content1 %}
+                            <p>{{ card_content1 }}</p>
+                        {% else %}
+                            <form id="form1">
+                                <!-- Form fields for form 1 -->
+                                <input type="text" name="field1">
+                                <!-- Add more fields as needed -->
+                                <button type="submit">Submit Form 1</button>
+                            </form>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -34,12 +38,16 @@
                         Form 2
                     </div>
                     <div class="card-body">
-                        <form id="form2">
-                            <!-- Form fields for form 2 -->
-                            <input type="text" name="field2">
-                            <!-- Add more fields as needed -->
-                            <button type="submit">Submit Form 2</button>
-                        </form>
+                        {% if card_content2 %}
+                            <p>{{ card_content2 }}</p>
+                        {% else %}
+                            <form id="form2">
+                                <!-- Form fields for form 1 -->
+                                <input type="text" name="field2">
+                                <!-- Add more fields as needed -->
+                                <button type="submit">Submit Form 2</button>
+                            </form>
+                        {% endif %}
                     </div>
                 </div>
             </div>
