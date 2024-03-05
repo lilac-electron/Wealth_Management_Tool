@@ -688,13 +688,15 @@ def double_form():
             card_content1 = f'Form 1 Field: {field1_value}'
             app.config['RETIREMENT']['Retirement Age'] = field1_value
             write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'retirement', app.config['RETIREMENT'])
-            card_content2 = app.config['SAVINGS']['Saving Goal']
+            old_savings = app.config['SAVINGS']['Saving Goal']
+            card_content2 = f'Previous savings goal: {old_savings}'
         elif form2.validate():
             field2_value = form2.field2.data
             card_content2 = f'Form 2 Field: {field2_value}'
             app.config['SAVINGS']['Saving Goal'] = field2_value
             write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'savings', app.config['SAVINGS'])
-            card_content1 = app.config['RETIREMENT']['Retirement Age']
+            old_retirement = app.config['RETIREMENT']['Retirement Age']
+            card_content1 = f'Previous retirement goal: {old_retirement}'
 
     ### INSERT FUNCTION TO SAVE THE FORM INPUTS, AND SET THE OPPOSITE CARD TO THE SUBMISSION OF PREVIOUSLY SAVED IF APPLICABLE
     
