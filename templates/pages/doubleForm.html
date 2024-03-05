@@ -41,11 +41,25 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        Form Result
+                        Form1 Result
                     </div>
                     <div class="card-body">
-                        {% if card_content %}
-                            <p>{{ card_content }}</p>
+                        {% if card_content1 %}
+                            <p>{{ card_content1 }}</p>
+                        {% else %}
+                            <p>No form submitted yet.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Form2 Result
+                    </div>
+                    <div class="card-body">
+                        {% if card_content2 %}
+                            <p>{{ card_content2 }}</p>
                         {% else %}
                             <p>No form submitted yet.</p>
                         {% endif %}

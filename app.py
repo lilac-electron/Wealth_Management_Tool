@@ -606,17 +606,18 @@ def delete_files():
 def double_form():
     form1 = Form1(request.form)
     form2 = Form2(request.form)
-    card_content = None
+    card_content1 = None
+    card_content2 = None
 
     if request.method == 'POST':
         if form1.validate():
             field1_value = form1.field1.data
-            card_content = f'Form 1 Field: {field1_value}'
+            card_content1 = f'Form 1 Field: {field1_value}'
         elif form2.validate():
             field2_value = form2.field2.data
-            card_content = f'Form 2 Field: {field2_value}'
+            card_content2 = f'Form 2 Field: {field2_value}'
     
-    return render_template('pages/doubleForm.html', form1=form1, form2=form2, card_content=card_content)
+    return render_template('pages/doubleForm.html', form1=form1, form2=form2, card_content1=card_content1, card_content2=card_content2)
 
 @app.route('/logout')
 @login_required
