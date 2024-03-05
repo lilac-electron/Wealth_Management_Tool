@@ -616,7 +616,7 @@ def double_form():
             field2_value = form2.field2.data
             card_content = f'Form 2 Field: {field2_value}'
     
-    return render_template('doubleForm.html', form1=form1, form2=form2, card_content=card_content)
+    return render_template('pages/doubleForm.html', form1=form1, form2=form2, card_content=card_content)
 
 @app.route('/logout')
 @login_required
