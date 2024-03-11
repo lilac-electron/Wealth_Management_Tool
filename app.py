@@ -595,6 +595,7 @@ def register():
 
         generator = CreditCardDataGenerator()
         generator.generate_and_save_json(finance_path + '/credit_card_transactions.json')
+        app.config['FINANCE_PATH'] = finance_path
 
         flash('New User Created', 'success')
         return redirect(url_for('login'))
@@ -618,10 +619,10 @@ def upload():
 @login_required
 def transactions():
     # Read data from JSON files for both account and credit card
-    with open('Wealth_Managment_Tool/SimulatedFinanceData/current_account_transactions.json', 'r') as f:
+    with open(app.config['FINANCE_PATH'], '/current_account_transactions.json', 'r') as f:
         account_data = json.load(f)
 
-    with open('Wealth_Managment_Tool/SimulatedFinanceData/credit_card_transactions.json', 'r') as f:
+    with open(app.config['FINANCE_PATH'], '/credit_card_transactions.json', 'r') as f:
         credit_card_data = json.load(f)
 
     # Extract account information
