@@ -295,10 +295,11 @@
     <script>
         // Account Chart
         var accountCtx = document.getElementById('accountChart').getContext('2d');
+        var length = account_balances.size()
         var accountChart = new Chart(accountCtx, {
             type: 'line',
             data: {
-                labels: [...Array({{ account_balances|length }}).keys()].map(x => x + 1),
+                labels: [Array.from({length:length}, (_,index) => index + 1)],
                 datasets: [{
                     label: 'Account Balances',
                     data: {{ account_balances|tojson }},
