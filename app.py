@@ -100,13 +100,14 @@ class UploadForm(FlaskForm):
     submit = SubmitField('Submit')
 
 class Transaction:
-    def __init__(self, transaction_id, date, amount, description, category, merchant=None):
+    def __init__(self, transaction_id, date, amount, description, category, balance, merchant=None):
         self.transaction_id = transaction_id
         self.date = date
         self.amount = amount
         self.description = description
         self.category = category
         self.merchant = merchant
+        self.balance = balance
 
     def to_dict(self):
         transaction_dict = {
@@ -114,7 +115,8 @@ class Transaction:
             "date": self.date,
             "amount": self.amount,
             "description": self.description,
-            "category": self.category
+            "category": self.category,
+            "balance": self.balance
         }
         if self.merchant:
             transaction_dict["merchant"] = self.merchant

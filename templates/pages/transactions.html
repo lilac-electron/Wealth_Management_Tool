@@ -125,6 +125,7 @@
                                                 <p class="card-text"><strong>Amount:</strong> {{ transaction.amount }}</p>
                                                 <p class="card-text"><strong>Description:</strong> {{ transaction.description }}</p>
                                                 <p class="card-text"><strong>Category:</strong> {{ transaction.category }}</p>
+                                                <p class="card-text"><strong>Balance:</strong> {{ transaction.balance }}</p>
                                                 {% if transaction.merchant %}
                                                     <p class="card-text"><strong>Merchant:</strong> {{ transaction.merchant.name }}</p>
                                                     <p class="card-text"><strong>Merchant Category:</strong> {{ transaction.merchant.category }}</p>
@@ -159,6 +160,7 @@
                                                 <p class="card-text"><strong>Amount:</strong> {{ transaction.amount }}</p>
                                                 <p class="card-text"><strong>Description:</strong> {{ transaction.description }}</p>
                                                 <p class="card-text"><strong>Category:</strong> {{ transaction.category }}</p>
+                                                <p class="card-text"><strong>Balance:</strong> {{ transaction.balance }}</p>
                                                 {% if transaction.merchant %}
                                                     <p class="card-text"><strong>Merchant:</strong> {{ transaction.merchant.name }}</p>
                                                     <p class="card-text"><strong>Merchant Category:</strong> {{ transaction.merchant.category }}</p>
@@ -203,6 +205,7 @@
                 transactionsHtml += '<p class="card-text"><strong>Amount:</strong> ' + transaction.amount + '</p>';
                 transactionsHtml += '<p class="card-text"><strong>Description:</strong> ' + transaction.description + '</p>';
                 transactionsHtml += '<p class="card-text"><strong>Category:</strong> ' + transaction.category + '</p>';
+                transactionsHtml += '<p class="card-text"><strong>Balance:</strong> ' + transaction.balance + '</p>';
                 if (transaction.merchant) {
                     transactionsHtml += '<p class="card-text"><strong>Merchant:</strong> ' + transaction.merchant.name + '</p>';
                     transactionsHtml += '<p class="card-text"><strong>Merchant Category:</strong> ' + transaction.merchant.category + '</p>';
@@ -249,6 +252,7 @@
                 transactionsHtml += '<p class="card-text"><strong>Amount:</strong> ' + transaction.amount + '</p>';
                 transactionsHtml += '<p class="card-text"><strong>Description:</strong> ' + transaction.description + '</p>';
                 transactionsHtml += '<p class="card-text"><strong>Category:</strong> ' + transaction.category + '</p>';
+                transactionsHtml += '<p class="card-text"><strong>Balance:</strong> ' + transaction.balance + '</p>';
                 if (transaction.merchant) {
                     transactionsHtml += '<p class="card-text"><strong>Merchant:</strong> ' + transaction.merchant.name + '</p>';
                     transactionsHtml += '<p class="card-text"><strong>Merchant Category:</strong> ' + transaction.merchant.category + '</p>';
