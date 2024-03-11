@@ -42,6 +42,7 @@
                     <p class="card-text"><strong>Current card total in:</strong> £{{ current_account.total_in }}</p>
                     <p class="card-text"><strong>Current card total out:</strong> £{{ current_account.total_out }}</p>
                     <p class="card-text"><strong>Current card top merchant:</strong> {{ current_account.top_merchant }}</p>
+                    <p class="card-text"><strong>Current card ending balance:</strong> {{ current_account.transactions[-1].balance }}</p>
                     <hr class="faint-grey-line">
                     <p class="card-text"><strong>Credit card total in:</strong> £{{ credit_card.total_in }}</p>
                     <p class="card-text"><strong>Credit card total out:</strong> £{{ credit_card.total_out }}</p>
