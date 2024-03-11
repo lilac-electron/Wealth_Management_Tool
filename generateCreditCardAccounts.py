@@ -13,10 +13,12 @@ def generate_credit_card_transactions():
     transactions = []
     current_date = datetime(2020, 1, 1)
     last_payment_date = 0  # Initialize last payment date
+    total = 0
     for i in range(300):
         transaction_date = current_date.strftime('%Y-%m-%d')
         amount = round(random.uniform(-100, -1), 2)
-        if amount < 0  and last_payment_date < 30:  # Expense transaction
+        total += amount
+        if amount < 0  and last_payment_date < 30 and total > -5000:  # Expense transaction
             description = random.choice(["Groceries", "Transportation", "Shopping", "Food & Drink", "Dining Out", "Bills & Utilities", "Entertainment"])
             category = description
             merchant = {
@@ -39,7 +41,9 @@ def generate_credit_card_transactions():
             }
             last_payment_date += 1
         else:  # Payment transaction
-            amount = +2000  # Pay off the credit card in full
+            total -= amount
+            amount = round(total * -1, 2)  # Pay off the credit card in full
+            total = 0
             description = "Credit Card Payment"
             category = "Payment"
             merchant = None
@@ -50,7 +54,8 @@ def generate_credit_card_transactions():
             "amount": amount,
             "description": description,
             "category": category,
-            "merchant": merchant
+            "merchant": merchant,
+            "balance": round(total, 2)
         })
         current_date += timedelta(days=random.randint(3, 5))
     return transactions

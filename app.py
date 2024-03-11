@@ -642,6 +642,7 @@ def transactions():
     # Convert account and credit card objects to dictionaries
     account_dict = account.to_dict()
     credit_card_dict = credit_card.to_dict()
+    accountTransactionList = account_dict['transactions']
 
     # Render HTML template with both account and credit card information
     return render_template('pages/transactions.html', current_account=account_dict, credit_card=credit_card_dict, name=current_user.username,)

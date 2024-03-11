@@ -12,26 +12,29 @@ def generate_postcode():
 def generate_transactions():
     transactions = []
     current_date = datetime(2024, 1, 1)
-    timeSinceBills = 0
+    total = 1000 # start with £1000 in the bank
+    time_since_bills = 0
     for _ in range(300):
         transaction_date = current_date.strftime('%Y-%m-%d')
-        amount = round(random.uniform(-300, 300), 2)
-        if amount < 0:
-            description = random.choice(["Groceries", "Transportation", "Shopping", "Food & Drink", "Dining Out", "Bills & Utilities", "Entertainment"])
-            if description == "Bills & Utilities" and timeSinceBills >= 28:
-                amount = 550
-            category = description
-            timeSinceBills += 1
-        elif amount >= 0 and timeSinceBills >= 28:
+        amount = round(random.uniform(-120, 0), 2)
+        total += amount
+        print(amount)
+        if time_since_bills >= 28:
+            total -= amount
             amount = 2500
+            total += amount
             description = "Salary Deposit"
             category = "Income"
-            timeSinceBills = 0
-        else:
-            amount = -10
-            description = "Dining out"
+            time_since_bills = 0
+
+        elif amount < 0:
+            description = random.choice(["Groceries", "Transportation", "Shopping", "Food & Drink", "Dining Out", "Bills & Utilities", "Entertainment"])
+            if description == "Bills & Utilities" and time_since_bills >= 28:
+                amount = -550
+                time_since_bills = 0
             category = description
-            timeSinceBills += 1
+
+        time_since_bills += 1
         merchant = {
             "address": {
                 "address": str(random.randint(1, 100)) + " " + random.choice(["High Street", "Main Street", "Elm Street", "Park Avenue", "Station Road"]),
@@ -49,14 +52,15 @@ def generate_transactions():
             "emoji": random.choice(["🛒", "⛽", "📦", "☕️", "🍗", "🏪", "🎥", "🥪", "👗", "🚗", "🍔"]),
             "name": random.choice(["Tesco", "BP", "Amazon", "Starbucks", "Nando's", "Cinema", "Subway", "H&M", "Uber", "McDonald's"]),
             "category": random.choice(["grocery_store", "fuel_station", "online_retail", "coffee_shop", "restaurant", "entertainment", "fashion_store", "transportation"])
-        } if amount < 0 else None
+        }
         transactions.append({
             "transaction_id": "txn" + str(_ + 1).zfill(3),
             "date": transaction_date,
             "amount": amount,
             "description": description,
             "category": category,
-            "merchant": merchant
+            "merchant": merchant,
+            "balance": round(total, 2)  # Running balance
         })
         current_date += timedelta(days=random.randint(1, 5))
     return transactions
