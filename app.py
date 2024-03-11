@@ -527,6 +527,7 @@ def login():
                 app.config['CREDITS'] = listOfDictionaries['credits'][0]
                 app.config['RETIREMENT'] = listOfDictionaries['retirement'][0]
                 app.config['SAVINGS'] = listOfDictionaries['savings'][0]
+                app.config['FINANCE_PATH'] ='Wealth_Managment_Tool/SimulatedFinanceData/' + username
                 #print(assets)
                 #print(credits)
                 flash("Welcome "+ str(current_user.username)+", you have been logged in.")
@@ -731,17 +732,6 @@ def double_form():
 def logout():
     logout_user()
     return redirect(url_for('index'))
-
-
-import json
-import random
-from datetime import datetime, timedelta
-
-# Function to generate random UK postal codes
-def generate_postcode():
-    letters = [chr(random.randint(65, 90)) for _ in range(2)]
-    numbers = [str(random.randint(0, 9)) for _ in range(2)]
-    return ''.join(letters) + ''.join(numbers) + ' ' + ''.join([str(random.randint(0, 9)) for _ in range(1)])
 
 
 
