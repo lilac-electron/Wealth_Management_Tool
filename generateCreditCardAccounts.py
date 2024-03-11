@@ -14,13 +14,13 @@ class CreditCardDataGenerator:
             },
             "transactions": self.generate_credit_card_transactions()
         }
-    def generate_postcode():
+    def generate_postcode(self):
         letters = [chr(random.randint(65, 90)) for _ in range(2)]
         numbers = [str(random.randint(0, 9)) for _ in range(2)]
         return ''.join(letters) + ''.join(numbers) + ' ' + ''.join([str(random.randint(0, 9)) for _ in range(1)])
 
     
-    def generate_credit_card_transactions():
+    def generate_credit_card_transactions(self):
         transactions = []
         current_date = datetime(2020, 1, 1)
         last_payment_date = 0  # Initialize last payment date
