@@ -587,7 +587,7 @@ def register():
         #create_csv_file(csv_asset_upload_folder_path, asset_column_names, asset_data_dict)
         #create_csv_file(csv_credit_upload_folder_path, credit_column_names, credit_data_dict)
         create_excel_file(app.config['UPLOAD_FOLDER'], sheet_data=sheet_data)
-        finance_path = 'Wealth_Managment_Tool/SimulatedFinanceData/{username}'
+        finance_path = 'Wealth_Managment_Tool/SimulatedFinanceData/', {username}
         os.makedirs(finance_path, exist_ok=True)
         generator = FinanceDataGenerator()
         generator.generate_and_save_json('Wealth_Managment_Tool/SimulatedFinanceData/{username}/current_account_transactions.json')
