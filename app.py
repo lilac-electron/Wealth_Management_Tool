@@ -34,6 +34,8 @@ import csv
 import numpy as np
 import requests
 import json
+from generateAccounts import FinanceDataGenerator
+from generateCreditCardAccounts import CreditCardDataGenerator
 
 #FinsFintechFYP
 
@@ -585,6 +587,10 @@ def register():
         #create_csv_file(csv_asset_upload_folder_path, asset_column_names, asset_data_dict)
         #create_csv_file(csv_credit_upload_folder_path, credit_column_names, credit_data_dict)
         create_excel_file(app.config['UPLOAD_FOLDER'], sheet_data=sheet_data)
+        generator = FinanceDataGenerator()
+        generator.generate_and_save_json('Wealth_Managment_Tool/SimulatedFinanceData/{username}/current_account_transactions.json')
+        generator = CreditCardDataGenerator()
+        generator.generate_and_save_json('Wealth_Managment_Tool/SimulatedFinanceData/{username}/credit_card_transactions.json')
         flash('New User Created', 'success')
         return redirect (url_for('login'))
         #return '<h1>' + form.email.data + ' ' + form.username.data + ' ' + form.password.data + '</h1>'
