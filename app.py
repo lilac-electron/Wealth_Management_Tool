@@ -644,8 +644,8 @@ def transactions():
     # Convert account and credit card objects to dictionaries
     account_dict = account.to_dict()
     credit_card_dict = credit_card.to_dict()
-    account_balances = [transaction.balance for transaction in account_dict.transactions] 
-    credit_balances = [transaction.balance for transaction in credit_card_dict.transactions]
+    account_balances = [transaction.balance for transaction in account.transactions] 
+    credit_balances = [transaction.balance for transaction in credit_card.transactions]
     
     
 
