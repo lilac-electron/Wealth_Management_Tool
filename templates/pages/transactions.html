@@ -32,8 +32,7 @@
         <p>This is simulated banking page, no real data accessed.</p>
         <button class="btn btn-primary" id="reveal-hidden-content">Login to your bank</button>
     </div>
-    <canvas id="accountChart" width="400" height="200"></canvas>
-    <canvas id="accountChart" width="400" height="200"></canvas>
+    
     <div id="hidden-content">
         <div class="container mx-auto">
             <div class="card mb-4 mt-4">
@@ -51,6 +50,10 @@
                     <p class="card-text"><strong>Credit card total in:</strong> £{{ credit_card.total_in }}</p>
                     <p class="card-text"><strong>Credit card total out:</strong> £{{ credit_card.total_out }}</p>
                     <p class="card-text"><strong>Credit card top merchant:</strong> {{ credit_card.top_merchant }}</p>
+                    <div style="height: 50vh; width: 100%;">
+                        <canvas id="accountChart" width="400" height="200"></canvas>
+                        <canvas id="accountChart" width="400" height="200"></canvas>
+                    </div>
                 </div>
             </div>
             <!-- Your accounts -->
