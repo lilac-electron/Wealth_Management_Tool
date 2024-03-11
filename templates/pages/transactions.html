@@ -53,7 +53,6 @@
             <body>
                 <canvas id="accountChart" width="400" height="200"></canvas>
                 <canvas id="creditChart" width="400" height="200"></canvas>
-                <script src="{{url_for('static', filename='js/transactionsGraph.js')}}"></script>
             </body>
             <!-- Your accounts -->
             <div class="card mb-4 mt-4">
@@ -291,6 +290,71 @@
                 $("#hidden-content").toggle();
                 $(this).hide();
             });
+        });
+    </script>
+    <script>
+        // Account Chart
+        var accountCtx = document.getElementById('accountChart').getContext('2d');
+        var accountChart = new Chart(accountCtx, {
+            type: 'line',
+            data: {
+                labels: [...Array({{ account_balances|length }}).keys()].map(x => x + 1),
+                datasets: [{
+                    label: 'Account Balances',
+                    data: {{ account_balances|tojson }},
+                    fill: false,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Transactions'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Balance'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Credit Chart
+        var creditCtx = document.getElementById('creditChart').getContext('2d');
+        var creditChart = new Chart(creditCtx, {
+            type: 'line',
+            data: {
+                labels: [...Array({{ credit_balances|length }}).keys()].map(x => x + 1),
+                datasets: [{
+                    label: 'Credit Card Balances',
+                    data: {{ credit_balances|tojson }},
+                    fill: false,
+                    borderColor: 'rgb(255, 99, 132)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Transactions'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Balance'
+                        }
+                    }
+                }
+            }
         });
     </script>
 </body>
