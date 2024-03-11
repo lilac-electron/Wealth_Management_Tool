@@ -39,7 +39,7 @@ class CreditCardDataGenerator:
                     "country": "GB",
                     "latitude": round(random.uniform(51.45, 51.55), 4),
                     "longitude": round(random.uniform(-0.25, 0.1), 4),
-                    "postcode": CreditCardDataGenerator.generate_postcode(),
+                    "postcode": self.generate_postcode(),
                     "region": "Greater London"
                 },
                 "created": "2010-01-01T00:00:00Z",
