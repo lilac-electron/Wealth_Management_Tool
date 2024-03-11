@@ -645,8 +645,9 @@ def transactions():
     account_dict = account.to_dict()
     credit_card_dict = credit_card.to_dict()
     account_balances = [transaction.balance for transaction in account.transactions] 
+    print(account_balances)
     credit_balances = [transaction.balance for transaction in credit_card.transactions]
-    
+    print(credit_balances)
     
 
     # Render HTML template with both account and credit card information
