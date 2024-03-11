@@ -147,8 +147,8 @@ class Account:
         self.top_merchant = max(self.merchant_count, key=self.merchant_count.get)
         self.account_total_in = round(float(self.account_total_in), 2)
         self.account_total_out = round(float(self.account_total_out), 2)
-        self.max_spent = round(self.max_spent, 2)
-        self.max_spent_merchant = round(self.max_spent_merchant, 2)
+        self.max_spent = round(float(self.max_spent), 2)
+        self.max_spent_merchant = round(float(self.max_spent_merchant), 2)
 
     def to_dict(self):
         account_dict = {
