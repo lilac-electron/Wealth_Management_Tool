@@ -133,22 +133,15 @@ class Account:
         self.account_total_in = 0
         self.account_total_out = 0 
         self.merchant_count = {}
-        self.max_spent = 0
-        self.max_spent_merchant = ""
         for transaction in self.transactions:
             if transaction.amount > 0 :
                 self.account_total_in += transaction.amount
             else:
                 self.account_total_out += transaction.amount
                 self.merchant_count[transaction.merchant['category']] = self.merchant_count.get(transaction.merchant['category'], 0)+1
-                if transaction.amount > self.max_spent:
-                    self.max_spent = transaction.amount
-                    self.max_spent_merchant = transaction.merchant['category']
         self.top_merchant = max(self.merchant_count, key=self.merchant_count.get)
         self.account_total_in = round(float(self.account_total_in), 2)
         self.account_total_out = round(float(self.account_total_out), 2)
-        self.max_spent = round(float(self.max_spent), 2)
-        self.max_spent_merchant = self.max_spent_merchant
 
     def to_dict(self):
         account_dict = {
@@ -177,22 +170,15 @@ class CreditCard:
         self.credit_total_in = 0
         self.credit_total_out = 0 
         self.merchant_count = {}
-        self.max_spent = 0
-        self.max_spent_merchant = ""
         for transaction in self.transactions:
             if transaction.amount > 0 :
                 self.credit_total_in += transaction.amount
             else:
                 self.credit_total_out += transaction.amount
                 self.merchant_count[transaction.merchant['category']] = self.merchant_count.get(transaction.merchant['category'], 0)+1
-                if transaction.amount > self.max_spent:
-                    self.max_spent = transaction.amount
-                    self.max_spent_merchant = transaction.merchant['category']
         self.top_merchant = max(self.merchant_count, key=self.merchant_count.get)
         self.credit_total_in = round(float(self.credit_total_in), 2)
         self.credit_total_out = round(float(self.credit_total_out), 2)
-        self.max_spent = round(float(self.max_spent),2)
-        self.max_spent_merchant = self.max_spent_merchant
     
 
     def to_dict(self):
@@ -662,10 +648,13 @@ def transactions():
     # Convert account and credit card objects to dictionaries
     account_dict = account.to_dict()
     credit_card_dict = credit_card.to_dict()
-    accountTransactionList = account_dict['transactions']
+    account_balances = [transaction.balance for transaction in account_dict.transactions] 
+    credit_balances = [transaction.balance for transaction in credit_card_dict.transactions]
+    
+    
 
     # Render HTML template with both account and credit card information
-    return render_template('pages/transactions.html', current_account=account_dict, credit_card=credit_card_dict, name=current_user.username,)
+    return render_template('pages/transactions.html', current_account=account_dict, credit_card=credit_card_dict, name=current_user.username, account_balances=account_balances, credit_balances=credit_balances)
 
 @app.route('/delete_files', methods=['GET', 'POST'])
 @login_required
