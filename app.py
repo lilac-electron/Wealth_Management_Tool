@@ -646,12 +646,17 @@ def transactions():
     credit_card_dict = credit_card.to_dict()
     account_balances = [transaction.balance for transaction in account.transactions] 
     print(account_balances)
+    balances_labels = []
+    counter = 1
+    for transaction in account_balances:
+        balances_labels.append(counter)
+        counter += 1
     credit_balances = [transaction.balance for transaction in credit_card.transactions]
     print(credit_balances)
     
 
     # Render HTML template with both account and credit card information
-    return render_template('pages/transactions.html', current_account=account_dict, credit_card=credit_card_dict, name=current_user.username, account_balances=account_balances, credit_balances=credit_balances)
+    return render_template('pages/transactions.html', current_account=account_dict, credit_card=credit_card_dict, name=current_user.username, account_balances=account_balances, credit_balances=credit_balances, balances_labels=balances_labels)
 
 @app.route('/delete_files', methods=['GET', 'POST'])
 @login_required

@@ -52,7 +52,7 @@
             </div>
             <body>
                 <canvas id="accountChart" width="400" height="200"></canvas>
-                <canvas id="creditChart" width="400" height="200"></canvas>
+                <canvas id="accountChart" width="400" height="200"></canvas>
             </body>
             <!-- Your accounts -->
             <div class="card mb-4 mt-4">
@@ -293,76 +293,57 @@
         });
     </script>
     <script>
-        // Account Chart
-        var accountCtx = document.getElementById('accountChart').getContext('2d');
-        var length = account_balances.size()
-        var accountChart = new Chart(accountCtx, {
-            type: 'line',
-            data: {
-                labels: [0,1,2,3,4,5],
-                datasets: [{
-                    label: 'Account Balances',
-                    data: {{ account_balances|tojson }},
-                    fill: false,
-                    borderColor: 'rgb(75, 192, 192)',
-                    tension: 0.1
-                }]
-            },
-            options: {
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Transactions'
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'Balance'
-                        }
-                    }
-                }
-            }
-        });
+        const labels = {{ balances_labels | tojson}};
 
-        // Credit Chart
-        var creditCtx = document.getElementById('creditChart').getContext('2d');
-        var creditChart = new Chart(creditCtx, {
-            type: 'line',
-            data: {
-                labels: [...Array({{ credit_balances|length }}).keys()].map(x => x + 1),
-                datasets: [{
-                    label: 'Credit Card Balances',
-                    data: {{ credit_balances|tojson }},
-                    fill: false,
-                    borderColor: 'rgb(255, 99, 132)',
-                    tension: 0.1
-                }]
-            },
-            options: {
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Transactions'
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'Balance'
-                        }
-                    }
-                }
-            }
-        });
-
-        // Ensure the charts are rendered after the data is loaded
-        window.onload = function() {
-            accountChart.update();
-            creditChart.update();
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'Balances',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: {{ account_balances | tojson}},
+            }]
         };
+
+        const config = {
+        type: 'line',
+        data: data,
+        options: {
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Transactionh' // X-axis label
+                        },
+                        ticks: {
+                            callback: function(value, index, values) {
+                                // Display label for every 20th data point
+                                if (index % 20 === 0) {
+                                    return value;
+                                } else {
+                                    return ''; // Hide other labels
+                                }
+                            }
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Balance'
+                        }
+                    }
+                }
+            }
+        };
+
+
+        const myChart = new Chart(
+            document.getElementById('accountChart'),
+            config
+        );
     </script>
 </body>
 </html>
