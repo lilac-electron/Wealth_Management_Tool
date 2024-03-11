@@ -299,7 +299,7 @@
         var accountChart = new Chart(accountCtx, {
             type: 'line',
             data: {
-                labels: [Array.from({length:length}, (_,index) => index + 1)],
+                labels: [0,1,2,3,4,5],
                 datasets: [{
                     label: 'Account Balances',
                     data: {{ account_balances|tojson }},
