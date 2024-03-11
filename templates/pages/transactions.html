@@ -356,6 +356,12 @@
                 }
             }
         });
+
+        // Ensure the charts are rendered after the data is loaded
+        window.onload = function() {
+            accountChart.update();
+            creditChart.update();
+        };
     </script>
 </body>
 </html>
