@@ -14,6 +14,7 @@ def generate_transactions():
     current_date = datetime(2024, 1, 1)
     total = 1000 # start with £1000 in the bank
     time_since_bills = 0
+    bills_util_next = False
     for _ in range(300):
         transaction_date = current_date.strftime('%Y-%m-%d')
         amount = round(random.uniform(-120, 0), 2)
@@ -26,12 +27,16 @@ def generate_transactions():
             description = "Salary Deposit"
             category = "Income"
             time_since_bills = 0
+            bills_util_next = True
 
         elif amount < 0:
             description = random.choice(["Groceries", "Transportation", "Shopping", "Food & Drink", "Dining Out", "Bills & Utilities", "Entertainment"])
-            if description == "Bills & Utilities" and time_since_bills >= 28:
+            if bills_util_next:
+                total -= amount
                 amount = -550
-                time_since_bills = 0
+                total += amount
+                bills_util_next = False
+                description = "Monthly Bills & Utilities"
             category = description
 
         time_since_bills += 1
