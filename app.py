@@ -133,22 +133,22 @@ class Account:
         self.account_total_in = 0
         self.account_total_out = 0 
         self.merchant_count = {}
-        max_spent = 0
-        max_spent_merchant = ""
+        self.max_spent = 0
+        self.max_spent_merchant = ""
         for transaction in self.transactions:
             if transaction.amount > 0 :
                 self.account_total_in += transaction.amount
             else:
                 self.account_total_out += transaction.amount
                 self.merchant_count[transaction.merchant['category']] = self.merchant_count.get(transaction.merchant['category'], 0)+1
-                if transaction.amount > max_spent:
-                    max_spent = transaction.amount
-                    max_spent_merchant = transaction.merchant['category']
+                if transaction.amount > self.max_spent:
+                    self.max_spent = transaction.amount
+                    self.max_spent_merchant = transaction.merchant['category']
         self.top_merchant = max(self.merchant_count, key=self.merchant_count.get)
         self.account_total_in = round(float(self.account_total_in), 2)
         self.account_total_out = round(float(self.account_total_out), 2)
-        self.max_spent = max_spent
-        self.max_spent_merchant = max_spent_merchant
+        self.max_spent = round(self.max_spent, 2)
+        self.max_spent_merchant = round(self.max_spent_merchant, 2)
 
     def to_dict(self):
         account_dict = {
