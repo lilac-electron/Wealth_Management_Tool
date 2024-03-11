@@ -15,7 +15,7 @@
             border-top: 1px solid #ccc; /* Grey color */
         }
         .chart-container {
-            height: 300px; /* Adjust the height as needed */
+            height: 500px; /* Adjust the height as needed */
             width: 100%; /* This ensures the chart spans the entire width of the card body */
             margin-bottom: 20px; /* Add spacing between the charts */
         }
@@ -56,11 +56,8 @@
                     <p class="card-text"><strong>Credit card total out:</strong> £{{ credit_card.total_out }}</p>
                     <p class="card-text"><strong>Credit card top merchant:</strong> {{ credit_card.top_merchant }}</p>
                     <div class="chart-container">
-                        <canvas id="accountChart"></canvas>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="creditChart"></canvas>
-                    </div>
+                        <canvas id="combinedChart"></canvas>
+                    </div>                    
                 </div>
             </div>
             <!-- Your accounts -->
@@ -303,21 +300,29 @@
     </script>
     <script>
         const labels = {{ balances_labels | tojson}};
-
+    
         const data = {
             labels: labels,
-            datasets: [{
-                label: 'Balances',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: {{ account_balances | tojson}},
-            }]
+            datasets: [
+                {
+                    label: 'Account Balances',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: {{ account_balances | tojson}},
+                },
+                {
+                    label: 'Credit Balances',
+                    backgroundColor: 'rgb(54, 162, 235)',
+                    borderColor: 'rgb(54, 162, 235)',
+                    data: {{ credit_balances | tojson}},
+                }
+            ]
         };
-
+    
         const config = {
-        type: 'line',
-        data: data,
-        options: {
+            type: 'line',
+            data: data,
+            options: {
                 maintainAspectRatio: false,
                 scales: {
                     x: {
@@ -347,64 +352,13 @@
                 }
             }
         };
-
-
+    
+    
         const myChart = new Chart(
-            document.getElementById('accountChart'),
+            document.getElementById('combinedChart'),
             config
         );
     </script>
-    <script>
-
-        const data2 = {
-            labels: labels,
-            datasets: [{
-                label: 'Balances',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: {{ credit_balances | tojson}},
-            }]
-        };
-
-        const config2 = {
-        type: 'line',
-        data: data2,
-        options: {
-                maintainAspectRatio: false,
-                scales: {
-                    x: {
-                        display: true,
-                        title: {
-                            display: true,
-                            text: 'Transaction' // X-axis label
-                        },
-                        ticks: {
-                            callback: function(value, index, values) {
-                                // Display label for every 20th data point
-                                if (index % 20 === 0) {
-                                    return value;
-                                } else {
-                                    return ''; // Hide other labels
-                                }
-                            }
-                        }
-                    },
-                    y: {
-                        display: true,
-                        title: {
-                            display: true,
-                            text: 'Balance'
-                        }
-                    }
-                }
-            }
-        };
-
-
-        const myChart2 = new Chart(
-            document.getElementById('creditChart'),
-            config2
-        );
-    </script>
+    
 </body>
 </html>
