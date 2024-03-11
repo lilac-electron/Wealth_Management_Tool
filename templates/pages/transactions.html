@@ -51,8 +51,8 @@
                     <p class="card-text"><strong>Credit card total out:</strong> £{{ credit_card.total_out }}</p>
                     <p class="card-text"><strong>Credit card top merchant:</strong> {{ credit_card.top_merchant }}</p>
                     <div style="height: 50vh; width: 100%;">
-                        <canvas id="accountChart" width="400" height="200"></canvas>
-                        <canvas id="accountChart" width="400" height="200"></canvas>
+                        <canvas id="accountChart"></canvas>
+                        <canvas id="creditChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -317,7 +317,7 @@
                         display: true,
                         title: {
                             display: true,
-                            text: 'Transactionh' // X-axis label
+                            text: 'Transaction' // X-axis label
                         },
                         ticks: {
                             callback: function(value, index, values) {
@@ -345,6 +345,58 @@
         const myChart = new Chart(
             document.getElementById('accountChart'),
             config
+        );
+    </script>
+    <script>
+
+        const data2 = {
+            labels: labels,
+            datasets: [{
+                label: 'Balances',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: {{ credit_balances | tojson}},
+            }]
+        };
+
+        const config2 = {
+        type: 'line',
+        data: data2,
+        options: {
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Transaction' // X-axis label
+                        },
+                        ticks: {
+                            callback: function(value, index, values) {
+                                // Display label for every 20th data point
+                                if (index % 20 === 0) {
+                                    return value;
+                                } else {
+                                    return ''; // Hide other labels
+                                }
+                            }
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Balance'
+                        }
+                    }
+                }
+            }
+        };
+
+
+        const myChart2 = new Chart(
+            document.getElementById('creditChart'),
+            config2
         );
     </script>
 </body>
