@@ -14,6 +14,11 @@
             border: none;
             border-top: 1px solid #ccc; /* Grey color */
         }
+        .chart-container {
+            height: 300px; /* Adjust the height as needed */
+            width: 100%; /* This ensures the chart spans the entire width of the card body */
+            margin-bottom: 20px; /* Add spacing between the charts */
+        }
         #hidden-content {
             display: none;
         }
@@ -46,12 +51,14 @@
                     <p class="card-text"><strong>Current card total out:</strong> £{{ current_account.total_out }}</p>
                     <p class="card-text"><strong>Current card top merchant:</strong> {{ current_account.top_merchant }}</p>
                     <hr class="faint-grey-line">
-                    <p class="card-text"><strong>Current card ending balance:</strong> {{ credit_card.transactions[-1].balance }}</p>
+                    <p class="card-text"><strong>Credit card ending balance:</strong> {{ credit_card.transactions[-1].balance }}</p>
                     <p class="card-text"><strong>Credit card total in:</strong> £{{ credit_card.total_in }}</p>
                     <p class="card-text"><strong>Credit card total out:</strong> £{{ credit_card.total_out }}</p>
                     <p class="card-text"><strong>Credit card top merchant:</strong> {{ credit_card.top_merchant }}</p>
-                    <div style="height: 50vh; width: 100%;">
+                    <div class="chart-container">
                         <canvas id="accountChart"></canvas>
+                    </div>
+                    <div class="chart-container">
                         <canvas id="creditChart"></canvas>
                     </div>
                 </div>
