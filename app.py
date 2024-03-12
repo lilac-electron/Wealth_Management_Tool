@@ -135,12 +135,15 @@ class Account:
         self.account_total_in = 0
         self.account_total_out = 0 
         self.merchant_count = {}
+        self.salary = 0
         for transaction in self.transactions:
             if transaction.amount > 0 :
                 self.account_total_in += transaction.amount
             else:
                 self.account_total_out += transaction.amount
                 self.merchant_count[transaction.merchant['category']] = self.merchant_count.get(transaction.merchant['category'], 0)+1
+            if transaction.description == "Salaray Deposit":
+                self.salary = transaction.amount
         self.top_merchant = max(self.merchant_count, key=self.merchant_count.get)
         self.account_total_in = round(float(self.account_total_in), 2)
         self.account_total_out = round(float(self.account_total_out), 2)
@@ -155,7 +158,8 @@ class Account:
             "transactions": [txn.to_dict() for txn in self.transactions],
             "total_in": self.account_total_in,
             "total_out": self.account_total_out,
-            "top_merchant": self.top_merchant
+            "top_merchant": self.top_merchant,
+            "salary": self.salary
         }
         return account_dict
 
