@@ -489,13 +489,24 @@ def simulatedGrowth():
     var2=stock_data.resample('M').last().pct_change().std().values[0]
     np.random.seed(seed=25)
     SPdata.append(assetStart)
+    LRdata.append(assetStart)
+    Sdata.append(assetStart)
+    HRdata.append(assetStart)
+    SP_asset_val = assetStart
+    LR_asset_val = assetStart
+    S_asset_val = assetStart
+    HR_asset_val = assetStart
     for month in labels:
         market_return = np.random.normal(var1, var2,1)[0]
         #SPreturn = assetStart * (1+ market_return)
-        SPdata.append(assetStart * (1+ market_return))
-        LRdata.append(assetStart * (1.0065))
-        Sdata.append(assetStart * (1.07))
-        HRdata.append(assetStart * (1.1))
+        SP_asset_val *= (1+ market_return)
+        SPdata.append(SP_asset_val)
+        LR_asset_val *= (1.0065)
+        LRdata.append(LR_asset_val)
+        S_asset_val *= 1.07
+        Sdata.append(S_asset_val)
+        HR_asset_val *= 1.1
+        HRdata.append(HR_asset_val)
     return render_template('pages/simulatedGrowth.html', name=current_user.username, stock_table = stock_data_html, labels=labels, SPdata=SPdata, Sdata=Sdata, LRdata=LRdata, HRdata=HRdata)
 
 @app.route('/assetValue', methods=['GET', 'POST'])
