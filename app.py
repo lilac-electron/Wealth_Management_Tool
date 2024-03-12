@@ -527,7 +527,7 @@ def login():
                 app.config['CREDITS'] = listOfDictionaries['credits'][0]
                 app.config['RETIREMENT'] = listOfDictionaries['retirement'][0]
                 app.config['SAVINGS'] = listOfDictionaries['savings'][0]
-                app.config['FINANCE_PATH'] ='Wealth_Managment_Tool/SimulatedFinanceData/' + username
+                app.config['FINANCE_PATH'] = os.path.join('Wealth_Managment_Tool/SimulatedFinanceData/', username)
                 #print(assets)
                 #print(credits)
                 flash("Welcome "+ str(current_user.username)+", you have been logged in.")
