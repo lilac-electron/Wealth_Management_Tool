@@ -454,27 +454,49 @@ def credits():
 @app.route('/simulatedGrowth')
 @login_required
 def simulatedGrowth():
-    # Define the ticker and date range
+    for value in app.config['ASSETS'].values():
+            totalAssets += int(value)
+
+    numYears = 10
+    labels = []
+    labels.append(totalAssets)
+    print (numYears*12)
+    for i in range(1,((numYears*12)+1)):
+        labels.append(i)
+    print(len(labels))
+    SPdata = [] #S+P500 data
+    Sdata = [] #savings data
+    LRdata =[] #Low risk managed
+    HRdata =[] #Hish Risk managed
+
+    assetStart=totalAssets
     #ticker = 'AAPL'  # Example ticker
     ticker = '^SP500TR'
-    start_date = datetime.datetime(2020, 1, 1).strftime("%Y-%m-%d")
-    print(start_date)
-    end_date = datetime.datetime(2023, 1, 1).strftime("%Y-%m-%d")
-    print(end_date)
-    # Fetch historical stock data for the specified ticker
+    from dateutil import parser
+
+    # Parse date strings into datetime objects
+    start_date = parser.parse("2000-01-01")
+    end_date = parser.parse("2023-01-01")
+
+    # Format datetime objects as strings
+    start_date = start_date.strftime("%Y-%m-%d")
+    end_date = end_date.strftime("%Y-%m-%d")
+
+
     stock_data_html, stock_data = fetch_stock_data(ticker, start_date, end_date)
     var1=stock_data.resample('M').last().pct_change().mean().values[0]
     var2=stock_data.resample('M').last().pct_change().std().values[0]
-    for i in range (0,1000):
+    np.random.seed(seed=25)
+    SPdata.append(assetStart)
+    for month in labels:
         market_return = np.random.normal(var1, var2,1)[0]
-        #print(market_return)
-    #print(stock_data)
-    
-    # Convert DataFrame to HTML table
-    #stock_table_html = stock_data.to_frame().to_html()
-    
-    #return render_template('index.html', stock_table_html=stock_table_html)
-    return render_template('pages/simulatedGrowth.html', name=current_user.username, stock_table = stock_data_html)
+        #SPreturn = assetStart * (1+ market_return)
+        SPdata.append(assetStart * (1+ market_return))
+        LRdata.append(assetStart * (1.0065))
+        Sdata.append(assetStart * (1.07))
+        HRdata.append(assetStart * (1.1))
+    return render_template('pages/simulatedGrowth.html', name=current_user.username, stock_table = stock_data_html, labels=labels, SPdata=SPdata, Sdata=Sdata, LRdata=LRdata, HRdata=HRdata)
+
 @app.route('/assetValue', methods=['GET', 'POST'])
 @login_required
 def assetValue():

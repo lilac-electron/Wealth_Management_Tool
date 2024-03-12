@@ -48,6 +48,10 @@
                 <p>Could allow user to simulate growth of other factors other than S&P 500</p>
                 <section class="text-center mt-4">
                     <h2>Simulated Growth</h2>
+                    <div class="chart-container">
+                        <canvas id="simulatedGraph"></canvas>
+                        <p>The chart above shows the balance of each card throughout the 300 transaction most recent window</p>
+                    </div>
                     <div>
                         {{ stock_table | safe }}
                     </div>
@@ -61,6 +65,81 @@
 <footer class="bg-dark text-white text-center p-2 mt-auto">
     <p>&copy; 2024 Fins-Fintech</p>
 </footer>
+
+<script>
+    const labels = {{ labels | tojson }};
+
+    const data = {
+        labels: labels,
+        datasets: [
+            {
+                label: 'SP Data',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: {{ SPdata | tojson }},
+            },
+            {
+                label: 'S Data',
+                backgroundColor: 'rgb(54, 162, 235)',
+                borderColor: 'rgb(54, 162, 235)',
+                data: {{ Sdata | tojson }},
+            },
+            {
+                label: 'LR Data',
+                backgroundColor: 'rgb(75, 192, 192)',
+                borderColor: 'rgb(75, 192, 192)',
+                data: {{ LRdata | tojson }},
+            },
+            {
+                label: 'HR Data',
+                backgroundColor: 'rgb(255, 205, 86)',
+                borderColor: 'rgb(255, 205, 86)',
+                data: {{ HRdata | tojson }},
+            }
+        ]
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: 'Transaction' // X-axis label
+                    },
+                    ticks: {
+                        callback: function(value, index, values) {
+                            // Display label for every 20th data point
+                            if (index % 20 === 0) {
+                                return value;
+                            } else {
+                                return ''; // Hide other labels
+                            }
+                        }
+                    }
+                },
+                y: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: 'Balance'
+                    }
+                }
+            }
+        }
+    };
+
+
+    const myChart = new Chart(
+        document.getElementById('simulatedGraph'),
+        config
+    );
+</script>
+
 
 </body>
 </html>
