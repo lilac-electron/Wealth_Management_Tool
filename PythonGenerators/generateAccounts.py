@@ -8,7 +8,7 @@ class FinanceDataGenerator:
             "account": {
                 "account_number": "12345678",
                 "sort_code": "12-34-56",
-                "balance": random.randint(2000,2600), #UK average according to HousingAnywhere
+                "balance": 2500, #UK average according to HousingAnywhere
                 "currency": "GBP",
                 "account_holder": "John Doe"
             },
@@ -32,7 +32,7 @@ class FinanceDataGenerator:
             total += amount
             if time_since_bills >= 28:
                 total -= amount
-                amount = 2500
+                amount = random.randint(2000,2600)
                 total += amount
                 description = "Salary Deposit"
                 category = "Income"

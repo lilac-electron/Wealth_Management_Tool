@@ -629,6 +629,7 @@ def transactions():
     print (accounts_path)
     credits_path = os.path.join(app.config['FINANCE_PATH'], 'credit_card_transactions.json')
     print (credits_path)
+    
     with open(accounts_path, 'r') as f:
         account_data = json.load(f)
 
