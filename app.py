@@ -142,7 +142,7 @@ class Account:
             else:
                 self.account_total_out += transaction.amount
                 self.merchant_count[transaction.merchant['category']] = self.merchant_count.get(transaction.merchant['category'], 0)+1
-            if transaction.description == "Salaray Deposit":
+            if transaction.description == "Salary Deposit":
                 self.salary = float(transaction.amount)
         self.top_merchant = max(self.merchant_count, key=self.merchant_count.get)
         self.account_total_in = round(float(self.account_total_in), 2)
