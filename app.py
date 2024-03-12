@@ -620,10 +620,12 @@ def upload():
 @login_required
 def transactions():
     # Read data from JSON files for both account and credit card
-    with open(app.config['FINANCE_PATH'], '/current_account_transactions.json', 'r') as f:
+    accounts_path = os.path.join(app.config['FINANCE_PATH'],'/current_account_transactions.json')
+    credits_path = os.path.join(app.config['FINANCE_PATH'], '/credit_card_transactions.json')
+    with open(accounts_path, 'r') as f:
         account_data = json.load(f)
 
-    with open(app.config['FINANCE_PATH'], '/credit_card_transactions.json', 'r') as f:
+    with open(credits_path, 'r') as f:
         credit_card_data = json.load(f)
 
     # Extract account information
