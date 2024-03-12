@@ -457,9 +457,9 @@ def simulatedGrowth():
     # Define the ticker and date range
     #ticker = 'AAPL'  # Example ticker
     ticker = '^SP500TR'
-    start_date = datetime.date(2020, 1, 1).strftime("%Y-%m-%d")
+    start_date = datetime.datetime(2020, 1, 1).strftime("%Y-%m-%d")
     print(start_date)
-    end_date = datetime.date(2023, 1, 1).strftime("%Y-%m-%d")
+    end_date = datetime.datetime(2023, 1, 1).strftime("%Y-%m-%d")
     print(end_date)
     # Fetch historical stock data for the specified ticker
     stock_data_html, stock_data = fetch_stock_data(ticker, start_date, end_date)
@@ -629,7 +629,7 @@ def transactions():
     print (accounts_path)
     credits_path = os.path.join(app.config['FINANCE_PATH'], 'credit_card_transactions.json')
     print (credits_path)
-    
+
     with open(accounts_path, 'r') as f:
         account_data = json.load(f)
 
