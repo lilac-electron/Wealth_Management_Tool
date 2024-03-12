@@ -501,11 +501,11 @@ def simulatedGrowth():
         #SPreturn = assetStart * (1+ market_return)
         SP_asset_val *= (1+ market_return)
         SPdata.append(SP_asset_val)
-        LR_asset_val *= (1.0065)
+        LR_asset_val *= (1 + ((0.65/12)/100))
         LRdata.append(LR_asset_val)
-        S_asset_val *= 1.07
+        S_asset_val *= (1 + ((7/12)/100))
         Sdata.append(S_asset_val)
-        HR_asset_val *= 1.1
+        HR_asset_val *= (1+ ((10/12)/100))
         HRdata.append(HR_asset_val)
     return render_template('pages/simulatedGrowth.html', name=current_user.username, stock_table = stock_data_html, labels=labels, SPdata=SPdata, Sdata=Sdata, LRdata=LRdata, HRdata=HRdata)
 
