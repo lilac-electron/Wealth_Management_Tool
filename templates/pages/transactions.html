@@ -149,6 +149,7 @@
                                     </ul>
                                     <!-- "Click for more" button -->
                                     <button class="btn btn-primary mt-3" id="load-more-transactions">Click for more</button>
+                                    <button id="show-original-transactions" class="btn btn-primary">Show Original Transactions</button>
                                 </div>
                             </div>
                         </div>
@@ -202,6 +203,7 @@
         $(document).ready(function() {
         // Keep track of the index of the last loaded transaction
         var lastIndexLoaded = 10;
+        var originalTransactionsHtml = $('#current-account-transactions').html(); // Store the original HTML
 
         // Function to load more transactions
         function loadMoreTransactions() {
@@ -241,6 +243,11 @@
         // Event listener for "click for more" button
         $('#load-more-transactions').click(function() {
             loadMoreTransactions();
+        });
+        $('#show-original-transactions').click(function() {
+            $('#current-account-transactions').html(originalTransactionsHtml); // Restore original transactions HTML
+            lastIndexLoaded = 10; // Reset lastIndexLoaded
+            $('#load-more-transactions').show(); // Show the "click for more" button
         });
     });
 
