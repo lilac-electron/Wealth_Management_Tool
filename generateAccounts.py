@@ -8,7 +8,7 @@ class FinanceDataGenerator:
             "account": {
                 "account_number": "12345678",
                 "sort_code": "12-34-56",
-                "balance": 2500.00,
+                "balance": random.randint(2000,2600), #UK average according to HousingAnywhere
                 "currency": "GBP",
                 "account_holder": "John Doe"
             },
