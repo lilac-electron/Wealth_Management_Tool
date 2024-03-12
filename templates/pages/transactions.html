@@ -148,8 +148,8 @@
                                         {% endfor %}
                                     </ul>
                                     <!-- "Click for more" button -->
-                                    <button class="btn btn-primary mt-3" id="load-more-transactions">Click for more</button>
-                                    <button id="show-original-transactions" class="btn btn-primary">Show Original Transactions</button>
+                                    <button class="btn btn-primary mt-3" id="load-more-transactions">Click for 10 more</button>
+                                    <button class="btn btn-primary mt-3" id="show-original-account-transactions">Show First 10 Only</button>
                                 </div>
                             </div>
                         </div>
@@ -185,6 +185,7 @@
                                     </ul>
                                     <!-- "Click for more" button -->
                                     <button class="btn btn-primary mt-3" id="load-more-credit-card-transactions">Click for more</button>
+                                    <button class="btn btn-primary mt-3" id="show-original-credit-transactions">Show First 10 Only</button>
                                 </div>
                             </div>
                         </div>
@@ -244,7 +245,7 @@
         $('#load-more-transactions').click(function() {
             loadMoreTransactions();
         });
-        $('#show-original-transactions').click(function() {
+        $('#show-original-account-transactions').click(function() {
             $('#current-account-transactions').html(originalTransactionsHtml); // Restore original transactions HTML
             lastIndexLoaded = 10; // Reset lastIndexLoaded
             $('#load-more-transactions').show(); // Show the "click for more" button
@@ -256,6 +257,7 @@
         $(document).ready(function() {
         // Keep track of the index of the last loaded transaction
         var lastIndexLoaded = 10;
+        var originalTransactionsHtml = $('#credit-card-transactions').html(); // Store the original HTML
 
         // Function to load more transactions
         function loadMoreCreditTransactions() {
@@ -295,6 +297,11 @@
         // Event listener for "click for more" button
         $('#load-more-credit-card-transactions').click(function() {
             loadMoreCreditTransactions();
+        });
+        $('#show-original-credit-transactions').click(function() {
+            $('#credit-card-transactions').html(originalTransactionsHtml); // Restore original transactions HTML
+            lastIndexLoaded = 10; // Reset lastIndexLoaded
+            $('#load-more-credit-card-transactions').show(); // Show the "click for more" button
         });
     });
 
