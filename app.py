@@ -34,8 +34,8 @@ import csv
 import numpy as np
 import requests
 import json
-from generateAccounts import FinanceDataGenerator
-from generateCreditCardAccounts import CreditCardDataGenerator
+from PythonGenerators.generateAccounts import FinanceDataGenerator
+from PythonGenerators.generateCreditCardAccounts import CreditCardDataGenerator
 
 #FinsFintechFYP
 
