@@ -454,6 +454,7 @@ def credits():
 @app.route('/simulatedGrowth')
 @login_required
 def simulatedGrowth():
+    totalAssets = 0
     for value in app.config['ASSETS'].values():
             totalAssets += int(value)
 
