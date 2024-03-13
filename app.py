@@ -424,12 +424,22 @@ def dashboard():
 
         return render_template('pages/dashboard.html', name=current_user.username, total_credits=totalCredits, total_assets=totalAssets, data=data, Labels=labels)
 
+def generate_credits_form(input_list):
+    class CreditsForm(DynamicForm):
+        pass
+    
+    for index, field_name in enumerate(input_list):
+        field = IntegerField(field_name, validators=[InputRequired(), NumberRange(min=0)])
+        setattr(CreditsForm, f'field_{index}', field)
+
+    return CreditsForm()
+
 @app.route('/credits', methods=['GET', 'POST'])
 @login_required
 def credits():
     #input_list = ['value1', 'value2', 'value3']  # Replace with your list
     input_list = app.config['CREDITS'].keys()
-    form = DynamicForm()
+    form = generate_credits_form(input_list=input_list)
     #upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', f'{current_user.username}/{current_user.username}_credits.csv')
     #print(upload_folder_path)
     if request.method == 'POST' and form.validate_on_submit():
@@ -445,7 +455,6 @@ def credits():
     if request.method == 'POST' and not form.validate_on_submit():
         flash('There was an issue uploading your data, please try again', 'danger')
 
-    CreditsForm(input_list)
     total_credits = 0
     for key in input_list:
         total_credits += int(app.config['CREDITS'][key])
