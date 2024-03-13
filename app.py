@@ -443,8 +443,9 @@ def credits():
     #upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', f'{current_user.username}/{current_user.username}_credits.csv')
     #print(upload_folder_path)
     if request.method == 'POST' and form.validate_on_submit():
+        print("Entered data:", entered_data)
         entered_data = {key.lstrip('field_'): value for key, value in request.form.items() if key.startswith('field_')}
-        #print("Entered data:", entered_data)
+        print("Entered data:", entered_data)
         app.config['CREDITS'] = entered_data
         #write_csv_file(upload_folder_path, entered_data)
         write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'credits', entered_data)
