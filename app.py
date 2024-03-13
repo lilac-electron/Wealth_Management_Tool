@@ -501,7 +501,7 @@ def simulatedGrowth():
         #SPreturn = assetStart * (1+ market_return)
         SP_asset_val *= (1+ market_return)
         SPdata.append(SP_asset_val)
-        LR_asset_val *= (1 + ((0.65/12)/100))
+        LR_asset_val *= (1 + ((np.random.normal(0.65, 0.35,1)[0]/12)/100))
         LRdata.append(LR_asset_val)
         S_asset_val *= (1 + ((7/12)/100))
         Sdata.append(S_asset_val)
