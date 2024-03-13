@@ -509,6 +509,11 @@ def simulatedGrowth():
         HRdata.append(HR_asset_val)
     return render_template('pages/simulatedGrowth.html', name=current_user.username, stock_table = stock_data_html, labels=labels, SPdata=SPdata, Sdata=Sdata, LRdata=LRdata, HRdata=HRdata)
 
+@app.route('/tools', methods=['GET', 'POST'])
+@login_required
+def tools():
+    return render_template('pages/tools.html')
+
 @app.route('/assetValue', methods=['GET', 'POST'])
 @login_required
 def assetValue():
