@@ -128,8 +128,8 @@
                                     </button>
                                     <div class="collapse-buttons">
                                         <button class="btn btn-primary mt-3" id="load-more-transactions">Click for 10 more</button>
+                                        <button class="btn btn-danger mt-3" id="collapse-account-card">Collapse Card</button>
                                         <button class="btn btn-primary mt-3" id="show-original-account-transactions">Show First 10 Only</button>
-                                        <button class="btn btn-danger mt-3" id="collapse-card">Collapse Card</button>
                                     </div>
                                 </h5>
                             </div>
@@ -167,6 +167,12 @@
                                     <button class="btn btn-link" data-toggle="collapse" data-target="#credit-card-transaction-collapse" aria-expanded="true" aria-controls="credit-card-transaction-collapse">
                                         Credit Card Transactions
                                     </button>
+
+                                    <div class="collapse-credit-buttons">
+                                        <button class="btn btn-primary mt-3" id="load-more-credit-card-transactions">Click for more</button>
+                                        <button class="btn btn-primary mt-3" id="show-original-credit-transactions">Show First 10 Only</button>
+                                        <button class="btn btn-danger mt-3" id="collapse-credit-card-card">Collapse Card</button>
+                                    </div>
                                 </h5>
                             </div>
                             <div id="credit-card-transaction-collapse" class="collapse" aria-labelledby="credit-card-transaction-header" data-parent="#transaction-accordion">
@@ -391,8 +397,22 @@
             $('#current-account-transaction-collapse').on('hide.bs.collapse', function () {
                 $('.collapse-buttons').hide();
             });
-            $('#collapse-card').click(function() {
+            $('#collapse-account-card').click(function() {
                 $('#current-account-transaction-collapse').collapse('hide');
+            });
+
+            
+            $('.collapse-credit-buttons').hide();
+            
+            $('#collapse-credit-card-card').click(function() {
+                $('#credit-card-transaction-collapse').collapse('hide');
+            });
+            $('#credit-card-transaction-collapse').on('show.bs.collapse', function () {
+                $('.collapse-buttons').show();
+            });
+
+            $('#credit-card-transaction-collapse').on('hide.bs.collapse', function () {
+                $('.collapse-buttons').hide();
             });
         });
     </script>
