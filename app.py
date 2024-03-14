@@ -424,12 +424,12 @@ def dashboard():
 
         return render_template('pages/dashboard.html', name=current_user.username, total_credits=totalCredits, total_assets=totalAssets, data=data, Labels=labels)
 
-def generate_credits_form(input_list, initial_values):
+def generate_credits_form(input_lists):
     class CreditsForm(DynamicForm):
         pass
     
     for index, field_name in enumerate(input_list):
-        initial_value = initial_values.get(field_name, 0) if initial_values else 0
+        initial_value = 0
         field = IntegerField(field_name, validators=[Optional(), NumberRange(min=0)], default=initial_value)
         setattr(CreditsForm, f'field_{index}', field)
 
@@ -440,8 +440,7 @@ def generate_credits_form(input_list, initial_values):
 def credits():
     #input_list = ['value1', 'value2', 'value3']  # Replace with your list
     input_list = app.config['CREDITS'].keys()
-    initial_values = app.config.get('CREDITS')
-    form = generate_credits_form(input_list=input_list, initial_values=initial_values)
+    form = generate_credits_form(input_list=input_list)
     #upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', f'{current_user.username}/{current_user.username}_credits.csv')
     #print(upload_folder_path)
     if request.method == 'POST' and form.validate_on_submit():
