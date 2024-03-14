@@ -563,14 +563,17 @@ def simulatedGrowth():
     LR_asset_val = assetStart
     S_asset_val = assetStart
     HR_asset_val = assetStart
-    for month in labels:
+    for i in  range(len(labels)):
         market_return = np.random.normal(var1, var2,1)[0]
         #SPreturn = assetStart * (1+ market_return)
         SP_asset_val *= (1+ market_return)
         SPdata.append(SP_asset_val)
         LR_asset_val *= (1 + ((np.random.normal(0.65, 0.35,1)[0]/12)/100))
         LRdata.append(LR_asset_val)
-        S_asset_val *= (1 + ((np.random.normal(7, 4,1)[0]/12)/100))
+        if i < 12:
+            S_asset_val *= (1 + ((np.random.normal(7, 4,1)[0]/12)/100))
+        else:
+            S_asset_val *= (1 + ((np.random.normal(1, 3,1)[0]/12)/100))
         Sdata.append(S_asset_val)
         HR_asset_val *= (1+ ((np.random.normal(7, 20,1)[0]/12)/100))
         HRdata.append(HR_asset_val)
