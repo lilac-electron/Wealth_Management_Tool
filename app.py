@@ -573,7 +573,7 @@ def simulatedGrowth():
         if i < 12:
             S_asset_val *= (1 + ((np.random.normal(7, 4,1)[0]/12)/100))
         else:
-            S_asset_val *= (1 + ((np.random.normal(1, 3,1)[0]/12)/100))
+            S_asset_val *= (1 + ((np.random.normal(2, 2,1)[0]/12)/100))
         Sdata.append(S_asset_val)
         HR_asset_val *= (1+ ((np.random.normal(7, 20,1)[0]/12)/100))
         HRdata.append(HR_asset_val)
