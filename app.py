@@ -539,7 +539,7 @@ def generate_assets_form(input_list):
 def assetValue():
     #input_list = ['value1', 'value2', 'value3']  # Replace with your list
     input_list = app.config['ASSETS'].keys()
-    form =  generate_assets_form(input_list=input_list)
+    form = generate_assets_form(input_list=input_list)
     #upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', f'{current_user.username}/{current_user.username}_assetValue.csv')
     #print(upload_folder_path)
     if request.method == 'POST' and form.validate_on_submit():
@@ -558,7 +558,6 @@ def assetValue():
     if request.method == 'POST' and not form.validate_on_submit():
         flash('There was an issue uploading your data, please try again', 'danger')
 
-    AssetForm(input_list)
     total_assets = 0
     for key in input_list:
         total_assets += int(app.config['ASSETS'][key])
