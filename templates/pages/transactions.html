@@ -126,6 +126,10 @@
                                     <button class="btn btn-link" data-toggle="collapse" data-target="#current-account-transaction-collapse" aria-expanded="true" aria-controls="current-account-transaction-collapse">
                                         Current Account Transactions
                                     </button>
+                                    <div class="collapse-buttons">
+                                        <button class="btn btn-primary mt-3" id="load-more-transactions">Click for 10 more</button>
+                                        <button class="btn btn-primary mt-3" id="show-original-account-transactions">Show First 10 Only</button>
+                                    </div>
                                 </h5>
                             </div>
                             <div id="current-account-transaction-collapse" class="collapse" aria-labelledby="current-account-transaction-header" data-parent="#transaction-accordion">
@@ -147,9 +151,9 @@
                                             </li>
                                         {% endfor %}
                                     </ul>
-                                    <!-- "Click for more" button -->
+                                    <!-- "Click for more" button 
                                     <button class="btn btn-primary mt-3" id="load-more-transactions">Click for 10 more</button>
-                                    <button class="btn btn-primary mt-3" id="show-original-account-transactions">Show First 10 Only</button>
+                                    <button class="btn btn-primary mt-3" id="show-original-account-transactions">Show First 10 Only</button>-->
                                 </div>
                             </div>
                         </div>
@@ -157,7 +161,7 @@
                         
                         <!-- Credit Card Transactions -->
                         <div class="card mb-3">
-                            <div class="card-header text-center" id="credit-card-transaction-header">
+                            <div class="card-header text-center sticky-top" id="credit-card-transaction-header">
                                 <h5 class="mb-0">
                                     <button class="btn btn-link" data-toggle="collapse" data-target="#credit-card-transaction-collapse" aria-expanded="true" aria-controls="credit-card-transaction-collapse">
                                         Credit Card Transactions
@@ -375,6 +379,17 @@
             document.getElementById('combinedChart'),
             config
         );
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#current-account-transaction-collapse').on('show.bs.collapse', function () {
+                $('.collapse-buttons').show();
+            });
+
+            $('#current-account-transaction-collapse').on('hide.bs.collapse', function () {
+                $('.collapse-buttons').hide();
+            });
+        });
     </script>
     
 </body>
