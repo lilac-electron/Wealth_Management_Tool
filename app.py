@@ -470,6 +470,54 @@ def credits():
         total_credits += int(app.config['CREDITS'][key])
     return render_template('pages/credits.html', name=current_user.username, form=form, credits_data = app.config['CREDITS'], total_credits=total_credits)
 
+def generate_assets_form(input_list):
+    class AssetsForm(DynamicForm2):
+        pass
+    
+    for index, field_name in enumerate(input_list):
+        initial_value = 0
+        field = IntegerField(field_name, validators=[Optional(), NumberRange(min=0)], default=initial_value)
+        setattr(AssetsForm, f'field_{index}', field)
+
+    return AssetsForm()
+
+@app.route('/assetValue', methods=['GET', 'POST'])
+@login_required
+def assetValue():
+    #input_list = ['value1', 'value2', 'value3']  # Replace with your list
+    input_list = app.config['ASSETS'].keys()
+    form = generate_assets_form(input_list=input_list)
+    #upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', f'{current_user.username}/{current_user.username}_assetValue.csv')
+    #print(upload_folder_path)
+    if request.method == 'POST' and form.validate_on_submit():
+        #print("test 1")
+        old_vals = list(app.config['CREDITS'].values())
+        entered_data_list = [value if value != '' else '-1' for value in request.form.values()]
+        counter = 0
+        for val in entered_data_list:
+            if val == '-1' and int(old_vals[counter]) != 0:
+                entered_data_list[counter] = old_vals[counter]
+            elif val == '-1':
+                entered_data_list[counter] = '0'
+            counter += 1
+        entered_data = {list(input_list)[i]:entered_data_list[i] for i in range(len(input_list))}
+        #print("test 1")
+        app.config['ASSETS'] = entered_data
+        #print("test 1")
+        #write_csv_file(upload_folder_path, entered_data)
+        write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'assets', entered_data)
+        #print("test 1")
+        #print("Entered data:", entered_data)
+        flash("Data entered successfully", "success")
+
+    if request.method == 'POST' and not form.validate_on_submit():
+        flash('There was an issue uploading your data, please try again', 'danger')
+
+    total_assets = 0
+    for key in input_list:
+        total_assets += int(app.config['ASSETS'][key])
+    return render_template('pages/currentAssetValue.html', name=current_user.username, form=form, assets_data=app.config['ASSETS'], total_assets=total_assets)
+
 @app.route('/simulatedGrowth')
 @login_required
 def simulatedGrowth():
@@ -533,44 +581,7 @@ def simulatedGrowth():
 def tools():
     return render_template('pages/tools.html')
 
-def generate_assets_form(input_list):
-    class AssetsForm(DynamicForm2):
-        pass
-    
-    for index, field_name in enumerate(input_list):
-        field = IntegerField(field_name, validators=[InputRequired(), NumberRange(min=0)])
-        setattr(AssetsForm, f'field_{index}', field)
 
-    return AssetsForm()
-
-@app.route('/assetValue', methods=['GET', 'POST'])
-@login_required
-def assetValue():
-    #input_list = ['value1', 'value2', 'value3']  # Replace with your list
-    input_list = app.config['ASSETS'].keys()
-    form = generate_assets_form(input_list=input_list)
-    #upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', f'{current_user.username}/{current_user.username}_assetValue.csv')
-    #print(upload_folder_path)
-    if request.method == 'POST' and form.validate_on_submit():
-        #print("test 1")
-        entered_data_list = list(request.form.values())
-        entered_data = {list(input_list)[i]:entered_data_list[i] for i in range(len(input_list))}
-        #print("test 1")
-        app.config['ASSETS'] = entered_data
-        #print("test 1")
-        #write_csv_file(upload_folder_path, entered_data)
-        write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'assets', entered_data)
-        #print("test 1")
-        #print("Entered data:", entered_data)
-        flash("Data entered successfully", "success")
-
-    if request.method == 'POST' and not form.validate_on_submit():
-        flash('There was an issue uploading your data, please try again', 'danger')
-
-    total_assets = 0
-    for key in input_list:
-        total_assets += int(app.config['ASSETS'][key])
-    return render_template('pages/currentAssetValue.html', name=current_user.username, form=form, assets_data=app.config['ASSETS'], total_assets=total_assets)
 @app.route('/updateFinances')
 @login_required
 def updateFinances():
