@@ -450,7 +450,7 @@ def credits():
         for val in entered_data_list:
             if val == '-1' and int(old_vals[counter]) != 0:
                 entered_data_list[counter] = old_vals[counter]
-            else:
+            elif val == '-1':
                 entered_data_list[counter] = '0'
             counter += 1
         entered_data = {list(input_list)[i]:entered_data_list[i] for i in range(len(input_list))}
