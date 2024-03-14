@@ -429,7 +429,7 @@ def generate_credits_form(input_list, initial_values):
         pass
     
     for index, field_name in enumerate(input_list):
-        initial_value = initial_values.get(field_name, '') if initial_values else ''
+        initial_value = initial_values.get(field_name, 0) if initial_values else 0
         field = IntegerField(field_name, validators=[Optional(), NumberRange(min=0)], default=initial_value)
         setattr(CreditsForm, f'field_{index}', field)
 
