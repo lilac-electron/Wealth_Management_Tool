@@ -29,7 +29,7 @@ function generateNavbar() {
                         <a class="nav-link border-0 bg-light mr-2" href="/transactions">Track Transactions</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link border-0 bg-light mr-2" href="/updateFinances">Update Financial Info</a>
+                        <a class="nav-link border-0 bg-light mr-2" href="/tools">Finance Tools</a>
                     </li>
                 </ul>
             </div>
