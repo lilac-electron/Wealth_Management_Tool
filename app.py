@@ -9,7 +9,7 @@ from wtforms import (
     StringField, SubmitField, IntegerField, PasswordField, BooleanField, SelectMultipleField,FileField
 )
 from wtforms.validators import (
-    InputRequired, Email, Length, NumberRange, DataRequired#, validators
+    InputRequired, Email, Length, NumberRange, DataRequired, Optional#, validators
 )
 import email_validator
 
@@ -208,16 +208,16 @@ class Form2(FlaskForm):
 def clearAttribute():
     DynamicForm = [attr for attr in DynamicForm if  not(attr.startswith('field_'))]
 
-def CreditsForm(inputs_list):
-    for item in inputs_list:
-        setattr(DynamicForm, f'field_{item}', IntegerField(f'Enter monthly payment for {item}'))
+#def CreditsForm(inputs_list):
+#    for item in inputs_list:
+ #       setattr(DynamicForm, f'field_{item}', IntegerField(f'Enter monthly payment for {item}'))
         #print(item)
     #DynamicForm.submit = SubmitField('Submit')   
 
-def AssetForm(inputs_list):
-    for item in inputs_list:
-        setattr(DynamicForm2, f'field_{item}', IntegerField(f'Enter asset value for {item}'))
-        #print(item)   
+#def AssetForm(inputs_list):
+ #   for item in inputs_list:
+  #      setattr(DynamicForm2, f'field_{item}', IntegerField(f'Enter asset value for {item}'))
+   #     #print(item)   
 
 def list_files(directory):
     file_names = [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
@@ -429,7 +429,7 @@ def generate_credits_form(input_list):
         pass
     
     for index, field_name in enumerate(input_list):
-        field = IntegerField(field_name, validators=[InputRequired(), NumberRange(min=0)])
+        field = IntegerField(field_name, validators=[Optional(), NumberRange(min=0)])
         setattr(CreditsForm, f'field_{index}', field)
 
     return CreditsForm()
