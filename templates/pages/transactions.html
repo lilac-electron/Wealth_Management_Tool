@@ -129,6 +129,7 @@
                                     <div class="collapse-buttons">
                                         <button class="btn btn-primary mt-3" id="load-more-transactions">Click for 10 more</button>
                                         <button class="btn btn-primary mt-3" id="show-original-account-transactions">Show First 10 Only</button>
+                                        <button class="btn btn-danger mt-3" id="collapse-card">Collapse Card</button>
                                     </div>
                                 </h5>
                             </div>
@@ -389,6 +390,9 @@
 
             $('#current-account-transaction-collapse').on('hide.bs.collapse', function () {
                 $('.collapse-buttons').hide();
+            });
+            $('#collapse-card').click(function() {
+                $('#current-account-transaction-collapse').collapse('hide');
             });
         });
     </script>
