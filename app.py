@@ -434,10 +434,6 @@ def generate_credits_form(input_list):
 
     return CreditsForm()
 
-def printRequestForm(requestForm):
-    for key, value in requestForm:
-        print (key, value)
-
 @app.route('/credits', methods=['GET', 'POST'])
 @login_required
 def credits():
@@ -447,7 +443,6 @@ def credits():
     #upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', f'{current_user.username}/{current_user.username}_credits.csv')
     #print(upload_folder_path)
     if request.method == 'POST' and form.validate_on_submit():
-        printRequestForm(request.form.items())
         entered_data_list = list(request.form.values())
         entered_data = {list(input_list)[i]:entered_data_list[i] for i in range(len(input_list))}
         print("Entered data:", entered_data)
@@ -529,17 +524,28 @@ def simulatedGrowth():
 def tools():
     return render_template('pages/tools.html')
 
+def generate_assets_form(input_list):
+    class AssetsForm(DynamicForm2):
+        pass
+    
+    for index, field_name in enumerate(input_list):
+        field = IntegerField(field_name, validators=[InputRequired(), NumberRange(min=0)])
+        setattr(AssetsForm, f'field_{index}', field)
+
+    return AssetsForm()
+
 @app.route('/assetValue', methods=['GET', 'POST'])
 @login_required
 def assetValue():
     #input_list = ['value1', 'value2', 'value3']  # Replace with your list
     input_list = app.config['ASSETS'].keys()
-    form =  DynamicForm2()
+    form =  generate_assets_form(input_list=input_list)
     #upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', f'{current_user.username}/{current_user.username}_assetValue.csv')
     #print(upload_folder_path)
     if request.method == 'POST' and form.validate_on_submit():
         #print("test 1")
-        entered_data = {key.lstrip('field_'): value for key, value in request.form.items() if key.startswith('field_')}
+        entered_data_list = list(request.form.values())
+        entered_data = {list(input_list)[i]:entered_data_list[i] for i in range(len(input_list))}
         #print("test 1")
         app.config['ASSETS'] = entered_data
         #print("test 1")
