@@ -403,16 +403,16 @@
 
             
             $('.collapse-credit-buttons').hide();
-            
+
             $('#collapse-credit-card-card').click(function() {
                 $('#credit-card-transaction-collapse').collapse('hide');
             });
             $('#credit-card-transaction-collapse').on('show.bs.collapse', function () {
-                $('.collapse-buttons').show();
+                $('.collapse-credit-buttons').show();
             });
 
             $('#credit-card-transaction-collapse').on('hide.bs.collapse', function () {
-                $('.collapse-buttons').hide();
+                $('.collapse-credit-buttons').hide();
             });
         });
     </script>
