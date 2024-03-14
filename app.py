@@ -459,11 +459,13 @@ def credits():
 
     if request.method == 'POST' and not form.validate_on_submit():
         flash('There was an issue uploading your data, please try again', 'danger')
-
-    total_credits = 0
-    for key in input_list:
-        total_credits += int(app.config['CREDITS'][key])
-    return render_template('pages/credits.html', name=current_user.username, form=form, credits_data = app.config['CREDITS'], total_credits=total_credits)
+    try:
+        total_credits = 0
+        for key in input_list:
+            total_credits += int(app.config['CREDITS'][key])
+        return render_template('pages/credits.html', name=current_user.username, form=form, credits_data = app.config['CREDITS'], total_credits=total_credits)
+    except KeyError:
+        print("key error")
 
 @app.route('/simulatedGrowth')
 @login_required
