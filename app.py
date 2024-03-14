@@ -424,7 +424,7 @@ def dashboard():
 
         return render_template('pages/dashboard.html', name=current_user.username, total_credits=totalCredits, total_assets=totalAssets, data=data, Labels=labels)
 
-def generate_credits_form(input_lists):
+def generate_credits_form(input_list):
     class CreditsForm(DynamicForm):
         pass
     
