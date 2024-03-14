@@ -448,7 +448,8 @@ def credits():
     #print(upload_folder_path)
     if request.method == 'POST' and form.validate_on_submit():
         printRequestForm(request.form.items())
-        entered_data = {key.lstrip('field_'): value for key, value in request.form.items() if key.startswith('field_')}
+        entered_data_list = [value for key, value in request.form.items()]
+        entered_data = {input_list[i]:entered_data_list[i] for i in range(len(input_list))}
         print("Entered data:", entered_data)
         app.config['CREDITS'] = entered_data
         #write_csv_file(upload_folder_path, entered_data)
