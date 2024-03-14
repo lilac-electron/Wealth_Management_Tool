@@ -444,7 +444,7 @@ def credits():
     #upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', f'{current_user.username}/{current_user.username}_credits.csv')
     #print(upload_folder_path)
     if request.method == 'POST' and form.validate_on_submit():
-        entered_data_list = list(request.form.values())
+        entered_data_list = [value if value != '' else '0' for value in request.form.values()]
         entered_data = {list(input_list)[i]:entered_data_list[i] for i in range(len(input_list))}
         print("Entered data:", entered_data)
         app.config['CREDITS'] = entered_data
