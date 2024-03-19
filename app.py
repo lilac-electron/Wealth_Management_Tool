@@ -630,6 +630,9 @@ def tools():
             years_to_save = savings_form.years_to_save.data
             
             print(f"Savings Goal: {savings_goal}, Saving Per Month: {saving_per_month}, Current Savings: {current_savings}, Annual Interest Rate: {annual_interest_rate}, Years to Save: {years_to_save}")
+            save_data = {field.name: getattr(savings_form, field.name).data for field in savings_form}
+            write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'savings', save_data)
+
 
         elif retirement_form.validate_on_submit():
             # Process retirement form data
@@ -640,6 +643,12 @@ def tools():
             desired_annual_income = retirement_form.desired_annual_income.data
             
             print(f"Current Age: {current_age}, Desired Retirement Age: {desired_retirement_age}, Current Savings: {current_savings}, Expected Annual Return: {expected_annual_return}, Desired Annual Income: {desired_annual_income}")
+            
+            save_data = {
+                field.name: getattr(retirement_form, field.name).data
+                for field in retirement_form
+            }
+            write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'retirement', save_data)
 
         elif tax_calculator_form.validate_on_submit():
             # Process tax calculator form data
@@ -650,6 +659,12 @@ def tools():
             filing_status = tax_calculator_form.filing_status.data
             
             print(f"Annual Salary: {annual_salary}, Additional Income: {additional_income}, Deductible Expenses: {deductible_expenses}, Tax Year: {tax_year}, Filing Status: {filing_status}")
+            
+            save_data = {
+                field.name: getattr(tax_calculator_form, field.name).data
+                for field in tax_calculator_form
+            }
+            write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'tax', save_data)
 
         elif capital_gains_calculator_form.validate_on_submit():
             # Process capital gains calculator form data
@@ -660,6 +675,13 @@ def tools():
             deductions_exemptions = capital_gains_calculator_form.deductions_exemptions.data
             
             print(f"Purchase Price: {purchase_price}, Sale Price: {sale_price}, Holding Period: {holding_period}, Cost of Improvements: {cost_of_improvements}, Deductions/Exemptions: {deductions_exemptions}")
+            
+            save_data = {
+                field.name: getattr(capital_gains_calculator_form, field.name).data
+                for field in capital_gains_calculator_form
+            }
+            write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'capital gains', save_data)
+
 
     
     return render_template('pages/tools.html', savings_form=savings_form, retirement_form=retirement_form, tax_calculator_form=tax_calculator_form, capital_gains_calculator_form=capital_gains_calculator_form)
