@@ -69,49 +69,53 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Savings Tool</h5>
-                                <form method="POST" action="{{ url_for('tools') }}">
-                                    {% for field in savings_form %}
-                                        {% if not loop.last %}
+                            <div class="card-header" id="savings-heading">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#savings-collapse" aria-expanded="true" aria-controls="savings-collapse">
+                                        Savings Tool
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="savings-collapse" class="collapse show" aria-labelledby="savings-heading">
+                                <div class="card-body">
+                                    <form method="POST" action="{{ url_for('tools') }}">
+                                        {% for field in savings_form %}
                                             <div>
                                                 {{ field.label }}
                                             </div>
                                             <div class="mb-3">
                                                 {{ field(value=value) }}
                                             </div>
-                                        {% endif %}
-                                        {% if loop.last %}
-                                            {{ field }}
-                                        {% endif %}
-                                    {% endfor %}
-                                    {{ field }}
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </form>
+                                        {% endfor %}
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Retirement Tool</h5>
-                                <form method="POST" action="{{ url_for('tools') }}">
-                                    {% for field in retirement_form %}
-                                        {% if not loop.last %}
+                            <div class="card-header" id="retirement-heading">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#retirement-collapse" aria-expanded="true" aria-controls="retirement-collapse">
+                                        Retirement Tool
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="retirement-collapse" class="collapse show" aria-labelledby="retirement-heading">
+                                <div class="card-body">
+                                    <form method="POST" action="{{ url_for('tools') }}">
+                                        {% for field in retirement_form %}
                                             <div>
                                                 {{ field.label }}
                                             </div>
                                             <div class="mb-3">
                                                 {{ field(value=value) }}
                                             </div>
-                                        {% endif %}
-                                        {% if loop.last %}
-                                            {{ field }}
-                                        {% endif %}
-                                    {% endfor %}
-                                    {{ field }}
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </form>
+                                        {% endfor %}
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -119,61 +123,93 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Tax Calculator</h5>
-                                <form method="POST" action="{{ url_for('tools') }}">
-                                    {% for field in tax_calculator_form %}
-                                        {% if not loop.last %}
+                            <div class="card-header" id="tax-heading">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#tax-collapse" aria-expanded="true" aria-controls="tax-collapse">
+                                        Tax Calculator
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="tax-collapse" class="collapse show" aria-labelledby="tax-heading">
+                                <div class="card-body">
+                                    <form method="POST" action="{{ url_for('tools') }}">
+                                        {% for field in tax_calculator_form %}
                                             <div>
                                                 {{ field.label }}
                                             </div>
                                             <div class="mb-3">
                                                 {{ field(value=value) }}
                                             </div>
-                                        {% endif %}
-                                        {% if loop.last %}
-                                            {{ field }}
-                                        {% endif %}
-                                    {% endfor %}
-                                    {{ field }}
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </form>
+                                        {% endfor %}
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Capital Gains Calculator</h5>
-                                <form method="POST" action="{{ url_for('tools') }}">
-                                    {% for field in capital_gains_calculator_form %}
-                                        {% if not loop.last %}
+                            <div class="card-header" id="capital-gains-heading">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#capital-gains-collapse" aria-expanded="true" aria-controls="capital-gains-collapse">
+                                        Capital Gains Calculator
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="capital-gains-collapse" class="collapse show" aria-labelledby="capital-gains-heading">
+                                <div class="card-body">
+                                    <form method="POST" action="{{ url_for('tools') }}">
+                                        {% for field in capital_gains_calculator_form %}
                                             <div>
                                                 {{ field.label }}
                                             </div>
                                             <div class="mb-3">
                                                 {{ field(value=value) }}
                                             </div>
-                                        {% endif %}
-                                        {% if loop.last %}
-                                            {{ field }}
-                                        {% endif %}
-                                    {% endfor %}
-                                    {{ field }}
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </form>
+                                        {% endfor %}
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
         </div>
     </div>
 </div>
 
+<script>
+    $(document).ready(function() {
+        $('#savings-collapse').on('show.bs.collapse', function () {
+            $('#savings-heading button').addClass('collapsed');
+        });
+        $('#savings-collapse').on('hide.bs.collapse', function () {
+            $('#savings-heading button').removeClass('collapsed');
+        });
 
+        $('#retirement-collapse').on('show.bs.collapse', function () {
+            $('#retirement-heading button').addClass('collapsed');
+        });
+        $('#retirement-collapse').on('hide.bs.collapse', function () {
+            $('#retirement-heading button').removeClass('collapsed');
+        });
 
+        $('#tax-collapse').on('show.bs.collapse', function () {
+            $('#tax-heading button').addClass('collapsed');
+        });
+        $('#tax-collapse').on('hide.bs.collapse', function () {
+            $('#tax-heading button').removeClass('collapsed');
+        });
+
+        $('#capital-gains-collapse').on('show.bs.collapse', function () {
+            $('#capital-gains-heading button').addClass('collapsed');
+        });
+        $('#capital-gains-collapse').on('hide.bs.collapse', function () {
+            $('#capital-gains-heading button').removeClass('collapsed');
+        });
+    });
+</script>
 
 <!-- Footer -->
 <footer class="bg-dark text-white text-center p-2 mt-auto">
