@@ -27,5 +27,20 @@ function generateHeader() {
         </div>
     </header>
     `;
+        var timeout;
+
+        function resetTimer() {
+            clearTimeout(timeout);
+            timeout = setTimeout(logout, 1000); // 10 minutes in milliseconds
+
+        function logout(){
+            window.location.href = '/logout'; // Redirect to logout route
+            alert("You have been logged out due to inactivity");
+        }
+
+        document.onmousemove = resetTimer; // Reset timer on mouse movement
+        document.onkeypress = resetTimer; // Reset timer on keypress
+
+        resetTimer(); // Initial call to start the timer
     document.write(header);
 }
