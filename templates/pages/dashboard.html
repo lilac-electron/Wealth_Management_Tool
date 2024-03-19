@@ -58,9 +58,9 @@
             timeout = setTimeout(logout, 1000); // 10 minutes in milliseconds
         }
 
-        function logout() {
-            flash("You have been logged out for inactivity", "danger");
+        function logout(){
             window.location.href = '/logout'; // Redirect to logout route
+            alert("You have been logged out due to inactivity");
         }
 
         document.onmousemove = resetTimer; // Reset timer on mouse movement
