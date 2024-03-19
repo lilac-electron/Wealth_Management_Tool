@@ -26,12 +26,13 @@ function generateHeader() {
             </div>
         </div>
     </header>
-    `;
+    <script>
         var timeout;
 
         function resetTimer() {
             clearTimeout(timeout);
             timeout = setTimeout(logout, 1000); // 10 minutes in milliseconds
+        }
 
         function logout(){
             window.location.href = '/logout'; // Redirect to logout route
@@ -42,5 +43,7 @@ function generateHeader() {
         document.onkeypress = resetTimer; // Reset timer on keypress
 
         resetTimer(); // Initial call to start the timer
+    </script>
+    `;
     document.write(header);
 }
