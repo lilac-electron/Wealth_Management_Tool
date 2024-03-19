@@ -80,13 +80,19 @@
                                 <div class="card-body">
                                     <form method="POST" action="{{ url_for('tools') }}">
                                         {% for field in savings_form %}
-                                            <div>
-                                                {{ field.label }}
-                                            </div>
-                                            <div class="mb-3">
-                                                {{ field(value=value) }}
-                                            </div>
+                                            {% if not loop.last %}
+                                                <div>
+                                                    {{ field.label }}
+                                                </div>
+                                                <div class="mb-3">
+                                                    {{ field(value=value) }}
+                                                </div>
+                                            {% endif %}
+                                            {% if loop.last %}
+                                                {{ field }}
+                                            {% endif %}
                                         {% endfor %}
+                                        {{ field }}
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>
                                 </div>
@@ -106,13 +112,19 @@
                                 <div class="card-body">
                                     <form method="POST" action="{{ url_for('tools') }}">
                                         {% for field in retirement_form %}
-                                            <div>
-                                                {{ field.label }}
-                                            </div>
-                                            <div class="mb-3">
-                                                {{ field(value=value) }}
-                                            </div>
+                                            {% if not loop.last %}
+                                                <div>
+                                                    {{ field.label }}
+                                                </div>
+                                                <div class="mb-3">
+                                                    {{ field(value=value) }}
+                                                </div>
+                                            {% endif %}
+                                            {% if loop.last %}
+                                                {{ field }}
+                                            {% endif %}
                                         {% endfor %}
+                                        {{ field }}
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>
                                 </div>
@@ -134,13 +146,19 @@
                                 <div class="card-body">
                                     <form method="POST" action="{{ url_for('tools') }}">
                                         {% for field in tax_calculator_form %}
-                                            <div>
-                                                {{ field.label }}
-                                            </div>
-                                            <div class="mb-3">
-                                                {{ field(value=value) }}
-                                            </div>
+                                            {% if not loop.last %}
+                                                <div>
+                                                    {{ field.label }}
+                                                </div>
+                                                <div class="mb-3">
+                                                    {{ field(value=value) }}
+                                                </div>
+                                            {% endif %}
+                                            {% if loop.last %}
+                                                {{ field }}
+                                            {% endif %}
                                         {% endfor %}
+                                        {{ field }}
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>
                                 </div>
@@ -160,13 +178,19 @@
                                 <div class="card-body">
                                     <form method="POST" action="{{ url_for('tools') }}">
                                         {% for field in capital_gains_calculator_form %}
-                                            <div>
-                                                {{ field.label }}
-                                            </div>
-                                            <div class="mb-3">
-                                                {{ field(value=value) }}
-                                            </div>
+                                            {% if not loop.last %}
+                                                <div>
+                                                    {{ field.label }}
+                                                </div>
+                                                <div class="mb-3">
+                                                    {{ field(value=value) }}
+                                                </div>
+                                            {% endif %}
+                                            {% if loop.last %}
+                                                {{ field }}
+                                            {% endif %}
                                         {% endfor %}
+                                        {{ field }}
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>
                                 </div>
