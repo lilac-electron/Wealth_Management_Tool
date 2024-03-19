@@ -13,7 +13,7 @@ from wtforms.validators import (
 )
 import email_validator
 
-from wtforms import MultipleFileField
+from wtforms import MultipleFileField, DecimalField
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import (
     LoginManager, UserMixin, login_user, login_required, logout_user, current_user
@@ -205,6 +205,34 @@ class Form1(FlaskForm):
 class Form2(FlaskForm):
     field2 = StringField('Field 2', validators=[InputRequired()])
 
+class SavingsCalculator(FlaskForm):
+    savings_goal = DecimalField('Savings Goal', validators=[InputRequired()])
+    saving_per_month = DecimalField('Monthly Savings', validators=[InputRequired()])
+    current_savings = DecimalField('Current Savings', validators=[InputRequired()])
+    annual_interest_rate = DecimalField('Annual Interest Rate (%)', validators=[InputRequired()])
+    years_to_save = IntegerField('Years to Save', validators=[InputRequired()])
+
+class Retirement(FlaskForm):
+    current_age = IntegerField('Current Age', validators=[InputRequired()])
+    desired_retirement_age = IntegerField('Desired Retirement Age', validators=[InputRequired()])
+    current_savings = IntegerField('Current Retirement Savings', validators=[InputRequired()])
+    expected_annual_return = IntegerField('Expected Annual Return (%)', validators=[InputRequired()])
+    desired_annual_income = IntegerField('Desired Annual Retirement Income', validators=[InputRequired()])
+
+class TaxCalculator(FlaskForm):
+    annual_salary = DecimalField('Annual Salary', validators=[InputRequired()])
+    additional_income = DecimalField('Additional Income')
+    deductible_expenses = DecimalField('Deductible Expenses')
+    tax_year = IntegerField('Tax Year')
+    filing_status = StringField('Filing Status')
+
+class CapitalGainsCalculator(FlaskForm):
+    purchase_price = DecimalField('Purchase Price', validators=[InputRequired()])
+    sale_price = DecimalField('Sale Price', validators=[InputRequired()])
+    holding_period = IntegerField('Holding Period (Years)', validators=[InputRequired()])
+    cost_of_improvements = DecimalField('Cost of Improvements')
+    deductions_exemptions = DecimalField('Deductions/Exemptions')
+
 def clearAttribute():
     DynamicForm = [attr for attr in DynamicForm if  not(attr.startswith('field_'))]
 
@@ -285,7 +313,7 @@ def write_dict_to_excel(file_path, sheet_name, data_dict):
     # Save the workbook
     wb.save(file_path)
 
-def create_csv_file(file_path, column_names, data_dict):
+"""def create_csv_file(file_path, column_names, data_dict):
     with open(file_path, 'w', newline='') as file:
         writer = csv.DictWriter(file, fieldnames=column_names)
         writer.writeheader()
@@ -331,7 +359,7 @@ def read_user_data(username, upload_folder_path):
     #assets_dict = {'assets': asset_data}
     #credits_dict = {'credits': credit_data}
 
-    return asset_data, credit_data
+    return asset_data, credit_data"""
 
 def fetch_stock_data(ticker, start_date, end_date):
     yfin.pdr_override()
@@ -579,11 +607,90 @@ def simulatedGrowth():
         HRdata.append(HR_asset_val)
     return render_template('pages/simulatedGrowth.html', name=current_user.username, stock_table = stock_data_html, labels=labels, SPdata=SPdata, Sdata=Sdata, LRdata=LRdata, HRdata=HRdata)
 
+def toolsCardContent():
+    #This function will return all the card contents that are available. 
+
+    print("add function")
+
 @app.route('/tools', methods=['GET', 'POST'])
 @login_required
 def tools():
-    return render_template('pages/tools.html')
+    savings_form = SavingsCalculator(request.form)
+    retirement_form = Retirement(request.form)
+    tax_calculator_form = TaxCalculator(request.form)
+    capital_gains_calculator_form = CapitalGainsCalculator(request.form)
+    
+    if request.method == 'POST':
+        if savings_form.validate_on_submit():
+            # Process savings form data
+            savings_goal = savings_form.savings_goal.data
+            saving_per_month = savings_form.saving_per_month.data
+            current_savings = savings_form.current_savings.data
+            annual_interest_rate = savings_form.annual_interest_rate.data
+            years_to_save = savings_form.years_to_save.data
+            
+            print(f"Savings Goal: {savings_goal}, Saving Per Month: {saving_per_month}, Current Savings: {current_savings}, Annual Interest Rate: {annual_interest_rate}, Years to Save: {years_to_save}")
 
+        elif retirement_form.validate_on_submit():
+            # Process retirement form data
+            current_age = retirement_form.current_age.data
+            desired_retirement_age = retirement_form.desired_retirement_age.data
+            current_savings = retirement_form.current_savings.data
+            expected_annual_return = retirement_form.expected_annual_return.data
+            desired_annual_income = retirement_form.desired_annual_income.data
+            
+            print(f"Current Age: {current_age}, Desired Retirement Age: {desired_retirement_age}, Current Savings: {current_savings}, Expected Annual Return: {expected_annual_return}, Desired Annual Income: {desired_annual_income}")
+
+        elif tax_calculator_form.validate_on_submit():
+            # Process tax calculator form data
+            annual_salary = tax_calculator_form.annual_salary.data
+            additional_income = tax_calculator_form.additional_income.data
+            deductible_expenses = tax_calculator_form.deductible_expenses.data
+            tax_year = tax_calculator_form.tax_year.data
+            filing_status = tax_calculator_form.filing_status.data
+            
+            print(f"Annual Salary: {annual_salary}, Additional Income: {additional_income}, Deductible Expenses: {deductible_expenses}, Tax Year: {tax_year}, Filing Status: {filing_status}")
+
+        elif capital_gains_calculator_form.validate_on_submit():
+            # Process capital gains calculator form data
+            purchase_price = capital_gains_calculator_form.purchase_price.data
+            sale_price = capital_gains_calculator_form.sale_price.data
+            holding_period = capital_gains_calculator_form.holding_period.data
+            cost_of_improvements = capital_gains_calculator_form.cost_of_improvements.data
+            deductions_exemptions = capital_gains_calculator_form.deductions_exemptions.data
+            
+            print(f"Purchase Price: {purchase_price}, Sale Price: {sale_price}, Holding Period: {holding_period}, Cost of Improvements: {cost_of_improvements}, Deductions/Exemptions: {deductions_exemptions}")
+
+    
+    return render_template('pages/tools.html', savings_form=savings_form, retirement_form=retirement_form, tax_calculator_form=tax_calculator_form, capital_gains_calculator_form=capital_gains_calculator_form)
+
+@app.route('/double_form', methods=['GET', 'POST'])
+@login_required
+def double_form():
+    form1 = Form1(request.form)
+    form2 = Form2(request.form)
+    card_content1 = None
+    card_content2 = None
+
+    if request.method == 'POST':
+        if form1.validate():
+            field1_value = form1.field1.data
+            card_content1 = f'New savings goal: {field1_value}'
+            app.config['RETIREMENT']['Retirement Age'] = field1_value
+            write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'retirement', app.config['RETIREMENT'])
+            old_savings = app.config['SAVINGS']['Saving Goal']
+            card_content2 = f'Previous savings goal: {old_savings}'
+        elif form2.validate():
+            field2_value = form2.field2.data
+            card_content2 = f'New desired retirement age: {field2_value}'
+            app.config['SAVINGS']['Saving Goal'] = field2_value
+            write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'savings', app.config['SAVINGS'])
+            old_retirement = app.config['RETIREMENT']['Retirement Age']
+            card_content1 = f'Previous retirement goal: {old_retirement}'
+
+    ### INSERT FUNCTION TO SAVE THE FORM INPUTS, AND SET THE OPPOSITE CARD TO THE SUBMISSION OF PREVIOUSLY SAVED IF APPLICABLE
+    
+    return render_template('pages/doubleForm.html', form1=form1, form2=form2, card_content1=card_content1, card_content2=card_content2)
 
 @app.route('/updateFinances')
 @login_required
@@ -657,14 +764,21 @@ def register():
         #    writer.writerow([20, 400])
 
         # Define column names for asset and credit files
+        # Defining them in this way makes the forms more versatile
         asset_column_names = ['House', 'Car', 'Investments', 'Checking Account', 'Stocks', 'Savings', 'Retirement Accounts']
         credit_column_names = ['Rent', 'Mortgage', 'Utilities', 'Food and Groceries', 'Car Payments', 'Student loan Payments', 'Pension', 'Subscriptions', 'Health Insurance', 'House Insurance', 'Other Insurance']
+        savings_column_names = ['savings_goal', 'saving_per_month', 'current_savings', 'annual_interest_rate', 'years_to_save']
+        retirement_column_names = ['current_age','desired_retirement_age','current_savings','expected_annual_return','desired_annual_income']
+        tax_column_names = ['annual_salary','additional_income','deductible_expenses','tax_year','filing_status']
+        capital_gains_column_names = ['purchase_price','sale_price','holding_period','cost_of_improvements','deductions_exemptions']
 
         sheet_data = {
             'credits': credit_column_names,  # List for 'credits' sheet
             'assets': asset_column_names,      # List for 'assets' sheet
-            'retirement': ['Retirement Age'],  # List for 'retirement' sheet
-            'savings': ['Saving Goal'] # List for 'savings' sheet
+            'retirement': retirement_column_names,  # List for 'retirement' sheet
+            'savings': savings_column_names, # List for 'savings' sheet
+            'tax': tax_column_names, #List for 'tax' sheet
+            'capital gains': capital_gains_column_names
         }
         # Create dictionaries with column names as keys and 0 as values
         #asset_data_dict = dict.fromkeys(asset_column_names, 0)
@@ -791,34 +905,6 @@ def delete_files():
 
     return render_template('pages/deleteFiles.html', form=form)
 
-@app.route('/double_form', methods=['GET', 'POST'])
-@login_required
-def double_form():
-    form1 = Form1(request.form)
-    form2 = Form2(request.form)
-    card_content1 = None
-    card_content2 = None
-
-    if request.method == 'POST':
-        if form1.validate():
-            field1_value = form1.field1.data
-            card_content1 = f'New savings goal: {field1_value}'
-            app.config['RETIREMENT']['Retirement Age'] = field1_value
-            write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'retirement', app.config['RETIREMENT'])
-            old_savings = app.config['SAVINGS']['Saving Goal']
-            card_content2 = f'Previous savings goal: {old_savings}'
-        elif form2.validate():
-            field2_value = form2.field2.data
-            card_content2 = f'New desired retirement age: {field2_value}'
-            app.config['SAVINGS']['Saving Goal'] = field2_value
-            write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'savings', app.config['SAVINGS'])
-            old_retirement = app.config['RETIREMENT']['Retirement Age']
-            card_content1 = f'Previous retirement goal: {old_retirement}'
-
-    ### INSERT FUNCTION TO SAVE THE FORM INPUTS, AND SET THE OPPOSITE CARD TO THE SUBMISSION OF PREVIOUSLY SAVED IF APPLICABLE
-    
-    return render_template('pages/doubleForm.html', form1=form1, form2=form2, card_content1=card_content1, card_content2=card_content2)
-
 @app.route('/logout')
 @login_required
 def logout():
@@ -854,7 +940,7 @@ def graph():
 #def monzo():
 #    return render_template('pages/monzo_test.html')
 
-@app.route('/capitalOne', methods=['GET', 'POST'])
+"""@app.route('/capitalOne', methods=['GET', 'POST'])
 def capitalOne():
     # Define the endpoint and request body
     api_url = 'https://api-sandbox.capitalone.com/oauth2/token'
@@ -953,7 +1039,7 @@ def access_token(authorization_code):
         else:
             return jsonify({"error": "Access token not found"}), 500
     except requests.exceptions.RequestException as e:
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"error": str(e)}), 500"""
     
 
 #with app.app_context():
