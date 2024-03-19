@@ -208,7 +208,7 @@ class Form2(FlaskForm):
 class SavingsCalculator(FlaskForm):
     savings_goal = DecimalField('Savings Goal', validators=[InputRequired()])
     saving_per_month = DecimalField('Monthly Savings', validators=[InputRequired()])
-    current_savings = DecimalField('Current Savings', validators=[InputRequired()])
+    current_held_savings = DecimalField('Current Savings', validators=[InputRequired()])
     annual_interest_rate = DecimalField('Annual Interest Rate (%)', validators=[InputRequired()])
     years_to_save = IntegerField('Years to Save', validators=[InputRequired()])
 
@@ -625,7 +625,7 @@ def tools():
             # Process savings form data
             savings_goal = savings_form.savings_goal.data
             saving_per_month = savings_form.saving_per_month.data
-            current_savings = savings_form.current_savings.data
+            current_savings = savings_form.current_held_savings.data
             annual_interest_rate = savings_form.annual_interest_rate.data
             years_to_save = savings_form.years_to_save.data
             
