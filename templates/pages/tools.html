@@ -70,14 +70,32 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <p>Savings Tool</p>
+                                <h5 class="card-title">Savings Tool</h5>
+                                <form method="POST" action="{{ url_for('tools') }}">
+                                    {{ savings_form.csrf_token }}
+                                    {{ savings_form.savings_goal.label }} {{ savings_form.savings_goal }}
+                                    {{ savings_form.saving_per_month.label }} {{ savings_form.saving_per_month }}
+                                    {{ savings_form.current_savings.label }} {{ savings_form.current_savings }}
+                                    {{ savings_form.annual_interest_rate.label }} {{ savings_form.annual_interest_rate }}
+                                    {{ savings_form.years_to_save.label }} {{ savings_form.years_to_save }}
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <p>Retirement Tool</p>
+                                <h5 class="card-title">Retirement Tool</h5>
+                                <form method="POST" action="{{ url_for('tools') }}">
+                                    {{ retirement_form.csrf_token }}
+                                    {{ retirement_form.current_age.label }} {{ retirement_form.current_age }}
+                                    {{ retirement_form.desired_retirement_age.label }} {{ retirement_form.desired_retirement_age }}
+                                    {{ retirement_form.current_savings.label }} {{ retirement_form.current_savings }}
+                                    {{ retirement_form.expected_annual_return.label }} {{ retirement_form.expected_annual_return }}
+                                    {{ retirement_form.desired_annual_income.label }} {{ retirement_form.desired_annual_income }}
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -86,14 +104,32 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <p>Tax Calculator</p>
+                                <h5 class="card-title">Tax Calculator</h5>
+                                <form method="POST" action="{{ url_for('tools') }}">
+                                    {{ tax_calculator_form.csrf_token }}
+                                    {{ tax_calculator_form.annual_salary.label }} {{ tax_calculator_form.annual_salary }}
+                                    {{ tax_calculator_form.additional_income.label }} {{ tax_calculator_form.additional_income }}
+                                    {{ tax_calculator_form.deductible_expenses.label }} {{ tax_calculator_form.deductible_expenses }}
+                                    {{ tax_calculator_form.tax_year.label }} {{ tax_calculator_form.tax_year }}
+                                    {{ tax_calculator_form.filing_status.label }} {{ tax_calculator_form.filing_status }}
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <p>Capital Gains Calculator</p>
+                                <h5 class="card-title">Capital Gains Calculator</h5>
+                                <form method="POST" action="{{ url_for('tools') }}">
+                                    {{ capital_gains_calculator_form.csrf_token }}
+                                    {{ capital_gains_calculator_form.purchase_price.label }} {{ capital_gains_calculator_form.purchase_price }}
+                                    {{ capital_gains_calculator_form.sale_price.label }} {{ capital_gains_calculator_form.sale_price }}
+                                    {{ capital_gains_calculator_form.holding_period.label }} {{ capital_gains_calculator_form.holding_period }}
+                                    {{ capital_gains_calculator_form.cost_of_improvements.label }} {{ capital_gains_calculator_form.cost_of_improvements }}
+                                    {{ capital_gains_calculator_form.deductions_exemptions.label }} {{ capital_gains_calculator_form.deductions_exemptions }}
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -102,6 +138,7 @@
         </div>
     </div>
 </div>
+
 
 
 
