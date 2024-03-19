@@ -59,6 +59,7 @@
         }
 
         function logout() {
+            flash("You have been logged out for inactivity", "danger")
             window.location.href = '/logout'; // Redirect to logout route
         }
 
