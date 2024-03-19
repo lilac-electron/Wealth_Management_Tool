@@ -55,15 +55,15 @@
 
         function resetTimer() {
             clearTimeout(timeout);
-            timeout = setTimeout(showWarning, 30000); // 5 minutes in milliseconds
+            timeout = setTimeout(showWarning, 500000); // 5 minutes in milliseconds
         }
 
         function showWarning() {
-            // Flash a warning message
-            flash("You have 5 minutes left before you will be logged out.");
+            // Display a warning message in HTML
+            document.getElementById("timeoutMessage").innerHTML = "You have 5 minutes left before you will be logged out.";
 
             // Start the countdown for 5 minutes
-            timeout = setTimeout(logout, 30000); // 5 minutes in milliseconds
+            timeout = setTimeout(logout, 300000); // 5 minutes in milliseconds
         }
 
         function logout() {
