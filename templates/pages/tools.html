@@ -72,17 +72,20 @@
                             <div class="card-body">
                                 <h5 class="card-title">Savings Tool</h5>
                                 <form method="POST" action="{{ url_for('tools') }}">
-                                    {{ savings_form.csrf_token }}
-                                    <table>
-                                        <tr>
-                                            <td>{{ savings_form.csrf_token }}</td>
-                                            <td>{{ savings_form.savings_goal.label }}</td><td>{{ savings_form.savings_goal }}</td>
-                                            <td>{{ savings_form.saving_per_month.label }}</td><td>{{ savings_form.saving_per_month }}</td>
-                                            <td>{{ savings_form.current_held_savings.label }}</td><td>{{ savings_form.current_held_savings }}</td>
-                                            <td>{{ savings_form.annual_interest_rate.label }}</td><td>{{ savings_form.annual_interest_rate }}</td>
-                                            <td>{{ savings_form.years_to_save.label }}</td><td>{{ savings_form.years_to_save }}</td>
-                                        </tr>
-                                    </table>
+                                    {% for field in savings_form %}
+                                        {% if not loop.last %}
+                                            <div>
+                                                {{ field.label }}
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ field(value=value) }}
+                                            </div>
+                                        {% endif %}
+                                        {% if loop.last %}
+                                            {{ field }}
+                                        {% endif %}
+                                    {% endfor %}
+                                    {{ field }}
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
                             </div>
@@ -93,17 +96,20 @@
                             <div class="card-body">
                                 <h5 class="card-title">Retirement Tool</h5>
                                 <form method="POST" action="{{ url_for('tools') }}">
-                                    {{ retirement_form.csrf_token }}
-                                    <table>
-                                        <tr>
-                                            <td>{{ retirement_form.csrf_token }}</td>
-                                            <td>{{ retirement_form.current_age.label }}</td><td>{{ retirement_form.current_age }}</td>
-                                            <td>{{ retirement_form.desired_retirement_age.label }}</td><td>{{ retirement_form.desired_retirement_age }}</td>
-                                            <td>{{ retirement_form.current_savings.label }}</td><td>{{ retirement_form.current_savings }}</td>
-                                            <td>{{ retirement_form.expected_annual_return.label }}</td><td>{{ retirement_form.expected_annual_return }}</td>
-                                            <td>{{ retirement_form.desired_annual_income.label }}</td><td>{{ retirement_form.desired_annual_income }}</td>
-                                        </tr>
-                                    </table>
+                                    {% for field in retirement_form %}
+                                        {% if not loop.last %}
+                                            <div>
+                                                {{ field.label }}
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ field(value=value) }}
+                                            </div>
+                                        {% endif %}
+                                        {% if loop.last %}
+                                            {{ field }}
+                                        {% endif %}
+                                    {% endfor %}
+                                    {{ field }}
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
                             </div>
