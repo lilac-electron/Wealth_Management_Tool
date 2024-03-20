@@ -630,7 +630,7 @@ def tools():
             annual_interest_rate = savings_form.annual_interest_rate.data
             years_to_save = savings_form.years_to_save.data
             print("form accepted")
-            if (saving_per_month is None or saving_per_month == '') and (years_to_save is None or years_to_save == ''):
+            """if (saving_per_month is None or saving_per_month == '') and (years_to_save is None or years_to_save == ''):
                 print("Fail")
                 #Change above to a flash
             else:
@@ -651,7 +651,7 @@ def tools():
                     #amountPerMonthToSave = amountNeededToSave/monthsToSave
                     #Arbitrarily applying interest rate
                     #amountPerMonthToSave *= (1-(annual_interest_rate/100))
-                    print("amountPerMonthToSave")
+                    print("amountPerMonthToSave")"""
 
             
             print(f"Savings Goal: {savings_goal}, Saving Per Month: {saving_per_month}, Current Savings: {current_savings}, Annual Interest Rate: {annual_interest_rate}, Years to Save: {years_to_save}")
