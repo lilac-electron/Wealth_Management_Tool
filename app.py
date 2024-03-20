@@ -206,11 +206,11 @@ class Form2(FlaskForm):
     field2 = StringField('Field 2', validators=[InputRequired()])
 
 class SavingsCalculator(FlaskForm):
-    savings_goal = DecimalField('Savings Goal', validators=[InputRequired()])
-    saving_per_month = DecimalField('Monthly Savings', validators=[InputRequired()])
-    current_held_savings = DecimalField('Current Savings', validators=[InputRequired()])
-    annual_interest_rate = DecimalField('Annual Interest Rate (%)', validators=[InputRequired()])
-    years_to_save = IntegerField('Years to Save', validators=[InputRequired()])
+    savings_goal = DecimalField('Savings Goal', validators=[InputRequired(), NumberRange(min=0)])
+    current_held_savings = DecimalField('Current Savings', validators=[InputRequired(), NumberRange(min=0)])
+    annual_interest_rate = DecimalField('Annual Interest Rate (%)', validators=[InputRequired(), NumberRange(min=0)])
+    years_to_save = IntegerField('Years to Save', validators=[Optional(), NumberRange(min=0)])
+    saving_per_month = DecimalField('Monthly Savings', validators=[Optional(), NumberRange(min=0)])
 
 class Retirement(FlaskForm):
     current_age = IntegerField('Current Age', validators=[InputRequired()])
@@ -626,8 +626,32 @@ def tools():
             savings_goal = savings_form.savings_goal.data
             saving_per_month = savings_form.saving_per_month.data
             current_savings = savings_form.current_held_savings.data
+            #Make annual interest a optional, so user doesn'y need to enter
             annual_interest_rate = savings_form.annual_interest_rate.data
             years_to_save = savings_form.years_to_save.data
+
+            if (saving_per_month == "" and years_to_save == "") or (saving_per_month != "" and years_to_save != ""):
+                print("Fail")
+                #Change above to a flash
+            else:
+                #Form for returning the years needed to save
+                if saving_per_month != "":
+                    amountSaved = current_savings
+                    monthCounter = 0
+                    while amountSaved < savings_goal:
+                        #Adds the savings and applies the monthly interest to each one
+                        amountSaved += saving_per_month * (((annual_interest_rate/100)/12)+1)
+                        monthCounter += 1
+                    print(monthCounter)
+                #Working out the amount needed to save per month
+                elif years_to_save != "":
+                    monthsToSave = years_to_save * 12
+                    amountNeededToSave = savings_goal - current_savings
+                    amountPerMonthToSave = amountNeededToSave/monthsToSave
+                    #Arbitrarily applying interest rate
+                    amountPerMonthToSave *= (1-(annual_interest_rate/100))
+                    print(amountPerMonthToSave)
+
             
             print(f"Savings Goal: {savings_goal}, Saving Per Month: {saving_per_month}, Current Savings: {current_savings}, Annual Interest Rate: {annual_interest_rate}, Years to Save: {years_to_save}")
             save_data = {field.name: getattr(savings_form, field.name).data for field in savings_form if field.name != 'csrf_token'}
