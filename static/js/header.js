@@ -31,7 +31,7 @@ function generateHeader() {
 
         function resetTimer() {
             clearTimeout(timeout);
-            timeout = setTimeout(logout, 1000); // 10 minutes in milliseconds
+            timeout = setTimeout(logout, 600000); // 10 minutes in milliseconds
         }
 
         function logout(){
