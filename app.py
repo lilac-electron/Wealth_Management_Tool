@@ -1079,6 +1079,30 @@ def access_token(authorization_code):
             return jsonify({"error": "Access token not found"}), 500
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500"""
+
+class BasicInfoForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    submit = SubmitField('Next')
+
+class SavingsGoalForm(FlaskForm):
+    goal = IntegerField('Savings Goal', validators=[DataRequired()])
+    submit = SubmitField('Next')
+
+@app.route('/slides', methods=['GET', 'POST'])
+def slides():
+    basic_info_form = BasicInfoForm()
+    savings_goal_form = SavingsGoalForm()
+
+    if basic_info_form.validate_on_submit():
+        # Process basic info form data
+        return render_template('pages/slide2.html', form=savings_goal_form)
+    
+    if savings_goal_form.validate_on_submit():
+        # Process savings goal form data
+        return render_template('pages/dashboard.html')  # Or any other page for success
+    
+    return render_template('slide1.html', form=basic_info_form)
     
 
 #with app.app_context():
