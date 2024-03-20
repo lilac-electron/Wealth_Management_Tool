@@ -630,7 +630,7 @@ def tools():
             annual_interest_rate = savings_form.annual_interest_rate.data
             years_to_save = savings_form.years_to_save.data
             print("form accepted")
-            if (saving_per_month is None and years_to_save is None) or (saving_per_month and years_to_save):
+            if (saving_per_month is None or saving_per_month == '') and (years_to_save is None or years_to_save == ''):
                 print("Fail")
                 #Change above to a flash
             else:
