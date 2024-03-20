@@ -9,7 +9,7 @@ from wtforms import (
     StringField, SubmitField, IntegerField, PasswordField, BooleanField, SelectMultipleField,FileField
 )
 from wtforms.validators import (
-    InputRequired, Email, Length, NumberRange, DataRequired, Optional#, validators
+    InputRequired, Email, Length, NumberRange, DataRequired, Optional, EqualTo#, validators
 )
 import email_validator
 
@@ -1081,28 +1081,48 @@ def access_token(authorization_code):
         return jsonify({"error": str(e)}), 500"""
 
 class BasicInfoForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Next')
 
-class SavingsGoalForm(FlaskForm):
-    goal = IntegerField('Savings Goal', validators=[DataRequired()])
+class PersonalInfoForm(FlaskForm):
+    first_name = StringField('First Name', validators=[DataRequired()])
+    last_name = StringField('Last Name', validators=[DataRequired()])
+    phone_number = StringField('Phone Number', validators=[DataRequired()])
     submit = SubmitField('Next')
+
+class SocialLinksForm(FlaskForm):
+    facebook = StringField('Facebook')
+    twitter = StringField('Twitter')
+    github = StringField('Github')
+    submit = SubmitField('Submit')
+
 
 @app.route('/slides', methods=['GET', 'POST'])
 def slides():
     basic_info_form = BasicInfoForm()
-    savings_goal_form = SavingsGoalForm()
-
     if basic_info_form.validate_on_submit():
-        # Process basic info form data
-        return render_template('pages/slide2.html', form=savings_goal_form)
-    
-    if savings_goal_form.validate_on_submit():
-        # Process savings goal form data
-        return render_template('pages/dashboard.html')  # Or any other page for success
-    
-    return render_template('pages/slide1.html', form=basic_info_form)
+        return redirect(url_for('step2'))
+    return render_template('slidesDisplay.html', basic_info_form=basic_info_form)
+
+@app.route('/step2', methods=['GET', 'POST'])
+def step2():
+    personal_info_form = PersonalInfoForm()
+    if personal_info_form.validate_on_submit():
+        return redirect(url_for('step3'))
+    return render_template('slidesDisplay.html', personal_info_form=personal_info_form)
+
+@app.route('/step3', methods=['GET', 'POST'])
+def step3():
+    social_links_form = SocialLinksForm()
+    if social_links_form.validate_on_submit():
+        return redirect(url_for('success'))
+    return render_template('slidesDisplay.html', social_links_form=social_links_form)
+
+@app.route('/dashboard')
+def success():
+    return "Form submitted successfully!"
     
 
 #with app.app_context():

@@ -3,15 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Questionnaire</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script defer src="{{ url_for('static', filename='js/slides.js') }}"></script>
+    <title>Multi Step Form | Your Flask App</title>
 </head>
 <body>
-    <div class="slide-container">
-        {% include 'slide1.html' %}
-        {% include 'slide2.html' %}
-        <!-- Include other slides here -->
+    <div class="container">
+        <form id="form1" method="POST" action="{{ url_for('step1') }}">
+            <h3>Registration Form</h3>
+            {{ basic_info_form.email(class="form-control", placeholder="Email") }}
+            {{ basic_info_form.password(class="form-control", placeholder="Password") }}
+            {{ basic_info_form.confirm_password(class="form-control", placeholder="Confirm Password") }}
+            <div class="btn_box">
+                <button id="next1" type="submit">Next</button>
+            </div>
+        </form>
+        <form id="form2" method="POST" action="{{ url_for('step2') }}">
+            <h3>Personal Info</h3>
+            {{ personal_info_form.first_name(class="form-control", placeholder="First Name") }}
+            {{ personal_info_form.last_name(class="form-control", placeholder="Last Name") }}
+            {{ personal_info_form.phone_number(class="form-control", placeholder="Phone Number") }}
+            <div class="btn_box">
+                <button id="back1" type="button">Back</button>
+                <button id="next2" type="submit">Next</button>
+            </div>
+        </form>
+        <form id="form3" method="POST" action="{{ url_for('step3') }}">
+            <h3>Social Links</h3>
+            {{ social_links_form.facebook(class="form-control", placeholder="Facebook") }}
+            {{ social_links_form.twitter(class="form-control", placeholder="Twitter") }}
+            {{ social_links_form.github(class="form-control", placeholder="Github") }}
+            <div class="btn_box">
+                <button id="back2" type="button">Back</button>
+                <button id="Submit" type="submit">Submit</button>
+            </div>
+        </form>
     </div>
-    <script src="{{ url_for('static', filename='js/slides.js') }}"></script>
 </body>
 </html>
