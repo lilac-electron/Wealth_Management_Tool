@@ -646,12 +646,12 @@ def tools():
                     print(monthCounter)
                 #Working out the amount needed to save per month
                 if years_to_save is not None:
-                    monthsToSave = years_to_save * 12
-                    amountNeededToSave = savings_goal - current_savings
-                    amountPerMonthToSave = amountNeededToSave/monthsToSave
+                    #monthsToSave = years_to_save * 12
+                    #amountNeededToSave = savings_goal - current_savings
+                    #amountPerMonthToSave = amountNeededToSave/monthsToSave
                     #Arbitrarily applying interest rate
-                    amountPerMonthToSave *= (1-(annual_interest_rate/100))
-                    print(amountPerMonthToSave)
+                    #amountPerMonthToSave *= (1-(annual_interest_rate/100))
+                    print("amountPerMonthToSave")
 
             
             print(f"Savings Goal: {savings_goal}, Saving Per Month: {saving_per_month}, Current Savings: {current_savings}, Annual Interest Rate: {annual_interest_rate}, Years to Save: {years_to_save}")
