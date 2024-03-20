@@ -630,13 +630,13 @@ def tools():
             annual_interest_rate = savings_form.annual_interest_rate.data
             years_to_save = savings_form.years_to_save.data
             print("form accepted")
-            if (saving_per_month == None and years_to_save == None) or (saving_per_month != None and years_to_save != None):
+            if (saving_per_month is None and years_to_save is None) or (saving_per_month and years_to_save):
                 print("Fail")
                 #Change above to a flash
             else:
                 print("entering calculation")
                 #Form for returning the years needed to save
-                if saving_per_month != None:
+                if saving_per_month is not None:
                     amountSaved = current_savings
                     monthCounter = 0
                     while amountSaved < savings_goal:
@@ -645,7 +645,7 @@ def tools():
                         monthCounter += 1
                     print(monthCounter)
                 #Working out the amount needed to save per month
-                elif years_to_save != None:
+                elif years_to_save is not None:
                     monthsToSave = years_to_save * 12
                     amountNeededToSave = savings_goal - current_savings
                     amountPerMonthToSave = amountNeededToSave/monthsToSave
