@@ -701,7 +701,7 @@ def tools():
 
 
     
-    return render_template('pages/tools.html', savings_form=savings_form, retirement_form=retirement_form, tax_calculator_form=tax_calculator_form, capital_gains_calculator_form=capital_gains_calculator_form)
+    return render_template('pages/tools.html', savings_form=savings_form, retirement_form=retirement_form, tax_calculator_form=tax_calculator_form, capital_gains_calculator_form=capital_gains_calculator_form, name=current_user.username)
 
 @app.route('/double_form', methods=['GET', 'POST'])
 @login_required

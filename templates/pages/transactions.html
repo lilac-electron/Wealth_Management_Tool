@@ -46,6 +46,7 @@
     <div class="text-center">
         <p>This is simulated banking page, no real data accessed.</p>
         <button class="btn btn-primary" id="reveal-hidden-content">Login to your bank</button>
+        <img src="Stock image.avif" alt="Image Description" id="bank-image">
     </div>
     
     <div id="hidden-content">
@@ -332,6 +333,7 @@
         $(document).ready(function() {
             $("#reveal-hidden-content").click(function() {
                 $("#hidden-content").toggle();
+                $("#bank-image").hide(); 
                 $(this).hide();
             });
         });
