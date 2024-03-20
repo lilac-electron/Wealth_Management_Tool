@@ -12,9 +12,9 @@ function showForm(formToShow) {
     const forms = [form1, form2, form3];
     forms.forEach(form => {
         if (form === formToShow) {
-            form.style.left = "25px"; // Show the form
+            form.style.display = "block"; // Show the form
         } else {
-            form.style.left = "450px"; // Hide the form
+            form.style.display = "none"; // Hide the form
         }
     });
 }
