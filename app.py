@@ -629,11 +629,12 @@ def tools():
             #Make annual interest a optional, so user doesn'y need to enter
             annual_interest_rate = savings_form.annual_interest_rate.data
             years_to_save = savings_form.years_to_save.data
-
+            print("form accepted")
             if (saving_per_month == "" and years_to_save == "") or (saving_per_month != "" and years_to_save != ""):
                 print("Fail")
                 #Change above to a flash
             else:
+                print("entering calculation")
                 #Form for returning the years needed to save
                 if saving_per_month != "":
                     amountSaved = current_savings
