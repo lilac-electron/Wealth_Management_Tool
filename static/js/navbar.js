@@ -1,8 +1,12 @@
-function generateNavbar() {
+function generateNavbar(currentPage="") {
     const navbar = `
     <style>
         .nav-link:hover {
             border-radius: 10px;
+        }
+        .active {
+            background-color: #007bff;
+            color: #fff;
         }
     </style>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -17,19 +21,19 @@ function generateNavbar() {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link border-0 bg-light mr-2" href="/credits">Current Credits</a>
+                        <a class="nav-link border-0 bg-light mr-2 ${currentPage === '/credits' ? 'active' : ''}" href="/credits">Current Credits</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link border-0 bg-light mr-2" href="/assetValue">Current Asset Value</a>
+                        <a class="nav-link border-0 bg-light mr-2 ${currentPage === '/assetValue' ? 'active' : ''}" href="/assetValue">Current Asset Value</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link border-0 bg-light mr-2" href="/simulatedGrowth">Simulated Growth</a>
+                        <a class="nav-link border-0 bg-light mr-2 ${currentPage === '/simulatedGrowth' ? 'active' : ''}" href="/simulatedGrowth">Simulated Growth</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link border-0 bg-light mr-2" href="/transactions">Track Transactions</a>
+                        <a class="nav-link border-0 bg-light mr-2 ${currentPage === '/transactions' ? 'active' : ''}" href="/transactions">Track Transactions</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link border-0 bg-light mr-2" href="/tools">Finance Tools</a>
+                        <a class="nav-link border-0 bg-light mr-2 ${currentPage === '/tools' ? 'active' : ''}" href="/tools">Finance Tools</a>
                     </li>
                 </ul>
             </div>
@@ -39,4 +43,5 @@ function generateNavbar() {
     document.write(navbar);
 }
 
-generateNavbar();
+// Example: Call generateNavbar function and pass the current page URL
+generateNavbar('/credits');
