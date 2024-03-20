@@ -38,6 +38,18 @@
             max-width: 100%; /* Set the maximum width of the image */
             height: auto; /* Maintain aspect ratio */
         }
+        .collapse-credit-buttons {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Media query for mobile devices */
+        @media screen and (max-width: 768px) {
+            .collapse-credit-buttons button {
+                width: 100%;
+                margin-bottom: 5px; /* Add some space between buttons */
+            }
+        }
     </style>
     <div id="header"></div>
     <script src="{{url_for('static', filename='js/header.js')}}"></script>
