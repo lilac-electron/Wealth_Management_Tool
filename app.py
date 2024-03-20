@@ -645,7 +645,7 @@ def tools():
                         monthCounter += 1
                     print(monthCounter)
                 #Working out the amount needed to save per month
-                if years_to_save is not None:
+                else: #years_to_save is not None:
                     #monthsToSave = years_to_save * 12
                     #amountNeededToSave = savings_goal - current_savings
                     #amountPerMonthToSave = amountNeededToSave/monthsToSave
