@@ -44,4 +44,4 @@ function generateNavbar(currentPage="") {
 }
 
 // Example: Call generateNavbar function and pass the current page URL
-generateNavbar('/credits');
+//generateNavbar('/credits');
