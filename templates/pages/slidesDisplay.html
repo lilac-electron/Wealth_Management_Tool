@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <form id="form1" method="POST" action="{{ url_for('step1') }}">
+        <form id="form1" method="POST" action="{{ url_for('slides') }}">
             <h3>Registration Form</h3>
             {{ basic_info_form.email(class="form-control", placeholder="Email") }}
             {{ basic_info_form.password(class="form-control", placeholder="Password") }}
