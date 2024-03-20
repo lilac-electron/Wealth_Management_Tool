@@ -29,6 +29,15 @@
             display: flex;
             flex-direction: column;
         }
+        .image-container {
+            max-width: 100%; /* Set the maximum width of the container */
+            overflow: hidden; /* Hide any overflowing content */
+            margin: 0 auto; /* Center the container horizontally */
+        }
+        #bank-image {
+            max-width: 100%; /* Set the maximum width of the image */
+            height: auto; /* Maintain aspect ratio */
+        }
     </style>
     <div id="header"></div>
     <script src="{{url_for('static', filename='js/header.js')}}"></script>
@@ -46,7 +55,9 @@
     <div class="text-center">
         <p>This is simulated banking page, no real data accessed.</p>
         <button class="btn btn-primary" id="reveal-hidden-content">Login to your bank</button>
-        <div><img src="{{ url_for('static', filename='Stock image.png') }}" alt="Image Description" id="bank-image"></div>
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='Stock image.png') }}" alt="Image Description" id="bank-image">
+        </div>
     </div>
     
     <div id="hidden-content">
