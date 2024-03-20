@@ -1104,21 +1104,21 @@ def slides():
     basic_info_form = BasicInfoForm()
     if basic_info_form.validate_on_submit():
         return redirect(url_for('step2'))
-    return render_template('slidesDisplay.html', basic_info_form=basic_info_form)
+    return render_template('pages/slidesDisplay.html', basic_info_form=basic_info_form)
 
 @app.route('/step2', methods=['GET', 'POST'])
 def step2():
     personal_info_form = PersonalInfoForm()
     if personal_info_form.validate_on_submit():
         return redirect(url_for('step3'))
-    return render_template('slidesDisplay.html', personal_info_form=personal_info_form)
+    return render_template('pages/slidesDisplay.html', personal_info_form=personal_info_form)
 
 @app.route('/step3', methods=['GET', 'POST'])
 def step3():
     social_links_form = SocialLinksForm()
     if social_links_form.validate_on_submit():
         return redirect(url_for('success'))
-    return render_template('slidesDisplay.html', social_links_form=social_links_form)
+    return render_template('pages/slidesDisplay.html', social_links_form=social_links_form)
 
 @app.route('/dashboard')
 def success():
