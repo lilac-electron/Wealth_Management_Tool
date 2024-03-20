@@ -625,11 +625,11 @@ def tools():
         if savings_form.validate_on_submit():
             # Process savings form data
             savings_goal = savings_form.savings_goal.data
-            saving_per_month = savings_form.saving_per_month.data
+            #saving_per_month = savings_form.saving_per_month.data
             current_savings = savings_form.current_held_savings.data
             #Make annual interest a optional, so user doesn'y need to enter
             annual_interest_rate = savings_form.annual_interest_rate.data
-            years_to_save = savings_form.years_to_save.data
+            #years_to_save = savings_form.years_to_save.data
             print("form accepted")
             """if (saving_per_month is None or saving_per_month == '') and (years_to_save is None or years_to_save == ''):
                 print("Fail")
