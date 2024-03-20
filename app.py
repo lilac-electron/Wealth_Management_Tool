@@ -1102,7 +1102,7 @@ def slides():
         # Process savings goal form data
         return render_template('pages/dashboard.html')  # Or any other page for success
     
-    return render_template('slide1.html', form=basic_info_form)
+    return render_template('pages/slide1.html', form=basic_info_form)
     
 
 #with app.app_context():
