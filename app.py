@@ -621,6 +621,7 @@ def tools():
     capital_gains_calculator_form = CapitalGainsCalculator(request.form)
     
     if request.method == 'POST':
+        print(savings_form.errors)
         if savings_form.validate_on_submit():
             # Process savings form data
             savings_goal = savings_form.savings_goal.data
