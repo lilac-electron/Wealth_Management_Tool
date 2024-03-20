@@ -1100,29 +1100,27 @@ class SocialLinksForm(FlaskForm):
 
 
 @app.route('/slides', methods=['GET', 'POST'])
+@login_required
 def slides():
     basic_info_form = BasicInfoForm()
-    if basic_info_form.validate_on_submit():
-        return redirect(url_for('step2'))
-    return render_template('pages/slidesDisplay.html', basic_info_form=basic_info_form)
-
-@app.route('/step2', methods=['GET', 'POST'])
-def step2():
     personal_info_form = PersonalInfoForm()
-    if personal_info_form.validate_on_submit():
-        return redirect(url_for('step3'))
-    return render_template('pages/slidesDisplay.html', personal_info_form=personal_info_form)
-
-@app.route('/step3', methods=['GET', 'POST'])
-def step3():
     social_links_form = SocialLinksForm()
-    if social_links_form.validate_on_submit():
-        return redirect(url_for('success'))
-    return render_template('pages/slidesDisplay.html', social_links_form=social_links_form)
 
-@app.route('/dashboard')
-def success():
-    return "Form submitted successfully!"
+    if request.method == 'POST':
+        if basic_info_form.validate_on_submit():
+            # Process basic info form data
+            return redirect(url_for('slides'))  # Redirect to the same route for next slide
+        elif personal_info_form.validate_on_submit():
+            # Process personal info form data
+            return redirect(url_for('slides'))  # Redirect to the same route for next slide
+        elif social_links_form.validate_on_submit():
+            # Process social links form data
+            return redirect(url_for('success'))  # Or redirect to a success page
+
+    return render_template('pages/slidesDisplay.html', 
+                           basic_info_form=basic_info_form,
+                           personal_info_form=personal_info_form,
+                           social_links_form=social_links_form)
     
 
 #with app.app_context():

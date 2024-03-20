@@ -18,7 +18,8 @@
                 <button id="next1" type="submit">Next</button>
             </div>
         </form>
-        <form id="form2" method="POST" action="{{ url_for('step2') }}">
+
+        <form id="form2" method="POST" action="{{ url_for('slides') }}">
             <h3>Personal Info</h3>
             {{ personal_info_form.first_name(class="form-control", placeholder="First Name") }}
             {{ personal_info_form.last_name(class="form-control", placeholder="Last Name") }}
@@ -28,7 +29,8 @@
                 <button id="next2" type="submit">Next</button>
             </div>
         </form>
-        <form id="form3" method="POST" action="{{ url_for('step3') }}">
+
+        <form id="form3" method="POST" action="{{ url_for('slides') }}">
             <h3>Social Links</h3>
             {{ social_links_form.facebook(class="form-control", placeholder="Facebook") }}
             {{ social_links_form.twitter(class="form-control", placeholder="Twitter") }}
