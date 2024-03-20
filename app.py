@@ -209,8 +209,8 @@ class SavingsCalculator(FlaskForm):
     savings_goal = DecimalField('Savings Goal', validators=[InputRequired(), NumberRange(min=0)])
     current_held_savings = DecimalField('Current Savings', validators=[InputRequired(), NumberRange(min=0)])
     annual_interest_rate = DecimalField('Annual Interest Rate (%)', validators=[InputRequired(), NumberRange(min=0)])
-    years_to_save = IntegerField('Years to Save', validators=[Optional(), NumberRange(min=0)], default="")
-    saving_per_month = DecimalField('Monthly Savings', validators=[Optional(), NumberRange(min=0)], default="")
+    years_to_save = IntegerField('Years to Save', validators=[NumberRange(min=0)], default=None)
+    saving_per_month = DecimalField('Monthly Savings', validators=[NumberRange(min=0)], default=None)
 
 class Retirement(FlaskForm):
     current_age = IntegerField('Current Age', validators=[InputRequired()])
