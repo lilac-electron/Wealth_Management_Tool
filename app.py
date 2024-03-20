@@ -655,7 +655,7 @@ def tools():
                     print("amountPerMonthToSave")"""
 
             
-            print(f"Savings Goal: {savings_goal}, Saving Per Month: {saving_per_month}, Current Savings: {current_savings}, Annual Interest Rate: {annual_interest_rate}, Years to Save: {years_to_save}")
+            #print(f"Savings Goal: {savings_goal}, Saving Per Month: {saving_per_month}, Current Savings: {current_savings}, Annual Interest Rate: {annual_interest_rate}, Years to Save: {years_to_save}")
             save_data = {field.name: getattr(savings_form, field.name).data for field in savings_form if field.name != 'csrf_token'}
             write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'savings', save_data)
 
