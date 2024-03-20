@@ -5,8 +5,8 @@ function generateNavbar(currentPage="") {
             border-radius: 10px;
         }
         .active {
-            background-color: #ddd; /* Slightly darker grey shade */
             color: #333; /* Adjust text color accordingly */
+            font-weight: bold; /* Make the text bold */
         }
     </style>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
