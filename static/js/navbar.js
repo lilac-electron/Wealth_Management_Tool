@@ -6,7 +6,6 @@ function generateNavbar(currentPage="") {
         }
         .active {
             color: #333; /* Adjust text color accordingly */
-            font-weight: bold; /* Make the text bold */
         }
     </style>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
