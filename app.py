@@ -205,12 +205,21 @@ class Form1(FlaskForm):
 class Form2(FlaskForm):
     field2 = StringField('Field 2', validators=[InputRequired()])
 
-class SavingsCalculator(FlaskForm):
+class SavingsCalculatorYear(FlaskForm):
+    savings_goal = DecimalField('Savings Goal', validators=[InputRequired(), NumberRange(min=0)])
+    current_held_savings = DecimalField('Current Savings', validators=[InputRequired(), NumberRange(min=0)])
+    annual_interest_rate = DecimalField('Annual Interest Rate (%)', validators=[InputRequired(), NumberRange(min=0)])
+    #Want to calculate this value, hence change
+    #years_to_save = IntegerField('Years to Save', validators=[NumberRange(min=0)], default=None)
+    saving_per_month = DecimalField('Monthly Savings', validators=[NumberRange(min=0)], default=None)
+
+class SavingsCalculatorAmount(FlaskForm):
     savings_goal = DecimalField('Savings Goal', validators=[InputRequired(), NumberRange(min=0)])
     current_held_savings = DecimalField('Current Savings', validators=[InputRequired(), NumberRange(min=0)])
     annual_interest_rate = DecimalField('Annual Interest Rate (%)', validators=[InputRequired(), NumberRange(min=0)])
     years_to_save = IntegerField('Years to Save', validators=[NumberRange(min=0)], default=None)
-    saving_per_month = DecimalField('Monthly Savings', validators=[NumberRange(min=0)], default=None)
+    #In this iteration want to calculate this value, hence change
+    #saving_per_month = DecimalField('Monthly Savings', validators=[NumberRange(min=0)], default=None)
 
 class Retirement(FlaskForm):
     current_age = IntegerField('Current Age', validators=[InputRequired()])
@@ -612,96 +621,6 @@ def toolsCardContent():
 
     print("add function")
 
-@app.route('/tools', methods=['GET', 'POST'])
-@login_required
-def tools():
-    savings_form = SavingsCalculator(request.form)
-    retirement_form = Retirement(request.form)
-    tax_calculator_form = TaxCalculator(request.form)
-    capital_gains_calculator_form = CapitalGainsCalculator(request.form)
-    
-    if request.method == 'POST':
-        print(savings_form.errors)
-        if savings_form.validate_on_submit():
-            # Process savings form data
-            savings_goal = savings_form.savings_goal.data
-            #saving_per_month = savings_form.saving_per_month.data
-            current_savings = savings_form.current_held_savings.data
-            #Make annual interest a optional, so user doesn'y need to enter
-            annual_interest_rate = savings_form.annual_interest_rate.data
-            #years_to_save = savings_form.years_to_save.data
-            print("form accepted")
-            """if (saving_per_month is None or saving_per_month == '') and (years_to_save is None or years_to_save == ''):
-                print("Fail")
-                #Change above to a flash
-            else:
-                print("entering calculation")
-                #Form for returning the years needed to save
-                if saving_per_month is not None:
-                    amountSaved = current_savings
-                    monthCounter = 0
-                    while amountSaved < savings_goal:
-                        #Adds the savings and applies the monthly interest to each one
-                        amountSaved += saving_per_month * (((annual_interest_rate/100)/12)+1)
-                        monthCounter += 1
-                    print(monthCounter)
-                #Working out the amount needed to save per month
-                else: #years_to_save is not None:
-                    #monthsToSave = years_to_save * 12
-                    #amountNeededToSave = savings_goal - current_savings
-                    #amountPerMonthToSave = amountNeededToSave/monthsToSave
-                    #Arbitrarily applying interest rate
-                    #amountPerMonthToSave *= (1-(annual_interest_rate/100))
-                    print("amountPerMonthToSave")"""
-
-            
-            #print(f"Savings Goal: {savings_goal}, Saving Per Month: {saving_per_month}, Current Savings: {current_savings}, Annual Interest Rate: {annual_interest_rate}, Years to Save: {years_to_save}")
-            save_data = {field.name: getattr(savings_form, field.name).data for field in savings_form if field.name != 'csrf_token'}
-            write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'savings', save_data)
-
-
-        elif retirement_form.validate_on_submit():
-            # Process retirement form data
-            current_age = retirement_form.current_age.data
-            desired_retirement_age = retirement_form.desired_retirement_age.data
-            current_savings = retirement_form.current_savings.data
-            expected_annual_return = retirement_form.expected_annual_return.data
-            desired_annual_income = retirement_form.desired_annual_income.data
-            
-            print(f"Current Age: {current_age}, Desired Retirement Age: {desired_retirement_age}, Current Savings: {current_savings}, Expected Annual Return: {expected_annual_return}, Desired Annual Income: {desired_annual_income}")
-            
-            save_data = {field.name: getattr(retirement_form, field.name).data for field in retirement_form if field.name != 'csrf_token'}
-            write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'retirement', save_data)
-
-        elif tax_calculator_form.validate_on_submit():
-            # Process tax calculator form data
-            annual_salary = tax_calculator_form.annual_salary.data
-            additional_income = tax_calculator_form.additional_income.data
-            deductible_expenses = tax_calculator_form.deductible_expenses.data
-            tax_year = tax_calculator_form.tax_year.data
-            filing_status = tax_calculator_form.filing_status.data
-            
-            print(f"Annual Salary: {annual_salary}, Additional Income: {additional_income}, Deductible Expenses: {deductible_expenses}, Tax Year: {tax_year}, Filing Status: {filing_status}")
-            
-            save_data = {field.name: getattr(tax_calculator_form, field.name).data for field in tax_calculator_form if field.name != 'csrf_token'}
-            write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'tax', save_data)
-
-        elif capital_gains_calculator_form.validate_on_submit():
-            # Process capital gains calculator form data
-            purchase_price = capital_gains_calculator_form.purchase_price.data
-            sale_price = capital_gains_calculator_form.sale_price.data
-            holding_period = capital_gains_calculator_form.holding_period.data
-            cost_of_improvements = capital_gains_calculator_form.cost_of_improvements.data
-            deductions_exemptions = capital_gains_calculator_form.deductions_exemptions.data
-            
-            print(f"Purchase Price: {purchase_price}, Sale Price: {sale_price}, Holding Period: {holding_period}, Cost of Improvements: {cost_of_improvements}, Deductions/Exemptions: {deductions_exemptions}")
-            
-            save_data = {field.name: getattr(capital_gains_calculator_form, field.name).data for field in capital_gains_calculator_form if field.name != 'csrf_token'}
-            write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'capital gains', save_data)
-
-
-    
-    return render_template('pages/tools.html', savings_form=savings_form, retirement_form=retirement_form, tax_calculator_form=tax_calculator_form, capital_gains_calculator_form=capital_gains_calculator_form, name=current_user.username)
 
 @app.route('/double_form', methods=['GET', 'POST'])
 @login_required
@@ -1080,48 +999,6 @@ def access_token(authorization_code):
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500"""
 
-class BasicInfoForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField('Next')
-
-class PersonalInfoForm(FlaskForm):
-    first_name = StringField('First Name', validators=[DataRequired()])
-    last_name = StringField('Last Name', validators=[DataRequired()])
-    phone_number = StringField('Phone Number', validators=[DataRequired()])
-    submit = SubmitField('Next')
-
-class SocialLinksForm(FlaskForm):
-    facebook = StringField('Facebook')
-    twitter = StringField('Twitter')
-    github = StringField('Github')
-    submit = SubmitField('Submit')
-
-
-@app.route('/slides', methods=['GET', 'POST'])
-@login_required
-def slides():
-    basic_info_form = BasicInfoForm()
-    personal_info_form = PersonalInfoForm()
-    social_links_form = SocialLinksForm()
-
-    if request.method == 'POST':
-        if basic_info_form.validate_on_submit():
-            # Process basic info form data
-            return redirect(url_for('slides'))  # Redirect to the same route for next slide
-        elif personal_info_form.validate_on_submit():
-            # Process personal info form data
-            return redirect(url_for('slides'))  # Redirect to the same route for next slide
-        elif social_links_form.validate_on_submit():
-            # Process social links form data
-            return redirect(url_for('success'))  # Or redirect to a success page
-
-    return render_template('pages/slidesDisplay.html', 
-                           basic_info_form=basic_info_form,
-                           personal_info_form=personal_info_form,
-                           social_links_form=social_links_form)
-
 @app.route('/testApi', methods=['GET', 'POST'])
 @login_required
 def testCPIAPI():
@@ -1137,6 +1014,106 @@ def testCPIAPI():
 
     return redirect(url_for('dashboard'))    
 
+
+@app.route('/SavingsForm', methods=['GET', 'POST'])
+@login_required
+def SavingsForm():
+    savings_form_year = SavingsCalculatorYear(request.form)
+    saving_form_amount = SavingsCalculatorAmount(request.form)
+
+    return render_template('pages/savingsForm.html', saving_form_amount=saving_form_amount, savings_form_year=savings_form_year, name=current_user.username)
+
+
+@app.route('/tools', methods=['GET', 'POST'])
+@login_required
+def tools():
+    savings_form = SavingsCalculatorYear(request.form)
+    retirement_form = Retirement(request.form)
+    tax_calculator_form = TaxCalculator(request.form)
+    capital_gains_calculator_form = CapitalGainsCalculator(request.form)
+    
+    if request.method == 'POST':
+        print(savings_form.errors)
+        if savings_form.validate_on_submit():
+            # Process savings form data
+            savings_goal = savings_form.savings_goal.data
+            #saving_per_month = savings_form.saving_per_month.data
+            current_savings = savings_form.current_held_savings.data
+            #Make annual interest a optional, so user doesn'y need to enter
+            annual_interest_rate = savings_form.annual_interest_rate.data
+            #years_to_save = savings_form.years_to_save.data
+            print("form accepted")
+            """if (saving_per_month is None or saving_per_month == '') and (years_to_save is None or years_to_save == ''):
+                print("Fail")
+                #Change above to a flash
+            else:
+                print("entering calculation")
+                #Form for returning the years needed to save
+                if saving_per_month is not None:
+                    amountSaved = current_savings
+                    monthCounter = 0
+                    while amountSaved < savings_goal:
+                        #Adds the savings and applies the monthly interest to each one
+                        amountSaved += saving_per_month * (((annual_interest_rate/100)/12)+1)
+                        monthCounter += 1
+                    print(monthCounter)
+                #Working out the amount needed to save per month
+                else: #years_to_save is not None:
+                    #monthsToSave = years_to_save * 12
+                    #amountNeededToSave = savings_goal - current_savings
+                    #amountPerMonthToSave = amountNeededToSave/monthsToSave
+                    #Arbitrarily applying interest rate
+                    #amountPerMonthToSave *= (1-(annual_interest_rate/100))
+                    print("amountPerMonthToSave")"""
+
+            
+            #print(f"Savings Goal: {savings_goal}, Saving Per Month: {saving_per_month}, Current Savings: {current_savings}, Annual Interest Rate: {annual_interest_rate}, Years to Save: {years_to_save}")
+            save_data = {field.name: getattr(savings_form, field.name).data for field in savings_form if field.name != 'csrf_token'}
+            write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'savings', save_data)
+
+
+        elif retirement_form.validate_on_submit():
+            # Process retirement form data
+            current_age = retirement_form.current_age.data
+            desired_retirement_age = retirement_form.desired_retirement_age.data
+            current_savings = retirement_form.current_savings.data
+            expected_annual_return = retirement_form.expected_annual_return.data
+            desired_annual_income = retirement_form.desired_annual_income.data
+            
+            print(f"Current Age: {current_age}, Desired Retirement Age: {desired_retirement_age}, Current Savings: {current_savings}, Expected Annual Return: {expected_annual_return}, Desired Annual Income: {desired_annual_income}")
+            
+            save_data = {field.name: getattr(retirement_form, field.name).data for field in retirement_form if field.name != 'csrf_token'}
+            write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'retirement', save_data)
+
+        elif tax_calculator_form.validate_on_submit():
+            # Process tax calculator form data
+            annual_salary = tax_calculator_form.annual_salary.data
+            additional_income = tax_calculator_form.additional_income.data
+            deductible_expenses = tax_calculator_form.deductible_expenses.data
+            tax_year = tax_calculator_form.tax_year.data
+            filing_status = tax_calculator_form.filing_status.data
+            
+            print(f"Annual Salary: {annual_salary}, Additional Income: {additional_income}, Deductible Expenses: {deductible_expenses}, Tax Year: {tax_year}, Filing Status: {filing_status}")
+            
+            save_data = {field.name: getattr(tax_calculator_form, field.name).data for field in tax_calculator_form if field.name != 'csrf_token'}
+            write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'tax', save_data)
+
+        elif capital_gains_calculator_form.validate_on_submit():
+            # Process capital gains calculator form data
+            purchase_price = capital_gains_calculator_form.purchase_price.data
+            sale_price = capital_gains_calculator_form.sale_price.data
+            holding_period = capital_gains_calculator_form.holding_period.data
+            cost_of_improvements = capital_gains_calculator_form.cost_of_improvements.data
+            deductions_exemptions = capital_gains_calculator_form.deductions_exemptions.data
+            
+            print(f"Purchase Price: {purchase_price}, Sale Price: {sale_price}, Holding Period: {holding_period}, Cost of Improvements: {cost_of_improvements}, Deductions/Exemptions: {deductions_exemptions}")
+            
+            save_data = {field.name: getattr(capital_gains_calculator_form, field.name).data for field in capital_gains_calculator_form if field.name != 'csrf_token'}
+            write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'capital gains', save_data)
+
+
+    
+    return render_template('pages/tools.html', savings_form=savings_form, retirement_form=retirement_form, tax_calculator_form=tax_calculator_form, capital_gains_calculator_form=capital_gains_calculator_form, name=current_user.username)
 #with app.app_context():
     #db.drop_all()
     #db.create_all()
