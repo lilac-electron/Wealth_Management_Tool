@@ -1121,7 +1121,21 @@ def slides():
                            basic_info_form=basic_info_form,
                            personal_info_form=personal_info_form,
                            social_links_form=social_links_form)
-    
+
+@app.route('/slides', methods=['GET', 'POST'])
+@login_required
+def testCPIAPI():
+    import requests
+
+    country = 'Germany'
+    api_url = 'https://api.api-ninjas.com/v1/inflation?country={}'.format(country)
+    response = requests.get(api_url, headers={'X-Api-Key': 'baNTxUroHJT09t2ktLHXdg==u72J9wP5Y5WKyduy'})
+    if response.status_code == requests.codes.ok:
+        print(response.text)
+    else:
+        print("Error:", response.status_code, response.text)
+
+    return redirect(url_for('dashboard'))    
 
 #with app.app_context():
     #db.drop_all()
