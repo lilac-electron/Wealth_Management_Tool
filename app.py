@@ -1019,7 +1019,7 @@ def testCPIAPI():
 @login_required
 def SavingsForm():
     savings_form_year = SavingsCalculatorYear(request.form)
-    saving_form_amount = SavingsCalculatorAmount(request.form)
+    saving_form_amount = SavingsCalculatorYear(request.form)
 
     return render_template('pages/savingsForm.html', saving_form_amount=saving_form_amount, savings_form_year=savings_form_year, name=current_user.username)
 
