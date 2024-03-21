@@ -1122,7 +1122,7 @@ def slides():
                            personal_info_form=personal_info_form,
                            social_links_form=social_links_form)
 
-@app.route('/slides', methods=['GET', 'POST'])
+@app.route('/testApi', methods=['GET', 'POST'])
 @login_required
 def testCPIAPI():
     import requests
