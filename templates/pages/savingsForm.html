@@ -53,26 +53,6 @@
                     <button id="showSavingsFormAmount" class="btn btn-primary">Savings Form Amount</button>
                 </div>
                 
-                <!-- Savings Form Amount -->
-                <div id="savingsFormAmountContent" class="card-body" style="display: none;">
-                    <form method="POST" action="{{ url_for('SavingsForm') }}">
-                        {% for field in savings_form_amount %}
-                            {% if not loop.last %}
-                                <div>
-                                    {{ field.label }}
-                                </div>
-                                <div class="mb-3">
-                                    {{ field(value=value) }}
-                                </div>
-                            {% endif %}
-                            {% if loop.last %}
-                                {{ field }}
-                            {% endif %}
-                        {% endfor %}
-                        {{ field }}
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
 
                 <!-- Savings Form Year -->
                 <div id="savingsFormYearContent" class="card-body">
@@ -95,8 +75,9 @@
                     </form>
                 </div>
 
-                <!-- Savings Form Amount 
+                <!-- Savings Form Amount -->
                 <div id="savingsFormAmountContent" class="card-body" style="display: none;">
+                    <p>Jak</p>
                     <form method="POST" action="{{ url_for('SavingsForm') }}">
                         {% for field in savings_form_amount %}
                             {% if not loop.last %}
@@ -114,7 +95,7 @@
                         {{ field }}
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
-                </div>-->
+                </div>
             </div>
         </div>
     </div>
