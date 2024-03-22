@@ -49,7 +49,7 @@
             <div class="card-body">
                 <!-- Savings Form Year -->
                 <div id="savingsFormYearContent" class="card-body">
-                    <form method="POST" action="{{ url_for('SavingsForm') }}">
+                    <form method="POST" action="{{ url_for('SavingsFormYear') }}">
                         {% for field in savings_form_year %}
                             {% if not loop.last %}
                                 <div>
