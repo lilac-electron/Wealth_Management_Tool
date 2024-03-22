@@ -1015,12 +1015,49 @@ def testCPIAPI():
     return redirect(url_for('dashboard'))    
 
 
+class SavingsCalculatorYear(FlaskForm):
+    savings_goal = DecimalField('Savings Goal', validators=[InputRequired(), NumberRange(min=0)])
+    current_held_savings = DecimalField('Current Savings', validators=[InputRequired(), NumberRange(min=0)])
+    annual_interest_rate = DecimalField('Annual Interest Rate (%)', validators=[InputRequired(), NumberRange(min=0)])
+    #Want to calculate this value, hence change
+    #years_to_save = IntegerField('Years to Save', validators=[NumberRange(min=0)], default=None)
+    saving_per_month = DecimalField('Monthly Savings', validators=[NumberRange(min=0)], default=None)
+
+class SavingsCalculatorAmount(FlaskForm):
+    savings_goal = DecimalField('Savings Goal', validators=[InputRequired(), NumberRange(min=0)])
+    current_held_savings = DecimalField('Current Savings', validators=[InputRequired(), NumberRange(min=0)])
+    annual_interest_rate = DecimalField('Annual Interest Rate (%)', validators=[InputRequired(), NumberRange(min=0)])
+    years_to_save = IntegerField('Years to Save', validators=[NumberRange(min=0)], default=None)
+
 @app.route('/SavingsForm', methods=['GET', 'POST'])
 @login_required
 def SavingsForm():
     savings_form_year = SavingsCalculatorYear(request.form)
     savings_form_amount = SavingsCalculatorAmount(request.form)
 
+    if request.method == "POST": 
+        if savings_form_year.validate_on_submit():
+            savings_goal = savings_form_year.savings_goal.data
+            current_savings = savings_form_year.current_held_savings.data
+            annual_interest_rate = savings_form_year.annual_interest_rate.data
+            savings_per_month = savings_form_year.saving_per_month.data
+            
+            num_months = 0
+            while current_savings < savings_goal:
+                num_months += 1
+                current_savings += savings_per_month
+                current_savings *= (((annual_interest_rate/12)/100)+1)
+            print(num_months)
+        elif savings_form_amount.validate_on_submit():
+            savings_goal = savings_form_amount.savings_goal.data
+            current_savings = savings_form_amount.current_held_savings.data
+            annual_interest_rate = savings_form_amount.annual_interest_rate.data
+            years_to_save = savings_form_amount.years_to_save.data
+
+            savings_goal -= current_savings
+            months_to_save = years_to_save * 12
+            amount_per_month = (savings_goal/months_to_save) * (1-(annual_interest_rate/100))
+            print(amount_per_month)
     return render_template('pages/savingsForm.html', savings_form_amount=savings_form_amount, savings_form_year=savings_form_year, name=current_user.username)
 
 
