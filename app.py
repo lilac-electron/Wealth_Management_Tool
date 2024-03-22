@@ -1015,7 +1015,7 @@ def testCPIAPI():
     return redirect(url_for('dashboard'))    
 
 
-@app.route('/SavingsFormYear', methods=['GET', 'POST'])
+@app.route('/SavingsForm', methods=['GET', 'POST'])
 @login_required
 def SavingsForm():
     savings_form_year = SavingsCalculatorYear(request.form)
