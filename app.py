@@ -1025,9 +1025,9 @@ def SavingsFormYear():
 @app.route('/SavingsFormAmount', methods=['GET', 'POST'])
 @login_required
 def SavingsFormAmount():
-    saving_form_amount = SavingsCalculatorAmount(request.form)
+    savings_form_amount = SavingsCalculatorAmount(request.form)
 
-    return render_template('pages/savingsFormAmount.html', saving_form_amount=saving_form_amount, name=current_user.username)
+    return render_template('pages/savingsFormAmount.html', savings_form_amount=savings_form_amount, name=current_user.username)
 
 @app.route('/tools', methods=['GET', 'POST'])
 @login_required
