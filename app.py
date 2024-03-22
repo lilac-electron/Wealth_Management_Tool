@@ -1017,17 +1017,12 @@ def testCPIAPI():
 
 @app.route('/SavingsFormYear', methods=['GET', 'POST'])
 @login_required
-def SavingsFormYear():
+def SavingsForm():
     savings_form_year = SavingsCalculatorYear(request.form)
-
-    return render_template('pages/savingsFormYear.html', savings_form_year=savings_form_year, name=current_user.username)
-
-@app.route('/SavingsFormAmount', methods=['GET', 'POST'])
-@login_required
-def SavingsFormAmount():
     savings_form_amount = SavingsCalculatorAmount(request.form)
 
-    return render_template('pages/savingsFormAmount.html', savings_form_amount=savings_form_amount, name=current_user.username)
+    return render_template('pages/savingsForm.html', savings_form_amount=savings_form_amount, savings_form_year=savings_form_year, name=current_user.username)
+
 
 @app.route('/tools', methods=['GET', 'POST'])
 @login_required
