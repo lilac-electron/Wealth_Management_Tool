@@ -1047,6 +1047,23 @@ def savingsForm():
             print(amount_per_month)
     return render_template('pages/savingsForm.html', savings_form_amount=savings_form_amount, savings_form_year=savings_form_year, name=current_user.username)
 
+def calculate_monthly_contribution(current_age, desired_retirement_age, current_savings, expected_annual_return, desired_annual_income):
+    # Calculate the number of years until retirement
+    years_until_retirement = desired_retirement_age - current_age
+    
+    # Convert the expected annual return to a decimal
+    expected_annual_return_decimal = expected_annual_return / 100
+    
+    # Calculate the future value of the retirement savings
+    future_value = desired_annual_income / expected_annual_return_decimal
+    
+    # Use the formula to calculate the monthly contribution
+    monthly_contribution = (future_value - current_savings * (1 + expected_annual_return_decimal) ** years_until_retirement) / \
+                           (((1 + expected_annual_return_decimal) ** (years_until_retirement * 12)) - 1) / \
+                           expected_annual_return_decimal
+    
+    return monthly_contribution
+
 @app.route('/retirementForm', methods=['GET', 'POST'])
 @login_required
 def retirementForm():
@@ -1060,6 +1077,9 @@ def retirementForm():
             expected_annual_return = retirement_form.expected_annual_return.data
             desired_annual_income = retirement_form.desired_annual_income.data
 
+            monthly_contribution = calculate_monthly_contribution(current_age, desired_retirement_age, current_savings, expected_annual_return, desired_annual_income)
+
+            print("You need to save approximately {:.2f} per month to reach your desired annual income in retirement.".format(monthly_contribution))
     return render_template('pages/retirementForm.html', retirement_form=retirement_form, name=current_user.username)
 
 
