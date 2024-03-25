@@ -36,7 +36,13 @@
         /* Style for active tab */
         .active-tab {
             font-weight: bold;
-            color: blue; /* Change color as needed */
+            background-color: #f0f0f0; /* Slightly grey background */
+        }
+        /* Style for tab separator */
+        .tab-separator {
+            border-right: 1px solid #ccc; /* Faint grey line */
+            padding-right: 10px; /* Adjust spacing */
+            margin-right: 10px; /* Adjust spacing */
         }
     </style>
 </head>
@@ -62,8 +68,8 @@
             <div class="card-body">
                 <!-- Tabs to toggle between forms -->
                 <div class="text-center mb-3">
-                    <span id="showSavingsFormYear" class="mr-3 active-tab">Savings Form Year</span>
-                    <span id="showSavingsFormAmount">Savings Form Amount</span>
+                    <span id="showSavingsFormYear" class="tab-separator mr-3 active-tab">Savings Form Year</span>
+                    <span id="showSavingsFormAmount" class="tab-separator">Savings Form Amount</span>
                 </div>
                 
                 <!-- Savings Form Year -->
