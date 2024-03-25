@@ -41,7 +41,7 @@
         }
         
         /* Style for active tab */
-        .active-tab {
+        .active {
             background-color: #f0f0f0; /* Light grey background */
         }
     </style>
@@ -133,50 +133,16 @@
         document.getElementById("savingsFormYearContent").style.display = "block";
         document.getElementById("savingsFormAmountContent").style.display = "none";
         // Add active class to the clicked tab and remove from the other tab
-        document.getElementById("showSavingsFormYear").classList.add("active-tab");
-        document.getElementById("showSavingsFormAmount").classList.remove("active-tab");
+        document.getElementById("showSavingsFormYear").classList.add("active");
+        document.getElementById("showSavingsFormAmount").classList.remove("active");
     });
 
     document.getElementById("showSavingsFormAmount").addEventListener("click", function() {
         document.getElementById("savingsFormYearContent").style.display = "none";
         document.getElementById("savingsFormAmountContent").style.display = "block";
         // Add active class to the clicked tab and remove from the other tab
-        document.getElementById("showSavingsFormYear").classList.remove("active-tab");
-        document.getElementById("showSavingsFormAmount").classList.add("active-tab");
-    });
-</script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Get all the tab links
-        const tabLinks = document.querySelectorAll(".nav-link");
-
-        // Add click event listener to each tab link
-        tabLinks.forEach(function(tabLink) {
-            tabLink.addEventListener("click", function(event) {
-                // Prevent default link behavior
-                event.preventDefault();
-
-                // Remove 'active' class from all tab links
-                tabLinks.forEach(function(link) {
-                    link.classList.remove("active");
-                });
-
-                // Add 'active' class to the clicked tab link
-                this.classList.add("active");
-
-                // Hide all tab content
-                document.querySelectorAll(".card-body").forEach(function(tabContent) {
-                    tabContent.style.display = "none";
-                });
-
-                // Show the corresponding tab content based on the clicked tab link
-                const targetId = this.getAttribute("href").substr(1);
-                document.getElementById(targetId).style.display = "block";
-            });
-        });
-
-        // Trigger click on the first tab to display its content by default
-        tabLinks[0].click();
+        document.getElementById("showSavingsFormYear").classList.remove("active");
+        document.getElementById("showSavingsFormAmount").classList.add("active");
     });
 </script>
 
