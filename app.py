@@ -234,7 +234,7 @@ class TaxCalculator(FlaskForm):
 class UKTaxCalculatorForm(FlaskForm):
     yearly_earnings = DecimalField('Yearly Earnings (£)', validators=[InputRequired(), NumberRange(min=0)])
     over_state_pension_age = BooleanField('Over State Pension Age')
-    #scottish_tax_payer = BooleanField('Scottish Income Tax Payer')
+    blind = BooleanField('Are you blind?')
 
 class CapitalGainsCalculator(FlaskForm):
     purchase_price = DecimalField('Purchase Price', validators=[InputRequired()])
@@ -1082,6 +1082,44 @@ def retirementForm():
             print("You need to save approximately {:.2f} per month to reach your desired annual income in retirement.".format(monthly_contribution))
     return render_template('pages/retirementForm.html', retirement_form=retirement_form, name=current_user.username)
 
+def calculate_tax(yearly_income, over_state_pension_age, blind):
+    PA = 12570 #Basic personal allowance 2023/24
+    if blind:
+        #2023/24, blind add 2870 to PA
+        PA += 2870
+    if yearly_income > 125140:
+        PA = 0
+    elif yearly_income>= 100000 and yearly_income<=125140:
+        #For every 2 pounds earnt over 100000 and less than 125140, £1 taken off PA
+        incomeOverHundredThousand = yearly_income-100000
+        incomeOverHundredThousand /= 2
+        PA -= incomeOverHundredThousand
+    
+    tax = 0
+    # Basic rate
+    basic_rate_threshold = 50000  # £50,270
+    basic_rate = 0.2
+
+    # Higher rate
+    higher_rate_threshold = 150000  # £125,140
+    higher_rate = 0.4
+
+    # Additional rate
+    additional_rate = 0.45
+
+    if yearly_income <= PA:
+        tax = 0
+    elif PA < yearly_income <= basic_rate_threshold:
+        tax = (yearly_income - PA) * basic_rate
+    elif basic_rate_threshold < yearly_income <= higher_rate_threshold:
+        basic_tax = (basic_rate_threshold - PA) * basic_rate
+        tax = basic_tax + (yearly_income - basic_rate_threshold) * higher_rate
+    else:
+        basic_tax = (basic_rate_threshold - PA) * basic_rate
+        higher_tax = (higher_rate_threshold - basic_rate_threshold) * higher_rate
+        tax = basic_tax + higher_tax + (yearly_income - higher_rate_threshold) * additional_rate
+
+    return tax
 
 @app.route('/incomeTaxCalculator', methods=['GET', 'POST'])
 @login_required
@@ -1092,6 +1130,9 @@ def incomeTaxCalculator():
         if UK_income_tax_calculator_form.validate_on_submit():
             yearly_earnings = UK_income_tax_calculator_form.yearly_earnings.data
             over_state_pension_age = UK_income_tax_calculator_form.over_state_pension_age.data
+            blind = UK_income_tax_calculator_form.blind.data
+            tax_amount = calculate_tax(yearly_income=yearly_earnings, over_state_pension_age=over_state_pension_age, blind=blind)
+            print("For a yearly income of {:.2f}, you need to pay {:.2f}, in income tax a year".format(yearly_earnings, tax_amount))
             #scottish_tax_payer = UK_income_tax_calculator_form.scottish_tax_payer.data
 
     return render_template('pages/incomeTaxForm.html', UK_income_tax_calculator_form=UK_income_tax_calculator_form, name=current_user.username)
