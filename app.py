@@ -1049,7 +1049,7 @@ def savingsForm():
 
 @app.route('/retirementForm', methods=['GET', 'POST'])
 @login_required
-def retiremntForm():
+def retirmentForm():
     retirement_form = Retirement(request.form)
 
     if request.method == "POST":
