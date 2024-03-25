@@ -1059,8 +1059,8 @@ def calculate_monthly_contribution(current_age, desired_retirement_age, current_
     
     # Use the formula to calculate the monthly contribution
     monthly_contribution = (future_value - current_savings * (1 + expected_annual_return_decimal) ** years_until_retirement) / \
-                           ((((1 + expected_annual_return_decimal) ** (years_until_retirement * 12)) - 1) / \
-                           expected_annual_return_decimal)
+                           (((1 + expected_annual_return_decimal) ** (years_until_retirement * 12)) - 1) / \
+                           expected_annual_return_decimal
     
     return monthly_contribution
 
