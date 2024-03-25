@@ -7,6 +7,14 @@ function generateNavbar(currentPage="") {
         .active {
             color: #333; /* Adjust text color accordingly */
         }
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
     </style>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
