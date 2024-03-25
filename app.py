@@ -1170,6 +1170,8 @@ def capitalGainsForm():
 
     return render_template('pages/capitalGainsForm.html', capital_gains_calculator_form=capital_gains_calculator_form, name=current_user.username)
 
+@app.route('/networth')
+
 @app.route('/tools')
 @login_required
 def tools():
