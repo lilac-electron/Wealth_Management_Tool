@@ -60,7 +60,7 @@
                 <!-- Capital Gains Form -->
                 <div id="retirementFormContent" class="card-body">
                     <form method="POST" action="{{ url_for('retirementForm') }}">
-                        {% for field in savings_form_year %}
+                        {% for field in retirement_form %}
                             {% if not loop.last %}
                                 <div>
                                     {{ field.label }}

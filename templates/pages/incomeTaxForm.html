@@ -60,7 +60,7 @@
                 <!-- Capital Gains Form -->
                 <div id="incomeTaxFormContent" class="card-body">
                     <form method="POST" action="{{ url_for('incomeTaxCalculator') }}">
-                        {% for field in savings_form_year %}
+                        {% for field in UK_income_tax_calculator_form %}
                             {% if not loop.last %}
                                 <div>
                                     {{ field.label }}
