@@ -145,6 +145,38 @@
         document.getElementById("showSavingsFormAmount").classList.add("active-tab");
     });
 </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get all the tab links
+        const tabLinks = document.querySelectorAll(".nav-link");
+
+        // Add click event listener to each tab link
+        tabLinks.forEach(function(tabLink) {
+            tabLink.addEventListener("click", function(event) {
+                // Prevent default link behavior
+                event.preventDefault();
+
+                // Remove 'active' class from all tab links
+                tabLinks.forEach(function(link) {
+                    link.classList.remove("active");
+                });
+
+                // Add 'active' class to the clicked tab link
+                this.classList.add("active");
+
+                // Hide all tab content
+                document.querySelectorAll(".card-body").forEach(function(tabContent) {
+                    tabContent.style.display = "none";
+                });
+
+                // Show the corresponding tab content based on the clicked tab link
+                const targetId = this.getAttribute("href").substr(1);
+                document.getElementById(targetId).style.display = "block";
+            });
+        });
+    });
+</script>
+
 <!-- Footer -->
 <footer class="bg-dark text-white text-center p-2 mt-auto">
     <p>&copy; 2024 Fins-Fintech</p>
