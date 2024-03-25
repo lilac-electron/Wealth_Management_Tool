@@ -61,25 +61,35 @@
     <script>
         $(document).ready(function() {
             // Get the total number of input fields
-            var totalInputs = $('#registrationForm input').length - 1;
+            var totalInputs = $('#registrationForm input').length;
     
-            // Calculate the width increment for each input field
+            // Initialize the number of completed input fields
+            var completedInputs = 0;
+    
+            // Calculate the width increment for each completed input field
             var progressBarIncrement = 100 / totalInputs;
     
             // Initialize the progress bar value
             var progressValue = 0;
-            $('#registrationProgressBar .progress-bar').css('width', progressValue + '%').attr('aria-valuenow', progressValue);
+    
+            // Update the progress bar based on completed input fields
+            function updateProgressBar() {
+                progressValue = completedInputs * progressBarIncrement;
+                $('#registrationProgressBar .progress-bar').css('width', progressValue + '%').attr('aria-valuenow', progressValue);
+            }
     
             // Listen for input events on input fields
             $('#registrationForm input').on('input', function() {
                 // Check if the input field is not empty
                 if ($(this).val().trim() !== '') {
-                    // Update the progress bar
-                    progressValue += progressBarIncrement;
-                    $('#registrationProgressBar .progress-bar').css('width', progressValue + '%').attr('aria-valuenow', progressValue);
+                    completedInputs++;
+                } else {
+                    completedInputs--;
                 }
+                updateProgressBar();
             });
         });
     </script>
+    
 </body>
 </html>
