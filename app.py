@@ -1084,6 +1084,7 @@ def retirementForm():
 
 def calculate_tax(yearly_income, over_state_pension_age, blind):
     PA = 12570 #Basic personal allowance 2023/24
+    yearly_income = float(yearly_income)
     if blind:
         #2023/24, blind add 2870 to PA
         PA += 2870
