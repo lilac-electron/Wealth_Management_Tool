@@ -1122,6 +1122,21 @@ def calculate_tax(yearly_income, over_state_pension_age, blind):
 
     return tax
 
+def calculate_national_insurance(yearly_earnings):
+    income = float(yearly_earnings)
+    weekly_earnings = income/52
+    NI = 0
+    if weekly_earnings < 242:
+        NI = 0
+    elif 242 < weekly_earnings < 967:
+        lowerRate = (weekly_earnings - 242) * 0.1
+        NI = lowerRate
+    else:
+        lowerRate = (967-242.01) * 0.1
+        higherRate = (weekly_earnings-967) * 0.02
+        NI = lowerRate + higherRate
+    return NI
+
 @app.route('/incomeTaxCalculator', methods=['GET', 'POST'])
 @login_required
 def incomeTaxCalculator():
@@ -1133,7 +1148,8 @@ def incomeTaxCalculator():
             over_state_pension_age = UK_income_tax_calculator_form.over_state_pension_age.data
             blind = UK_income_tax_calculator_form.blind.data
             tax_amount = calculate_tax(yearly_income=yearly_earnings, over_state_pension_age=over_state_pension_age, blind=blind)
-            print("For a yearly income of {:.2f}, you need to pay {:.2f}, in income tax a year".format(yearly_earnings, tax_amount))
+            national_insurance = calculate_national_insurance(yearly_earnings=yearly_earnings)
+            print("For a yearly income of £{:.2f}, you need to pay £{:.2f}, in income tax a year. You will also pay £{:.2f} in national insurance".format(yearly_earnings, tax_amount, national_insurance))
             #scottish_tax_payer = UK_income_tax_calculator_form.scottish_tax_payer.data
 
     return render_template('pages/incomeTaxForm.html', UK_income_tax_calculator_form=UK_income_tax_calculator_form, name=current_user.username)
