@@ -1170,6 +1170,10 @@ def capitalGainsForm():
 
     return render_template('pages/capitalGainsForm.html', capital_gains_calculator_form=capital_gains_calculator_form, name=current_user.username)
 
+@app.route('/tools')
+@login_required
+def tools():
+    return render_template('pages/tools.html', name=current_user.username)
 #with app.app_context():
     #db.drop_all()
     #db.create_all()
