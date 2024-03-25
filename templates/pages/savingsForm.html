@@ -10,7 +10,6 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/mdsp-css.min.css')}}" />
     <style>
         /* Set the height of the body to 100% for Sticky Footer */
         body {
@@ -83,32 +82,14 @@
             <div class="card-body">
                 <!-- Tabs to toggle between forms -->
                 <div class="text-center mb-3">
-                    <span id="showSavingsFormYear" class="tab-separator mr-3 active-tab">Savings Form Year</span>
-                    <span id="showSavingsFormAmount" class="tab-separator">Savings Form Amount</span>
-                </div>
-                
-                <div class="tabs--primary">
-                    <nav class="tab__nav">
-                        <ul>
-                            <li class="tab__item">
-                                <a href="#">
-                                    Tab 1
-                                </a>
-                            </li>
-                            <li class="tab__item">
-                                <a href="#" class="is-activated">
-                                    Tab 2
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                
-                    <div class="tab__content">
-                        <h3>Primary tab</h3>
-                        <p>
-                            Example of a left aligned horizontal primary tab.
-                        </p>
-                    </div>
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a id="showSavingsFormYear" class="nav-link active tab-separator mr-3">Savings Form Year</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="showSavingsFormAmount" class="nav-link tab-separator">Savings Form Amount</a>
+                        </li>
+                    </ul>
                 </div>
                 
 
