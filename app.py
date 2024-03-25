@@ -1135,6 +1135,7 @@ def calculate_national_insurance(yearly_earnings):
         lowerRate = (967-242.01) * 0.1
         higherRate = (weekly_earnings-967) * 0.02
         NI = lowerRate + higherRate
+    NI *= 52
     return NI
 
 @app.route('/incomeTaxCalculator', methods=['GET', 'POST'])
