@@ -16,7 +16,7 @@ function generateNavbar(currentPage="") {
             -moz-appearance: textfield;
         }
     </style>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container">
 
             <!-- Navbar Toggler Button for Small Screens -->
