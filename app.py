@@ -574,6 +574,7 @@ def simulatedGrowth():
     Sdata = [] #savings data
     LRdata =[] #Low risk managed
     HRdata =[] #Hish Risk managed
+    MSdata = [] #Modified savings data
 
     assetStart=totalAssets
     #ticker = 'AAPL'  # Example ticker
@@ -597,10 +598,12 @@ def simulatedGrowth():
     LRdata.append(assetStart)
     Sdata.append(assetStart)
     HRdata.append(assetStart)
+    MSdata.append(assetStart)
     SP_asset_val = assetStart
     LR_asset_val = assetStart
     S_asset_val = assetStart
     HR_asset_val = assetStart
+    MS_asset_val = assetStart
     for i in  range(len(labels)):
         market_return = np.random.normal(var1, var2,1)[0]
         #SPreturn = assetStart * (1+ market_return)
@@ -615,7 +618,9 @@ def simulatedGrowth():
         Sdata.append(S_asset_val)
         HR_asset_val *= (1+ ((np.random.normal(7, 20,1)[0]/12)/100))
         HRdata.append(HR_asset_val)
-    return render_template('pages/simulatedGrowth.html', name=current_user.username, stock_table = stock_data_html, labels=labels, SPdata=SPdata, Sdata=Sdata, LRdata=LRdata, HRdata=HRdata)
+        MS_asset_val += (1+ ((np.random.normal(7, 4,1)[0]/12)/100))
+        MSdata.append(MS_asset_val)
+    return render_template('pages/simulatedGrowth.html', name=current_user.username, stock_table = stock_data_html, labels=labels, SPdata=SPdata, Sdata=Sdata, LRdata=LRdata, HRdata=HRdata, MSdata=MSdata)
 
 def toolsCardContent():
     #This function will return all the card contents that are available. 

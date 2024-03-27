@@ -71,7 +71,9 @@
             <div class="col-md-12">
                 <p>The chart below shows 4 different projections based on the assets you entered into the current assets tab</p>
                 <p>SP data stands for a simulation of your projected grwoth based off of the S&P500's performance in the last 20 years</p>
-                <p>S data is based off the performance of a savings account that grows at a rate of 7% per annum in the first year then 2% per annum in the proceeding years</p>
+                <p>S data is based off the performance of a savings account that grows at a rate of 7% per annum in the first year then 2% per annum in the proceeding years. This is based on most 
+                    companies sale tactics of relying on people to not change their savings account and just accept the lowered rate.
+                </p>
                 <p>HR data shows projection of a fluctuating interest rate between -13% and 27%, simulating a volatile investment portfolio with a potential for high reward but also a lot of risk </p>
                 <p>LR data projects asset growth based on a very low risk portfolio, in which the return is only between 0.3% and 1%. Meaning there is no risk of loss, but also not much gain.</p>
                 <section class="text-center mt-4">
@@ -123,6 +125,12 @@
                 backgroundColor: 'rgb(255, 205, 86)',
                 borderColor: 'rgb(255, 205, 86)',
                 data: {{ HRdata | tojson }},
+            }
+            {
+                label: 'MS Data',
+                backgroundColor: 'rgb(255, 140, 0)',
+                borderColor: 'rgb(255, 140, 0)',
+                data: {{ MSdata | tojson }},
             }
         ]
     };
