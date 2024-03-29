@@ -61,37 +61,36 @@
                 </p>
                 <!-- Capital Gains Form -->
                 <div id="capitalGainsFormContent" class="card-body">
-                    {{ form=capital_gains_calculator_form }}
                     <form method="POST" action="{{ url_for('capitalGainsForm') }}">
-                        {{ form.hidden_tag() }}
+                        {{ capital_gains_calculator_form.hidden_tag() }}
 
                         <div class="form-group">
                             <label for="purchase_price">Purchase Price</label>
-                            {{ form.purchase_price(class="form-control", id="purchase_price") }}
+                            {{ capital_gains_calculator_form.purchase_price(class="form-control", id="purchase_price") }}
                         </div>
 
                         <div class="form-group">
                             <label for="sale_price">Sale Price</label>
-                            {{ form.sale_price(class="form-control", id="sale_price") }}
+                            {{ capital_gains_calculator_form.sale_price(class="form-control", id="sale_price") }}
                         </div>
 
                         <div class="form-group">
                             <label for="holding_period">Holding Period (Years)</label>
-                            {{ form.holding_period(class="form-control", id="holding_period") }}
+                            {{ capital_gains_calculator_form.holding_period(class="form-control", id="holding_period") }}
                         </div>
 
                         <div class="form-group">
                             <label for="cost_of_improvements">Cost of Improvements</label>
-                            {{ form.cost_of_improvements(class="form-control", id="cost_of_improvements") }}
+                            {{ capital_gains_calculator_form.cost_of_improvements(class="form-control", id="cost_of_improvements") }}
                         </div>
 
                         <div class="form-check">
-                            {{ form.used_as_business(class="form-check-input", id="used_as_business") }}
+                            {{ capital_gains_calculator_form.used_as_business(class="form-check-input", id="used_as_business") }}
                             <label class="form-check-label" for="used_as_business">Was a room used for a desk for business or a lodger in a single room?</label>
                         </div>
 
                         <div class="form-check">
-                            {{ form.sq_metres(class="form-check-input", id="sq_metres") }}
+                            {{ capital_gains_calculator_form.sq_metres(class="form-check-input", id="sq_metres") }}
                             <label class="form-check-label" for="sq_metres">Is the property over 5000 square meters, including the buildings?</label>
                         </div>
 
