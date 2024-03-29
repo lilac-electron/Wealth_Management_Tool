@@ -11,6 +11,30 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        /* Add this CSS to your existing stylesheet or in a style tag */
+        .flash-messages {
+            list-style-type: none;
+            padding: 1px;
+        }
+
+        .success {
+            background-color: #d4edda; /* Green background color */
+            border: 1px solid #c3e6cb; /* Green border color */
+            color: #155724; /* Dark green text color */
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .danger {
+            background-color: #f8d7da; /* Red background color */
+            border: 1px solid #f5c6cb; /* Red border color */
+            color: #721c24; /* Dark red text color */
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body class="bg-light">
 
@@ -23,7 +47,15 @@
                         <h3>Register</h3>
                     </div>
                     <div class="card-body">
-
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                <ul class="flash-messages">
+                                    {% for category, message in messages %}
+                                        <li class="{{ category }}">{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        {% endwith %}
                         <form id="registrationForm" method="POST" action="/register">
                             {{ form.hidden_tag() }}
 
