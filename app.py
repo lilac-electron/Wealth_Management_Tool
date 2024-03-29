@@ -224,13 +224,6 @@ class Retirement(FlaskForm):
     expected_annual_return = IntegerField('Expected Annual Return (%)', validators=[InputRequired()])
     desired_annual_income = IntegerField('Desired Annual Retirement Income', validators=[InputRequired()])
 
-class TaxCalculator(FlaskForm):
-    annual_salary = DecimalField('Annual Salary', validators=[InputRequired()])
-    additional_income = DecimalField('Additional Income')
-    deductible_expenses = DecimalField('Deductible Expenses')
-    tax_year = IntegerField('Tax Year')
-    filing_status = StringField('Filing Status')
-
 class UKTaxCalculatorForm(FlaskForm):
     yearly_earnings = DecimalField('Yearly Earnings (£)', validators=[InputRequired(), NumberRange(min=0)])
     over_state_pension_age = BooleanField('Over State Pension Age')
@@ -241,7 +234,8 @@ class CapitalGainsCalculator(FlaskForm):
     sale_price = DecimalField('Sale Price', validators=[InputRequired()])
     holding_period = IntegerField('Holding Period (Years)', validators=[InputRequired()])
     cost_of_improvements = DecimalField('Cost of Improvements')
-    deductions_exemptions = DecimalField('Deductions/Exemptions')
+    used_as_business = BooleanField('Was a room used for a desk for business or a lodger in a single room?')
+    sq_metres = BooleanField('Is the property 0ver 5000 metres, including the buildings?')
 
 def clearAttribute():
     DynamicForm = [attr for attr in DynamicForm if  not(attr.startswith('field_'))]
@@ -1160,6 +1154,14 @@ def incomeTaxCalculator():
 
     return render_template('pages/incomeTaxForm.html', UK_income_tax_calculator_form=UK_income_tax_calculator_form, name=current_user.username)
 
+def calculateCapitalGains(purchase_price, sale_price, holding_period, cost_of_improvements, used_as_business, sq_metres):
+    gain = sale_price-purchase_price
+    tax_able_gain = gain - cost_of_improvements
+    if used_as_business or sq_metres:
+        return "You may be subject to less relief on your gains, due to either having used the property as a business asset or it being too large. Visit the gov website for more detailed information"
+    else:
+        return "The taxable gain on the property is £{:.2f}, the amount of tax you pay will be determined by: {:.2f}, your income and a few other factors. Visit the gov website for more detailed information".format(tax_able_gain, holding_period)
+
 @app.route('/capitalGainsForm', methods=['GET', 'POST'])
 @login_required
 def capitalGainsForm():
@@ -1171,11 +1173,13 @@ def capitalGainsForm():
             sale_price = capital_gains_calculator_form.sale_price.data
             holding_period = capital_gains_calculator_form.holding_period.data
             cost_of_improvements = capital_gains_calculator_form.cost_of_improvements.data
-            deductions_exemptions = capital_gains_calculator_form.deductions_exemptions.data
+            used_as_business = capital_gains_calculator_form.used_as_business.data
+            sq_metres = capital_gains_calculator_form.sq_metres.data
+            print(calculateCapitalGains(purchase_price=purchase_price, sale_price=sale_price, holding_period=holding_period, cost_of_improvements=cost_of_improvements, used_as_business=used_as_business, sq_metres=sq_metres))
 
     return render_template('pages/capitalGainsForm.html', capital_gains_calculator_form=capital_gains_calculator_form, name=current_user.username)
 
-@app.route('/networth')
+#@app.route('/networth')
 
 @app.route('/tools')
 @login_required
