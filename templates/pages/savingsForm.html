@@ -10,7 +10,6 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <style>
         /* Set the height of the body to 100% for Sticky Footer */
         body {
@@ -75,25 +74,22 @@
         <div class="card mt-3">
             <div class="card-body">
                 <p>There are two options below, the Savings Form Year, determines how many years it will take to reach your goal based on monthly savings. 
-                    The other option, Savings Form Amount, determines how much you need to save per month to reach your goal in a pre-determined number of years.
+                    The other options Savings Form Amount, determines how much you need to save per month to reach your goal in a pre-determined number of years.
                 </p>
-            
-                <!-- Tabs or Accordions based on screen size -->
+                <!-- Tabs to toggle between forms -->
                 <div class="text-center mb-3">
-                    <ul class="nav nav-tabs justify-content-center" id="savingsFormTabs">
+                    <ul class="nav nav-tabs">
                         <li class="nav-item">
-                            <a id="showSavingsFormYearTab" class="nav-link active d-none d-sm-block">Savings Form Year</a>
-                            <a id="showSavingsFormYearAccordion" class="nav-link active d-block d-sm-none" data-toggle="collapse" href="#savingsFormYearContent" role="button" aria-expanded="false" aria-controls="savingsFormYearContent">Savings Form Year</a>
+                            <a id="showSavingsFormYear" class="nav-link active">Savings Form Year</a>
                         </li>
                         <li class="nav-item">
-                            <a id="showSavingsFormAmountTab" class="nav-link d-none d-sm-block">Savings Form Amount</a>
-                            <a id="showSavingsFormAmountAccordion" class="nav-link d-block d-sm-none" data-toggle="collapse" href="#savingsFormAmountContent" role="button" aria-expanded="false" aria-controls="savingsFormAmountContent">Savings Form Amount</a>
+                            <a id="showSavingsFormAmount" class="nav-link">Savings Form Amount</a>
                         </li>
                     </ul>
                 </div>
-            
+                
                 <!-- Savings Form Year -->
-                <div id="savingsFormYearContent" class="card-body collapse show">
+                <div id="savingsFormYearContent" class="card-body">
                     <form method="POST" action="{{ url_for('savingsForm') }}">
                         {% for field in savings_form_year %}
                             {% if not loop.last %}
@@ -113,9 +109,9 @@
                         </div>
                     </form>
                 </div>
-            
+
                 <!-- Savings Form Amount -->
-                <div id="savingsFormAmountContent" class="card-body collapse">
+                <div id="savingsFormAmountContent" class="card-body" style="display: none;">
                     <form method="POST" action="{{ url_for('savingsForm') }}">
                         {% for field in savings_form_amount %}
                             {% if not loop.last %}
@@ -136,27 +132,26 @@
                     </form>
                 </div>
             </div>
-            
         </div>
     </div>
 </div>
 
 <script>
     // JavaScript to toggle between showing the Savings Form Year and Savings Form Amount
-    document.getElementById("showSavingsFormYearAccordion").addEventListener("click", function() {
-        $('#savingsFormYearContent').collapse('show');
-        $('#savingsFormAmountContent').collapse('hide');
+    document.getElementById("showSavingsFormYear").addEventListener("click", function() {
+        document.getElementById("savingsFormYearContent").style.display = "block";
+        document.getElementById("savingsFormAmountContent").style.display = "none";
         // Add active class to the clicked tab and remove from the other tab
-        document.getElementById("showSavingsFormYearTab").classList.add("active");
-        document.getElementById("showSavingsFormAmountTab").classList.remove("active");
+        document.getElementById("showSavingsFormYear").classList.add("active");
+        document.getElementById("showSavingsFormAmount").classList.remove("active");
     });
 
-    document.getElementById("showSavingsFormAmountAccordion").addEventListener("click", function() {
-        $('#savingsFormYearContent').collapse('hide');
-        $('#savingsFormAmountContent').collapse('show');
+    document.getElementById("showSavingsFormAmount").addEventListener("click", function() {
+        document.getElementById("savingsFormYearContent").style.display = "none";
+        document.getElementById("savingsFormAmountContent").style.display = "block";
         // Add active class to the clicked tab and remove from the other tab
-        document.getElementById("showSavingsFormYearTab").classList.remove("active");
-        document.getElementById("showSavingsFormAmountTab").classList.add("active");
+        document.getElementById("showSavingsFormYear").classList.remove("active");
+        document.getElementById("showSavingsFormAmount").classList.add("active");
     });
 </script>
 
