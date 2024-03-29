@@ -703,7 +703,7 @@ def register():
         email = form.email.data
         existing_user = User.query.filter((User.username == username) | (User.email == email)).first()
         if existing_user:
-            flash('Username or email alreaddy in use, please try again', 'danger')
+            flash('Username or email already in use, please try again', 'danger')
         else:
             #new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
             new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)

@@ -49,7 +49,7 @@
                     <div class="card-body">
                         {% with messages = get_flashed_messages(with_categories=true) %}
                             {% if messages %}
-                                <ul class="flash-messages">
+                                <ul class="flash-messages test-center">
                                     {% for category, message in messages %}
                                         <li class="{{ category }}">{{ message }}</li>
                                     {% endfor %}
