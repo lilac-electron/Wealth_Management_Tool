@@ -42,6 +42,9 @@ function generateNavbar(currentPage="") {
                     <li class="nav-item">
                         <a class="nav-link border-0 bg-light mr-2 ${currentPage === '/tools' ? 'active' : ''}" href="/tools">Finance Tools</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link border-0 bg-light mr-2 ${currentPage === '/feedbackForm' ? 'active' : ''}" href="/feedbackForm">Feedback Form</a>
+                    </li>
                 </ul>
             </div>
         </div>
