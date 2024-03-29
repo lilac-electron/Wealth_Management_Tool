@@ -34,6 +34,9 @@
             margin-bottom: 10px;
             border-radius: 5px;
         }
+        .flash-container{
+            text-align: center;
+        }
     </style>
 </head>
 <body class="bg-light">
@@ -49,11 +52,13 @@
                     <div class="card-body">
                         {% with messages = get_flashed_messages(with_categories=true) %}
                             {% if messages %}
-                                <ul class="flash-messages test-center">
+                            <div class="flash-container">
+                                <ul class="flash-messages">
                                     {% for category, message in messages %}
                                         <li class="{{ category }}">{{ message }}</li>
                                     {% endfor %}
                                 </ul>
+                            </div>
                             {% endif %}
                         {% endwith %}
                         <form id="registrationForm" method="POST" action="/register">
