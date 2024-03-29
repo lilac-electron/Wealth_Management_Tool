@@ -19,6 +19,7 @@ from flask_login import (
     LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 )
 from openpyxl import Workbook, load_workbook
+from passlib.hash import sha256_crypt
 import datetime
 #from datetime import datetime
 import pandas_datareader.data as pdr
@@ -666,7 +667,7 @@ def login():
             #flash("User found Password"+user.password, "danger")
             #if check_password_hash(user.password, form.password.data):
             #if user.password == form.password.data:
-            if check_password_hash(user.password, form.password.data):
+            if sha256_crypt.verify(user.password, form.password.data):
                 login_user(user, remember=form.remember.data)
                 username = current_user.username
                 upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', username, f'{username}_values.xlsx')
@@ -696,7 +697,7 @@ def register():
     form = RegistrationForm()
     
     if form.validate_on_submit():
-        hashed_password = generate_password_hash(form.password.data)
+        hashed_password = sha256_crypt.hash(form.password.data)
         #new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
         new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
         db.session.add(new_user)
