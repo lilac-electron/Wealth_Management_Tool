@@ -60,6 +60,7 @@
                 <!-- Capital Gains Form -->
                 <div id="incomeTaxFormContent" class="card-body">
                     <form method="POST" action="{{ url_for('incomeTaxCalculator') }}">
+                        {{ UK_income_tax_calculator_form.hidden_tag() }}  <!-- Include CSRF token -->
                         <div>
                             {{ UK_income_tax_calculator_form.yearly_earnings.label }}
                         </div>
@@ -83,6 +84,7 @@
                         </div>
                     </form>
                 </div>
+
             </div>
         </div>
     </div>

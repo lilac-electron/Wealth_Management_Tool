@@ -1160,7 +1160,7 @@ def calculateCapitalGains(purchase_price, sale_price, holding_period, cost_of_im
     if used_as_business or sq_metres:
         return "You may be subject to less relief on your gains, due to either having used the property as a business asset or it being too large. Visit the gov website for more detailed information"
     else:
-        return "The taxable gain on the property is £{:.2f}, the amount of tax you pay will be determined by: {:.2f}, your income and a few other factors. Visit the gov website for more detailed information".format(tax_able_gain, holding_period)
+        return "The taxable gain on the property is £{:.2f}, the amount of tax you pay will be determined by: holding period, your income and a few other factors. Visit the gov website for more detailed information".format(tax_able_gain)
 
 @app.route('/capitalGainsForm', methods=['GET', 'POST'])
 @login_required
