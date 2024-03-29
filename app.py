@@ -665,7 +665,8 @@ def login():
             #intial issues with the password hash function when deployed
             #flash("User found Password"+user.password, "danger")
             #if check_password_hash(user.password, form.password.data):
-            if user.password == form.password.data:
+            #if user.password == form.password.data:
+            if check_password_hash(user.password, form.password.data):
                 login_user(user, remember=form.remember.data)
                 username = current_user.username
                 upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', username, f'{username}_values.xlsx')
