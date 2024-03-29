@@ -112,20 +112,19 @@
                         <form method="POST" action="/assetValue" class="row g-3">
                             {% for field in form %}
                                 {% if not loop.last %}
-                                    <div class="col-md-6">
-                                        <label for="{{ field.id }}" class="form-label">{{ field.label }}</label>
-                                        <div class="input-group">
-                                            {{ field(class="form-control", id=field.id) }}
-                                        </div>                                        
+                                    <div>
+                                        {{ field.label }}
+                                    </div>
+                                    <div class="mb-3">
+                                        {{ field(value=value) }}
                                     </div>
                                 {% endif %}
                                 {% if loop.last %}
-                                    {{ field(class="form-control") }}
+                                    {{ field }}
                                 {% endif %}
                             {% endfor %}
-                            <div class="col-12">
-                                <button class="btn btn-primary w-100" type="submit">Submit</button>
-                            </div>
+                            {{ field }}
+                            <button class="btn btn-light border-0 bg-dark text-white w-50" type="submit">Submit</button>
                         </form>
 
                     </div>
