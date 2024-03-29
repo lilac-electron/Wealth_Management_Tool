@@ -56,8 +56,10 @@
         <div class="card mt-3">
             <div class="card-body">
                 
-
-                <!-- Capital Gains Form -->
+                <p>The purpose of this form is to show you how much you would need to save per month from now until your desired retirement age. The annual return
+                    would normally be between 2% and 7%
+                </p>
+                <!-- Retirement Form -->
                 <div id="retirementFormContent" class="card-body">
                     <form method="POST" action="{{ url_for('retirementForm') }}">
                         {% for field in retirement_form %}

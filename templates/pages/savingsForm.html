@@ -68,6 +68,9 @@
     <div class="container mx-auto">
         <div class="card mt-3">
             <div class="card-body">
+                <p>There are two options below, the Savings Form Year, determines how many years it will take based on monthly savings. 
+                    The other options savings form amount, determines how much you need to save per month to reach your goal in a defined number of years.
+                </p>
                 <!-- Tabs to toggle between forms -->
                 <div class="text-center mb-3">
                     <ul class="nav nav-tabs">
@@ -80,7 +83,6 @@
                     </ul>
                 </div>
                 
-
                 <!-- Savings Form Year -->
                 <div id="savingsFormYearContent" class="card-body">
                     <form method="POST" action="{{ url_for('savingsForm') }}">
