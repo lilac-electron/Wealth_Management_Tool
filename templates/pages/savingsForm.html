@@ -74,22 +74,25 @@
         <div class="card mt-3">
             <div class="card-body">
                 <p>There are two options below, the Savings Form Year, determines how many years it will take to reach your goal based on monthly savings. 
-                    The other options Savings Form Amount, determines how much you need to save per month to reach your goal in a pre-determined number of years.
+                    The other option, Savings Form Amount, determines how much you need to save per month to reach your goal in a pre-determined number of years.
                 </p>
-                <!-- Tabs to toggle between forms -->
+            
+                <!-- Tabs or Accordions based on screen size -->
                 <div class="text-center mb-3">
-                    <ul class="nav nav-tabs">
+                    <ul class="nav nav-tabs justify-content-center" id="savingsFormTabs">
                         <li class="nav-item">
-                            <a id="showSavingsFormYear" class="nav-link active">Savings Form Year</a>
+                            <a id="showSavingsFormYearTab" class="nav-link active d-none d-sm-block">Savings Form Year</a>
+                            <a id="showSavingsFormYearAccordion" class="nav-link active d-block d-sm-none" data-toggle="collapse" href="#savingsFormYearContent" role="button" aria-expanded="false" aria-controls="savingsFormYearContent">Savings Form Year</a>
                         </li>
                         <li class="nav-item">
-                            <a id="showSavingsFormAmount" class="nav-link">Savings Form Amount</a>
+                            <a id="showSavingsFormAmountTab" class="nav-link d-none d-sm-block">Savings Form Amount</a>
+                            <a id="showSavingsFormAmountAccordion" class="nav-link d-block d-sm-none" data-toggle="collapse" href="#savingsFormAmountContent" role="button" aria-expanded="false" aria-controls="savingsFormAmountContent">Savings Form Amount</a>
                         </li>
                     </ul>
                 </div>
-                
+            
                 <!-- Savings Form Year -->
-                <div id="savingsFormYearContent" class="card-body">
+                <div id="savingsFormYearContent" class="card-body collapse show">
                     <form method="POST" action="{{ url_for('savingsForm') }}">
                         {% for field in savings_form_year %}
                             {% if not loop.last %}
@@ -109,9 +112,9 @@
                         </div>
                     </form>
                 </div>
-
+            
                 <!-- Savings Form Amount -->
-                <div id="savingsFormAmountContent" class="card-body" style="display: none;">
+                <div id="savingsFormAmountContent" class="card-body collapse">
                     <form method="POST" action="{{ url_for('savingsForm') }}">
                         {% for field in savings_form_amount %}
                             {% if not loop.last %}
@@ -132,6 +135,7 @@
                     </form>
                 </div>
             </div>
+            
         </div>
     </div>
 </div>
