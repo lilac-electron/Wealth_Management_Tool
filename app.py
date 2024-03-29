@@ -697,7 +697,7 @@ def register():
     if form.validate_on_submit():
         hashed_password = generate_password_hash(form.password.data)
         #new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
-        new_user = User(username=form.username.data, email=form.email.data, password=form.password.data)
+        new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
         db.session.add(new_user)
         db.session.commit()
         username = form.username.data
@@ -1183,7 +1183,7 @@ def capitalGainsForm():
 @app.route('/feedbackForm')
 @login_required
 def feedbackForm():
-    return render_template('pages/feedbackFormPage.html')
+    return render_template('pages/feedbackFormPage.html', name=current_user.username)
 
 @app.route('/tools')
 @login_required
