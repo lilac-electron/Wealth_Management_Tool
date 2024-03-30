@@ -66,6 +66,9 @@
                     This form is designed to give a simplified oversight of how much income tax you would pay based on the following position. Blindness and over state-pension age 
                     are asked about as these can affect your personal allowance. Your personal allowance determines how much of your income is not subject to tax. 
                 </p>
+                {% if tax_content %}
+                    <p>{{ tax_content }}</p>
+                {% endif %}
                 <!-- Income Tax Form -->
                 <div id="incomeTaxFormContent" class="card-body">
                     <form method="POST" action="{{ url_for('incomeTaxCalculator') }}">

@@ -71,11 +71,18 @@
 </div>
 <div class="content text-center">
     <div class="container mx-auto">
-        <div class="card mt-3">
+        <div class="card mt-3 mb-3">
             <div class="card-body">
                 <p>There are two options below, the Savings Form Year, determines how many years it will take to reach your goal based on monthly savings. 
                     The other options Savings Form Amount, determines how much you need to save per month to reach your goal in a pre-determined number of years.
                 </p>
+                <p></p>
+                {% if year_content_card %}
+                    <p>{{ year_content_card }}</p>
+                {% endif %}
+                {% if amount_content_card %}
+                    <p>{{ amount_content_card }}</p>
+                {% endif %}
                 <!-- Tabs to toggle between forms -->
                 <div class="text-center mb-3">
                     <ul class="nav nav-tabs">
@@ -108,9 +115,6 @@
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
-                    {% if year_content_card %}
-                        <p>{{ year_content_card }}</p>
-                    {% endif %}
                 </div>
 
                 <!-- Savings Form Amount -->
@@ -133,9 +137,6 @@
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
-                    {% if amount_content_card %}
-                        <p>{{ amount_content_card }}</p>
-                    {% endif %}
                 </div>
             </div>
         </div>

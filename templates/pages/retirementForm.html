@@ -67,6 +67,9 @@
                     from your pension that is equally your expectation. The annual return
                     would normally be between 2% and 7%
                 </p>
+                {% if retirement_content %}
+                    <p>{{ retirement_content }}</p>
+                {% endif %}
                 <!-- Retirement Form -->
                 <div id="retirementFormContent" class="card-body">
                     <form method="POST" action="{{ url_for('retirementForm') }}">

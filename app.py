@@ -1044,7 +1044,7 @@ def savingsForm():
                 current_savings += savings_per_month
                 current_savings *= (((annual_interest_rate/12)/100)+1)
             print(num_months)
-            year_content_card = "The number of months it would take would be {:.2f}.".format(num_months)
+            year_content_card = "The number of months it would take to save £{:.2f}, saving £{:.2f} per month, would be {:.2f}.".format(savings_goal, savings_per_month, num_months)
         elif savings_form_amount.validate_on_submit():
             savings_goal = savings_form_amount.savings_goal.data
             current_savings = savings_form_amount.current_held_savings.data
@@ -1079,7 +1079,7 @@ def calculate_monthly_contribution(current_age, desired_retirement_age, current_
 @login_required
 def retirementForm():
     retirement_form = Retirement(request.form)
-
+    retirement_content = None
     if request.method == "POST":
         if retirement_form.validate_on_submit():
             current_age = retirement_form.current_age.data
@@ -1090,8 +1090,9 @@ def retirementForm():
 
             monthly_contribution = calculate_monthly_contribution(current_age, desired_retirement_age, current_savings, expected_annual_return, desired_annual_income)
 
-            print("You need to save approximately {:.2f} per month to reach your desired annual income in retirement.".format(monthly_contribution))
-    return render_template('pages/retirementForm.html', retirement_form=retirement_form, name=current_user.username)
+            print("You need to save approximately {:.2f} per month to reach your desired annual income in retirement of {:.2f}.".format(monthly_contribution, desired_annual_income))
+            retirement_content = "You need to save approximately {:.2f} per month to reach your desired annual income in retirement of {:.2f}.".format(monthly_contribution, desired_annual_income)
+    return render_template('pages/retirementForm.html', retirement_form=retirement_form, name=current_user.username, retirement_content=retirement_content)
 
 def calculate_tax(yearly_income, over_state_pension_age, blind):
     PA = 12570 #Basic personal allowance 2023/24
@@ -1133,7 +1134,7 @@ def calculate_tax(yearly_income, over_state_pension_age, blind):
 
     return tax
 
-def calculate_national_insurance(yearly_earnings):
+def calculate_national_insurance(yearly_earnings, state_pension_age):
     income = float(yearly_earnings)
     weekly_earnings = income/52
     NI = 0
@@ -1147,24 +1148,27 @@ def calculate_national_insurance(yearly_earnings):
         higherRate = (weekly_earnings-967) * 0.02
         NI = lowerRate + higherRate
     NI *= 52
+    if state_pension_age:
+        NI = 0
     return NI
 
 @app.route('/incomeTaxCalculator', methods=['GET', 'POST'])
 @login_required
 def incomeTaxCalculator():
     UK_income_tax_calculator_form = UKTaxCalculatorForm(request.form)
-
+    tax_content = None
     if request.method=="POST":
         if UK_income_tax_calculator_form.validate_on_submit():
             yearly_earnings = UK_income_tax_calculator_form.yearly_earnings.data
             over_state_pension_age = UK_income_tax_calculator_form.over_state_pension_age.data
             blind = UK_income_tax_calculator_form.blind.data
             tax_amount = calculate_tax(yearly_income=yearly_earnings, over_state_pension_age=over_state_pension_age, blind=blind)
-            national_insurance = calculate_national_insurance(yearly_earnings=yearly_earnings)
+            national_insurance = calculate_national_insurance(yearly_earnings=yearly_earnings, state_pension_age=over_state_pension_age)
             print("For a yearly income of £{:.2f}, you need to pay £{:.2f}, in income tax a year. You will also pay £{:.2f} in national insurance".format(yearly_earnings, tax_amount, national_insurance))
+            tax_content = "For a yearly income of £{:.2f}, you need to pay £{:.2f}, in income tax a year. You will also pay £{:.2f} in national insurance".format(yearly_earnings, tax_amount, national_insurance)
             #scottish_tax_payer = UK_income_tax_calculator_form.scottish_tax_payer.data
 
-    return render_template('pages/incomeTaxForm.html', UK_income_tax_calculator_form=UK_income_tax_calculator_form, name=current_user.username)
+    return render_template('pages/incomeTaxForm.html', UK_income_tax_calculator_form=UK_income_tax_calculator_form, tax_content=tax_content,name=current_user.username)
 
 def calculateCapitalGains(purchase_price, sale_price, holding_period, cost_of_improvements, used_as_business, sq_metres):
     gain = sale_price-purchase_price
@@ -1178,7 +1182,7 @@ def calculateCapitalGains(purchase_price, sale_price, holding_period, cost_of_im
 @login_required
 def capitalGainsForm():
     capital_gains_calculator_form = CapitalGainsCalculator(request.form)
-
+    capital_gains_content = None
     if request.method == "POST":
         if capital_gains_calculator_form.validate_on_submit():
             purchase_price = capital_gains_calculator_form.purchase_price.data
@@ -1188,8 +1192,9 @@ def capitalGainsForm():
             used_as_business = capital_gains_calculator_form.used_as_business.data
             sq_metres = capital_gains_calculator_form.sq_metres.data
             print(calculateCapitalGains(purchase_price=purchase_price, sale_price=sale_price, holding_period=holding_period, cost_of_improvements=cost_of_improvements, used_as_business=used_as_business, sq_metres=sq_metres))
+            capital_gains_content = calculateCapitalGains(purchase_price=purchase_price, sale_price=sale_price, holding_period=holding_period, cost_of_improvements=cost_of_improvements, used_as_business=used_as_business, sq_metres=sq_metres)
 
-    return render_template('pages/capitalGainsForm.html', capital_gains_calculator_form=capital_gains_calculator_form, name=current_user.username)
+    return render_template('pages/capitalGainsForm.html', capital_gains_calculator_form=capital_gains_calculator_form, capital_gains_content=capital_gains_content, name=current_user.username)
 
 #@app.route('/networth')
 @app.route('/feedbackForm')
