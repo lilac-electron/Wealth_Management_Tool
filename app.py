@@ -1029,7 +1029,8 @@ def testCPIAPI():
 def savingsForm():
     savings_form_year = SavingsCalculatorYear(request.form)
     savings_form_amount = SavingsCalculatorAmount(request.form)
-
+    year_content_card = None
+    amount_content_card = None
     if request.method == "POST": 
         if savings_form_year.validate_on_submit():
             savings_goal = savings_form_year.savings_goal.data
@@ -1043,6 +1044,7 @@ def savingsForm():
                 current_savings += savings_per_month
                 current_savings *= (((annual_interest_rate/12)/100)+1)
             print(num_months)
+            year_content_card = "The number of months it would take would be {:.2f}.".format(num_months)
         elif savings_form_amount.validate_on_submit():
             savings_goal = savings_form_amount.savings_goal.data
             current_savings = savings_form_amount.current_held_savings.data
@@ -1053,7 +1055,8 @@ def savingsForm():
             months_to_save = years_to_save * 12
             amount_per_month = (savings_goal/months_to_save) * (1-(annual_interest_rate/100))
             print(amount_per_month)
-    return render_template('pages/savingsForm.html', savings_form_amount=savings_form_amount, savings_form_year=savings_form_year, name=current_user.username)
+            amount_content_card = "The amount you would need to save each month to reach your goal of £{:.2f}, in {:.2f} years is: £{:.2f} per month".format(savings_goal, years_to_save, amount_per_month)
+    return render_template('pages/savingsForm.html', savings_form_amount=savings_form_amount, savings_form_year=savings_form_year, year_content_card=year_content_card, amount_content_card=amount_content_card,name=current_user.username)
 
 def calculate_monthly_contribution(current_age, desired_retirement_age, current_savings, expected_annual_return, desired_annual_income):
     # Calculate the number of years until retirement

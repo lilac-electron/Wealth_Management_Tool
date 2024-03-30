@@ -108,6 +108,9 @@
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
+                    {% if year_content_card %}
+                        <p>{{ year_content_card }}</p>
+                    {% endif %}
                 </div>
 
                 <!-- Savings Form Amount -->
@@ -130,6 +133,8 @@
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
+                    {& if amount_content_card %}
+                        <p>{{ amount_content_card }}</p>
                 </div>
             </div>
         </div>
