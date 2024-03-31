@@ -734,18 +734,18 @@ def register():
             # Defining them in this way makes the forms more versatile
             asset_column_names = ['House', 'Car', 'Investments', 'Checking Account', 'Stocks', 'Savings', 'Retirement Accounts']
             credit_column_names = ['Rent', 'Mortgage', 'Utilities', 'Food and Groceries', 'Car Payments', 'Student loan Payments', 'Pension', 'Subscriptions', 'Health Insurance', 'House Insurance', 'Other Insurance']
-            savings_column_names = ['savings_goal', 'saving_per_month', 'current_savings', 'annual_interest_rate', 'years_to_save']
-            retirement_column_names = ['current_age','desired_retirement_age','current_savings','expected_annual_return','desired_annual_income']
-            tax_column_names = ['annual_salary','additional_income','deductible_expenses','tax_year','filing_status']
-            capital_gains_column_names = ['purchase_price','sale_price','holding_period','cost_of_improvements','deductions_exemptions']
+            #savings_column_names = ['savings_goal', 'saving_per_month', 'current_savings', 'annual_interest_rate', 'years_to_save']
+            #retirement_column_names = ['current_age','desired_retirement_age','current_savings','expected_annual_return','desired_annual_income']
+            #tax_column_names = ['annual_salary','additional_income','deductible_expenses','tax_year','filing_status']
+            #capital_gains_column_names = ['purchase_price','sale_price','holding_period','cost_of_improvements','deductions_exemptions']
 
             sheet_data = {
                 'credits': credit_column_names,  # List for 'credits' sheet
                 'assets': asset_column_names,      # List for 'assets' sheet
-                'retirement': retirement_column_names,  # List for 'retirement' sheet
-                'savings': savings_column_names, # List for 'savings' sheet
-                'tax': tax_column_names, #List for 'tax' sheet
-                'capital gains': capital_gains_column_names
+                #'retirement': retirement_column_names,  # List for 'retirement' sheet
+                #'savings': savings_column_names, # List for 'savings' sheet
+                #'tax': tax_column_names, #List for 'tax' sheet
+                #'capital gains': capital_gains_column_names
             }
             # Create dictionaries with column names as keys and 0 as values
             #asset_data_dict = dict.fromkeys(asset_column_names, 0)
