@@ -1,7 +1,16 @@
 function generateHeader() {
     const header = `
     <!-- Header -->
-    <header class="bg-dark text-white p-3">
+    <style>
+        .bg-custom {
+            background-color: #5cdb95; /* Background color */
+        }
+        
+        .text-custom {
+            color: #05386b; /* Text color */
+        }
+    </style>
+    <header class="bg-custom text-custom p-3">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-12 mb-md-0 mb-2 text-center text-md-left">
