@@ -24,22 +24,28 @@
         .navbar-nav .nav-link:hover {
             border-radius: 0.375rem; /* You can adjust the value to control the level of rounding */
         }
+        .bg-custom {
+            background-color: #5cdb95; /* Background color */
+        }
         
+        .text-custom {
+            color: #05386b; /* Text color */
+        }
     </style>
 </head>
 <body>
 
 <!-- Header -->
-<header class="bg-dark text-white p-3">
+<header class="bg-custom text-custom p-3">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-12 mb-md-0 mb-2 text-center text-md-left">
                 <!-- Title For the Page-->
-                <a href="{{url_for('index')}}"><button class="btn btn-light border-0 bg-dark text-white">Fins-Fintech</button></a>
+                <a href="{{url_for('index')}}"><button class="btn btn-light border-0 bg-custom text-custom">Fins-Fintech</button></a>
             </div>
             <div class="col-md-6 col-12 text-center text-md-right">
                 <!-- "Please Log in or Register" Button with Invisible Box -->
-                <a href="{{url_for('login')}}"><button class="btn btn-light border-0 bg-dark text-white">Log in/Register Here!</button></a>
+                <a href="{{url_for('login')}}"><button class="btn btn-light border-0 bg-custom text-custom">Log in/Register Here!</button></a>
             </div>
         </div>
     </div>
