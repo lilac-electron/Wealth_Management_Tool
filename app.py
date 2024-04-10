@@ -683,7 +683,7 @@ def login():
                 app.config['FINANCE_PATH'] = os.path.join('Wealth_Managment_Tool/SimulatedFinanceData/', username)
                 #print(assets)
                 #print(credits)
-                flash("Welcome "+ str(current_user.username)+", you have been logged in.")
+                flash("Welcome "+ str(current_user.username)+", you have been logged in.", 'success')
                 return redirect(url_for('dashboard'))
 
         flash("Incorrect Username or Password", "danger")
