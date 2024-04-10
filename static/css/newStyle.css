@@ -112,7 +112,7 @@ input[type=number] {
 }
 .fade-left {
     opacity: 0;
-    animation: fadeInLeft 1s ease-in-out forwards;
+    animation: fadeInLeft 10s ease-in-out forwards;
 }
 
 @keyframes fadeInLeft {
