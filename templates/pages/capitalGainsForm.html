@@ -35,7 +35,7 @@
 </div>
 <div class="content bg-custom text-custom text-center">
     <div class="container mx-auto">
-        <div class="card mt-3">
+        <div class="card bg-custom text-custom border border-dark mt-3">
             <div class="card-body">
                 <p>This is a simplified capital gains calculator which should give an insight into amounts that may or may not be taxable in the UK.
                     All calculations should be taken as indicators, not as any sort of advice or confirmation. Please consult the gov website for more detailed information.
@@ -48,22 +48,22 @@
                     <form method="POST" action="{{ url_for('capitalGainsForm') }}">
                         {{ capital_gains_calculator_form.hidden_tag() }}
 
-                        <div class="form-group">
+                        <div class="form-group col-md-6">
                             <label for="purchase_price">Purchase Price</label>
                             {{ capital_gains_calculator_form.purchase_price(class="form-control", id="purchase_price") }}
                         </div>
-
-                        <div class="form-group">
+                        
+                        <div class="form-group col-md-6">
                             <label for="sale_price">Sale Price</label>
                             {{ capital_gains_calculator_form.sale_price(class="form-control", id="sale_price") }}
                         </div>
-
-                        <div class="form-group">
+                        
+                        <div class="form-group col-md-6">
                             <label for="holding_period">Holding Period (Years)</label>
                             {{ capital_gains_calculator_form.holding_period(class="form-control", id="holding_period") }}
                         </div>
-
-                        <div class="form-group">
+                        
+                        <div class="form-group col-md-6">
                             <label for="cost_of_improvements">Cost of Improvements</label>
                             {{ capital_gains_calculator_form.cost_of_improvements(class="form-control", id="cost_of_improvements") }}
                         </div>

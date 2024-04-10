@@ -63,3 +63,26 @@ input[type=number]::-webkit-outer-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
 }
+.chart-container {
+    width: 100%;
+    /*max-width: 600px; /* Adjust the max-width as needed */
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#simulatedGraph {
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    #chartContainer {
+        height: 300px; /* Adjust the height for smaller screens */
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #chartContainer {
+        height: 500px; /* Default height for larger screens */
+    }
+}
