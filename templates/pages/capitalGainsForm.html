@@ -47,22 +47,22 @@
                 <div id="capitalGainsFormContent" class="card-body text-center">
                     <form method="POST" action="{{ url_for('capitalGainsForm') }}">
                         {{ capital_gains_calculator_form.hidden_tag() }}
-                        <div class="form-group col-md-6 mx-auto">
+                        <div class="form-group col-md-3 mx-auto">
                             <label for="purchase_price">Purchase Price</label>
                             {{ capital_gains_calculator_form.purchase_price(class="form-control", id="purchase_price") }}
                         </div>
                         
-                        <div class="form-group col-md-6 mx-auto">
+                        <div class="form-group col-md-3 mx-auto">
                             <label for="sale_price">Sale Price</label>
                             {{ capital_gains_calculator_form.sale_price(class="form-control", id="sale_price") }}
                         </div>
                         
-                        <div class="form-group col-md-6 mx-auto">
+                        <div class="form-group col-md-3 mx-auto">
                             <label for="holding_period">Holding Period (Years)</label>
                             {{ capital_gains_calculator_form.holding_period(class="form-control", id="holding_period") }}
                         </div>
                         
-                        <div class="form-group col-md-6 mx-auto">
+                        <div class="form-group col-md-3 mx-auto">
                             <label for="cost_of_improvements">Cost of Improvements</label>
                             {{ capital_gains_calculator_form.cost_of_improvements(class="form-control", id="cost_of_improvements") }}
                         </div>
@@ -78,7 +78,7 @@
                             <label class="form-check-label" for="sq_metres">Is the property over 5000 square meters, including the buildings?</label>
                         </div>
 
-                        <button type="submit" class="btn btn-custom text-custom bg-custom btn-block col-md-6">Submit</button>
+                        <button type="submit" class="btn btn-custom text-custom bg-custom btn-block col-md-3 mx-auto">Submit</button>
                     </form>
                 </div>
             </div>

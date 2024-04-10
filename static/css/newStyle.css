@@ -107,3 +107,6 @@ input[type=number] {
 #hidden-content {
     display: none;
 }
+.navbar-toggler {
+    background-color: #379683; /* Set your desired background color */
+}
