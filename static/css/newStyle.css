@@ -126,3 +126,9 @@ h1, h2 {
     font-weight: 800; /* Increased font weight */
     text-align: center;
 }
+@media screen and (max-width: 768px) {
+    .welcome-heading {
+        font-size: 1.5em; /* Decreased font size for smaller screens */
+        font-weight: 400; /* Reduced font weight for smaller screens */
+    }
+}
