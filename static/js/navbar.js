@@ -13,22 +13,22 @@ function generateNavbar(currentPage="") {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link border-0 bg-light mr-2 ${currentPage === '/credits' ? 'active' : ''}" href="/credits">Current Credits</a>
+                        <a class="nav-link border-0 btn-custom text-custom mr-2 ${currentPage === '/credits' ? 'active' : ''}" href="/credits">Current Credits</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link border-0 bg-light mr-2 ${currentPage === '/assetValue' ? 'active' : ''}" href="/assetValue">Current Asset Value</a>
+                        <a class="nav-link border-0 btn-custom text-custom mr-2 ${currentPage === '/assetValue' ? 'active' : ''}" href="/assetValue">Current Asset Value</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link border-0 bg-light mr-2 ${currentPage === '/simulatedGrowth' ? 'active' : ''}" href="/simulatedGrowth">Simulated Growth</a>
+                        <a class="nav-link border-0 btn-custom text-custom mr-2 ${currentPage === '/simulatedGrowth' ? 'active' : ''}" href="/simulatedGrowth">Simulated Growth</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link border-0 bg-light mr-2 ${currentPage === '/transactions' ? 'active' : ''}" href="/transactions">Track Transactions</a>
+                        <a class="nav-link border-0 btn-custom text-custom mr-2 ${currentPage === '/transactions' ? 'active' : ''}" href="/transactions">Track Transactions</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link border-0 bg-light mr-2 ${currentPage === '/tools' ? 'active' : ''}" href="/tools">Finance Tools</a>
+                        <a class="nav-link border-0 btn-custom text-custom mr-2 ${currentPage === '/tools' ? 'active' : ''}" href="/tools">Finance Tools</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link border-0 bg-light mr-2 ${currentPage === '/feedbackForm' ? 'active' : ''}" href="/feedbackForm">Feedback Form</a>
+                        <a class="nav-link border-0 btn-custom text-custom mr-2 ${currentPage === '/feedbackForm' ? 'active' : ''}" href="/feedbackForm">Feedback Form</a>
                     </li>
                 </ul>
             </div>

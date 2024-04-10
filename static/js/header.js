@@ -7,12 +7,12 @@ function generateHeader() {
             <div class="row">
                 <div class="col-md-6 col-12 mb-md-0 mb-2 text-center text-md-left">
                     <a href="/dashboard">
-                        <button class="btn btn-light border-0 btn-custom text-custom">Fins-Fintech</button>
+                        <button class="btn border-0 btn-custom text-custom">Fins-Fintech</button>
                     </a>
                 </div>
                 <div class="col-md-6 col-12 mb-md-0 mb-2 text-center text-md-right">
                     <div class="btn-group">
-                        <button class="btn btn-light border-0 btn-custom text-custom dropdown-toggle" type="button" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn border-0 btn-custom text-custom dropdown-toggle" type="button" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Welcome, ${name}
                         </button>
                         <div class="dropdown-menu" aria-labelledby="userDropdown">
