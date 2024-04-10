@@ -39,19 +39,19 @@
                         <form id="registrationForm" method="POST" action="/register">
                             {{ form.hidden_tag() }}
 
-                            <div class="mb-3">
+                            <div class="mb-3 col-md-8 mx-auto">
                                 {{ wtf.form_field(form.email, class="form-control", placeholder="Nushi.wang@test.com") }}
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 col-md-8 mx-auto">
                                 {{ wtf.form_field(form.username, class="form-control", placeholder="NushiWang") }}
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 col-md-8 mx-auto">
                                 {{ wtf.form_field(form.password, class="form-control", placeholder="SuperS3cureP4ssw0rd!") }}
                             </div>
 
-                            <button class="btn btn-custom text-custom bg-custom w-100" type="submit">Register</button>
+                            <button class="btn btn-custom text-custom bg-custom mx-auto" type="submit">Register</button>
 
                             <p class="mt-3 text-center">Already have an account? <a href="/login">Login</a></p>
                         </form>
