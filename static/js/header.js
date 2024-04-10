@@ -2,7 +2,7 @@ function generateHeader() {
     const header = `
     <!-- Header -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/newStyle.css') }}">
-    <header class="bg-custom text-custom p-3">
+    <header class="bg-custom-dark text-custom p-3">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-12 mb-md-0 mb-2 text-center text-md-left">
