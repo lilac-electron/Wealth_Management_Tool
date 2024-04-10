@@ -44,10 +44,10 @@
                     <p>{{ capital_gains_content }}</p>
                 {% endif %}
                 <!-- Capital Gains Form -->
-                <div id="capitalGainsFormContent" class="card-body">
+                <div id="capitalGainsFormContent" class="card-body text-center">
                     <form method="POST" action="{{ url_for('capitalGainsForm') }}">
                         {{ capital_gains_calculator_form.hidden_tag() }}
-
+                        <div class="col-md-3"></div>
                         <div class="form-group col-md-6">
                             <label for="purchase_price">Purchase Price</label>
                             {{ capital_gains_calculator_form.purchase_price(class="form-control", id="purchase_price") }}
