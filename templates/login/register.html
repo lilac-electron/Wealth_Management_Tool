@@ -10,43 +10,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <style>
-        /* Add this CSS to your existing stylesheet or in a style tag */
-        .flash-messages {
-            list-style-type: none;
-            padding: 1px;
-        }
-
-        .success {
-            background-color: #d4edda; /* Green background color */
-            border: 1px solid #c3e6cb; /* Green border color */
-            color: #155724; /* Dark green text color */
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-        }
-        .danger {
-            background-color: #f8d7da; /* Red background color */
-            border: 1px solid #f5c6cb; /* Red border color */
-            color: #721c24; /* Dark red text color */
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-        }
-        .flash-container{
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/newStyle.css') }}">
 </head>
-<body class="bg-light">
+<body class="bg-custom">
 
     <div class="container mx-auto">
         <div class="row justify-content-center mt-5">
             <div class="col-md-6 col-sm-12">
 
-                <div class="card">
-                    <div class="card-header bg-dark text-white text-center">
+                <div class="card bg-custom text-custom">
+                    <div class="card-header bg-custom text-custom text-center">
                         <h3>Register</h3>
                     </div>
                     <div class="card-body">
@@ -76,11 +51,11 @@
                                 {{ wtf.form_field(form.password, class="form-control", placeholder="SuperS3cureP4ssw0rd!") }}
                             </div>
 
-                            <button class="btn btn-dark w-100" type="submit">Register</button>
+                            <button class="btn btn-custom text-custom bg-custom w-100" type="submit">Register</button>
 
                             <p class="mt-3 text-center">Already have an account? <a href="/login">Login</a></p>
                         </form>
-                        <p><small>
+                        <p class="text-center mt-3"><small>
                             Please note the security protocols are not the main focus of this project, and you should not use 
                             any emails or usernames that identify you (i.e please just make them up, there is no authentication). Furthermore
                             please don't use passwords that are used on other sites.
@@ -91,9 +66,5 @@
             </div>
         </div>
     </div>
-
-    <!-- Bootstrap JS (optional, but may be required for certain features) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
