@@ -10,15 +10,15 @@ function generateHeader() {
                         <button class="btn border-0 btn-custom text-custom">Fins-Fintech</button>
                     </a>
                 </div>
+                <!-- Black line for small screens -->
+                <div class="col-12 text-center d-md-none">
+                    <hr style="background-color: black;">
+                </div>
                 <div class="col-md-6 col-12 mb-md-0 mb-2 text-center text-md-right">
                     <div class="btn-group">
                         <button class="btn border-0 btn-custom text-custom dropdown-toggle" type="button" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Welcome, ${name}
                         </button>
-                        <!-- Black line for small screens -->
-                        <div class="col-12 text-center d-md-none">
-                            <hr style="background-color: black;">
-                        </div>
                         <div class="dropdown-menu" aria-labelledby="userDropdown">
                             <!-- Add your dropdown options here -->
                             <a class="dropdown-item" href="#">Change Email</a>
