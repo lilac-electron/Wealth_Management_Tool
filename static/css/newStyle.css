@@ -25,6 +25,9 @@ body {
     background-color: #379683;
     color: #fff; /* Text color */
 }
+.btn-custom {
+    border: 1px solid black; 
+}
 .flash-messages {
     list-style-type: none;
     padding: 10px;
