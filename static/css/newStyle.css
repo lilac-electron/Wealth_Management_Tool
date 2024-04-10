@@ -118,6 +118,6 @@ h1, h2 {
 }
 @media (min-width: 576px) { /* Adjust the min-width as needed */
     .navbar-expand-md {
-        border-bottom: 2px solid black; /* Specify the border properties */
+        border-bottom: 0.5px solid black; /* Specify the border properties */
     }
 }
