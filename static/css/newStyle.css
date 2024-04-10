@@ -113,6 +113,6 @@ input[type=number] {
 .navbar-toggler {
     background-color: #379683; /* Set your desired background color */
 }
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
     color: #edf5e1; /* Specify the desired color */
 }
