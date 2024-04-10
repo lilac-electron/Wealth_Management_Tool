@@ -4,30 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Information</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/newStyle.css') }}">
 </head>
 
 <body>
     <style>
-        .faint-grey-line {
-            border: none;
-            border-top: 1px solid #ccc; /* Grey color */
-        }
+        
         .chart-container {
             height: 500px; /* Adjust the height as needed */
             width: 100%; /* This ensures the chart spans the entire width of the card body */
             margin-bottom: 20px; /* Add spacing between the charts */
         }
-        #hidden-content {
-            display: none;
-        }
         html, body {
             height: 100%;
-        }
-        body {
-            display: flex;
-            flex-direction: column;
         }
         .image-container {
             max-width: 100%; /* Set the maximum width of the container */

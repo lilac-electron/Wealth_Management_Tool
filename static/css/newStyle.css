@@ -53,7 +53,12 @@ body {
     display: none;
 }
 .active {
-    color: rgb(12, 97, 22); /* Adjust text color accordingly */
+    color: #05386b; /* Adjust text color accordingly */
+    background-color: rgb(12, 97, 22);
+}
+.nav-link.active {
+    background-color: rgb(12, 97, 22); /* Background color for active nav link */
+    color: #05386b;; /* Text color for active nav link */
 }
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
@@ -89,4 +94,11 @@ input[type=number] {
 .cardTop {
     border: none;
     box-shadow: none;
+}
+.faint-grey-line {
+    border: none;
+    border-top: 1px solid #ccc; /* Grey color */
+}
+#hidden-content {
+    display: none;
 }
