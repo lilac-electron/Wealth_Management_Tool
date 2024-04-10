@@ -53,11 +53,10 @@ body {
     display: none;
 }
 .active {
-    color: #05386b; /* Adjust text color accordingly */
-    background-color: rgb(12, 97, 22);
+    color: rgb(12, 97, 22); /* Adjust text color accordingly */
 }
 .nav-link.active {
-    background-color: rgb(12, 97, 22); /* Background color for active nav link */
+    background-color: #05386b; /* Background color for active nav link */
     color: #05386b;; /* Text color for active nav link */
 }
 input[type=number]::-webkit-inner-spin-button,
