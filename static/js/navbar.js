@@ -6,7 +6,7 @@ function generateNavbar(currentPage="") {
 
             <!-- Navbar Toggler Button for Small Screens -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon">Navbar Toggle Button</span>
+                <span class="navbar-toggler-icon"></span>Navbar Toggle Button
             </button>
 
             <!-- Navbar Links with Invisible Boxes -->
