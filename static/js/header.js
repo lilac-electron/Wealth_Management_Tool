@@ -1,15 +1,7 @@
 function generateHeader() {
     const header = `
     <!-- Header -->
-    <style>
-        .bg-custom {
-            background-color: #5cdb95; /* Background color */
-        }
-        
-        .text-custom {
-            color: #05386b; /* Text color */
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/newStyle.css') }}">
     <header class="bg-custom text-custom p-3">
         <div class="container">
             <div class="row">

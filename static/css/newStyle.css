@@ -22,3 +22,22 @@ body {
     background-color: #379683;
     color: #fff; /* Text color */
 }
+.flash-messages {
+    list-style-type: none;
+    padding: 10px;
+}
+
+.flash-message {
+    background-color: #d4edda; /* Green background color */
+    border: 1px solid #c3e6cb; /* Green border color */
+    color: #155724; /* Dark green text color */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.flash-container{
+    text-align: center;
+}
+.options-container {
+    display: none;
+}
