@@ -55,9 +55,8 @@ body {
 .active {
     color: rgb(12, 97, 22); /* Adjust text color accordingly */
 }
-.nav-link.active {
-    background-color: #05386b; /* Background color for active nav link */
-    color: #05386b;; /* Text color for active nav link */
+.custom-nav .nav-link.active {
+    color: rgb(12, 97, 22); /* Text color for active nav link */
 }
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
