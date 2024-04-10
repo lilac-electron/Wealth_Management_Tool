@@ -5,7 +5,7 @@ function generateNavbar(currentPage="") {
         <div class="container">
 
             <!-- Navbar Toggler Button for Small Screens -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler text-center justify-content-center" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>Menu
             </button>
 
