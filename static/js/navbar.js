@@ -1,7 +1,7 @@
 function generateNavbar(currentPage="") {
     const navbar = `
     <link rel="stylesheet" href="{{ url_for('static', filename='css/newStyle.css') }}">
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <nav class="navbar navbar-expand-md bg-custom text-custom">
         <div class="container">
 
             <!-- Navbar Toggler Button for Small Screens -->
