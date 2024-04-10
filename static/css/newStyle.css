@@ -57,6 +57,7 @@ body {
 }
 .custom-nav .nav-link.active {
     color: rgb(12, 97, 22); /* Text color for active nav link */
+    background-color: #379683;
 }
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
