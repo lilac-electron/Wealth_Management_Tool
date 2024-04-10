@@ -116,3 +116,8 @@ input[type=number] {
 h1, h2 {
     color: #edf5e1; /* Specify the desired color */
 }
+@media (min-width: 576px) { /* Adjust the min-width as needed */
+    .navbar-expand-md {
+        border-bottom: 2px solid black; /* Specify the border properties */
+    }
+}
