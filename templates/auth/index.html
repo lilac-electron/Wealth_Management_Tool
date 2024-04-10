@@ -43,21 +43,28 @@
         <!-- Row with 3 columns -->
         <div class="row mt-4 text-center">
             <!-- First Column -->
-            <div class="col-md-4">
-                <h3>What do we do?</h3>
-                <p>We provide a range of finance tools aimed at making financial awareness as easy as opening your favorite browser!</p>
-                <p>Some of the services we provide include:</p>
-                <ol>
-                    <li>Portfolio Projection</li>
-                    <li>Finance Calculators</li>
-                    <li>Outgoings Management</li>
-                    <li>Asset Management</li>
-                    <li>Transaction tracking</li>
-                </ol>
+            <div class="col-md-8 d-flex align-items-start">
+                <div>
+                    <h3>What do we do?</h3>
+                    <p>We provide a range of finance tools aimed at making financial awareness as easy as opening your favorite browser!</p>
+                    <p>Some of the services we provide include:</p>
+                    <ol>
+                        <li>Portfolio Projection</li>
+                        <li>Finance Calculators</li>
+                        <li>Outgoings Management</li>
+                        <li>Asset Management</li>
+                        <li>Transaction tracking</li>
+                    </ol>
+                </div>
             </div>
-            <div class="image-container">
-                <img src="{{ url_for('static', filename='images/Stock-bar-chart.jpeg') }}" alt="stock bar chart" id="bar chart" aria-label="Graphical, woman sat on a computer with a bar chart.">
+            <!-- Image Column -->
+            <div class="col-md-4 d-flex align-items-start">
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/Stock-bar-chart.jpeg') }}" alt="Stock bar chart" id="bar-chart" aria-label="Graphical, woman sat on a computer with a bar chart." class="img-fluid">
+                </div>
             </div>
+        </div>
+        <div class="row mt-4 text-center">
             <!-- Second Column -->
             <div class="col-md-4">
                 <h3>Who are we?</h3>
