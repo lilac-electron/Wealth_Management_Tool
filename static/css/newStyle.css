@@ -62,7 +62,7 @@ body {
 .custom-nav .nav-link{
     border: none;
 }
-.custom-nav .nav-tabs {
+.custom-nav {
     border: none; /* Remove border */
 }
 input[type=number]::-webkit-inner-spin-button,
