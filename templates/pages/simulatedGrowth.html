@@ -52,6 +52,9 @@
                     <div class="small-chart">
                         <div><canvas id="spChart" ></canvas></div>
                         <div><canvas id="sChart" ></canvas></div>
+                        <div><canvas id="lrChart" ></canvas></div>
+                        <div><canvas id="hrChart" ></canvas></div>
+                        <div><canvas id="msChart" ></canvas></div>
                         <!-- Include canvas elements for other small charts here -->
                         <p>The chart above shows the projection of your assets across a 10 year period, for better projection, this has been multiplied by 12 to show the growth by month.</p>
                     </div>
@@ -258,6 +261,167 @@
     }
 
     generateSChart();
+    // Define LR Data
+    const lrData = {
+        label: 'LR Data',
+        backgroundColor: 'rgb(75, 192, 192)',
+        borderColor: 'rgb(75, 192, 192)',
+        data: {{ LRdata | tojson }},
+    };
+
+    // Function to generate LR chart
+    function generateLRChart() {
+        new Chart('lrChart', {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [lrData]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        mode: 'nearest'
+                    }
+                },
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Transaction'
+                        },
+                        ticks: {
+                            callback: function(value, index, values) {
+                                if (index % 20 === 0) {
+                                    return value;
+                                } else {
+                                    return '';
+                                }
+                            }
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Balance'
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    generateLRChart(); // Call LR chart generation function
+
+    // Define HR Data
+    const hrData = {
+        label: 'HR Data',
+        backgroundColor: 'rgb(255, 205, 86)',
+        borderColor: 'rgb(255, 205, 86)',
+        data: {{ HRdata | tojson }},
+    };
+
+    // Function to generate HR chart
+    function generateHRChart() {
+        new Chart('hrChart', {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [hrData]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        mode: 'nearest'
+                    }
+                },
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Transaction'
+                        },
+                        ticks: {
+                            callback: function(value, index, values) {
+                                if (index % 20 === 0) {
+                                    return value;
+                                } else {
+                                    return '';
+                                }
+                            }
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Balance'
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    generateHRChart(); // Call HR chart generation function
+
+    // Define MS Data
+    const msData = {
+        label: 'MS Data',
+        backgroundColor: 'rgb(255, 140, 0)',
+        borderColor: 'rgb(255, 140, 0)',
+        data: {{ MSdata | tojson }},
+    };
+
+    // Function to generate MS chart
+    function generateMSChart() {
+        new Chart('msChart', {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [msData]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        mode: 'nearest'
+                    }
+                },
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Transaction'
+                        },
+                        ticks: {
+                            callback: function(value, index, values) {
+                                if (index % 20 === 0) {
+                                    return value;
+                                } else {
+                                    return '';
+                                }
+                            }
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Balance'
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    generateMSChart(); // Call MS chart generation function
 </script>
 
 
