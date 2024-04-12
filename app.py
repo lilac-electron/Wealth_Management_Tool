@@ -227,8 +227,8 @@ class Retirement(FlaskForm):
 
 class UKTaxCalculatorForm(FlaskForm):
     yearly_earnings = DecimalField('Yearly Earnings (£)', validators=[InputRequired(), NumberRange(min=0)])
-    over_state_pension_age = BooleanField('Over State Pension Age')
-    blind = BooleanField('Are you blind?')
+    over_state_pension_age = BooleanField('Are you over the State Pension Age?')
+    blind = BooleanField('Do you receive blind persons allowance?')
 
 class CapitalGainsCalculator(FlaskForm):
     purchase_price = DecimalField('Purchase Price', validators=[InputRequired()])
@@ -1095,8 +1095,8 @@ def retirementForm():
 
             monthly_contribution = calculate_monthly_contribution(current_age, desired_retirement_age, current_savings, expected_annual_return, desired_annual_income)
 
-            print("You need to save approximately {:.2f} per month to reach your desired annual income in retirement of {:.2f}.".format(monthly_contribution, desired_annual_income))
-            retirement_content = "You need to save approximately {:.2f} per month to reach your desired annual income in retirement of {:.2f}.".format(monthly_contribution, desired_annual_income)
+            #print("You need to save approximately {:.2f} per month to reach your desired annual income in retirement of {:.2f}.".format(monthly_contribution, desired_annual_income))
+            retirement_content = "You need to save approximately £{:.2f} per month to reach your desired annual income in retirement of £{:.2f}.".format(monthly_contribution, desired_annual_income)
     return render_template('pages/retirementForm.html', retirement_form=retirement_form, name=current_user.username, retirement_content=retirement_content)
 
 def calculate_tax(yearly_income, over_state_pension_age, blind):

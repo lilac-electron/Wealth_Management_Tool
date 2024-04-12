@@ -24,8 +24,16 @@ function generateNavbar(currentPage="") {
                     <li class="nav-item">
                         <a class="nav-link border-0 btn-custom text-custom mr-2 ${currentPage === '/transactions' ? 'active' : ''}" href="/transactions">Track Transactions</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link border-0 btn-custom text-custom mr-2 ${currentPage === '/tools' ? 'active' : ''}" href="/tools">Finance Tools</a>
+                    <li class="nav-item dropdown"> <!-- Added 'dropdown' class -->
+                        <a class="nav-link border-0 btn-custom text-custom mr-2 ${currentPage === '/transactions' ? 'active' : ''} dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Finance Tools
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown"> <!-- Dropdown menu -->
+                            <a class="dropdown-item" href="/savingsForm">Savings Tool</a>
+                            <a class="dropdown-item" href="/retirementForm">Retirement Tool</a>
+                            <a class="dropdown-item" href="/incomeTaxCalculator">Income Tax Tool</a>
+                            <a class="dropdown-item" href="/capitalGainsForm">Capital Gains Tool</a>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link border-0 btn-custom text-custom mr-2 ${currentPage === '/feedbackForm' ? 'active' : ''}" href="/feedbackForm">Feedback Form</a>
