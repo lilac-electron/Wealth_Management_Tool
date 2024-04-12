@@ -45,9 +45,9 @@
                     are asked about as these can affect your personal allowance. Your personal allowance determines how much of your income is not subject to tax. 
                 </p>
                 {% if tax_content and user_finances%}
-                    <p>{{ tax_content }}</p>
                     <div class="card mx-auto mt-3 border border-dark rounded bg-custom text-custom"> <!-- Added 'card' class -->
                         <div class="card-body">
+                            <h5>{{ tax_content }}</h5>
                             <h4>The table below shows a breakdown of taxbrackets in the UK for 2024/2025</h4>
                             <small><p>Information about tax brackets sourced from <a href="https://www.moneysavingexpert.com/banking/tax-rates/#:~:text=For%20the%202024%2F25%20tax%20year%2C%20if%20you%20live%20in,once%20earnings%20hit%20%C2%A3100%2C000).">here</a></p></small>
                             <table border="1" class="mx-auto">
