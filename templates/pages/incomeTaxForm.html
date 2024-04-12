@@ -38,13 +38,44 @@
     <div class="container mx-auto">
         <div class="card bg-custom text-custom mt-3">
             <div class="card-body">
-                <h1 class="tools-heading">Income Tac Calculator!</h1>
+                <h1 class="tools-heading">Income Tax Calculator!</h1>
                 <p>
                     This form is designed to give a simplified oversight of how much income tax you would pay based on the following position. Blindness and over state-pension age 
                     are asked about as these can affect your personal allowance. Your personal allowance determines how much of your income is not subject to tax. 
                 </p>
                 {% if tax_content %}
                     <p>{{ tax_content }}</p>
+                    <h4>The table below shows a breakdown of taxbrackets in the UK for 2024/2025</h4>
+                    <p>info found from <a href="https://www.moneysavingexpert.com/banking/tax-rates/#:~:text=For%20the%202024%2F25%20tax%20year%2C%20if%20you%20live%20in,once%20earnings%20hit%20%C2%A3100%2C000).">here</a></p>
+                    <table border="1">
+                        <tr>
+                            <th>Your earnings (Applicable if you live in England, Wales or Northern Ireland</th>
+                            <th>Tax Rate</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h6>Under your personal allowance</h6>
+                                <small>For most, £12,570</small>
+                            </td>
+                            <td>0%</td>
+                        </tr>
+                        <tr>
+                            <td>Row 2, Column 1</td>
+                            <td>Row 2, Column 2</td>
+                        </tr>
+                        <tr>
+                            <td>Row 3, Column 1</td>
+                            <td>Row 3, Column 2</td>
+                        </tr>
+                        <tr>
+                            <td>Row 4, Column 1</td>
+                            <td>Row 4, Column 2</td>
+                        </tr>
+                        <tr>
+                            <td>Row 5, Column 1</td>
+                            <td>Row 5, Column 2</td>
+                        </tr>
+                    </table>
                 {% endif %}
                 <!-- Income Tax Form -->
                 <div id="incomeTaxFormContent" class="card-body">
