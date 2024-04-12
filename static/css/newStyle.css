@@ -132,3 +132,8 @@ h1, h2 {
         font-weight: 600; /* Reduced font weight for smaller screens */
     }
 }
+@media (max-width: 576px) {
+    #dashboardChartContainer {
+        height: 40vh;
+    }
+}
