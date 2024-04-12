@@ -61,6 +61,8 @@ body {
 .active {
     /*color: rgb(12, 97, 22); /* Adjust text color accordingly */
     color: #379683;
+    font-weight: 300;
+    font-size: 1.2em;
 }
 .custom-nav .nav-link.active {
     color: rgb(12, 97, 22); /* Text color for active nav link */
