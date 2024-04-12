@@ -168,3 +168,8 @@ h1, h2 {
     height: 40vh;
     width: 100%;
 }
+.tools-heading {
+    font-size: 2em; /* Increased font size */
+    font-weight: 700; /* Increased font weight */
+    text-align: center;
+}
