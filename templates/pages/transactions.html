@@ -165,7 +165,7 @@
             </div>
 
             <!-- Transactions -->
-            <div class="card bg-custom text-custom-light mb-4 mt-4">
+            <div class="card bg-custom-dark text-custom-light mb-4 mt-4">
                 <div class="card-header text-center">
                     <h1>Transactions</h1>
                 </div>
@@ -187,7 +187,7 @@
                             </div>
                             <div id="current-account-transaction-collapse" class="collapse" aria-labelledby="current-account-transaction-header" data-parent="#transaction-accordion">
                                 <div class="card-body bg-custom-dark text-custom-light">
-                                    <ul class="list-group" id="current-account-transactions">
+                                    <ul class="list-group bg-custom-dark text-custom-light" id="current-account-transactions">
                                         <!-- Render the first ten transactions initially -->
                                         {% for transaction in current_account.transactions[:10] %}
                                             <li class="list-group-item">
@@ -229,7 +229,7 @@
                             </div>
                             <div id="credit-card-transaction-collapse" class="collapse" aria-labelledby="credit-card-transaction-header" data-parent="#transaction-accordion">
                                 <div class="card-body bg-custom-dark text-custom-light">
-                                    <ul class="list-group" id="credit-card-transactions">
+                                    <ul class="list-group bg-custom-dark text-custom-light" id="credit-card-transactions">
                                         <!-- Render the first ten transactions initially -->
                                         {% for transaction in credit_card.transactions[:10] %}
                                             <li class="list-group-item">
