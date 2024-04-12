@@ -75,10 +75,10 @@
             // Handle errors
             console.error('Error fetching stock information:', error);
         });
-        const date4 = '2024-02-09'
+        const date3 = '2024-02-09'
 
         const symbol3 = 'NVDA'
-        const apiUrl3 = `https://api.polygon.io/v1/open-close/${symbol2}/${date2}?adjusted=true&apiKey=${apiKey}`;
+        const apiUrl3 = `https://api.polygon.io/v1/open-close/${symbol3}/${date3}?adjusted=true&apiKey=${apiKey}`;
         fetch(apiUrl3)
         .then(response => response.json())
         .then(data => {
