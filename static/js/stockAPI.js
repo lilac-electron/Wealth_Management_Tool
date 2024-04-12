@@ -62,7 +62,35 @@
             const volume = data.volume;
     
             // Display the information
-            const stockInfoElement = document.getElementById('nflx-stock-info');
+            const stockInfoElement = document.getElementById('nspi-stock-info');
+            stockInfoElement.innerHTML = `
+                <p>Symbol: ${stockSymbol}</p>
+                <p>Date: ${stockDate}</p>
+                <p>Open Price: ${openPrice}</p>
+                <p>Close Price: ${closePrice}</p>
+                <p>Number of Stocks: ${volume}</p>
+            `;
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('Error fetching stock information:', error);
+        });
+        const date4 = '2024-02-09'
+
+        const symbol3 = 'NVDA'
+        const apiUrl3 = `https://api.polygon.io/v1/open-close/${symbol2}/${date2}?adjusted=true&apiKey=${apiKey}`;
+        fetch(apiUrl3)
+        .then(response => response.json())
+        .then(data => {
+            // Extract relevant information
+            const openPrice = data.open;
+            const closePrice = data.close;
+            const stockSymbol = data.symbol;
+            const stockDate = data.from;
+            const volume = data.volume;
+    
+            // Display the information
+            const stockInfoElement = document.getElementById('nvda-stock-info');
             stockInfoElement.innerHTML = `
                 <p>Symbol: ${stockSymbol}</p>
                 <p>Date: ${stockDate}</p>
