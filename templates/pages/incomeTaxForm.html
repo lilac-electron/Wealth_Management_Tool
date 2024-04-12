@@ -121,46 +121,36 @@
             </div>
         </div>
     </div>
-</div>
-
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    var ctx = document.getElementById('financeChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'horizontalBar',
-        data: {
-            labels: ['Tax', 'National Insurance', 'Remaining Pay'],
-            datasets: [{
-                label: 'Finance Overview',
-                data: [{{ user_finances[0] }}, {{ user_finances[1] }}, {{ user_finances[2] }}],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)', // Red for Tax
-                    'rgba(54, 162, 235, 0.2)', // Blue for National Insurance
-                    'rgba(255, 206, 86, 0.2)'  // Yellow for Remaining Pay
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                xAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
+    <script>
+        var ctx = document.getElementById('financeChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'pie', // Set chart type to pie
+            data: {
+                labels: ['Tax', 'National Insurance', 'Remaining Pay'],
+                datasets: [{
+                    label: 'Finance Overview',
+                    data: {{ user_finances|tojson }},
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)', // Red for Tax
+                        'rgba(54, 162, 235, 0.2)', // Blue for National Insurance
+                        'rgba(255, 206, 86, 0.2)'  // Yellow for Remaining Pay
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
                 }]
+            },
+            options: {
+                // Add options if needed
             }
-        }
-    });
-</script>
+        });
+    </script>
+</div>
 
 <!-- Footer -->
 <footer class="bg-dark text-white text-center p-2 mt-auto">
     <p>&copy; 2024 Fins-Fintech</p>
 </footer>
-
