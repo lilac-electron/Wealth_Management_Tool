@@ -29,6 +29,7 @@ function generateNavbar(currentPage="") {
                             Finance Tools
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown"> <!-- Dropdown menu -->
+                            <a class="dropdown-item" href="/tools">Tools Overview</a>
                             <a class="dropdown-item" href="/savingsForm">Savings Tool</a>
                             <a class="dropdown-item" href="/retirementForm">Retirement Tool</a>
                             <a class="dropdown-item" href="/incomeTaxCalculator">Income Tax Tool</a>
