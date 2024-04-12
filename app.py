@@ -1062,18 +1062,18 @@ def calculate_monthly_contribution(current_age, desired_retirement_age, current_
     # Calculate the number of years until retirement
     years_until_retirement = desired_retirement_age - current_age
     
-    # Convert the expected annual return to a decimal
-    expected_annual_return_decimal = expected_annual_return / 100
+    # Convert the expected annual return to a monthly rate
+    expected_monthly_return = expected_annual_return / 12 / 100
     
     # Calculate the future value of the retirement savings
-    future_value = desired_annual_income / expected_annual_return_decimal
+    future_value = (desired_annual_income / expected_monthly_return) * ((1 - (1 + expected_monthly_return) ** (-years_until_retirement * 12)) / expected_monthly_return)
     
     # Use the formula to calculate the monthly contribution
-    monthly_contribution = (future_value - current_savings * (1 + expected_annual_return_decimal) ** years_until_retirement) / \
-                           (((1 + expected_annual_return_decimal) ** (years_until_retirement * 12)) - 1) / \
-                           expected_annual_return_decimal
+    monthly_contribution = (future_value - current_savings) * expected_monthly_return / ((1 + expected_monthly_return) ** (years_until_retirement * 12) - 1)
     
     return monthly_contribution
+    
+    
 
 @app.route('/retirementForm', methods=['GET', 'POST'])
 @login_required
