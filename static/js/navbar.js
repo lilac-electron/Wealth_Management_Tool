@@ -11,7 +11,7 @@ function generateNavbar(currentPage="") {
 
             <!-- Navbar Links with Invisible Boxes -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
+                <ul class="navbar-nav mx-auto text-center"> <!-- Added 'text-center' class -->
                     <li class="nav-item">
                         <a class="nav-link border-0 btn-custom text-custom mr-2 ${currentPage === '/credits' ? 'active' : ''}" href="/credits">Current Credits</a>
                     </li>
@@ -37,6 +37,3 @@ function generateNavbar(currentPage="") {
     `;
     document.write(navbar);
 }
-
-// Example: Call generateNavbar function and pass the current page URL
-//generateNavbar('/credits');
