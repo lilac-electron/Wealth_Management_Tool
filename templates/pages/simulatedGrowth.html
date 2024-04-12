@@ -52,6 +52,7 @@
                     <div class="small-chart">
                         <div><canvas id="spChart" ></canvas></div>
                         <div><canvas id="sChart" ></canvas></div>
+                        <!-- Include canvas elements for other small charts here -->
                         <p>The chart above shows the projection of your assets across a 10 year period, for better projection, this has been multiplied by 12 to show the growth by month.</p>
                     </div>
                     <!--<div>
@@ -149,7 +150,6 @@
         }
     };
 
-
     const myChart = new Chart(
         document.getElementById('simulatedGraph'),
         config
@@ -163,11 +163,7 @@
     };
 
     function generateSPChart() {
-        const canvas = document.createElement('canvas');
-        canvas.id = 'spChart';
-        document.querySelector('.small-chart').appendChild(canvas);
-        
-        new Chart(canvas, {
+        new Chart('spChart', {
             type: 'line',
             data: {
                 labels: labels,
@@ -210,6 +206,7 @@
     }
 
     generateSPChart();
+
     const sData = {
         label: 'S Data',
         backgroundColor: 'rgb(54, 162, 235)',
@@ -218,11 +215,7 @@
     };
 
     function generateSChart() {
-        const canvas = document.createElement('canvas');
-        canvas.id = 'sChart';
-        document.querySelector('.small-chart').appendChild(canvas);
-        
-        new Chart(canvas, {
+        new Chart('sChart', {
             type: 'line',
             data: {
                 labels: labels,
