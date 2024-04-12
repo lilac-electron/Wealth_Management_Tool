@@ -51,6 +51,7 @@
                     </div>
                     <div class="small-chart">
                         <div><canvas id="spChart" ></canvas></div>
+                        <div><canvas id="sChart" ></canvas></div>
                         <p>The chart above shows the projection of your assets across a 10 year period, for better projection, this has been multiplied by 12 to show the growth by month.</p>
                     </div>
                     <!--<div>
@@ -209,6 +210,61 @@
     }
 
     generateSPChart();
+    const sData = {
+        label: 'S Data',
+        backgroundColor: 'rgb(54, 162, 235)',
+        borderColor: 'rgb(54, 162, 235)',
+        data: {{ Sdata | tojson }},
+    };
+
+    function generateSChart() {
+        const canvas = document.createElement('canvas');
+        canvas.id = 'sChart';
+        document.querySelector('.small-chart').appendChild(canvas);
+        
+        new Chart(canvas, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [sData]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        mode: 'nearest'
+                    }
+                },
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Transaction'
+                        },
+                        ticks: {
+                            callback: function(value, index, values) {
+                                if (index % 20 === 0) {
+                                    return value;
+                                } else {
+                                    return '';
+                                }
+                            }
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Balance'
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    generateSChart();
 </script>
 
 

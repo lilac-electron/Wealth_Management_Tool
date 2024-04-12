@@ -159,3 +159,7 @@ h1, h2 {
         display: block; /* Display on small screens */
     }
 }
+.small-chart canvas {
+    height: 40vh;
+    width: 100%;
+}
