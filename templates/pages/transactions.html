@@ -190,7 +190,7 @@
                                     <ul class="list-group bg-custom-dark text-custom-light" id="current-account-transactions">
                                         <!-- Render the first ten transactions initially -->
                                         {% for transaction in current_account.transactions[:10] %}
-                                            <li class="list-group-item">
+                                            <li class="list-group-item bg-custom-dark text-custom-light">
                                                 <p class="card-text"><strong>Transaction ID:</strong> {{ transaction.transaction_id }}</p>
                                                 <p class="card-text"><strong>Date:</strong> {{ transaction.date }}</p>
                                                 <p class="card-text"><strong>Amount:</strong> {{ transaction.amount }}</p>
@@ -232,7 +232,7 @@
                                     <ul class="list-group bg-custom-dark text-custom-light" id="credit-card-transactions">
                                         <!-- Render the first ten transactions initially -->
                                         {% for transaction in credit_card.transactions[:10] %}
-                                            <li class="list-group-item">
+                                            <li class="list-group-item bg-custom-dark text-custom-light">
                                                 <p class="card-text"><strong>Transaction ID:</strong> {{ transaction.transaction_id }}</p>
                                                 <p class="card-text"><strong>Date:</strong> {{ transaction.date }}</p>
                                                 <p class="card-text"><strong>Amount:</strong> {{ transaction.amount }}</p>
