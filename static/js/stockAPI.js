@@ -14,8 +14,8 @@
     day = (day < 10 ? '0' : '') + day;
     var formattedDate = year + '-' + month + '-' + day;
 
-    //const date = '2023-01-09';
-    const date = formattedDate
+    const date = '2024-01-08';
+    //const date = formattedDate
     
     // Construct the API URL
     const apiUrl = `https://api.polygon.io/v1/open-close/${symbol}/${date}?adjusted=true&apiKey=${apiKey}`;
