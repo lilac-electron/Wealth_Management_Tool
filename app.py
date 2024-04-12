@@ -1162,6 +1162,7 @@ def calculate_national_insurance(yearly_earnings, state_pension_age):
 def incomeTaxCalculator():
     UK_income_tax_calculator_form = UKTaxCalculatorForm(request.form)
     tax_content = None
+    user_finances = None
     if request.method=="POST":
         if UK_income_tax_calculator_form.validate_on_submit():
             yearly_earnings = UK_income_tax_calculator_form.yearly_earnings.data
