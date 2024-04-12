@@ -1138,7 +1138,7 @@ def calculate_tax(yearly_income, over_state_pension_age, blind):
         higher_tax = (higher_rate_threshold - basic_rate_threshold) * higher_rate
         tax = basic_tax + higher_tax + (yearly_income - higher_rate_threshold) * additional_rate
 
-    return tax
+    return Decimal(tax)
 
 def calculate_national_insurance(yearly_earnings, state_pension_age):
     income = float(yearly_earnings)
@@ -1156,7 +1156,7 @@ def calculate_national_insurance(yearly_earnings, state_pension_age):
     NI *= 52
     if state_pension_age:
         NI = 0
-    return NI
+    return Decimal(NI)
 
 @app.route('/incomeTaxCalculator', methods=['GET', 'POST'])
 @login_required
