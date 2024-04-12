@@ -49,6 +49,9 @@
                         <div><canvas id="simulatedGraph" ></canvas></div>
                         <p>The chart above shows the projection of your assets across a 10 year period, for better projection, this has been multiplied by 12 to show the growth by month.</p>
                     </div>
+                    <div class="small-chart">
+                        
+                    </div>
                     <!--<div>
                         {{ stock_table | safe }}
                     </div>-->
@@ -149,6 +152,98 @@
         document.getElementById('simulatedGraph'),
         config
     );
+    // Data for small charts
+    const smallChartData = [
+        {
+            label: 'SP Data',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: {{ SPdata | tojson }},
+        },
+        {
+            label: 'S Data',
+            backgroundColor: 'rgb(54, 162, 235)',
+            borderColor: 'rgb(54, 162, 235)',
+            data: {{ Sdata | tojson }},
+        },
+        {
+            label: 'LR Data',
+            backgroundColor: 'rgb(75, 192, 192)',
+            borderColor: 'rgb(75, 192, 192)',
+            data: {{ LRdata | tojson }},
+        },
+        {
+            label: 'HR Data',
+            backgroundColor: 'rgb(255, 205, 86)',
+            borderColor: 'rgb(255, 205, 86)',
+            data: {{ HRdata | tojson }},
+        },
+        {
+            label: 'MS Data',
+            backgroundColor: 'rgb(255, 140, 0)',
+            borderColor: 'rgb(255, 140, 0)',
+            data: {{ MSdata | tojson }},
+        }
+    ];
+
+    // Function to generate small charts
+    function generateSmallCharts() {
+        const smallChartContainer = document.querySelector('.small-chart');
+
+        // Loop through smallChartData array and create a chart for each dataset
+        smallChartData.forEach((data, index) => {
+            // Create a canvas element for each chart
+            const canvas = document.createElement('canvas');
+            canvas.id = `smallChart${index}`; // Assign unique id to canvas
+            smallChartContainer.appendChild(canvas); // Append canvas to container
+
+            // Create a Chart.js instance for each canvas
+            new Chart(canvas, {
+                type: 'line',
+                data: {
+                    labels: labels, // Assuming labels are same for all charts
+                    datasets: [data]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    plugins: {
+                        tooltip: {
+                            mode: 'nearest' // Set tooltip mode to 'nearest'
+                        }
+                    },
+                    scales: {
+                        x: {
+                            display: true,
+                            title: {
+                                display: true,
+                                text: 'Transaction' // X-axis label
+                            },
+                            ticks: {
+                                callback: function(value, index, values) {
+                                    // Display label for every 20th data point
+                                    if (index % 20 === 0) {
+                                        return value;
+                                    } else {
+                                        return ''; // Hide other labels
+                                    }
+                                }
+                            }
+                        },
+                        y: {
+                            display: true,
+                            title: {
+                                display: true,
+                                text: 'Balance'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    }
+
+    // Call function to generate small charts
+    generateSmallCharts();
 </script>
 
 
