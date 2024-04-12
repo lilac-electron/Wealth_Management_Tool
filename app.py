@@ -1169,11 +1169,12 @@ def incomeTaxCalculator():
             blind = UK_income_tax_calculator_form.blind.data
             tax_amount = calculate_tax(yearly_income=yearly_earnings, over_state_pension_age=over_state_pension_age, blind=blind)
             national_insurance = calculate_national_insurance(yearly_earnings=yearly_earnings, state_pension_age=over_state_pension_age)
+            user_finances = [tax_amount, national_insurance, (yearly_earnings-(tax_amount+national_insurance))]
             print("For a yearly income of £{:.2f}, you need to pay £{:.2f}, in income tax a year. You will also pay £{:.2f} in national insurance".format(yearly_earnings, tax_amount, national_insurance))
             tax_content = "For a yearly income of £{:.2f}, you need to pay £{:.2f}, in income tax a year. You will also pay £{:.2f} in national insurance".format(yearly_earnings, tax_amount, national_insurance)
             #scottish_tax_payer = UK_income_tax_calculator_form.scottish_tax_payer.data
 
-    return render_template('pages/incomeTaxForm.html', UK_income_tax_calculator_form=UK_income_tax_calculator_form, tax_content=tax_content,name=current_user.username)
+    return render_template('pages/incomeTaxForm.html', UK_income_tax_calculator_form=UK_income_tax_calculator_form, tax_content=tax_content,name=current_user.username, user_finances=user_finances)
 
 def calculateCapitalGains(purchase_price, sale_price, holding_period, cost_of_improvements, used_as_business, sq_metres):
     gain = sale_price-purchase_price

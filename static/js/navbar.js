@@ -24,7 +24,7 @@ function generateNavbar(currentPage="") {
                     <li class="nav-item">
                         <a class="nav-link border-0 btn-custom text-custom mr-2 ${currentPage === '/transactions' ? 'active' : ''}" href="/transactions">Track Transactions</a>
                     </li>
-                    <li class="nav-item dropdown"> <!-- Added 'dropdown' class -->
+                    <li class="nav-item dropdown">
                         <a class="nav-link border-0 btn-custom text-custom mr-2 ${currentPage === '/tools' ? 'active' : ''} dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Finance Tools
                         </a>
