@@ -37,6 +37,7 @@ import requests
 import json
 from PythonGenerators.generateAccounts import FinanceDataGenerator
 from PythonGenerators.generateCreditCardAccounts import CreditCardDataGenerator
+from decimal import Decimal
 
 #FinsFintechFYP
 
@@ -1165,7 +1166,7 @@ def incomeTaxCalculator():
     user_finances = None
     if request.method=="POST":
         if UK_income_tax_calculator_form.validate_on_submit():
-            yearly_earnings = UK_income_tax_calculator_form.yearly_earnings.data
+            yearly_earnings = Decimal(UK_income_tax_calculator_form.yearly_earnings.data)
             over_state_pension_age = UK_income_tax_calculator_form.over_state_pension_age.data
             blind = UK_income_tax_calculator_form.blind.data
             tax_amount = calculate_tax(yearly_income=yearly_earnings, over_state_pension_age=over_state_pension_age, blind=blind)
