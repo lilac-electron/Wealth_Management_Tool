@@ -21,6 +21,9 @@ body {
 .text-custom {
     color: #05386b; /* Text color */
 }
+.text-custom-light{
+    color: #edf5e1;
+}
 .btn-custom:hover {
     background-color: #379683;
     color: #fff; /* Text color */
