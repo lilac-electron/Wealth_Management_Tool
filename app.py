@@ -223,7 +223,7 @@ class Retirement(FlaskForm):
     current_age = IntegerField('Current Age', validators=[InputRequired()])
     desired_retirement_age = IntegerField('Desired Retirement Age', validators=[InputRequired()])
     current_savings = IntegerField('Current Retirement Savings', validators=[InputRequired()])
-    expected_annual_return = IntegerField('Expected Annual Return (%)', validators=[InputRequired()])
+    expected_annual_return = IntegerField('Expected Annual Return (%). This is suggested to be a value between 2 and 7', validators=[InputRequired()])
     desired_annual_income = IntegerField('Desired Annual Retirement Income', validators=[InputRequired()])
 
 class UKTaxCalculatorForm(FlaskForm):
@@ -1045,7 +1045,8 @@ def savingsForm():
                 current_savings += savings_per_month
                 current_savings *= (((annual_interest_rate/12)/100)+1)
             print(num_months)
-            year_content_card = "The number of months it would take to save £{:.2f}, saving £{:.2f} per month, would be {:.2f}.".format(savings_goal, savings_per_month, num_months)
+            num_months = int(num_months)
+            year_content_card = "The number of months it would take to save £{:.2f}, saving £{:.2f} per month, would be {:.2f} months.".format(savings_goal, savings_per_month, num_months)
         elif savings_form_amount.validate_on_submit():
             savings_goal = savings_form_amount.savings_goal.data
             current_savings = savings_form_amount.current_held_savings.data
@@ -1086,6 +1087,7 @@ def calculate_monthly_contribution(current_age, desired_retirement_age, current_
 def retirementForm():
     retirement_form = Retirement(request.form)
     retirement_content = None
+    totalCredits = None
     if request.method == "POST":
         if retirement_form.validate_on_submit():
             current_age = retirement_form.current_age.data
@@ -1098,7 +1100,11 @@ def retirementForm():
 
             #print("You need to save approximately {:.2f} per month to reach your desired annual income in retirement of {:.2f}.".format(monthly_contribution, desired_annual_income))
             retirement_content = "You need to save approximately £{:.2f} per month to reach your desired annual income in retirement of £{:.2f}.".format(monthly_contribution, desired_annual_income)
-    return render_template('pages/retirementForm.html', retirement_form=retirement_form, name=current_user.username, retirement_content=retirement_content)
+            totalCredits = 0
+            for key, value in app.config['CREDITS']:
+                if key != "Rent" and key != "Mortgage":
+                    totalCredits += int(value)
+    return render_template('pages/retirementForm.html', retirement_form=retirement_form, name=current_user.username, retirement_content=retirement_content, totalCredits=totalCredits)
 
 def calculate_tax(yearly_income, over_state_pension_age, blind):
     PA = 12570 #Basic personal allowance 2023/24

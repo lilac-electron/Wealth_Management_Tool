@@ -45,7 +45,16 @@
                     would normally be between 2% and 7%
                 </p>
                 {% if retirement_content %}
-                    <p>{{ retirement_content }}</p>
+                    <div class="card mx-auto mt-3 border border-dark rounded bg-custom text-custom"> <!-- Added 'card' class -->
+                        <div class="card-body">
+                            <h2>Results Section!</h2>
+                            <p>{{ retirement_content }}</p>
+                            <p>In a person's life planning for retirement can take off a huge amount of stress off of a person. Not only for an individual but for marriages as well. Planning for retirement can also mitigate the affects of having to 
+                                potentially retire early due to health reasons for example. Find more benefits to proper retirement planning <a href="https://www.covenantwealthadvisors.com/post/9-reasons-why-retirement-planning-is-important">here</a>.
+                            </p>
+                            <p>The total amount of credits you would have at retirement based on your current credits, is: {{ totalCredits }}</p>
+                        </div>
+                    </div>
                 {% endif %}
                 <!-- Retirement Form -->
                 <div id="retirementFormContent" class="card-body">
