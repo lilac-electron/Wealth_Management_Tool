@@ -1149,7 +1149,7 @@ def calculate_national_insurance(yearly_earnings, state_pension_age):
     if weekly_earnings < 242:
         NI = 0
     elif 242 < weekly_earnings < 967:
-        lowerRate = (weekly_earnings - 242) * 0.1
+        lowerRate = (weekly_earnings - 242) * 0.08
         NI = lowerRate
     else:
         lowerRate = (967-242.01) * 0.1
