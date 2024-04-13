@@ -1104,7 +1104,7 @@ def retirementForm():
             print(app.config['CREDITS'])
             for key in app.config['CREDITS'].keys():
                 if key != "Rent" and key != "Mortgage":
-                    totalCredits += int(app.congif['CREDITS'][key])
+                    totalCredits += int(app.config['CREDITS'][key])
     return render_template('pages/retirementForm.html', retirement_form=retirement_form, name=current_user.username, retirement_content=retirement_content, totalCredits=totalCredits)
 
 def calculate_tax(yearly_income, over_state_pension_age, blind):
