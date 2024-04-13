@@ -42,30 +42,26 @@
                     The other options Savings Form Amount, determines how much you need to save per month to reach your goal in a pre-determined number of years.
                 </p>
                 <p></p>
-                {% if year_content_card %}
-                    <div class="card mx-auto mt-3 border border-dark rounded bg-custom text-custom"> <!-- Added 'card' class -->
+                {% if year_content_card or amount_content_card %}
+                    <div id="resultsSection" class="card mx-auto mt-3 border border-dark rounded bg-custom text-custom" style="display: {% if year_content_card or amount_content_card %}block{% else %}none{% endif %};">
                         <div class="card-body">
                             <h2>Results Section!</h2>
-                            <p>{{ year_content_card }}</p>
-                            <p>This calculation essentially works out how many months it would take to reach your goal with a predetermined monthly amount. Then reducing the number of months
-                                by the percentage given. In reality this number of months would likely be less due to the compounding effect of interest.
-                            </p>
-                            <p>For more tips on how to save check out this <a href="https://bettermoneyhabits.bankofamerica.com/en/saving-budgeting/ways-to-save-money">link</a></p>
+                            {% if year_content_card %}
+                                <p>{{ year_content_card }}</p>
+                                <p>This calculation essentially works out how many months it would take to reach your goal with a predetermined monthly amount. Then reducing the number of months
+                                    by the percentage given. In reality this number of months would likely be less due to the compounding effect of interest.
+                                </p>
+                                <p>For more tips on how to save check out this <a href="https://bettermoneyhabits.bankofamerica.com/en/saving-budgeting/ways-to-save-money">link</a></p>
+                            {% endif %}
+                            {% if amount_content_card %}
+                                <p>{{ amount_content_card }}</p>
+                                <p>This calculation works out how much you would need to save in order to reach a target before a certain amount of time. This is paramount in some situations, for example holiday
+                                    buying in which money needs to be saved before a certain time in order to be able to buy the item.
+                                </p>
+                                <p>For more tips on how to save check out this <a href="https://bettermoneyhabits.bankofamerica.com/en/saving-budgeting/ways-to-save-money">link</a></p>
+                            {% endif %}
                         </div>
                     </div>
-                {% endif %}
-                {% if amount_content_card %}
-                    <div class="card mx-auto mt-3 border border-dark rounded bg-custom text-custom"> <!-- Added 'card' class -->
-                        <div class="card-body">
-                            <h2>Results Section!</h2>
-                            <p>{{ amount_content_card }}</p>
-                            <p>This calculation works out how much you would need to save in order to reach a target before a certain amount of time. This is paramount in some situations, for example holiday
-                                buying in which money needs to be saved before a certain time in order to be able to buy the item.
-                            </p>
-                            <p>For more tips on how to save check out this <a href="https://bettermoneyhabits.bankofamerica.com/en/saving-budgeting/ways-to-save-money">link</a></p>
-                        </div>
-                    </div>
-                   
                 {% endif %}
                 <!-- Tabs to toggle between forms -->
                 <div class="text-center mb-3">

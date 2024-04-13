@@ -1057,7 +1057,7 @@ def savingsForm():
             months_to_save = years_to_save * 12
             amount_per_month = (savings_goal/months_to_save) * (1-(annual_interest_rate/100))
             print(amount_per_month)
-            amount_content_card = "The amount you would need to save each month to reach your goal of £{:.2f}, in {:.2f} years is: £{:.2f} per month".format(savings_goal, years_to_save, amount_per_month)
+            amount_content_card = "The amount you would need to save each month to reach your goal of £{:.2f}, in {} years is: £{:.2f} per month".format(savings_goal, years_to_save, amount_per_month)
     return render_template('pages/savingsForm.html', savings_form_amount=savings_form_amount, savings_form_year=savings_form_year, year_content_card=year_content_card, amount_content_card=amount_content_card,name=current_user.username)
 
 def calculate_monthly_contribution(current_age, desired_retirement_age, current_savings, expected_annual_return, desired_annual_income):
