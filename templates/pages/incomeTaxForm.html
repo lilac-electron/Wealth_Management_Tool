@@ -47,6 +47,7 @@
                 {% if tax_content and user_finances%}
                     <div class="card mx-auto mt-3 border border-dark rounded bg-custom text-custom"> <!-- Added 'card' class -->
                         <div class="card-body">
+                            <h2>Results Section!</h2>
                             <h5>{{ tax_content }}</h5>
                             <h4>The table below shows a breakdown of tax brackets in the UK for 2024/2025</h4>
                             <small><p>Information about tax brackets sourced from <a href="https://www.moneysavingexpert.com/banking/tax-rates/#:~:text=For%20the%202024%2F25%20tax%20year%2C%20if%20you%20live%20in,once%20earnings%20hit%20%C2%A3100%2C000).">here</a>. The info sourced is for the tax year 2024/2025. The national insurance is calculated based on the changes that incurred on the 6th of April 2024.</p></small>
@@ -89,7 +90,7 @@
                             </table>
                             <small><p><sup>1</sup> Personal allowance drops by £1 for every £2 earned between £100,000 and £125,140.</p></small>
                             <div class="row justify-content-center">
-                                <div class="col-md-4 d-flex bg-custom-light rounded">
+                                <div class="col-md-4 d-flex bg-custom-light rounded p-1">
                                     <canvas id="financeChart" width="400" height="400"></canvas>
                                 </div> 
                             </div>
@@ -139,12 +140,12 @@
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)', // Red for Tax
                         'rgba(54, 162, 235, 0.2)', // Blue for National Insurance
-                        'rgba(0, 100, 0, 0.2)'  // Yellow for Remaining Pay
+                        'rgba(92, 219, 149, 0.2)'  // Green for Remaining Pay
                     ],
                     borderColor: [
                         'rgba(255, 99, 132, 1)',
                         'rgba(54, 162, 235, 1)',
-                        'rgba(0, 100, 0, 1)'
+                        'rgba(92, 219, 149, 1)'
                     ],
                     borderWidth: 1
                 }]
