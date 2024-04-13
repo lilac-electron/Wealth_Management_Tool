@@ -1102,9 +1102,9 @@ def retirementForm():
             retirement_content = "You need to save approximately £{:.2f} per month to reach your desired annual income in retirement of £{:.2f}.".format(monthly_contribution, desired_annual_income)
             totalCredits = 0
             print(app.config['CREDITS'])
-            #for key, value in app.config['CREDITS']:
-             #   if key != "Rent" and key != "Mortgage":
-              #      totalCredits += int(value)
+            for key in app.config['CREDITS'].keys():
+                if key != "Rent" and key != "Mortgage":
+                    totalCredits += int(app.congif['CREDITS'][key])
     return render_template('pages/retirementForm.html', retirement_form=retirement_form, name=current_user.username, retirement_content=retirement_content, totalCredits=totalCredits)
 
 def calculate_tax(yearly_income, over_state_pension_age, blind):
