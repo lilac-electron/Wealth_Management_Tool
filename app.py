@@ -1046,7 +1046,7 @@ def savingsForm():
                 current_savings *= (((annual_interest_rate/12)/100)+1)
             print(num_months)
             num_months = int(num_months)
-            year_content_card = "The number of months it would take to save £{:.2f}, saving £{:.2f} per month, would be {:.2f} months.".format(savings_goal, savings_per_month, num_months)
+            year_content_card = "The number of months it would take to save £{:.2f}, saving £{:.2f} per month, would be {} months.".format(savings_goal, savings_per_month, num_months)
         elif savings_form_amount.validate_on_submit():
             savings_goal = savings_form_amount.savings_goal.data
             current_savings = savings_form_amount.current_held_savings.data
