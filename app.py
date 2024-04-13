@@ -1116,11 +1116,11 @@ def calculate_tax(yearly_income, over_state_pension_age, blind):
     
     tax = 0
     # Basic rate
-    basic_rate_threshold = 50000  # £50,270
+    basic_rate_threshold = 50270  # £50,270
     basic_rate = 0.2
 
     # Higher rate
-    higher_rate_threshold = 150000  # £125,140
+    higher_rate_threshold = 125140  # £125,140
     higher_rate = 0.4
 
     # Additional rate
