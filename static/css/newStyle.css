@@ -17,7 +17,9 @@ body {
 .bg-custom-dark{
     background-color:#379683;
 }
-
+.bg-custom-light{
+    background-color: #edf5e1;
+}
 .text-custom {
     color: #05386b; /* Text color */
 }
