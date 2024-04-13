@@ -124,10 +124,11 @@
 </div>
 
 <script>
-    // JavaScript to toggle between showing the Savings Form Year and Savings Form Amount
-    document.getElementById("showSavingsFormYear").addEventListener("click", function() {
+   // JavaScript to toggle between showing the Savings Form Year and Savings Form Amount
+   document.getElementById("showSavingsFormYear").addEventListener("click", function() {
         document.getElementById("savingsFormYearContent").style.display = "block";
         document.getElementById("savingsFormAmountContent").style.display = "none";
+        document.getElementById("resultsSection").style.display = "none"; // Hide results section
         // Add active class to the clicked tab and remove from the other tab
         document.getElementById("showSavingsFormYear").classList.add("active");
         document.getElementById("showSavingsFormAmount").classList.remove("active");
@@ -136,6 +137,7 @@
     document.getElementById("showSavingsFormAmount").addEventListener("click", function() {
         document.getElementById("savingsFormYearContent").style.display = "none";
         document.getElementById("savingsFormAmountContent").style.display = "block";
+        document.getElementById("resultsSection").style.display = "none"; // Hide results section
         // Add active class to the clicked tab and remove from the other tab
         document.getElementById("showSavingsFormYear").classList.remove("active");
         document.getElementById("showSavingsFormAmount").classList.add("active");
