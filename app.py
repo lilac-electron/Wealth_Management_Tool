@@ -1126,7 +1126,7 @@ def calculate_tax(yearly_income, over_state_pension_age, blind):
     # Additional rate
     additional_rate = 0.45
 
-    print ("PA: "+PA)
+    print ("PA: "+str(PA))
     if yearly_income <= PA:
         tax = 0
     elif PA < yearly_income <= basic_rate_threshold:
@@ -1144,7 +1144,7 @@ def calculate_tax(yearly_income, over_state_pension_age, blind):
 def calculate_national_insurance(yearly_earnings, state_pension_age):
     income = float(yearly_earnings)
     weekly_earnings = income/52
-    print(weekly_earnings)
+    print("weekly earnings"+str(weekly_earnings))
     NI = 0
     if weekly_earnings < 242:
         NI = 0
