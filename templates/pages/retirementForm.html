@@ -44,15 +44,20 @@
                     from your pension that is equally your expectation. The annual return
                     would normally be between 2% and 7%
                 </p>
-                {% if retirement_content %}
+                {% if retirement_content and totalCredits%}
                     <div class="card mx-auto mt-3 border border-dark rounded bg-custom text-custom"> <!-- Added 'card' class -->
                         <div class="card-body">
                             <h2>Results Section!</h2>
                             <p>{{ retirement_content }}</p>
-                            <p>In a person's life planning for retirement can take off a huge amount of stress off of a person. Not only for an individual but for marriages as well. Planning for retirement can also mitigate the affects of having to 
+                            <p>In a person's life planning for retirement can take off a huge amount of stress off, both physically and mentally. This impact is felt in marriages as a whole, not just individuals. Planning for retirement can also mitigate the affects of having to 
                                 potentially retire early due to health reasons for example. Find more benefits to proper retirement planning <a href="https://www.covenantwealthadvisors.com/post/9-reasons-why-retirement-planning-is-important">here</a>.
                             </p>
-                            <p>The total amount of credits you would have at retirement based on your current credits, is: {{ totalCredits }}</p>
+                            <p>The total amount of credits you would have at retirement based on your current credits, is: £{{ totalCredits }} monthly.</p>
+                            <p>This is worth keeping in mind as this value multiplies up to: £{{ totalCredits }} in a year.</p>
+                            <p><small>This is worked out based on the credits that you told us about in the credits section</small></p>
+                            <p>For more info on taking a lump sum: <a href="https://www.moneyhelper.org.uk/en/pensions-and-retirement/taking-your-pension/taking-your-pension-as-a-number-of-lump-sums#:~:text=you%20shop%20around.-,Tax%20you'll%20pay,into%20a%20higher%20tax%20band.">here</a></p>
+                            <p>For more info on different pension types, click <a href="https://www.citizensadvice.org.uk/debt-and-money/pensions/types-of-pension/workplace-pensions/">here</a></p>
+                            
                         </div>
                     </div>
                 {% endif %}
