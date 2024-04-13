@@ -42,7 +42,15 @@
                     All calculations should be taken as indicators, not as any sort of advice or confirmation. Please consult the gov website for more detailed information.
                 </p>
                 {% if capital_gains_content %}
-                    <p>{{ capital_gains_content }}</p>
+                    <div class="card mx-auto mt-3 border border-dark rounded bg-custom text-custom"> <!-- Added 'card' class -->
+                        <div class="card-body">
+                            <h2>Results Section!</h2>
+                            <p>{{ capital_gains_content }}</p>
+                            <p>Capital gains tax is linked with your income tax report for the year. Meaning there are ways in which the amount of tax payable is affected, find more information as the government website <a href="https://www.gov.uk/capital-gains-tax">here</a></p>
+                            <p>Further to this, the reason the property was held matters as well, for example if the property was bought and let or a portion was let then the rate of capital gains tax can change. </p>
+                            <p>Find more useful info <a href="https://www.lovewell-blake.co.uk/services/personal-tax/personal-tax-services/capital-gains-tax-explained">here</a>. This website has lots of information and examples of different situations for capital gains tax liability.</p>
+                        </div>
+                    </div>
                 {% endif %}
                 <!-- Capital Gains Form -->
                 <div id="capitalGainsFormContent" class="card-body text-center">
