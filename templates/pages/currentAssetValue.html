@@ -71,11 +71,12 @@
                         <form method="POST" action="/assetValue" id="myForm">
                             {% for field in form %}
                                 {% if not loop.last %}
-                                    <div>
+                                    <div class="col-md-8">
                                         {{ field.label }}
-                                    </div>
-                                    <div class="mb-3">
-                                        {{ field(class="form-control", value=value) }} <!-- Add "form-control" class here -->
+                                    
+                                        <div class="mb-3">
+                                            {{ field(class="form-control", value=value) }} <!-- Add "form-control" class here -->
+                                        </div>
                                     </div>
                                 {% endif %}
                                 {% if loop.last %}
