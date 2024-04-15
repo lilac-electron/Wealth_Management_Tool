@@ -239,6 +239,10 @@ class CapitalGainsCalculator(FlaskForm):
     used_as_business = BooleanField('Was a room used for a desk for business or a lodger in a single room?')
     sq_metres = BooleanField('Is the property 0ver 5000 metres, including the buildings?')
 
+class BudgetForm(FlaskForm):
+    category = StringField('Category', validators=[InputRequired()])
+    amount = DecimalField('Amount', validators=[InputRequired(), NumberRange(min=0.01)])
+
 def clearAttribute():
     DynamicForm = [attr for attr in DynamicForm if  not(attr.startswith('field_'))]
 
@@ -682,6 +686,7 @@ def login():
                 app.config['RETIREMENT'] = listOfDictionaries['retirement'][0]
                 app.config['SAVINGS'] = listOfDictionaries['savings'][0]
                 app.config['FINANCE_PATH'] = os.path.join('Wealth_Managment_Tool/SimulatedFinanceData/', username)
+                app.config['BUDGET'] = []
                 #print(assets)
                 #print(credits)
                 flash("Welcome "+ str(current_user.username)+", you have been logged in.", 'success')
@@ -1190,6 +1195,8 @@ def incomeTaxCalculator():
 def calculateCapitalGains(purchase_price, sale_price, holding_period, cost_of_improvements, used_as_business, sq_metres):
     gain = sale_price-purchase_price
     tax_able_gain = gain - cost_of_improvements
+    if gain <= 0:
+        return "Because you sold your asset for the same or less than what you bought it for, there are ways you can offset the taxes you need to pay on other gains of the same type."
     if used_as_business or sq_metres:
         return "You may be subject to less relief on your gains, due to either having used the property as a business asset or it being too large. Visit the gov website for more detailed information"
     else:
@@ -1212,6 +1219,15 @@ def capitalGainsForm():
             capital_gains_content = calculateCapitalGains(purchase_price=purchase_price, sale_price=sale_price, holding_period=holding_period, cost_of_improvements=cost_of_improvements, used_as_business=used_as_business, sq_metres=sq_metres)
 
     return render_template('pages/capitalGainsForm.html', capital_gains_calculator_form=capital_gains_calculator_form, capital_gains_content=capital_gains_content, name=current_user.username)
+
+@app.route('/budgetPlanner', methods=['GET', 'POST'])
+@login_required
+def budgetPlanner():
+    form = BudgetForm()
+    if request.method == "POST":
+        if form.validate_on_submit():
+            app.config['BUDGET'].append({'category': form.category.data, 'amount': form.amount.data})
+    return render_template('budgetPlanner.html', form=form, budget_data=app.config['BUDGET'])
 
 #@app.route('/networth')
 @app.route('/feedbackForm')

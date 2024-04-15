@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Fins-Fintech Wealth Tool</title>
+    <!-- Bootstrap CSS link -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/newStyle.css') }}">
+</head>
+<body>
+
+<!--Header JS reference-->
+<script src="{{url_for('static', filename='js/header.js')}}"></script>
+<script>
+    const name = "{{ name }}";
+    generateHeader(name);
+</script>
+
+<!--Navbar JS reference-->
+<script src="{{url_for('static', filename='js/navbar.js')}}"></script>
+<script>
+    generateNavbar('/tools')
+</script>
+
+<!-- Content -->
+<div class="container mx-auto mt-2">
+    <a href="{{ url_for('tools') }}" class="btn btn-outline-secondary btn-icon" role="button">
+        <span class="oi oi-arrow-left" aria-hidden="true"></span> Back
+    </a>
+</div>
+
+<div class="content bg-custom text-custom text-center">
+    <div class="container mx-auto">
+        <div class="card bg-custom text-custom mt-3 mb-3">
+            <div class="card-body">
+                <h1 class="tools-heading">Budget Planner!</h1>
+                <p>
+                   This planner is designed so you can get a visual breakdown of your budget and areas in which you might be able to save. This is seperate from the credits section so that you can 
+                   change numbers more easily and get more accurate representations
+                </p>
+                <div class="card mx-auto mt-3 border border-dark rounded bg-custom text-custom"> <!-- Added 'card' class -->
+                    <div class="card-body">
+                        <h2>Budget Summary</h2>
+                        <table border="1">
+                            <tr>
+                                <th>Category</th>
+                                <th>Amount</th>
+                            </tr>
+                            {% for item in budget_data %}
+                                <tr>
+                                    <td>{{ item.category }}</td>
+                                    <td>{{ item.amount }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+                <!-- Income Tax Form -->
+                <div id="budgetPlannerTool" class="card-body">
+                    <form method="POST" action="{{ url_for('budgetPlanner') }}">
+                        {{ form.csrf_token }}
+                        <div>
+                            {{ form.category.label }}
+                            {{ form.amount.label }}<br>
+
+                        </div>
+                        <div class="text-center"> <!-- Center the submit button -->
+                            <button type="submit" class="btn btn-custom bg-custom text-custom">Submit</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center p-2 mt-auto">
+    <p>&copy; 2024 Fins-Fintech</p>
+</footer>
