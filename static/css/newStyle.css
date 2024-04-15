@@ -78,6 +78,11 @@ body {
 .dropdown-menu {
     background-color: #292829; /* Set the background color */
 }
+/* CSS for dropdown item hover */
+.dropdown-item:hover {
+    background-color: #379683; /* Set the hover background color */
+    color: white; /* Set the hover text color */
+}
 
 .success {
     background-color: #a0d3ab; /* Green background color */
