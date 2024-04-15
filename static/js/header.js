@@ -23,6 +23,7 @@ function generateHeader() {
                             <!-- Add your dropdown options here -->
                             <a class="dropdown-item" href="#">Change Email</a>
                             <a class="dropdown-item" href="#">Personal Infomation</a>
+                            <button class="dropdown-item" onclick="changeColorMode()">Change Color Mode</button>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/logout">Logout</a>
                         </div>
@@ -48,6 +49,22 @@ function generateHeader() {
         document.onkeypress = resetTimer; // Reset timer on keypress
 
         resetTimer(); // Initial call to start the timer
+
+        function changeColorMode() {
+            // Get the <link> element that refers to the CSS file
+            var cssLink = document.querySelector("link[href='{{ url_for('static', filename='css/newStyle.css') }}']");
+        
+            // Check if the current color mode is light or dark
+            if (cssLink.href.includes("newStyle.css")) {
+                // If the current mode is light, switch to dark mode
+                cssLink.href = "{{ url_for('static', filename='css/darkStyle.css') }}";
+                alert("Switched to Dark Mode");
+            } else {
+                // If the current mode is dark, switch to light mode
+                cssLink.href = "{{ url_for('static', filename='css/newStyle.css') }}";
+                alert("Switched to Light Mode");
+            }
+        }
     </script>
     `;
     document.write(header);
