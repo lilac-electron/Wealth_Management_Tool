@@ -69,24 +69,30 @@
                             This seciton is asking you to update asset value based on what you now evaluate them to be
                         </p>
                         <form method="POST" action="/assetValue" id="myForm">
-                            {% for field in form %}
-                                {% if not loop.last %}
-                                    <div class="col-md-8">
-                                        {{ field.label }}
-                                    
-                                        <div class="mb-3">
-                                            {{ field(class="form-control", value=value) }} <!-- Add "form-control" class here -->
+                            <div class="row justify-content-center">
+                                {% for field in form %}
+                                    {% if not loop.last %}
+                                        <div class="col-md-6">
+                                            <div>
+                                                {{ field.label }}
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ field(class="form-control", value=value) }} <!-- Add "form-control" class here -->
+                                            </div>
                                         </div>
-                                    </div>
-                                {% endif %}
-                                {% if loop.last %}
-                                    {{ field(class="form-control") }} <!-- Add "form-control" class here -->
-                                {% endif %}
-                            {% endfor %}
+                                    {% endif %}
+                                    {% if loop.last %}
+                                        <div class="col-md-6">
+                                            {{ field(class="form-control") }} <!-- Add "form-control" class here -->
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
                             <div class="text-center"> <!-- Center the submit button -->
                                 <button class="btn btn-custom border-0 bg-custom text-custom w-50" type="submit">Submit</button>
                             </div>
                         </form>
+                        
 
                     </div>
                 </div>

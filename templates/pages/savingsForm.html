@@ -80,19 +80,27 @@
                     <form method="POST" action="{{ url_for('savingsForm') }}">
                         {% for field in savings_form_year %}
                             {% if not loop.last %}
-                                <div>
-                                    {{ field.label }}
-                                </div>
-                                <div class="mb-3">
-                                    {{ field(class="form-control", value=value) }} <!-- Add "form-control" class here -->
+                                <div class="row justify-content-center">
+                                    <div class="col-md-6">
+                                        <div>
+                                            {{ field.label }}
+                                        </div>
+                                        <div class="mb-3">
+                                            {{ field(class="form-control", value=value) }} <!-- Add "form-control" class here -->
+                                        </div>
+                                    </div>
                                 </div>
                             {% endif %}
                             {% if loop.last %}
-                                {{ field(class="form-control") }} <!-- Add "form-control" class here -->
+                                <div class="row justify-content-center">
+                                    <div class="col-md-6">
+                                        {{ field(class="form-control") }} <!-- Add "form-control" class here -->
+                                    </div>
+                                </div>
                             {% endif %}
                         {% endfor %}
                         <div class="text-center"> <!-- Center the submit button -->
-                            <button type="submit" class="btn btn-custom bg-custom text-custom ">Submit</button>
+                            <button type="submit" class="btn btn-custom bg-custom text-custom">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -102,22 +110,31 @@
                     <form method="POST" action="{{ url_for('savingsForm') }}">
                         {% for field in savings_form_amount %}
                             {% if not loop.last %}
-                                <div>
-                                    {{ field.label }}
-                                </div>
-                                <div class="mb-3">
-                                    {{ field(class="form-control", value=value) }} <!-- Add "form-control" class here -->
+                                <div class="row justify-content-center">
+                                    <div class="col-md-6">
+                                        <div>
+                                            {{ field.label }}
+                                        </div>
+                                        <div class="mb-3">
+                                            {{ field(class="form-control", value=value) }} <!-- Add "form-control" class here -->
+                                        </div>
+                                    </div>
                                 </div>
                             {% endif %}
                             {% if loop.last %}
-                                {{ field(class="form-control") }} <!-- Add "form-control" class here -->
+                                <div class="row justify-content-center">
+                                    <div class="col-md-6">
+                                        {{ field(class="form-control") }} <!-- Add "form-control" class here -->
+                                    </div>
+                                </div>
                             {% endif %}
                         {% endfor %}
                         <div class="text-center"> <!-- Center the submit button -->
-                            <button type="submit" class="btn btn-custom bg-custom text-custom ">Submit</button>
+                            <button type="submit" class="btn btn-custom bg-custom text-custom">Submit</button>
                         </div>
                     </form>
                 </div>
+
 
             </div>
         </div>
