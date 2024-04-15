@@ -2,7 +2,8 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #379683; 
+    /*background-color: #379683; */
+    background-color: #6faf7a;
 }
 /* Main Content Wrapper */
 .content {
@@ -12,10 +13,12 @@ body {
     border-radius: 0.375rem; /* You can adjust the value to control the level of rounding */
 }
 .bg-custom {
-    background-color: #5cdb95; /* Background color */
+    /*background-color: #5cdb95; /* Background color */
+    background-color: #ccebc1;
 }
 .bg-custom-dark{
-    background-color:#379683;
+    /*background-color:#379683;*/
+    background-color: #6faf7a;
 }
 .bg-custom-light{
     background-color: #edf5e1;
