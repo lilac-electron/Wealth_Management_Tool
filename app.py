@@ -1223,11 +1223,11 @@ def capitalGainsForm():
 @app.route('/budgetPlanner', methods=['GET', 'POST'])
 @login_required
 def budgetPlanner():
-    form = BudgetForm()
+    form = BudgetForm(request.form)
     if request.method == "POST":
         if form.validate_on_submit():
             app.config['BUDGET'].append({'category': form.category.data, 'amount': form.amount.data})
-    return render_template('budgetPlanner.html', form=form, budget_data=app.config['BUDGET'])
+    return render_template('pages/budgetPlanner.html', form=form, budget_data=app.config['BUDGET'])
 
 #@app.route('/networth')
 @app.route('/feedbackForm')
