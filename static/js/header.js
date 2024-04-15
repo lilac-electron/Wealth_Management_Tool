@@ -23,7 +23,6 @@ function generateHeader() {
                             <!-- Add your dropdown options here -->
                             <a class="dropdown-item" href="#">Change Email</a>
                             <a class="dropdown-item" href="#">Personal Infomation</a>
-                            <button id="colorModeButton" class="dropdown-item" onclick="toggleColorMode()">Change Color Mode</button>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/logout">Logout</a>
                         </div>
@@ -50,25 +49,6 @@ function generateHeader() {
 
         resetTimer(); // Initial call to start the timer
 
-        function toggleColorMode() {
-            // Get the <link> element that refers to the CSS file
-            var cssLink = document.querySelector("link[href*='newStyle.css'], link[href*='darkStyle.css']");
-        
-            // Check if the current stylesheet is the light mode or dark mode
-            if (cssLink.href.includes("newStyle.css")) {
-                // If it's light mode, switch to dark mode
-                cssLink.href = "/static/css/darkStyle.css";
-            } else {
-                // If it's dark mode, switch to light mode
-                cssLink.href = "/static/css/newStyle.css";
-            }
-        }
-    
-        // Add click event listener to the button
-        document.getElementById("colorModeButton").addEventListener("click", function() {
-            // Call the toggleColorMode function when the button is clicked
-            toggleColorMode();
-        });
 
     </script>
     `;
