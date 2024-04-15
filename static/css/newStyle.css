@@ -3,7 +3,8 @@ body {
     display: flex;
     flex-direction: column;
     /*background-color: #379683; */
-    background-color: #6faf7a;
+    /*background-color: #6faf7a;*/
+    background-color: #080000;
 }
 /* Main Content Wrapper */
 .content {
@@ -14,17 +15,20 @@ body {
 }
 .bg-custom {
     /*background-color: #5cdb95; /* Background color */
-    background-color: #ccebc1;
+    /*background-color: #ccebc1;*/
+    background-color: #292829;
 }
 .bg-custom-dark{
     /*background-color:#379683;*/
-    background-color: #6faf7a;
+    /*background-color: #6faf7a;*/
+    background-color: #080000;
 }
 .bg-custom-light{
     background-color: #edf5e1;
 }
 .text-custom {
-    color: #05386b; /* Text color */
+    /*color: #05386b; /* Text color */
+    color: white;
 }
 .text-custom-light{
     color: #edf5e1;
@@ -124,7 +128,8 @@ input[type=number] {
     background-color: #379683; /* Set your desired background color */
 }
 h1, h2 {
-    color: #edf5e1; /* Specify the desired color */
+    /*color: #edf5e1; /* Specify the desired color */
+    color: #34694d;
 }
 @media (min-width: 576px) { /* Adjust the min-width as needed */
     .navbar-expand-md {
