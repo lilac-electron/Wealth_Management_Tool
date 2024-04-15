@@ -149,7 +149,8 @@
     // Function to toggle between color modes
     function toggleColorMode() {
         // Get the <link> element that refers to the CSS file
-        var cssLink = document.querySelector('link')[0];
+        var cssLink = document.querySelector("link[href*='newStyle.css'], link[href*='darkStyle.css']");
+
 
         // Check if the current stylesheet is the light mode or dark mode
         if (cssLink.href.includes("newStyle.css")) {
