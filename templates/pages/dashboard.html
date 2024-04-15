@@ -11,7 +11,7 @@
     <script src="{{url_for('static', filename='js/stockAPI.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!--<link rel="stylesheet" href="{{ url_for('static', filename='css/newStyle.css') }}">-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/newStyle.css') }}">
     
 
 </head>
@@ -57,6 +57,7 @@
                     <div id="dashboardChartContainer" class="bg-custom-dark rounded">
                         <canvas id="dashboardChart"></canvas>
                     </div>
+                    <button id="colorModeButton" class="btn btn-custom bg-custom text-custom">Switch Color Mode</button>
                 </section>
             </div>
             <div class="col-md-4">
@@ -145,6 +146,26 @@
         config
     );
 
+    // Function to toggle between color modes
+    function toggleColorMode() {
+        // Get the <link> element that refers to the CSS file
+        var cssLink = document.querySelector("link[href='{{ url_for('static', filename='css/newStyle.css') }}']");
+
+        // Check if the current stylesheet is the light mode or dark mode
+        if (cssLink.href.includes("newStyle.css")) {
+            // If it's light mode, switch to dark mode
+            cssLink.href = "{{ url_for('static', filename='css/darkStyle.css') }}";
+        } else {
+            // If it's dark mode, switch to light mode
+            cssLink.href = "{{ url_for('static', filename='css/newStyle.css') }}";
+        }
+    }
+
+    // Add click event listener to the button
+    document.getElementById("colorModeButton").addEventListener("click", function() {
+        // Call the toggleColorMode function when the button is clicked
+        toggleColorMode();
+    });
 </script>
 
 <!-- Footer -->
