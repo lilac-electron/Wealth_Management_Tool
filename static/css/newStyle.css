@@ -209,6 +209,7 @@ h1, h2, h3 {
     border-radius: 20px; /* Adjust the value to change the roundness */
     background-color: #292829; /* Light grey color */
     border-color: white;
+    color: white;
 }
 
 /* CSS for form-control when focused */
