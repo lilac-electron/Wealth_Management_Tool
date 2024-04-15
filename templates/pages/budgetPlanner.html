@@ -48,18 +48,20 @@
                     <div class="card-body">
                         <h2>Budget Summary</h2>
                         <p>The purpose of this tool is to give a proper breakdown of the amount you are spending.</p>
-                        <table border="1" class="mx-auto">
-                            <tr>
-                                <th>Category</th>
-                                <th>Amount</th>
-                            </tr>
-                            {% for item in budget_data %}
+                        <div class="col-md-6">
+                            <table border="1" class="mx-auto">
                                 <tr>
-                                    <td>{{ item.category }}</td>
-                                    <td>{{ item.amount }}</td>
+                                    <th>Category</th>
+                                    <th>Amount</th>
                                 </tr>
-                            {% endfor %}
-                        </table>
+                                {% for item in budget_data %}
+                                    <tr>
+                                        <td>{{ item.category }}</td>
+                                        <td>{{ item.amount }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
                     </div>
                 </div>
                 <!-- Income Tax Form -->
@@ -71,6 +73,7 @@
                             {{ form.category(class="form-control") }}<br>
                             {{ form.amount.label }}<br>
                             {{ form.amount(class="form-control") }}<br>
+                            {{ form.clear_table.label }}<br>
                             {{ form.clear_table(value=form.clear_table.data)}}
                         </div>
                         <div class="text-center"> <!-- Center the submit button -->
