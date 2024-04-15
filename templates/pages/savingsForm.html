@@ -84,11 +84,11 @@
                                     {{ field.label }}
                                 </div>
                                 <div class="mb-3">
-                                    {{ field(value=value) }}
+                                    {{ field(class="form-control", value=value) }} <!-- Add "form-control" class here -->
                                 </div>
                             {% endif %}
                             {% if loop.last %}
-                                {{ field }}
+                                {{ field(class="form-control") }} <!-- Add "form-control" class here -->
                             {% endif %}
                         {% endfor %}
                         <div class="text-center"> <!-- Center the submit button -->
@@ -106,11 +106,11 @@
                                     {{ field.label }}
                                 </div>
                                 <div class="mb-3">
-                                    {{ field(value=value) }}
+                                    {{ field(class="form-control", value=value) }} <!-- Add "form-control" class here -->
                                 </div>
                             {% endif %}
                             {% if loop.last %}
-                                {{ field }}
+                                {{ field(class="form-control") }} <!-- Add "form-control" class here -->
                             {% endif %}
                         {% endfor %}
                         <div class="text-center"> <!-- Center the submit button -->
@@ -118,6 +118,7 @@
                         </div>
                     </form>
                 </div>
+
             </div>
         </div>
     </div>
