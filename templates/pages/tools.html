@@ -27,13 +27,13 @@
     generateNavbar('/tools')
 </script>
 <!-- Content -->
-<div class="content bg-custom text-custom">
+<div class="content text-custom">
     <div class="container mx-auto">
-        <div class="card bg-custom-dark text-custom mt-3 mb-3">
+        <div class="card bg-custom text-custom mt-3 mb-3">
             <div class="card-body">
                 <div class="row mt-3">
                     <div class="col-md-6">
-                        <div class="card bg-custom text-custom">
+                        <div class="card bg-custom-dark text-custom">
                             <div class="card-header bg-custom text-custom text-center" id="savings-heading">
                                 <h5 class="mb-0">
                                     <a href="{{ url_for('savingsForm') }}" class="btn btn-link">
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="card bg-custom text-custom">
+                        <div class="card bg-custom-dark text-custom">
                             <div class="card-header bg-custom text-custom text-center" id="retirement-heading">
                                 <h5 class="mb-0">
                                     <a href="{{ url_for('retirementForm') }}" class="btn btn-link">
@@ -57,7 +57,7 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-6">
-                        <div class="card bg-custom text-custom">
+                        <div class="card bg-custom-dark text-custom">
                             <div class="card-header bg-custom text-custom text-center" id="tax-heading">
                                 <h5 class="mb-0">
                                     <a href="{{ url_for('incomeTaxCalculator') }}" class="btn btn-link">
@@ -68,7 +68,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="card bg-custom text-custom">
+                        <div class="card bg-custom-dark text-custom">
                             <div class="card-header bg-custom text-custom text-center" id="capital-gains-heading">
                                 <h5 class="mb-0">
                                     <a href="{{ url_for('capitalGainsForm') }}" class="btn btn-link">
@@ -79,8 +79,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card bg-custom text-custom">
+                <div class="col-md-6 justify-content-center">
+                    <div class="card bg-custom-dark text-custom">
                         <div class="card-header bg-custom text-custom text-center" id="budget-planner-heading">
                             <h5 class="mb-0">
                                 <a href="{{ url_for('budgetPlanner') }}" class="btn btn-link">
