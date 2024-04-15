@@ -211,6 +211,11 @@ h1, h2, h3 {
     border-color: white;
 }
 
+/* CSS for form-control when focused */
+.form-control:focus {
+    background-color: #292829; /* Light grey color */
+}
+
 /* CSS for form-check input (checkboxes) */
 .form-check-input {
     border-radius: 50%; /* Make the checkboxes circular */
