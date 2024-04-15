@@ -72,7 +72,7 @@
                             <div class="row justify-content-center">
                                 {% for field in form %}
                                     {% if not loop.last %}
-                                        <div class="col-md-6">
+                                        <div class="col-md-7">
                                             <div>
                                                 {{ field.label }}
                                             </div>
@@ -82,7 +82,7 @@
                                         </div>
                                     {% endif %}
                                     {% if loop.last %}
-                                        <div class="col-md-6">
+                                        <div class="col-md-7">
                                             {{ field(class="form-control") }} <!-- Add "form-control" class here -->
                                         </div>
                                     {% endif %}

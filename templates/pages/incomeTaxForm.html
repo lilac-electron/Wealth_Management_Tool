@@ -102,7 +102,7 @@
                     <form method="POST" action="{{ url_for('incomeTaxCalculator') }}">
                         {{ UK_income_tax_calculator_form.hidden_tag() }} <!-- Include CSRF token -->
                         <div class="row justify-content-center">
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div>
                                     {{ UK_income_tax_calculator_form.yearly_earnings.label }}
                                 </div>
@@ -110,7 +110,7 @@
                                     {{ UK_income_tax_calculator_form.yearly_earnings(class="form-control", value=UK_income_tax_calculator_form.yearly_earnings.data) }} <!-- Add "form-control" class here -->
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div>
                                     {{ UK_income_tax_calculator_form.over_state_pension_age.label }}
                                 </div>
@@ -118,7 +118,7 @@
                                     {{ UK_income_tax_calculator_form.over_state_pension_age(class="form-control", value=UK_income_tax_calculator_form.over_state_pension_age.data) }} <!-- Add "form-control" class here -->
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div>
                                     {{ UK_income_tax_calculator_form.blind.label }}
                                 </div>
