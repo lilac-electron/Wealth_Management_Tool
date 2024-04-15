@@ -147,7 +147,7 @@
     );
 
     // Function to toggle between color modes
-    /*function toggleColorMode() {
+    function toggleColorMode() {
         // Get the <link> element that refers to the CSS file
         var cssLink = document.querySelector("link[href*='newStyle.css'], link[href*='darkStyle.css']");
 
@@ -166,71 +166,7 @@
     document.getElementById("colorModeButton").addEventListener("click", function() {
         // Call the toggleColorMode function when the button is clicked
         toggleColorMode();
-    });*/
-    // Function to set a cookie with the given name, value, and expiration date
-    function setCookie(name, value, days) {
-        var expires = "";
-        if (days) {
-            var date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            expires = "; expires=" + date.toUTCString();
-        }
-        document.cookie = name + "=" + (value || "") + expires + "; path=/";
-    }
-
-    // Function to get the value of a cookie with the given name
-    function getCookie(name) {
-        var nameEQ = name + "=";
-        var ca = document.cookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1, c.length);
-            }
-            if (c.indexOf(nameEQ) == 0) {
-                return c.substring(nameEQ.length, c.length);
-            }
-        }
-        return null;
-    }
-
-    // Function to apply dark mode stylesheet
-    function applyDarkMode() {
-        var cssLink = document.querySelector("link[href*='newStyle.css'], link[href*='darkStyle.css']");
-        cssLink.href = "{{ url_for('static', filename='css/darkStyle.css') }}";
-    }
-
-    // Function to apply default stylesheet
-    function applyDefaultStyle() {
-        var cssLink = document.querySelector("link[href*='newStyle.css'], link[href*='darkStyle.css']");
-        cssLink.href = "{{ url_for('static', filename='css/newStyle.css') }}";
-    }
-
-    // Function to toggle between light and dark mode
-    function toggleColorMode() {
-        var darkModeEnabled = getCookie("darkModeEnabled");
-        if (darkModeEnabled === "true") {
-            applyDefaultStyle();
-            setCookie("darkModeEnabled", "false", 30); // Update cookie to indicate light mode
-        } else {
-            applyDarkMode();
-            setCookie("darkModeEnabled", "true", 30); // Update cookie to indicate dark mode
-        }
-    }
-
-    // Function to check cookie and apply stylesheet accordingly on page load
-    function checkColorModePreference() {
-        var darkModeEnabled = getCookie("darkModeEnabled");
-        if (darkModeEnabled === "true") {
-            applyDarkMode(); // Apply dark mode stylesheet
-        } else {
-            applyDefaultStyle(); // Apply default stylesheet
-    }
-    }
-
-    // Call the function to check color mode preference on page load
-    checkColorModePreference();
-
+    });
 </script>
 
 <!-- Footer -->

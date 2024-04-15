@@ -530,7 +530,7 @@ def assetValue():
     #print(upload_folder_path)
     if request.method == 'POST' and form.validate_on_submit():
         #print("test 1")
-        old_vals = list(app.config['CREDITS'].values())
+        old_vals = list(app.config['ASSETS'].values())
         entered_data_list = [value if value != '' else '-1' for value in request.form.values()]
         counter = 0
         for val in entered_data_list:
