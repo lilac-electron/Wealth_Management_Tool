@@ -53,15 +53,14 @@ function generateHeader() {
         function toggleColorMode() {
             // Get the <link> element that refers to the CSS file
             var cssLink = document.querySelector("link[href*='newStyle.css'], link[href*='darkStyle.css']");
-    
-    
+        
             // Check if the current stylesheet is the light mode or dark mode
             if (cssLink.href.includes("newStyle.css")) {
                 // If it's light mode, switch to dark mode
-                cssLink.href = "{{ url_for('static', filename='css/darkStyle.css') }}";
+                cssLink.href = "/static/css/darkStyle.css";
             } else {
                 // If it's dark mode, switch to light mode
-                cssLink.href = "{{ url_for('static', filename='css/newStyle.css') }}";
+                cssLink.href = "/static/css/newStyle.css";
             }
         }
     
