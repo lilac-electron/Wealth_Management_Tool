@@ -242,6 +242,7 @@ class CapitalGainsCalculator(FlaskForm):
 class BudgetForm(FlaskForm):
     category = StringField('Category', validators=[InputRequired()])
     amount = DecimalField('Amount', validators=[InputRequired(), NumberRange(min=0.01)])
+    clear_table = BooleanField('Select if you want to clear the table.')
 
 def clearAttribute():
     DynamicForm = [attr for attr in DynamicForm if  not(attr.startswith('field_'))]
@@ -1226,6 +1227,8 @@ def budgetPlanner():
     form = BudgetForm(request.form)
     if request.method == "POST":
         if form.validate_on_submit():
+            if form.clear_table.data:
+                app.config['BUDGET'] = []
             app.config['BUDGET'].append({'category': form.category.data, 'amount': form.amount.data})
     return render_template('pages/budgetPlanner.html', form=form, budget_data=app.config['BUDGET'])
 

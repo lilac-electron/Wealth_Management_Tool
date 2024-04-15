@@ -47,7 +47,8 @@
                 <div class="card mx-auto mt-3 border border-dark rounded bg-custom text-custom"> <!-- Added 'card' class -->
                     <div class="card-body">
                         <h2>Budget Summary</h2>
-                        <table border="1">
+                        <p>The purpose of this tool is to give a proper breakdown of the amount you are spending.</p>
+                        <table border="1" class="mx-auto">
                             <tr>
                                 <th>Category</th>
                                 <th>Amount</th>
@@ -65,12 +66,12 @@
                 <div id="budgetPlannerTool" class="card-body">
                     <form method="POST" action="{{ url_for('budgetPlanner') }}">
                         {{ form.csrf_token }}
-                        <div>
+                        <div class="form-group col-md-3 mx-auto">
                             {{ form.category.label }}<br>
                             {{ form.category(class="form-control") }}<br>
                             {{ form.amount.label }}<br>
-                            {{ form.amount(class="form-control") }}
-
+                            {{ form.amount(class="form-control") }}<br>
+                            {{ form.clear_table(value=form.clear_table.data)}}
                         </div>
                         <div class="text-center"> <!-- Center the submit button -->
                             <button type="submit" class="btn btn-custom bg-custom text-custom">Submit</button>
