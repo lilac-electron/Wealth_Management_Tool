@@ -66,8 +66,10 @@
                     <form method="POST" action="{{ url_for('budgetPlanner') }}">
                         {{ form.csrf_token }}
                         <div>
-                            {{ form.category.label }}
+                            {{ form.category.label }}<br>
+                            {{ form.category(class="form-control") }}<br>
                             {{ form.amount.label }}<br>
+                            {{ form.amount(class="form-control") }}
 
                         </div>
                         <div class="text-center"> <!-- Center the submit button -->
