@@ -215,6 +215,7 @@ h1, h2, h3 {
 /* CSS for form-control when focused */
 .form-control:focus {
     background-color: #292829; /* Light grey color */
+    color: white;
 }
 
 /* CSS for form-check input (checkboxes) */
