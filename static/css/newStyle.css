@@ -204,3 +204,13 @@ h1, h2, h3 {
     font-weight: 700; /* Increased font weight */
     text-align: center;
 }
+/* CSS for rounded text entry boxes */
+.form-control {
+    border-radius: 20px; /* Adjust the value to change the roundness */
+    background-color: #f2f2f2; /* Light grey color */
+}
+
+/* CSS for form-check input (checkboxes) */
+.form-check-input {
+    border-radius: 50%; /* Make the checkboxes circular */
+}
