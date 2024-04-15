@@ -127,9 +127,9 @@ input[type=number] {
 .navbar-toggler {
     background-color: #379683; /* Set your desired background color */
 }
-h1, h2 {
+h1, h2, h3 {
     /*color: #edf5e1; /* Specify the desired color */
-    color: #34694d;
+    color: #379683;
 }
 @media (min-width: 576px) { /* Adjust the min-width as needed */
     .navbar-expand-md {
