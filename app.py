@@ -1306,7 +1306,8 @@ def mortgageAffordability():
             monthly_debt = form.monthly_debt.data
             interest_rate = form.interest_rate.data 
             if interest_rate == None:
-                interest_rate = 3.6 / 100
+                interest_rate = 3.6
+            interest_rate /= 100
             loan_term = form.loan_term.data
             max_mortgage = calculate_affordability(annual_income, monthly_debt, interest_rate, loan_term)
     return render_template('pages/mortgageAffordability.html', form=form, max_mortgage=max_mortgage)
