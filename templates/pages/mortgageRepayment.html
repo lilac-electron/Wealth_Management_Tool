@@ -57,16 +57,14 @@
                     <div class="row justify-content-center">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="loan_amount">Loan Amount:</label>
-                                <input type="number" class="form-control" id="loan_amount" name="loan_amount" required>
+                                <label for="loan_amount">Loan Amount (£):</label>
+                                <input type="number" class="form-control" id="loan_amount" name="loan_amount" required min="0">
                             </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-center">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="down_payment">Down payment:</label>
-                                <input type="number" class="form-control" id="down_payment" name="down_payment" required>
+                                <label for="down_payment">Down Payment (£):</label>
+                                <input type="number" class="form-control" id="down_payment" name="down_payment" required min="0">
                             </div>
                         </div>
                     </div>
@@ -74,15 +72,13 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="interest_rate">Interest Rate (%):</label>
-                                <input type="number" class="form-control" id="interest_rate" name="interest_rate" step="0.01" required>
+                                <input type="number" class="form-control" id="interest_rate" name="interest_rate" step="0.01" required min="0">
                             </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-center">
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="loan_term">Loan Term (years):</label>
-                                <input type="number" class="form-control" id="loan_term" name="loan_term" required>
+                                <input type="number" class="form-control" id="loan_term" name="loan_term" required min="0">
                             </div>
                         </div>
                     </div>
