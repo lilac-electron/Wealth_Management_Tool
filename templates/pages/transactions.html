@@ -191,12 +191,12 @@
                                 </h5>
                             </div>
                             <div id="current-account-transaction-collapse" class="collapse" aria-labelledby="current-account-transaction-header" data-parent="#transaction-accordion">
-                                <div class="card-body bg-custom-dark text-custom">
-                                    <ul class="list-group bg-custom-dark text-custom" id="current-account-transactions">
+                                <div class="card-body bg-custom text-custom">
+                                    <ul class="list-group bg-custom text-custom" id="current-account-transactions">
                                         <!-- Render the first ten transactions initially -->
                                         {% for transaction in current_account.transactions[:10] %}
-                                            <li class="list-group-item bg-custom-dark text-custom">
-                                                <p class="card-text"><strong>Transaction ID:</strong> {{ transaction.transaction_id }}</p>
+                                            <li class="list-group-item bg-custom text-custom">
+                                                <h5 class="card-text"><strong>Transaction ID:</strong> {{ transaction.transaction_id }}</h5>
                                                 <p class="card-text"><strong>Date:</strong> {{ transaction.date }}</p>
                                                 <p class="card-text"><strong>Amount:</strong> {{ transaction.amount }}</p>
                                                 <p class="card-text"><strong>Description:</strong> {{ transaction.description }}</p>
@@ -238,7 +238,7 @@
                                         <!-- Render the first ten transactions initially -->
                                         {% for transaction in credit_card.transactions[:10] %}
                                             <li class="list-group-item bg-custom text-custom">
-                                                <p class="card-text"><strong>Transaction ID:</strong> {{ transaction.transaction_id }}</p>
+                                                <h5 class="card-text"><strong>Transaction ID:</strong> {{ transaction.transaction_id }}</h5>
                                                 <p class="card-text"><strong>Date:</strong> {{ transaction.date }}</p>
                                                 <p class="card-text"><strong>Amount:</strong> {{ transaction.amount }}</p>
                                                 <p class="card-text"><strong>Description:</strong> {{ transaction.description }}</p>
@@ -285,7 +285,7 @@
             for (var i = lastIndexLoaded; i < lastIndexLoaded + transactionsToAdd; i++) {
                 var transaction = transactions[i];
                 transactionsHtml += '<li class="list-group-item bg-custom text-custom">';
-                transactionsHtml += '<p class="card-text"><strong>Transaction ID:</strong> ' + transaction.transaction_id + '</p>';
+                transactionsHtml += '<h5 class="card-text"><strong>Transaction ID:</strong> ' + transaction.transaction_id + '</h5>';
                 transactionsHtml += '<p class="card-text"><strong>Date:</strong> ' + transaction.date + '</p>';
                 transactionsHtml += '<p class="card-text"><strong>Amount:</strong> ' + transaction.amount + '</p>';
                 transactionsHtml += '<p class="card-text"><strong>Description:</strong> ' + transaction.description + '</p>';
@@ -338,7 +338,7 @@
             for (var i = lastIndexLoaded; i < lastIndexLoaded + transactionsToAdd; i++) {
                 var transaction = transactions[i];
                 transactionsHtml += '<li class="list-group-item bg-custom text-custom">';
-                transactionsHtml += '<p class="card-text"><strong>Transaction ID:</strong> ' + transaction.transaction_id + '</p>';
+                transactionsHtml += '<h5 class="card-text"><strong>Transaction ID:</strong> ' + transaction.transaction_id + '</h5>';
                 transactionsHtml += '<p class="card-text"><strong>Date:</strong> ' + transaction.date + '</p>';
                 transactionsHtml += '<p class="card-text"><strong>Amount:</strong> ' + transaction.amount + '</p>';
                 transactionsHtml += '<p class="card-text"><strong>Description:</strong> ' + transaction.description + '</p>';
