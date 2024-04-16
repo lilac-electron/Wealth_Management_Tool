@@ -58,6 +58,11 @@ body {
 .btn-custom {
     border: 0px solid black; 
 }
+.btn-custom-transaction{
+    background-color: #379683;
+    border: 0px solid black;
+    color: #fff; /* Text color */
+}
 .flash-messages {
     list-style-type: none;
     padding: 10px;
