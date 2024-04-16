@@ -11,8 +11,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/newStyle.css') }}">
 </head>
-
-<body>
     <style>
         
         .chart-container {
@@ -81,6 +79,7 @@
     <script>
         generateNavbar('/transactions')
     </script>
+<body>
 <div class="content text-custom"></div>
     <div class="text-center bg-custom text-custom ">
         <p>This is simulated banking page, no real data accessed.</p>
@@ -92,12 +91,12 @@
     
     <div id="hidden-content">
         <div class="container mx-auto">
-            <div class="card bg-custom text-custom-light mb-4 mt-4">
+            <div class="card bg-custom text-custom mb-4 mt-4">
                 <div class="card-header text-center">
                     <h1>{{ name }}'s Analysis</h1>
                 </div>
                 
-                <div class="card-body">
+                <div class="card-body bg-custom">
                     <p class="card-text"><strong>Current card ending balance:</strong> {{ current_account.transactions[-1].balance }}</p>
                     <p class="card-text"><strong>Current card total in:</strong> £{{ current_account.total_in }}</p>
                     <p class="card-text"><strong>Current card total out:</strong> £{{ current_account.total_out }}</p>
@@ -108,7 +107,7 @@
                     <p class="card-text"><strong>Credit card total in:</strong> £{{ credit_card.total_in }}</p>
                     <p class="card-text"><strong>Credit card total out:</strong> £{{ credit_card.total_out }}</p>
                     <p class="card-text"><strong>Credit card top merchant:</strong> {{ credit_card.top_merchant }}</p>
-                    <div class="chart-container">
+                    <div class="chart-container bg-custom-dark">
                         <canvas id="combinedChart"></canvas>
                         <p>The chart above shows the balance of each card throughout the 300 transaction most recent window</p>
                     </div>
@@ -116,17 +115,17 @@
                 </div>
             </div>
             <!-- Your accounts -->
-            <div class="card bg-custom text-custom-light mb-4 mt-4">
-                <div class="card-header bg-custom- text-custom-light text-center">
+            <div class="card bg-custom text-custom mb-4 mt-4">
+                <div class="card-header bg-custom text-custom text-center">
                     <h1>Your Accounts</h1>
                 </div>
                 <div class="card-body">
                     <div id="account-accordion">
                         <!-- Current Account -->
-                        <div class="card bg-customtext-custom-light mb-3">
+                        <div class="card bg-custom text-custom mb-3">
                             <div class="card-header text-center" id="current-account-header">
-                                <h5 class="mb-0 text-custom-light"> 
-                                    <button class="btn btn-link text-custom-light" data-toggle="collapse" data-target="#current-account-collapse" aria-expanded="true" aria-controls="current-account-collapse">
+                                <h5 class="mb-0 text-custom"> 
+                                    <button class="btn btn-link text-custom" data-toggle="collapse" data-target="#current-account-collapse" aria-expanded="true" aria-controls="current-account-collapse">
                                         Current Account
                                     </button>
                                 </h5>
@@ -142,10 +141,10 @@
                         </div>
                         
                         <!-- Credit Card -->
-                        <div class="card bg-custom text-custom-light mb-3">
+                        <div class="card bg-custom text-custom mb-3">
                             <div class="card-header text-center" id="credit-card-header">
-                                <h5 class="mb-0 text-custom-light">
-                                    <button class="btn btn-link text-custom-light" data-toggle="collapse" data-target="#credit-card-collapse" aria-expanded="true" aria-controls="credit-card-collapse">
+                                <h5 class="mb-0 text-custom">
+                                    <button class="btn btn-link text-custom" data-toggle="collapse" data-target="#credit-card-collapse" aria-expanded="true" aria-controls="credit-card-collapse">
                                         Credit Card
                                     </button>
                                 </h5>
@@ -165,17 +164,17 @@
             </div>
 
             <!-- Transactions -->
-            <div class="card bg-custom text-custom-light mb-4 mt-4">
+            <div class="card bg-custom text-custom mb-4 mt-4">
                 <div class="card-header text-center">
                     <h1>Transactions</h1>
                 </div>
                 <div class="card-body">
                     <div id="transaction-accordion">
                         <!-- Current Account Transactions -->
-                        <div class="card bg-custom text-custom-light mb-3">
+                        <div class="card bg-custom text-custom mb-3">
                             <div class="card-header text-center sticky-top" id="current-account-transaction-header">
-                                <h5 class="mb-0 text-custom-light">
-                                    <button class="btn btn-link text-custom-light" data-toggle="collapse" data-target="#current-account-transaction-collapse" aria-expanded="true" aria-controls="current-account-transaction-collapse">
+                                <h5 class="mb-0 text-custom">
+                                    <button class="btn btn-link text-custom" data-toggle="collapse" data-target="#current-account-transaction-collapse" aria-expanded="true" aria-controls="current-account-transaction-collapse">
                                         Current Account Transactions
                                     </button>
                                     <div class="collapse-buttons">
@@ -186,11 +185,11 @@
                                 </h5>
                             </div>
                             <div id="current-account-transaction-collapse" class="collapse" aria-labelledby="current-account-transaction-header" data-parent="#transaction-accordion">
-                                <div class="card-body bg-custom-dark text-custom-light">
-                                    <ul class="list-group bg-custom-dark text-custom-light" id="current-account-transactions">
+                                <div class="card-body bg-custom-dark text-custom">
+                                    <ul class="list-group bg-custom-dark text-custom" id="current-account-transactions">
                                         <!-- Render the first ten transactions initially -->
                                         {% for transaction in current_account.transactions[:10] %}
-                                            <li class="list-group-item bg-custom-dark text-custom-light">
+                                            <li class="list-group-item bg-custom-dark text-custom">
                                                 <p class="card-text"><strong>Transaction ID:</strong> {{ transaction.transaction_id }}</p>
                                                 <p class="card-text"><strong>Date:</strong> {{ transaction.date }}</p>
                                                 <p class="card-text"><strong>Amount:</strong> {{ transaction.amount }}</p>
@@ -213,10 +212,10 @@
                         
                         
                         <!-- Credit Card Transactions -->
-                        <div class="card bg-custom text-custom-light mb-3">
+                        <div class="card bg-custom text-custom mb-3">
                             <div class="card-header text-center sticky-top" id="credit-card-transaction-header">
-                                <h5 class="mb-0 text-custom-light">
-                                    <button class="btn btn-link text-custom-light" data-toggle="collapse" data-target="#credit-card-transaction-collapse" aria-expanded="true" aria-controls="credit-card-transaction-collapse">
+                                <h5 class="mb-0 text-custom">
+                                    <button class="btn btn-link text-custom" data-toggle="collapse" data-target="#credit-card-transaction-collapse" aria-expanded="true" aria-controls="credit-card-transaction-collapse">
                                         Credit Card Transactions
                                     </button>
 
@@ -228,11 +227,11 @@
                                 </h5>
                             </div>
                             <div id="credit-card-transaction-collapse" class="collapse" aria-labelledby="credit-card-transaction-header" data-parent="#transaction-accordion">
-                                <div class="card-body bg-custom text-custom-light">
-                                    <ul class="list-group bg-custom text-custom-light" id="credit-card-transactions">
+                                <div class="card-body bg-custom text-custom">
+                                    <ul class="list-group bg-custom text-custom" id="credit-card-transactions">
                                         <!-- Render the first ten transactions initially -->
                                         {% for transaction in credit_card.transactions[:10] %}
-                                            <li class="list-group-item bg-custom text-custom-light">
+                                            <li class="list-group-item bg-custom text-custom">
                                                 <p class="card-text"><strong>Transaction ID:</strong> {{ transaction.transaction_id }}</p>
                                                 <p class="card-text"><strong>Date:</strong> {{ transaction.date }}</p>
                                                 <p class="card-text"><strong>Amount:</strong> {{ transaction.amount }}</p>
@@ -279,7 +278,7 @@
             // Generate HTML for additional transactions
             for (var i = lastIndexLoaded; i < lastIndexLoaded + transactionsToAdd; i++) {
                 var transaction = transactions[i];
-                transactionsHtml += '<li class="list-group-item bg-custom text-custom-light">';
+                transactionsHtml += '<li class="list-group-item bg-custom text-custom">';
                 transactionsHtml += '<p class="card-text"><strong>Transaction ID:</strong> ' + transaction.transaction_id + '</p>';
                 transactionsHtml += '<p class="card-text"><strong>Date:</strong> ' + transaction.date + '</p>';
                 transactionsHtml += '<p class="card-text"><strong>Amount:</strong> ' + transaction.amount + '</p>';
@@ -332,7 +331,7 @@
             // Generate HTML for additional transactions
             for (var i = lastIndexLoaded; i < lastIndexLoaded + transactionsToAdd; i++) {
                 var transaction = transactions[i];
-                transactionsHtml += '<li class="list-group-item bg-custom text-custom-light">';
+                transactionsHtml += '<li class="list-group-item bg-custom text-custom">';
                 transactionsHtml += '<p class="card-text"><strong>Transaction ID:</strong> ' + transaction.transaction_id + '</p>';
                 transactionsHtml += '<p class="card-text"><strong>Date:</strong> ' + transaction.date + '</p>';
                 transactionsHtml += '<p class="card-text"><strong>Amount:</strong> ' + transaction.amount + '</p>';
