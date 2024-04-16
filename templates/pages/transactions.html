@@ -263,6 +263,40 @@
 
             <div class="card bg-custom text-custom mb-3">
                 <div class="card-header text-center">
+                    <h5 class="mb-0 text-custom">Filter Current Account Transactions by Category</h5>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="category-select-current-account">Select Category:</label>
+                        <select class="form-control" id="category-select-current-account">
+                            <option value="all">All Categories</option>
+                            <option value="Groceries">Groceries</option>
+                            <option value="Transportation">Transportation</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Food & Drink">Food & Drink</option>
+                            <option value="Dining Out">Dining Out</option>
+                            <option value="Bills & Utilities">Bills & Utilities</option>
+                            <option value="Entertainment">Entertainment</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" id="filter-transactions-current-account-btn">Filter Transactions</button>
+                </div>
+            </div>
+            
+            <div class="card bg-custom text-custom mb-3">
+                <div class="card-header text-center">
+                    <h5 class="mb-0 text-custom">Filtered Current Account Transactions</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group bg-custom text-custom" id="filtered-current-account-transactions">
+                        <!-- Filtered transactions will be rendered here -->
+                    </ul>
+                </div>
+            </div>
+            
+
+            <div class="card bg-custom text-custom mb-3">
+                <div class="card-header text-center">
                     <h5 class="mb-0 text-custom">Filter Credit Card Transactions by Category</h5>
                 </div>
                 <div class="card-body">
@@ -293,6 +327,8 @@
                     </ul>
                 </div>
             </div>
+
+
 
         <!-- Analysis -->
         
@@ -567,6 +603,44 @@
                 $('#filtered-credit-card-transactions').html(transactionsHtml);
             }
         });
+
+        // Function to filter current account transactions
+        function filterCurrentAccountTransactions() {
+            const selectedCategory = document.getElementById('category-select-current-account').value;
+            const filteredTransactions = currentAccountTransactions.filter(transaction => {
+                return selectedCategory === 'all' || transaction.category === selectedCategory;
+            });
+            renderCurrentAccountTransactions(filteredTransactions);
+        }
+
+        // Function to render filtered current account transactions
+        function renderCurrentAccountTransactions(transactions) {
+            const transactionList = document.getElementById('filtered-current-account-transactions');
+            let total = 0;
+
+            // Clear the previous transactions
+            transactionList.innerHTML = '';
+
+            // Render each transaction and calculate total
+            transactions.forEach(transaction => {
+                const listItem = document.createElement('li');
+                listItem.classList.add('list-group-item');
+                listItem.textContent = `${transaction.date}: ${transaction.description} - £${transaction.amount}`;
+                transactionList.appendChild(listItem);
+                total += transaction.amount;
+            });
+
+            // Round total to 2 decimal places
+            total = total.toFixed(2);
+
+            // Display total
+            const totalHtml = `<h4>Total for this category is: <strong>${total}</strong></h4>`;
+            transactionList.insertAdjacentHTML('beforebegin', totalHtml);
+        }
+
+        // Event listener for filter button
+        document.getElementById('filter-transactions-current-account-btn').addEventListener('click', filterCurrentAccountTransactions);
+
     </script>
 <!-- Footer -->
 <footer class="bg-dark text-white text-center p-2 mt-auto">
