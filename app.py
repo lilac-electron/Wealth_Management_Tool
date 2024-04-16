@@ -251,6 +251,7 @@ class BudgetForm(FlaskForm):
 
 class MortgageForm(FlaskForm):
     loan_amount = DecimalField('Loan Amount (£)', validators=[DataRequired(), NumberRange(min=0.01)])
+    down_payment = DecimalField('Down Payment (£)', validators=[DataRequired(), NumberRange(min=0)])
     interest_rate = DecimalField('Interest Rate (%)', validators=[DataRequired(), NumberRange(min=0.01)])
     loan_term = IntegerField('Loan Term (years)', validators=[DataRequired(), NumberRange(min=1, max=100)])
 
@@ -1251,11 +1252,13 @@ def budgetPlanner():
         print(value)
     return render_template('pages/budgetPlanner.html', form=form, budget_data=app.config['BUDGET'], user_credit_keys=app.config['CREDITS'].keys(), user_credit=app.config['CREDITS'], total=total)
 
-def mortgageRepaymentCalculator(loan_amount, interest_rate, loan_term):
+def mortgageRepaymentCalculator(loan_amount, down_payment, interest_rate, loan_term):
+    principal = loan_amount - down_payment
     monthly_interest_rate = interest_rate / 100 / 12
     num_payments = loan_term * 12
-    monthly_payment = (loan_amount * monthly_interest_rate) / (1 - (1 + monthly_interest_rate) ** -num_payments)
+    monthly_payment = (principal * monthly_interest_rate) / (1 - (1 + monthly_interest_rate) ** -num_payments)
     return monthly_payment
+
 
 
 @app.route('/mortgageRepayment', methods=['GET', 'POST'])

@@ -61,12 +61,24 @@
                                 <input type="number" class="form-control" id="loan_amount" name="loan_amount" required>
                             </div>
                         </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="down_payment">Down payment:</label>
+                                <input type="number" class="form-control" id="down_amount" name="down_amount" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="interest_rate">Interest Rate (%):</label>
                                 <input type="number" class="form-control" id="interest_rate" name="interest_rate" step="0.01" required>
                             </div>
                         </div>
+                    </div>
+                    <div class="row justify-content-center">
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="loan_term">Loan Term (years):</label>
@@ -74,7 +86,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="text-center">
+                    <div class="col-md-4 text-center">
                         <button type="submit" class="btn btn-custom bg-custom text-custom">Calculate</button>
                     </div>
                 </form>
