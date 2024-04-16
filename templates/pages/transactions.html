@@ -540,8 +540,8 @@
 
             // Function to render filtered transactions
             function renderFilteredTransactions(transactions) {
+                var total = 0;
                 transactions.forEach(function(transaction){
-                    var total = 0;
                     total += transaction.amount;
                 });
                 var transactionsHtml = '';
