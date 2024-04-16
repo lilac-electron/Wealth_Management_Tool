@@ -1266,9 +1266,13 @@ def mortgageCalculator():
     if request.method == "POST":
         if form.validate_on_submit():
             loan_amount = form.loan_amount.data
+            print(loan_amount)
             interest_rate = form.interest_rate.data
+            print(interest_rate)
             loan_term = form.loan_term.data
+            print(loan_term)
             monthly_payment = mortgageRepaymentCalculator(loan_amount, interest_rate, loan_term)
+            print(monthly_payment)
 
     return render_template('pages/mortgageRepayment.html', form=form, monthly_payment=monthly_payment)
 
