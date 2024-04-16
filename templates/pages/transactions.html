@@ -544,6 +544,7 @@
                 transactions.forEach(function(transaction){
                     total += transaction.amount;
                 });
+                total = total.toFixed(2);
                 var transactionsHtml = '';
                 transactionsHtml += "<h4>Total for this category is: <strong>" + total +"</strong></h4>";
                 // Generate HTML for filtered transactions
