@@ -45,25 +45,32 @@
                    change numbers more easily and get more accurate representations
                 </p>
                 <div class="card mx-auto mt-3 border border-dark rounded bg-custom text-custom"> <!-- Added 'card' class -->
-                    <div class="card-body mx-auto">
+                    <div class="card-body">
                         <h2>Budget Summary</h2>
                         <p>The purpose of this tool is to give a proper breakdown of the amount you are spending.</p>
-                        <div class="col-md-6">
+                        <p>
+                            The table below shows the outgoings you have told us about before in the credits section. Then you can add any other items that fall into your 
+                            budget. You can only change the elements that you enter on the form, they'll appear in blue. If you want to change any of the credits then you 
+                            must visit the credits section <a href="url_for('credits')">here</a>
+                        </p>
+                        <div class="col-md-6 mx-auto">
                             <table border="1" class="mx-auto">
                                 <tr>
                                     <th>Category</th>
                                     <th>Amount</th>
                                 </tr>
                                 {% for key in user_credit_keys %}
-                                    <tr>
-                                        <td>{{ key }}</td>
-                                        <td>{{ user_credit[key] }}</td>
-                                    </tr>
+                                    {% if user_credit[key] != 0 %}
+                                        <tr>
+                                            <td style="color: red;">{{ key }}</td> <!-- Apply blue color to text -->
+                                            <td style="color: red;">{{ user_credit[key] }}</td> <!-- Apply green color to text -->
+                                        </tr>
+                                    {% endif %}
                                 {% endfor %}
                                 {% for item in budget_data %}
                                     <tr>
-                                        <td>{{ item.category }}</td>
-                                        <td>{{ item.amount }}</td>
+                                        <td style="color: blue;">{{ item.category }}</td>
+                                        <td style="color: blue;"">{{ item.amount }}</td>
                                     </tr>
                                 {% endfor %}
                             </table>
