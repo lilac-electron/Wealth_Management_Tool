@@ -1234,7 +1234,8 @@ def budgetPlanner():
         if form.validate_on_submit():
             if form.clear_table.data:
                 app.config['BUDGET'] = []
-            app.config['BUDGET'].append({'category': form.category.data, 'amount': form.amount.data})
+            else:
+                app.config['BUDGET'].append({'category': form.category.data, 'amount': form.amount.data})
 
     # Calculate total from budget data
     for item in app.config['BUDGET']:
