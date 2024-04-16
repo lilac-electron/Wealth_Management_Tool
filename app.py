@@ -1229,6 +1229,7 @@ def capitalGainsForm():
 @login_required
 def budgetPlanner():
     form = BudgetForm(request.form)
+    total = 0
     if request.method == "POST":
         if form.validate_on_submit():
             if form.clear_table.data:
