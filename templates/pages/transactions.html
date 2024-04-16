@@ -82,12 +82,14 @@
 <body>
 
     <div class="container mx-auto" id="header-container">
-        <div class="card bg-custom text-custom mt-3 mb-3" id="header-card">
-            <div class="card-body">
-                <h2>This is simulated banking page, no real data accessed.</h2>
-                <button class="btn btn-custom bg-custom text-custom" id="reveal-hidden-content">Login to your bank</button>
-                <div class="image-container">
-                    <img src="{{ url_for('static', filename='Stock image.png') }}" alt="stock ticker" id="bank-image" aria-label="Trivial image of stock ticker, not used in the website">
+        <div class="row justify-content-center">
+            <div class="card bg-custom text-custom mt-3 mb-3 text-center" id="header-card">
+                <div class="card-body text-center">
+                    <h2>This is simulated banking page, no real data accessed.</h2>
+                    <button class="btn btn-custom bg-custom text-custom" id="reveal-hidden-content">Login to your bank</button>
+                    <div class="image-container">
+                        <img src="{{ url_for('static', filename='Stock image.png') }}" alt="stock ticker" id="bank-image" aria-label="Trivial image of stock ticker, not used in the website">
+                    </div>
                 </div>
             </div>
         </div>
