@@ -249,6 +249,11 @@ class BudgetForm(FlaskForm):
     amount = DecimalField('Amount paid', validators=[InputRequired(), NumberRange(min=0.01)])
     clear_table = BooleanField('Select if you want to clear the table.')
 
+class MortgageForm(FlaskForm):
+    loan_amount = DecimalField('Loan Amount (£)', validators=[DataRequired(), NumberRange(min=0.01)])
+    interest_rate = DecimalField('Interest Rate (%)', validators=[DataRequired(), NumberRange(min=0.01)])
+    loan_term = IntegerField('Loan Term (years)', validators=[DataRequired(), NumberRange(min=1, max=100)])
+
 def clearAttribute():
     DynamicForm = [attr for attr in DynamicForm if  not(attr.startswith('field_'))]
 
@@ -1245,6 +1250,27 @@ def budgetPlanner():
         total += value
         print(value)
     return render_template('pages/budgetPlanner.html', form=form, budget_data=app.config['BUDGET'], user_credit_keys=app.config['CREDITS'].keys(), user_credit=app.config['CREDITS'], total=total)
+
+def mortgageRepaymentCalculator(loan_amount, interest_rate, loan_term):
+    monthly_interest_rate = interest_rate / 100 / 12
+    num_payments = loan_term * 12
+    monthly_payment = (loan_amount * monthly_interest_rate) / (1 - (1 + monthly_interest_rate) ** -num_payments)
+    return monthly_payment
+
+
+@app.route('/mortgageRepayment', methods=['GET', 'POST'])
+@login_required
+def mortgageCalculator():
+    form = MortgageForm(request.form)
+    monthly_payment = None
+    if request.method == "POST":
+        if form.validate_on_submit():
+            loan_amount = form.loan_amount.data
+            interest_rate = form.interest_rate.data
+            loan_term = form.loan_term.data
+            monthly_payment = mortgageRepaymentCalculator(loan_amount, interest_rate, loan_term)
+            
+    return render_template('mortgageRepayment.html', form=form, monthly_payment=monthly_payment)
 
 #@app.route('/networth')
 @app.route('/feedbackForm')
