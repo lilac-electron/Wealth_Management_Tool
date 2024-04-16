@@ -251,7 +251,7 @@ class BudgetForm(FlaskForm):
 
 class MortgageForm(FlaskForm):
     loan_amount = DecimalField('Loan Amount (£)', validators=[DataRequired(), NumberRange(min=0.01)])
-    down_payment = DecimalField('Down Payment (£)', validators=[DataRequired(), NumberRange(min=0)])
+    down_payment = DecimalField('Down Payment (£)', validators=[DataRequired(), NumberRange(min=-1)])
     interest_rate = DecimalField('Interest Rate (%)', validators=[DataRequired(), NumberRange(min=0.01)])
     loan_term = IntegerField('Loan Term (years)', validators=[DataRequired(), NumberRange(min=1, max=100)])
 
