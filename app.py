@@ -1252,7 +1252,7 @@ def budgetPlanner():
         print(value)
     return render_template('pages/budgetPlanner.html', form=form, budget_data=app.config['BUDGET'], user_credit_keys=app.config['CREDITS'].keys(), user_credit=app.config['CREDITS'], total=total)
 
-def mortgageRepaymentCalculator(loan_amount, down_payment, interest_rate, loan_term):
+def mortgageRepaymentCalculator(loan_amount, interest_rate, loan_term, down_payment):
     principal = loan_amount - down_payment
     monthly_interest_rate = interest_rate / 100 / 12
     num_payments = loan_term * 12
@@ -1275,7 +1275,7 @@ def mortgageCalculator():
             print(interest_rate)
             loan_term = form.loan_term.data
             print(loan_term)
-            monthly_payment = round(mortgageRepaymentCalculator(loan_amount, down_payment, interest_rate, loan_term), 2)
+            monthly_payment = round(mortgageRepaymentCalculator(loan_amount, interest_rate, loan_term, down_payment), 2)
             print(monthly_payment)
 
     return render_template('pages/mortgageRepayment.html', form=form, monthly_payment=monthly_payment)
