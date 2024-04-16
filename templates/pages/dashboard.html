@@ -45,6 +45,11 @@
             {% endif %}
         {% endwith %}
         <div id="timeoutMessage"></div>
+        <div class="row mt-3">
+            <div class="col-md-12 text-center">
+                <button id="toggleBgColorBtn" class="btn btn-primary">Toggle Background Color</button>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-8">
                 <!-- Main Content -->
@@ -57,7 +62,7 @@
                     <div id="dashboardChartContainer" class="bg-custom-dark rounded">
                         <canvas id="dashboardChart"></canvas>
                     </div>
-                    <button id="colorModeButton" class="btn btn-custom bg-custom text-custom">Switch Color Mode</button>
+                    
                 </section>
             </div>
             <div class="col-md-4">
@@ -148,27 +153,11 @@
         config
     );
 
-    // Function to toggle between color modes
-    function toggleColorMode() {
-        // Get the <link> element that refers to the CSS file
-        var cssLink = document.querySelector("link[href*='newStyle.css'], link[href*='darkStyle.css']");
-
-
-        // Check if the current stylesheet is the light mode or dark mode
-        if (cssLink.href.includes("newStyle.css")) {
-            // If it's light mode, switch to dark mode
-            cssLink.href = "{{ url_for('static', filename='css/darkStyle.css') }}";
-        } else {
-            // If it's dark mode, switch to light mode
-            cssLink.href = "{{ url_for('static', filename='css/newStyle.css') }}";
-        }
-    }
-
-    // Add click event listener to the button
-    document.getElementById("colorModeButton").addEventListener("click", function() {
-        // Call the toggleColorMode function when the button is clicked
-        toggleColorMode();
+    // Function to toggle background color
+    $('#toggleBgColorBtn').click(function() {
+        $('.bg-custom').toggleClass('bg-custom-light');
     });
+
 </script>
 
 <!-- Footer -->
