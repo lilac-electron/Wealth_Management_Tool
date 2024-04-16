@@ -1309,7 +1309,7 @@ def mortgageAffordability():
                 interest_rate = 3.6 / 100
             loan_term = form.loan_term.data
             max_mortgage = calculate_affordability(annual_income, monthly_debt, interest_rate, loan_term)
-    return render_template('mortgageAffordability.html', form=form, max_mortgage=max_mortgage)
+    return render_template('pages/mortgageAffordability.html', form=form, max_mortgage=max_mortgage)
 
 #@app.route('/networth')
 @app.route('/feedbackForm')
