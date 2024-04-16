@@ -82,7 +82,7 @@
 <body>
 
     <div class="text-center">
-        <div class="card bg-custom text-custom mt-3 mb-3">
+        <div class="card bg-custom text-custom mt-3 mb-3" id="header-card">
             <div class="card-body">
                 <h2>This is simulated banking page, no real data accessed.</h2>
                 <button class="btn btn-custom bg-custom text-custom" id="reveal-hidden-content">Login to your bank</button>
@@ -378,6 +378,7 @@
             $("#reveal-hidden-content").click(function() {
                 $("#hidden-content").toggle();
                 $("#bank-image").hide(); 
+                $("#header-card").hide(); 
                 $(this).hide();
             });
         });
