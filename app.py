@@ -497,7 +497,7 @@ def credits():
                 entered_data_list[counter] = '0'
             counter += 1
         entered_data = {list(input_list)[i]:entered_data_list[i] for i in range(len(input_list))}
-        print("Entered data:", entered_data)
+        #print("Entered data:", entered_data)
         app.config['CREDITS'] = entered_data
         #write_csv_file(upload_folder_path, entered_data)
         write_dict_to_excel(app.config['UPLOAD_FOLDER'], 'credits', entered_data)
@@ -842,14 +842,14 @@ def transactions():
     account_dict = account.to_dict()
     credit_card_dict = credit_card.to_dict()
     account_balances = [transaction.balance for transaction in account.transactions] 
-    print(account_balances)
+    #print(account_balances)
     balances_labels = []
     counter = 1
     for transaction in account_balances:
         balances_labels.append(counter)
         counter += 1
     credit_balances = [transaction.balance for transaction in credit_card.transactions]
-    print(credit_balances)
+    #print(credit_balances)
     
 
     # Render HTML template with both account and credit card information
@@ -1054,7 +1054,7 @@ def savingsForm():
                 num_months += 1
                 current_savings += savings_per_month
                 current_savings *= (((annual_interest_rate/12)/100)+1)
-            print(num_months)
+            #print(num_months)
             num_months = int(num_months)
             year_content_card = "The number of months it would take to save £{:.2f}, saving £{:.2f} per month, would be {} month/s.".format(savings_goal, savings_per_month, num_months)
         elif savings_form_amount.validate_on_submit():
@@ -1066,22 +1066,22 @@ def savingsForm():
             savings_goal -= current_savings
             months_to_save = years_to_save * 12
             amount_per_month = (savings_goal/months_to_save) * (1-(annual_interest_rate/100))
-            print(amount_per_month)
+            #print(amount_per_month)
             amount_content_card = "The amount you would need to save each month to reach your goal of £{:.2f}, in {} years is: £{:.2f} per month".format(savings_goal, years_to_save, amount_per_month)
     return render_template('pages/savingsForm.html', savings_form_amount=savings_form_amount, savings_form_year=savings_form_year, year_content_card=year_content_card, amount_content_card=amount_content_card,name=current_user.username)
 
 def calculate_monthly_contribution(current_age, desired_retirement_age, current_savings, expected_annual_return, desired_annual_income):
     # Calculate the number of years until retirement
     years_until_retirement = desired_retirement_age - current_age
-    print(years_until_retirement)
+    #print(years_until_retirement)
     
     # Convert the expected annual return to a decimal
     expected_annual_return_decimal = expected_annual_return / 100
-    print(expected_annual_return_decimal)
+    #print(expected_annual_return_decimal)
     
     # Calculate the future value of the retirement savings
     future_value = desired_annual_income / expected_annual_return_decimal
-    print(future_value)
+    #print(future_value)
     
     # Use the formula to calculate the monthly contribution
     #monthly_contribution = (future_value - current_savings * (1 + expected_annual_return_decimal) ** years_until_retirement) / \
@@ -1111,7 +1111,7 @@ def retirementForm():
             #print("You need to save approximately {:.2f} per month to reach your desired annual income in retirement of {:.2f}.".format(monthly_contribution, desired_annual_income))
             retirement_content = "You need to save approximately £{:.2f} per month to reach your desired annual income in retirement of £{:.2f}.".format(monthly_contribution, desired_annual_income)
             totalCredits = 0
-            print(app.config['CREDITS'])
+            #print(app.config['CREDITS'])
             for key in app.config['CREDITS'].keys():
                 if key != "Rent" and key != "Mortgage":
                     totalCredits += int(app.config['CREDITS'][key])
@@ -1241,7 +1241,7 @@ def budgetPlanner():
     for item in app.config['BUDGET']:
         total += item['amount']
     for value in app.config['CREDITS'].values():
-        #total += value
+        total += value
         print(value)
     return render_template('pages/budgetPlanner.html', form=form, budget_data=app.config['BUDGET'], user_credit_keys=app.config['CREDITS'].keys(), user_credit=app.config['CREDITS'], total=total)
 
