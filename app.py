@@ -1269,8 +1269,8 @@ def mortgageCalculator():
             interest_rate = form.interest_rate.data
             loan_term = form.loan_term.data
             monthly_payment = mortgageRepaymentCalculator(loan_amount, interest_rate, loan_term)
-            
-    return render_template('mortgageRepayment.html', form=form, monthly_payment=monthly_payment)
+
+    return render_template('pages/mortgageRepayment.html', form=form, monthly_payment=monthly_payment)
 
 #@app.route('/networth')
 @app.route('/feedbackForm')
