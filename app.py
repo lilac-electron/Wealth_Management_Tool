@@ -240,8 +240,8 @@ class CapitalGainsCalculator(FlaskForm):
     sq_metres = BooleanField('Is the property 0ver 5000 metres, including the buildings?')
 
 def validate_category(form, field):
-    if not field.data.isalpha():
-        raise ValidationError('Category must contain only letters')
+    if not re.match(r'^[A-Za-z\s.!]+$', field.data):
+        raise ValidationError('Category must contain only letters, spaces, ".", or "!"')
 
 class BudgetForm(FlaskForm):
     category = StringField('Category for the expense', validators=[InputRequired(), validate_category])
