@@ -55,14 +55,15 @@
                 <!-- Main Content -->
                 <section class="text-center mt-4">
                     <h1 class="welcome-heading">Welcome, {{name}}, Please Enjoy The Website!</h1>
+                    <h4>Net Worth: £{{total_assets - total_credits}}</h4>
+                    <p>This is the net worth calculated as the difference between your total assets and total credits.</p>
                     <h4>Credits: £{{total_credits}}</h4>
-                    <p>This is the total number of credits you told us about for a yearly period</p>
+                    <p>This is the total number of credits you told us about for a yearly period.</p>
                     <h4>Assets: £{{total_assets}}</h4>
-                    <p>This is the total value of all the assets you have told us about</p>
+                    <p>This is the total value of all the assets you have told us about.</p>
                     <div id="dashboardChartContainer" class="bg-custom-dark rounded">
                         <canvas id="dashboardChart"></canvas>
                     </div>
-                    
                 </section>
             </div>
             <div class="col-md-4">
