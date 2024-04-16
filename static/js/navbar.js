@@ -35,6 +35,7 @@ function generateNavbar(currentPage="") {
                             <a class="dropdown-item" href="/incomeTaxCalculator">Income Tax Tool</a>
                             <a class="dropdown-item" href="/capitalGainsForm">Capital Gains Tool</a>
                             <a class="dropdown-item" href="/budgetPlanner">Budget Planner</a>
+                            <a class="dropdown-item" href="/mortgageRepayment">Mortgage Repayment Tool</a>
                         </div>
                     </li>
                     <li class="nav-item">
