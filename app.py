@@ -32,6 +32,7 @@ import os
 import io
 import base64
 import csv 
+import re
 import numpy as np
 import requests
 import json
