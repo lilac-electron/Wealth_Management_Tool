@@ -137,7 +137,7 @@
                                 </h5>
                             </div>
                             <div id="current-account-collapse" class="collapse" aria-labelledby="current-account-header" data-parent="#account-accordion">
-                                <div class="card-body">
+                                <div class="card-body" style="border: 1px solid white; border-radius: 10px;">
                                     <p class="card-text"><strong>Account Number:</strong> {{ current_account.account_number }}</p>
                                     <p class="card-text"><strong>Sort Code:</strong> {{ current_account.sort_code }}</p>
                                     <p class="card-text"><strong>Balance:</strong> {{ current_account.balance }} {{ current_account.currency }}</p>
@@ -156,7 +156,7 @@
                                 </h5>
                             </div>
                             <div id="credit-card-collapse" class="collapse" aria-labelledby="credit-card-header" data-parent="#account-accordion">
-                                <div class="card-body">
+                                <div class="card-body" style="border: 1px solid white; border-radius: 10px;">
                                     <p class="card-text"><strong>Card Number:</strong> {{ credit_card.card_number }}</p>
                                     <p class="card-text"><strong>Expiry Date:</strong> {{ credit_card.expiry_date }}</p>
                                     <p class="card-text"><strong>Card Holder:</strong> {{ credit_card.card_holder }}</p>
