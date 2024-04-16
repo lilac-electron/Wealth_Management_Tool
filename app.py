@@ -240,8 +240,8 @@ class CapitalGainsCalculator(FlaskForm):
     sq_metres = BooleanField('Is the property 0ver 5000 metres, including the buildings?')
 
 class BudgetForm(FlaskForm):
-    category = StringField('Category', validators=[InputRequired()])
-    amount = DecimalField('Amount', validators=[InputRequired(), NumberRange(min=0.01)])
+    category = StringField('Category for the expense', validators=[InputRequired()])
+    amount = DecimalField('Amount paid', validators=[InputRequired(), NumberRange(min=0.01)])
     clear_table = BooleanField('Select if you want to clear the table.')
 
 def clearAttribute():

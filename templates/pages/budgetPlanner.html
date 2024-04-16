@@ -45,7 +45,7 @@
                    change numbers more easily and get more accurate representations
                 </p>
                 <div class="card mx-auto mt-3 border border-dark rounded bg-custom text-custom"> <!-- Added 'card' class -->
-                    <div class="card-body">
+                    <div class="card-body mx-auto">
                         <h2>Budget Summary</h2>
                         <p>The purpose of this tool is to give a proper breakdown of the amount you are spending.</p>
                         <div class="col-md-6">
@@ -56,10 +56,8 @@
                                 </tr>
                                 {% for key in user_credit_keys %}
                                     <tr>
-                                        <td>
-                                            {{ key }}
-                                            {{ user_credit[key] }}
-                                        </td>
+                                        <td>{{ key }}</td>
+                                        <td>{{ user_credit[key] }}</td>
                                     </tr>
                                 {% endfor %}
                                 {% for item in budget_data %}
