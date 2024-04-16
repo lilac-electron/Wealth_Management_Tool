@@ -156,7 +156,7 @@
                                 </h5>
                             </div>
                             <div id="credit-card-collapse" class="collapse" aria-labelledby="credit-card-header" data-parent="#account-accordion">
-                                <div class="card-body" style="border: 1px solid white; border-radius: 10px;">
+                                <div class="card-body">
                                     <p class="card-text"><strong>Card Number:</strong> {{ credit_card.card_number }}</p>
                                     <p class="card-text"><strong>Expiry Date:</strong> {{ credit_card.expiry_date }}</p>
                                     <p class="card-text"><strong>Card Holder:</strong> {{ credit_card.card_holder }}</p>
@@ -195,7 +195,7 @@
                                     <ul class="list-group bg-custom text-custom" id="current-account-transactions">
                                         <!-- Render the first ten transactions initially -->
                                         {% for transaction in current_account.transactions[:10] %}
-                                            <li class="list-group-item bg-custom text-custom">
+                                            <li class="list-group-item bg-custom text-custom" style="border: 1px solid white; border-radius: 10px;">
                                                 <h5 class="card-text"><strong>Transaction ID:</strong> {{ transaction.transaction_id }}</h5>
                                                 <p class="card-text"><strong>Date:</strong> {{ transaction.date }}</p>
                                                 <p class="card-text"><strong>Amount:</strong> {{ transaction.amount }}</p>
@@ -234,7 +234,7 @@
                             </div>
                             <div id="credit-card-transaction-collapse" class="collapse" aria-labelledby="credit-card-transaction-header" data-parent="#transaction-accordion">
                                 <div class="card-body bg-custom text-custom">
-                                    <ul class="list-group bg-custom text-custom" id="credit-card-transactions">
+                                    <ul class="list-group bg-custom text-custom" id="credit-card-transactions" style="border: 1px solid white; border-radius: 10px;">
                                         <!-- Render the first ten transactions initially -->
                                         {% for transaction in credit_card.transactions[:10] %}
                                             <li class="list-group-item bg-custom text-custom">
@@ -284,7 +284,7 @@
             // Generate HTML for additional transactions
             for (var i = lastIndexLoaded; i < lastIndexLoaded + transactionsToAdd; i++) {
                 var transaction = transactions[i];
-                transactionsHtml += '<li class="list-group-item bg-custom text-custom">';
+                transactionsHtml += '<li class="list-group-item bg-custom text-custom" style="border: 1px solid white; border-radius: 10px;">';
                 transactionsHtml += '<h5 class="card-text"><strong>Transaction ID:</strong> ' + transaction.transaction_id + '</h5>';
                 transactionsHtml += '<p class="card-text"><strong>Date:</strong> ' + transaction.date + '</p>';
                 transactionsHtml += '<p class="card-text"><strong>Amount:</strong> ' + transaction.amount + '</p>';
@@ -337,7 +337,7 @@
             // Generate HTML for additional transactions
             for (var i = lastIndexLoaded; i < lastIndexLoaded + transactionsToAdd; i++) {
                 var transaction = transactions[i];
-                transactionsHtml += '<li class="list-group-item bg-custom text-custom">';
+                transactionsHtml += '<li class="list-group-item bg-custom text-custom" style="border: 1px solid white; border-radius: 10px;">';
                 transactionsHtml += '<h5 class="card-text"><strong>Transaction ID:</strong> ' + transaction.transaction_id + '</h5>';
                 transactionsHtml += '<p class="card-text"><strong>Date:</strong> ' + transaction.date + '</p>';
                 transactionsHtml += '<p class="card-text"><strong>Amount:</strong> ' + transaction.amount + '</p>';
