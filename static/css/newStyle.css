@@ -234,6 +234,7 @@ h1, h2, h3 {
 .form-control:focus {
     background-color: #292829; /* Light grey color */
     box-shadow: 0 0 0 0.2rem rgba(55, 150, 131, 0.25);
+    outline-color: rgb(55, 150, 131); 
     color: white;
 }
 
