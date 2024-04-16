@@ -255,6 +255,12 @@ class MortgageForm(FlaskForm):
     interest_rate = DecimalField('Interest Rate (%)', validators=[DataRequired(), NumberRange(min=0.01)])
     loan_term = IntegerField('Loan Term (years)', validators=[DataRequired(), NumberRange(min=1, max=100)])
 
+class MortgageAffordabilityForm(FlaskForm):
+    annual_income = DecimalField('Annual Income (£)', validators=[DataRequired()])
+    monthly_debt = DecimalField('Monthly Debt (£)', validators=[DataRequired()])
+    interest_rate = DecimalField('Interest Rate (%)', validators=[Optional()])
+    loan_term = DecimalField('Loan Term (years)', validators=[DataRequired()])
+
 def clearAttribute():
     DynamicForm = [attr for attr in DynamicForm if  not(attr.startswith('field_'))]
 
@@ -1282,6 +1288,28 @@ def mortgageCalculator():
             #print(monthly_payment)
 
     return render_template('pages/mortgageRepayment.html', form=form, monthly_payment=monthly_payment)
+
+def calculate_affordability(annual_income, monthly_debt, interest_rate, loan_term):
+    monthly_income = annual_income / 12
+    monthly_debt += 1  # Add a small amount to prevent division by zero
+    max_mortgage = (monthly_income - monthly_debt) * (1 - (1 + interest_rate / 12) ** (-loan_term * 12)) / (interest_rate / 12)
+    return max_mortgage
+
+@app.route('/mortgageAffordability', methods=['GET', 'POST'])
+@login_required
+def mortgageAffordability():
+    form = MortgageAffordabilityForm(request.form)
+    max_mortgage = None
+    if request.method == "POST":
+        if form.validate_on_submit():
+            annual_income = form.annual_income.data
+            monthly_debt = form.monthly_debt.data
+            interest_rate = form.interest_rate.data 
+            if interest_rate == None:
+                interest_rate = 3.6 / 100
+            loan_term = form.loan_term.data
+            max_mortgage = calculate_affordability(annual_income, monthly_debt, interest_rate, loan_term)
+    return render_template('mortgageAffordability.html', form=form, max_mortgage=max_mortgage)
 
 #@app.route('/networth')
 @app.route('/feedbackForm')

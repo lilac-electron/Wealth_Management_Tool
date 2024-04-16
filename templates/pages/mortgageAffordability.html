@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Fins-Fintech Wealth Tool</title>
+    <!-- Bootstrap CSS link -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/newStyle.css') }}">
+</head>
+<body>
+
+<!--Header JS reference-->
+<script src="{{url_for('static', filename='js/header.js')}}"></script>
+<script>
+    const name = "{{ name }}";
+    generateHeader(name);
+</script>
+
+<!--Navbar JS reference-->
+<script src="{{url_for('static', filename='js/navbar.js')}}"></script>
+<script>
+    generateNavbar('/tools')
+</script>
+
+<!-- Content -->
+<div class="container mx-auto mt-4">
+    <a href="{{ url_for('tools') }}" class="btn btn-outline-secondary btn-icon" role="button">
+        <span class="oi oi-arrow-left" aria-hidden="true"></span> Back
+    </a>
+</div>
+
+<div class="content text-center text-custom">
+    <div class="container mx-auto">
+        <div class="card bg-custom text-custom mt-3">
+            <div class="card-body">
+                <h1 class="tools-heading">Mortgage Affordability Calculator</h1>
+                <p>Calculate your maximum mortgage affordability</p>
+
+                <!-- Mortgage Calculator Results -->
+                {% if monthly_payment %}
+                    <div class="card mt-3 border border-dark rounded bg-custom text-custom">
+                        <div class="card-body">
+                            <h2>Results</h2>
+                            <p>Your estimated maximum monthly mortgage payment is: <strong>{{ max_mortgage }}</strong></p>
+                        </div>
+                    </div>
+                {% endif %}
+
+                <!-- Mortgage Calculator Form -->
+                <form method="POST" action="{{ url_for('mortgageAffordability') }}">
+                    {{ form.hidden_tag() }}
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="annual_income">Annual Income (£):</label>
+                                <input type="number" class="form-control" id="annual_income" name="annual_income" required min="0">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="monthly_debt">Monthly Debt (£):</label>
+                                <input type="number" class="form-control" id="monthly_debt" name="monthly_debt" required min="0">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="interest_rate">Interest Rate (%):</label>
+                                <input type="number" class="form-control" id="interest_rate" name="interest_rate" step="0.01" min="0">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="loan_term">Loan Term (years):</label>
+                                <input type="number" class="form-control" id="loan_term" name="loan_term" required min="0">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center mx-auto">
+                        <button type="submit" class="btn btn-custom bg-custom text-custom">Calculate</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center p-2 mt-auto">
+    <p>&copy; 2024 Fins-Fintech</p>
+</footer>
