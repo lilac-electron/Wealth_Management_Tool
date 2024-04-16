@@ -289,6 +289,9 @@
                     <h5 class="mb-0 text-custom">Filtered Current Account Transactions</h5>
                 </div>
                 <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <button class="btn btn-danger" id="clear-filtered-current-account-transactions-btn">Clear Filtered Transactions</button>
+                    </div>
                     <ul class="list-group bg-custom text-custom" id="filtered-current-account-transactions">
                         <!-- Filtered transactions will be rendered here -->
                     </ul>
@@ -323,6 +326,9 @@
                     <h5 class="mb-0 text-custom">Filtered Credit Card Transactions</h5>
                 </div>
                 <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <button class="btn btn-danger" id="clear-filtered-transactions-btn">Clear Filtered Transactions</button>
+                    </div>
                     <ul class="list-group bg-custom text-custom" id="filtered-credit-card-transactions">
                         <!-- Filtered transactions will be rendered here -->
                     </ul>
@@ -659,6 +665,20 @@
             }
         });
 
+        $(document).ready(function() {
+            // Event listener for clear filtered transactions button
+            $('#clear-filtered-transactions-btn').click(function() {
+                // Clear the content of the filtered transactions container
+                $('#filtered-credit-card-transactions').html('');
+            });
+        });
+        $(document).ready(function() {
+            // Event listener for clear filtered current account transactions button
+            $('#clear-filtered-current-account-transactions-btn').click(function() {
+                // Clear the content of the filtered current account transactions container
+                $('#filtered-current-account-transactions').html('');
+            });
+        });
 
     </script>
 <!-- Footer -->
