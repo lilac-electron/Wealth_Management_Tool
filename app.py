@@ -1241,7 +1241,8 @@ def budgetPlanner():
     for item in app.config['BUDGET']:
         total += item['amount']
     for value in app.config['CREDITS'].values():
-        total += value
+        #total += value
+        print(value)
     return render_template('pages/budgetPlanner.html', form=form, budget_data=app.config['BUDGET'], user_credit_keys=app.config['CREDITS'].keys(), user_credit=app.config['CREDITS'], total=total)
 
 #@app.route('/networth')

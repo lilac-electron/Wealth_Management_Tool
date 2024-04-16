@@ -97,5 +97,20 @@
     <p>&copy; 2024 Fins-Fintech</p>
 </footer>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+            var inputFields = document.querySelectorAll(".form-control");
+    
+            inputFields.forEach(function(field) {
+                field.addEventListener("input", function() {
+                    if (this.value.trim() !== "") {
+                        this.classList.add("has-input");
+                    } else {
+                        this.classList.remove("has-input");
+                    }
+                });
+            });
+        });
+</script>
 </body>
 </html>
