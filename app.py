@@ -1271,6 +1271,7 @@ def mortgageCalculator():
             loan_amount = form.loan_amount.data
             print(loan_amount)
             down_payment = form.down_payment.data
+            print(down_payment)
             interest_rate = form.interest_rate.data
             print(interest_rate)
             loan_term = form.loan_term.data
