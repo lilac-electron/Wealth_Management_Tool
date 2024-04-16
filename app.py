@@ -1234,7 +1234,13 @@ def budgetPlanner():
             if form.clear_table.data:
                 app.config['BUDGET'] = []
             app.config['BUDGET'].append({'category': form.category.data, 'amount': form.amount.data})
-    return render_template('pages/budgetPlanner.html', form=form, budget_data=app.config['BUDGET'], user_credit_keys=app.config['CREDITS'].keys(), user_credit=app.config['CREDITS'])
+
+    # Calculate total from budget data
+    for item in app.config['BUDGET']:
+        total += item['amount']
+    for value in app.config['CREDITS'].values():
+        total += value
+    return render_template('pages/budgetPlanner.html', form=form, budget_data=app.config['BUDGET'], user_credit_keys=app.config['CREDITS'].keys(), user_credit=app.config['CREDITS'], total=total)
 
 #@app.route('/networth')
 @app.route('/feedbackForm')

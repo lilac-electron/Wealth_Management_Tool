@@ -59,14 +59,12 @@
                                     <th>Category</th>
                                     <th>Amount</th>
                                 </tr>
-                                {% set total = 0 %}
                                 {% for key in user_credit_keys %}
                                     {% if user_credit[key] != 0 %}
                                         <tr>
                                             <td style="color: red;">{{ key }}</td>
                                             <td style="color: red;">{{ user_credit[key] }}</td>
                                         </tr>
-                                        {% set total = total + user_credit[key] %}  <!-- Update total -->
                                     {% endif %}
                                 {% endfor %}
                                 {% for item in budget_data %}
@@ -74,7 +72,6 @@
                                         <td style="color: lightblue;">{{ item.category }}</td>
                                         <td style="color: lightblue;">{{ item.amount }}</td>
                                     </tr>
-                                    {% set total = total + item.amount %}  <!-- Update total -->
                                 {% endfor %}
                                 <tr>
                                     <td><strong>Total</strong></td>
