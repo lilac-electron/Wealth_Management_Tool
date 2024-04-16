@@ -195,7 +195,7 @@
                                     <ul class="list-group bg-custom text-custom" id="current-account-transactions">
                                         <!-- Render the first ten transactions initially -->
                                         {% for transaction in current_account.transactions[:10] %}
-                                            <li class="list-group-item bg-custom text-custom" style="border: 1px solid white; border-radius: 10px;">
+                                            <li class="list-group-item bg-custom text-custom mb-1" style="border: 1px solid white; border-radius: 10px;">
                                                 <h5 class="card-text"><strong>Transaction ID:</strong> {{ transaction.transaction_id }}</h5>
                                                 <p class="card-text"><strong>Date:</strong> {{ transaction.date }}</p>
                                                 <p class="card-text"><strong>Amount:</strong> {{ transaction.amount }}</p>
@@ -237,7 +237,7 @@
                                     <ul class="list-group bg-custom text-custom" id="credit-card-transactions">
                                         <!-- Render the first ten transactions initially -->
                                         {% for transaction in credit_card.transactions[:10] %}
-                                            <li class="list-group-item bg-custom text-custom" style="border: 1px solid white; border-radius: 10px;">
+                                            <li class="list-group-item bg-custom text-custom mb-1" style="border: 1px solid white; border-radius: 10px;">
                                                 <h5 class="card-text"><strong>Transaction ID:</strong> {{ transaction.transaction_id }}</h5>
                                                 <p class="card-text"><strong>Date:</strong> {{ transaction.date }}</p>
                                                 <p class="card-text"><strong>Amount:</strong> {{ transaction.amount }}</p>
@@ -258,6 +258,36 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="card bg-custom text-custom mb-3">
+                <div class="card-header text-center">
+                    <h5 class="mb-0 text-custom">Filter Credit Card Transactions by Category</h5>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="category-select">Select Category:</label>
+                        <select class="form-control" id="category-select">
+                            <option value="all">All Categories</option>
+                            <!-- Add options for each category -->
+                            <option value="category1">Category 1</option>
+                            <option value="category2">Category 2</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" id="filter-transactions-btn">Filter Transactions</button>
+                </div>
+            </div>
+
+            <div class="card bg-custom text-custom mb-3">
+                <div class="card-header text-center">
+                    <h5 class="mb-0 text-custom">Filtered Credit Card Transactions</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group bg-custom text-custom" id="filtered-credit-card-transactions">
+                        <!-- Filtered transactions will be rendered here -->
+                    </ul>
                 </div>
             </div>
 
@@ -284,7 +314,7 @@
             // Generate HTML for additional transactions
             for (var i = lastIndexLoaded; i < lastIndexLoaded + transactionsToAdd; i++) {
                 var transaction = transactions[i];
-                transactionsHtml += '<li class="list-group-item bg-custom text-custom" style="border: 1px solid white; border-radius: 10px;">';
+                transactionsHtml += '<li class="list-group-item bg-custom text-custom mb-1" style="border: 1px solid white; border-radius: 10px;">';
                 transactionsHtml += '<h5 class="card-text"><strong>Transaction ID:</strong> ' + transaction.transaction_id + '</h5>';
                 transactionsHtml += '<p class="card-text"><strong>Date:</strong> ' + transaction.date + '</p>';
                 transactionsHtml += '<p class="card-text"><strong>Amount:</strong> ' + transaction.amount + '</p>';
@@ -337,7 +367,7 @@
             // Generate HTML for additional transactions
             for (var i = lastIndexLoaded; i < lastIndexLoaded + transactionsToAdd; i++) {
                 var transaction = transactions[i];
-                transactionsHtml += '<li class="list-group-item bg-custom text-custom" style="border: 1px solid white; border-radius: 10px;">';
+                transactionsHtml += '<li class="list-group-item bg-custom text-custom mb-1" style="border: 1px solid white; border-radius: 10px;">';
                 transactionsHtml += '<h5 class="card-text"><strong>Transaction ID:</strong> ' + transaction.transaction_id + '</h5>';
                 transactionsHtml += '<p class="card-text"><strong>Date:</strong> ' + transaction.date + '</p>';
                 transactionsHtml += '<p class="card-text"><strong>Amount:</strong> ' + transaction.amount + '</p>';
@@ -475,6 +505,59 @@
             $('#credit-card-transaction-collapse').on('hide.bs.collapse', function () {
                 $('.collapse-credit-buttons').hide();
             });
+        });
+
+
+
+        // JavaScript code to filter transactions by category
+        $(document).ready(function() {
+            $('#filter-transactions-btn').click(function() {
+                var selectedCategory = $('#category-select').val();
+                filterTransactions(selectedCategory);
+            });
+
+            // Function to filter transactions based on category
+            function filterTransactions(category) {
+                var transactions = {{ credit_card.transactions|tojson }};
+                var filteredTransactions = [];
+
+                if (category === 'all') {
+                    // If "All Categories" is selected, show all transactions
+                    filteredTransactions = transactions;
+                } else {
+                    // Filter transactions based on the selected category
+                    filteredTransactions = transactions.filter(function(transaction) {
+                        return transaction.category === category;
+                    });
+                }
+
+                // Render the filtered transactions
+                renderFilteredTransactions(filteredTransactions);
+            }
+
+            // Function to render filtered transactions
+            function renderFilteredTransactions(transactions) {
+                var transactionsHtml = '';
+
+                // Generate HTML for filtered transactions
+                transactions.forEach(function(transaction) {
+                    transactionsHtml += '<li class="list-group-item bg-custom text-custom mb-1" style="border: 1px solid white; border-radius: 10px;">';
+                    transactionsHtml += '<h5 class="card-text"><strong>Transaction ID:</strong> ' + transaction.transaction_id + '</h5>';
+                    transactionsHtml += '<p class="card-text"><strong>Date:</strong> ' + transaction.date + '</p>';
+                    transactionsHtml += '<p class="card-text"><strong>Amount:</strong> ' + transaction.amount + '</p>';
+                    transactionsHtml += '<p class="card-text"><strong>Description:</strong> ' + transaction.description + '</p>';
+                    transactionsHtml += '<p class="card-text"><strong>Category:</strong> ' + transaction.category + '</p>';
+                    transactionsHtml += '<p class="card-text"><strong>Balance:</strong> ' + transaction.balance + '</p>';
+                    if (transaction.merchant) {
+                        transactionsHtml += '<p class="card-text"><strong>Merchant:</strong> ' + transaction.merchant.name + '</p>';
+                        transactionsHtml += '<p class="card-text"><strong>Merchant Category:</strong> ' + transaction.merchant.category + '</p>';
+                    }
+                    transactionsHtml += '</li>';
+                });
+
+                // Update the transaction list with filtered transactions
+                $('#filtered-credit-card-transactions').html(transactionsHtml);
+            }
         });
     </script>
 <!-- Footer -->
