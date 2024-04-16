@@ -9,7 +9,7 @@ from wtforms import (
     StringField, SubmitField, IntegerField, PasswordField, BooleanField, SelectMultipleField,FileField
 )
 from wtforms.validators import (
-    InputRequired, Email, Length, NumberRange, DataRequired, Optional, EqualTo#, validators
+    InputRequired, Email, Length, NumberRange, DataRequired, Optional, EqualTo, ValidationError#, validators
 )
 import email_validator
 
@@ -239,8 +239,12 @@ class CapitalGainsCalculator(FlaskForm):
     used_as_business = BooleanField('Was a room used for a desk for business or a lodger in a single room?')
     sq_metres = BooleanField('Is the property 0ver 5000 metres, including the buildings?')
 
+def validate_category(form, field):
+    if not field.data.isalpha():
+        raise ValidationError('Category must contain only letters')
+
 class BudgetForm(FlaskForm):
-    category = StringField('Category for the expense', validators=[InputRequired()])
+    category = StringField('Category for the expense', validators=[InputRequired(), validate_category])
     amount = DecimalField('Amount paid', validators=[InputRequired(), NumberRange(min=0.01)])
     clear_table = BooleanField('Select if you want to clear the table.')
 
