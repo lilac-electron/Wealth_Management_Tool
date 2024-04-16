@@ -234,10 +234,10 @@
                             </div>
                             <div id="credit-card-transaction-collapse" class="collapse" aria-labelledby="credit-card-transaction-header" data-parent="#transaction-accordion">
                                 <div class="card-body bg-custom text-custom">
-                                    <ul class="list-group bg-custom text-custom" style="border: 1px solid white; border-radius: 10px;">
+                                    <ul class="list-group bg-custom text-custom" id="credit-card-transactions">
                                         <!-- Render the first ten transactions initially -->
                                         {% for transaction in credit_card.transactions[:10] %}
-                                            <li class="list-group-item bg-custom text-custom">
+                                            <li class="list-group-item bg-custom text-custom" style="border: 1px solid white; border-radius: 10px;">
                                                 <h5 class="card-text"><strong>Transaction ID:</strong> {{ transaction.transaction_id }}</h5>
                                                 <p class="card-text"><strong>Date:</strong> {{ transaction.date }}</p>
                                                 <p class="card-text"><strong>Amount:</strong> {{ transaction.amount }}</p>
