@@ -282,7 +282,7 @@
                     <button class="btn btn-primary" id="filter-transactions-current-account-btn">Filter Transactions</button>
                 </div>
             </div>
-            
+
             <div class="card bg-custom text-custom mb-3">
                 <div class="card-header text-center">
                     <h5 class="mb-0 text-custom">Filtered Current Account Transactions</h5>
@@ -293,7 +293,7 @@
                     </ul>
                 </div>
             </div>
-            
+
 
             <div class="card bg-custom text-custom mb-3">
                 <div class="card-header text-center">
@@ -604,42 +604,62 @@
             }
         });
 
-        // Function to filter current account transactions
-        function filterCurrentAccountTransactions() {
-            const selectedCategory = document.getElementById('category-select-current-account').value;
-            const filteredTransactions = currentAccountTransactions.filter(transaction => {
-                return selectedCategory === 'all' || transaction.category === selectedCategory;
-            });
-            renderCurrentAccountTransactions(filteredTransactions);
-        }
-
-        // Function to render filtered current account transactions
-        function renderCurrentAccountTransactions(transactions) {
-            const transactionList = document.getElementById('filtered-current-account-transactions');
-            let total = 0;
-
-            // Clear the previous transactions
-            transactionList.innerHTML = '';
-
-            // Render each transaction and calculate total
-            transactions.forEach(transaction => {
-                const listItem = document.createElement('li');
-                listItem.classList.add('list-group-item');
-                listItem.textContent = `${transaction.date}: ${transaction.description} - £${transaction.amount}`;
-                transactionList.appendChild(listItem);
-                total += transaction.amount;
+        // JavaScript code to filter current account transactions by category
+        $(document).ready(function() {
+            $('#filter-transactions-current-account-btn').click(function() {
+                var selectedCategory = $('#category-select-current-account').val();
+                filterCurrentAccountTransactions(selectedCategory);
             });
 
-            // Round total to 2 decimal places
-            total = total.toFixed(2);
+            // Function to filter current account transactions based on category
+            function filterCurrentAccountTransactions(category) {
+                var transactions = {{ current_account.transactions|tojson }};
+                var filteredTransactions = [];
 
-            // Display total
-            const totalHtml = `<h4>Total for this category is: <strong>${total}</strong></h4>`;
-            transactionList.insertAdjacentHTML('beforebegin', totalHtml);
-        }
+                if (category === 'all') {
+                    // If "All Categories" is selected, show all transactions
+                    filteredTransactions = transactions;
+                } else {
+                    // Filter transactions based on the selected category
+                    filteredTransactions = transactions.filter(function(transaction) {
+                        return transaction.category === category;
+                    });
+                }
 
-        // Event listener for filter button
-        document.getElementById('filter-transactions-current-account-btn').addEventListener('click', filterCurrentAccountTransactions);
+                // Render the filtered current account transactions
+                renderFilteredCurrentAccountTransactions(filteredTransactions);
+            }
+
+            // Function to render filtered current account transactions
+            function renderFilteredCurrentAccountTransactions(transactions) {
+                var total = 0;
+                transactions.forEach(function(transaction){
+                    total += transaction.amount;
+                });
+                total = total.toFixed(2);
+                var transactionsHtml = '';
+                transactionsHtml += "<h4>Total for this category is: <strong>" + total +"</strong></h4>";
+                // Generate HTML for filtered current account transactions
+                transactions.forEach(function(transaction) {
+                    transactionsHtml += '<li class="list-group-item bg-custom text-custom mb-1" style="border: 1px solid white; border-radius: 10px;">';
+                    transactionsHtml += '<h5 class="card-text"><strong>Transaction ID:</strong> ' + transaction.transaction_id + '</h5>';
+                    transactionsHtml += '<p class="card-text"><strong>Date:</strong> ' + transaction.date + '</p>';
+                    transactionsHtml += '<p class="card-text"><strong>Amount:</strong> ' + transaction.amount + '</p>';
+                    transactionsHtml += '<p class="card-text"><strong>Description:</strong> ' + transaction.description + '</p>';
+                    transactionsHtml += '<p class="card-text"><strong>Category:</strong> ' + transaction.category + '</p>';
+                    transactionsHtml += '<p class="card-text"><strong>Balance:</strong> ' + transaction.balance + '</p>';
+                    if (transaction.merchant) {
+                        transactionsHtml += '<p class="card-text"><strong>Merchant:</strong> ' + transaction.merchant.name + '</p>';
+                        transactionsHtml += '<p class="card-text"><strong>Merchant Category:</strong> ' + transaction.merchant.category + '</p>';
+                    }
+                    transactionsHtml += '</li>';
+                });
+
+                // Update the current account transaction list with filtered transactions
+                $('#filtered-current-account-transactions').html(transactionsHtml);
+            }
+        });
+
 
     </script>
 <!-- Footer -->
