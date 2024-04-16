@@ -1230,7 +1230,7 @@ def budgetPlanner():
             if form.clear_table.data:
                 app.config['BUDGET'] = []
             app.config['BUDGET'].append({'category': form.category.data, 'amount': form.amount.data})
-    return render_template('pages/budgetPlanner.html', form=form, budget_data=app.config['BUDGET'], user_credits=app.config['CREDITS'])
+    return render_template('pages/budgetPlanner.html', form=form, budget_data=app.config['BUDGET'], user_credit_keys=app.config['CREDITS'].keys(), user_credit=app.config['CREDITS'])
 
 #@app.route('/networth')
 @app.route('/feedbackForm')

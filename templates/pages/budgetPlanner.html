@@ -54,11 +54,11 @@
                                     <th>Category</th>
                                     <th>Amount</th>
                                 </tr>
-                                {% for key,value in user_credits %}
+                                {% for key in user_credit_keys %}
                                     <tr>
                                         <td>
                                             {{ key }}
-                                            {{ value }}
+                                            {{ user_credit[key] }}
                                         </td>
                                     </tr>
                                 {% endfor %}
