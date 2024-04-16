@@ -48,6 +48,19 @@ function generateHeader() {
 
         resetTimer(); // Initial call to start the timer
 
+        document.addEventListener("DOMContentLoaded", function() {
+            var inputFields = document.querySelectorAll(".form-control");
+    
+            inputFields.forEach(function(field) {
+                field.addEventListener("input", function() {
+                    if (this.value.trim() !== "") {
+                        this.classList.add("has-input");
+                    } else {
+                        this.classList.remove("has-input");
+                    }
+                });
+            });
+        });
 
     </script>
     `;

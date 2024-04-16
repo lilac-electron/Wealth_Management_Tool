@@ -230,6 +230,11 @@ h1, h2, h3 {
     color: white;
 }
 
+/* CSS for form-control with input */
+.form-control.has-input {
+    border-color: #379683; /* Change border color for inputs with content */
+}
+
 /* CSS for form-control when focused */
 .form-control:focus {
     background-color: #292829; /* Light grey color */
