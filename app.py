@@ -256,10 +256,10 @@ class MortgageForm(FlaskForm):
     loan_term = IntegerField('Loan Term (years)', validators=[DataRequired(), NumberRange(min=1, max=100)])
 
 class MortgageAffordabilityForm(FlaskForm):
-    annual_income = DecimalField('Annual Income (£)', validators=[DataRequired()])
-    monthly_debt = DecimalField('Monthly Debt (£)', validators=[DataRequired()])
+    annual_income = DecimalField('Annual Income (£)', validators=[DataRequired(), NumberRange(min=0.01)])
+    monthly_debt = DecimalField('Monthly Debt (£)', validators=[DataRequired(), NumberRange(min=0.01)])
     interest_rate = DecimalField('Interest Rate (%)', validators=[Optional()])
-    loan_term = DecimalField('Loan Term (years)', validators=[DataRequired()])
+    loan_term = DecimalField('Loan Term (years)', validators=[DataRequired(), NumberRange(min=1)])
 
 def clearAttribute():
     DynamicForm = [attr for attr in DynamicForm if  not(attr.startswith('field_'))]
