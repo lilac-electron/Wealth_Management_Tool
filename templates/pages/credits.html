@@ -86,20 +86,19 @@
                                                 {{ field.label }}
                                             </div>
                                             <div class="mb-3">
-                                                {{ field(class="form-control", value=value) }} <!-- Add "form-control" class here -->
+                                                {{ field(class="form-control", value=value) }} 
                                             </div>
                                         </div>
                                     {% endif %}
                                     {% if loop.last %}
                                         <div class="col-md-7">
-                                            {{ field(class="form-control") }} <!-- Add "form-control" class here -->
+                                            {{ field(class="form-control") }} 
                                         </div>
                                     {% endif %}
                                 {% endfor %}
                             </div>
-                            <div class="text-center"> <!-- Center the submit button -->
+                            <div class="text-center">
                                 <button class="btn btn-custom border-0 bg-custom text-custom w-50" type="submit">Submit</button>
-                                <!--<button class="btn btn-light border-0 bg-dark text-white w-50" type="reset">Clear</button>-->
                             </div>
                         </form>                        
                     </div>
@@ -178,7 +177,7 @@
     });
 </script>
 <!-- Footer -->
-<footer class="bg-dark text-white text-center p-2 mt-auto">
+<footer class="bg-custom text-white text-center p-2 mt-auto">
     <p>&copy; 2024 Fins-Fintech</p>
 </footer>
 

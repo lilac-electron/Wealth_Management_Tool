@@ -686,18 +686,12 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user:
-            #intial issues with the password hash function when deployed
-            #flash("User found Password"+user.password, "danger")
-            #if check_password_hash(user.password, form.password.data):
-            #if user.password == form.password.data:
             if sha256_crypt.verify(form.password.data, user.password):
                 login_user(user, remember=form.remember.data)
                 username = current_user.username
                 upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', username, f'{username}_values.xlsx')
-
                 # Set the UPLOAD_FOLDER configuration
                 app.config['UPLOAD_FOLDER'] = upload_folder_path
-                #assets, credits = read_user_data(username, upload_folder_path)
                 listOfDictionaries = excel_to_dict(app.config['UPLOAD_FOLDER'])
                 app.config['ASSETS'] = listOfDictionaries['assets'][0]
                 app.config['CREDITS'] = listOfDictionaries['credits'][0]
@@ -719,7 +713,7 @@ def login():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
-    
+
     if form.validate_on_submit():
         hashed_password = sha256_crypt.hash(form.password.data)
         print(hashed_password)
@@ -729,7 +723,6 @@ def register():
         if existing_user:
             flash('Username or email already in use, please try again', 'danger')
         else:
-            #new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
             new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
             db.session.add(new_user)
             db.session.commit()
@@ -743,37 +736,13 @@ def register():
             upload_folder_path = os.path.join(upload_folder_path, f'{username}_values.xlsx')
             # Set the UPLOAD_FOLDER configuration
             app.config['UPLOAD_FOLDER'] = upload_folder_path
-            #Create a user csv which will store their asset values
-            #with open(csv_asset_upload_folder_path, 'w', newline='') as file:
-            #    writer = csv.writer(file)
-            #    writer.writerow(['House', 'Car', 'Investments', 'Checking Account', 'Stocks', 'Savings', 'Retirement Accounts'])
-            #    writer.writerow([])
-
-            #with open(csv_credit_upload_folder_path, 'w', newline='') as file:
-            #    writer = csv.writer(file)
-            #    writer.writerow(['Rent', 'Mortgage', 'Utilities', 'Food and Groceries','Car Payments', 'Student loan Payments', 'Pension','Streaming Subscriptions', 'Music Subscriptions', 'Misc Subscriptions', 'Health Insurance', 'House Insurance', 'Other Insurance'])
-            #    writer.writerow([20, 400])
-
-            # Define column names for asset and credit files
-            # Defining them in this way makes the forms more versatile
             asset_column_names = ['House', 'Car', 'Investments', 'Checking Account', 'Stocks', 'Savings', 'Retirement Accounts']
             credit_column_names = ['Rent', 'Mortgage', 'Utilities', 'Food and Groceries', 'Car Payments', 'Student loan Payments', 'Pension', 'Subscriptions', 'Health Insurance', 'House Insurance', 'Other Insurance']
-            #savings_column_names = ['savings_goal', 'saving_per_month', 'current_savings', 'annual_interest_rate', 'years_to_save']
-            #retirement_column_names = ['current_age','desired_retirement_age','current_savings','expected_annual_return','desired_annual_income']
-            #tax_column_names = ['annual_salary','additional_income','deductible_expenses','tax_year','filing_status']
-            #capital_gains_column_names = ['purchase_price','sale_price','holding_period','cost_of_improvements','deductions_exemptions']
 
             sheet_data = {
                 'credits': credit_column_names,  # List for 'credits' sheet
                 'assets': asset_column_names,      # List for 'assets' sheet
-                #'retirement': retirement_column_names,  # List for 'retirement' sheet
-                #'savings': savings_column_names, # List for 'savings' sheet
-                #'tax': tax_column_names, #List for 'tax' sheet
-                #'capital gains': capital_gains_column_names
             }
-            # Create dictionaries with column names as keys and 0 as values
-            #asset_data_dict = dict.fromkeys(asset_column_names, 0)
-            #credit_data_dict = dict.fromkeys(credit_column_names, 0)
 
             # Create asset and credit files with dictionaries
             #create_csv_file(csv_asset_upload_folder_path, asset_column_names, asset_data_dict)
@@ -901,12 +870,6 @@ def delete_files():
 def logout():
     logout_user()
     return redirect(url_for('index'))
-
-
-
-
-
-
 
 
 
