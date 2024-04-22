@@ -280,7 +280,7 @@ def list_files(directory):
     return file_names
 
 def create_excel_file(file_path, sheet_data):
-    # Create a Pandas Excel writer using xlsxwriter as the engine
+    # Create a Pandas Excel writer using ExcelWriter as the engine
     writer = pd.ExcelWriter(file_path)
     
     # Iterate through the sheet data
@@ -695,10 +695,10 @@ def login():
                 listOfDictionaries = excel_to_dict(app.config['UPLOAD_FOLDER'])
                 app.config['ASSETS'] = listOfDictionaries['assets'][0]
                 app.config['CREDITS'] = listOfDictionaries['credits'][0]
-                app.config['RETIREMENT'] = listOfDictionaries['retirement'][0]
+                """app.config['RETIREMENT'] = listOfDictionaries['retirement'][0]
                 app.config['SAVINGS'] = listOfDictionaries['savings'][0]
                 app.config['FINANCE_PATH'] = os.path.join('Wealth_Managment_Tool/SimulatedFinanceData/', username)
-                app.config['BUDGET'] = []
+                app.config['BUDGET'] = []"""
                 #print(assets)
                 #print(credits)
                 flash("Welcome "+ str(current_user.username)+", you have been logged in.", 'success')
