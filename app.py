@@ -1250,7 +1250,7 @@ def mortgageCalculator():
             monthly_payment = round(mortgageRepaymentCalculator(loan_amount, interest_rate, loan_term, down_payment), 2)
             #print(monthly_payment)
 
-    return render_template('pages/mortgageRepayment.html', form=form, monthly_payment=monthly_payment)
+    return render_template('pages/mortgageRepayment.html', form=form, monthly_payment=monthly_payment, name=current_user.username)
 
 def calculate_affordability(annual_income, monthly_debt, interest_rate, loan_term):
     monthly_income = annual_income / 12
