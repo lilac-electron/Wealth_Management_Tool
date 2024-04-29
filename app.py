@@ -1219,7 +1219,7 @@ def budgetPlanner():
     for value in app.config['CREDITS'].values():
         total += value
         print(value)
-    return render_template('pages/budgetPlanner.html', form=form, budget_data=app.config['BUDGET'], user_credit_keys=app.config['CREDITS'].keys(), user_credit=app.config['CREDITS'], total=total)
+    return render_template('pages/budgetPlanner.html', form=form, budget_data=app.config['BUDGET'], user_credit_keys=app.config['CREDITS'].keys(), user_credit=app.config['CREDITS'], total=total, name=current_user.username)
 
 def mortgageRepaymentCalculator(loan_amount, interest_rate, loan_term, down_payment):
     principal = loan_amount - down_payment
