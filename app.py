@@ -698,7 +698,7 @@ def login():
                 """app.config['RETIREMENT'] = listOfDictionaries['retirement'][0]
                 app.config['SAVINGS'] = listOfDictionaries['savings'][0]"""
                 app.config['FINANCE_PATH'] = os.path.join('Wealth_Managment_Tool/SimulatedFinanceData/', username)
-                #app.config['BUDGET'] = []
+                app.config['BUDGET'] = []
                 #print(assets)
                 #print(credits)
                 flash("Welcome "+ str(current_user.username)+", you have been logged in.", 'success')
@@ -1273,7 +1273,7 @@ def mortgageAffordability():
             interest_rate /= 100
             loan_term = form.loan_term.data
             max_mortgage = calculate_affordability(annual_income, monthly_debt, interest_rate, loan_term)
-    return render_template('pages/mortgageAffordability.html', form=form, max_mortgage=max_mortgage)
+    return render_template('pages/mortgageAffordability.html', form=form, max_mortgage=max_mortgage, name=current_user.username)
 
 #@app.route('/networth')
 @app.route('/feedbackForm')
