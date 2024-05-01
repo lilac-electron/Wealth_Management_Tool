@@ -100,14 +100,14 @@
                 <!-- Income Tax Form -->
                 <div id="incomeTaxFormContent" class="card-body">
                     <form method="POST" action="{{ url_for('incomeTaxCalculator') }}">
-                        {{ UK_income_tax_calculator_form.hidden_tag() }} <!-- Include CSRF token -->
+                        {{ UK_income_tax_calculator_form.hidden_tag() }} <!-- Includes CSRF token -->
                         <div class="row justify-content-center">
                             <div class="col-md-3">
                                 <div>
                                     {{ UK_income_tax_calculator_form.yearly_earnings.label }}
                                 </div>
                                 <div class="mb-3">
-                                    {{ UK_income_tax_calculator_form.yearly_earnings(class="form-control", value=UK_income_tax_calculator_form.yearly_earnings.data) }} <!-- Add "form-control" class here -->
+                                    {{ UK_income_tax_calculator_form.yearly_earnings(class="form-control", value=UK_income_tax_calculator_form.yearly_earnings.data) }} 
                                 </div>
                             </div>
                         </div>
@@ -117,7 +117,7 @@
                                     {{ UK_income_tax_calculator_form.over_state_pension_age.label }}
                                 </div>
                                 <div class="mb-3">
-                                    {{ UK_income_tax_calculator_form.over_state_pension_age(class="form-control", value=UK_income_tax_calculator_form.over_state_pension_age.data) }} <!-- Add "form-control" class here -->
+                                    {{ UK_income_tax_calculator_form.over_state_pension_age(class="form-control", value=UK_income_tax_calculator_form.over_state_pension_age.data) }} 
                                 </div>
                             </div>
                         </div>
@@ -127,12 +127,12 @@
                                     {{ UK_income_tax_calculator_form.blind.label }}
                                 </div>
                                 <div class="mb-3">
-                                    {{ UK_income_tax_calculator_form.blind(class="form-control", value=UK_income_tax_calculator_form.blind.data) }} <!-- Add "form-control" class here -->
+                                    {{ UK_income_tax_calculator_form.blind(class="form-control", value=UK_income_tax_calculator_form.blind.data) }}
                                 </div>
                             </div>
                         </div>
                         </div>
-                        <div class="text-center"> <!-- Center the submit button -->
+                        <div class="text-center">
                             <button type="submit" class="btn btn-custom bg-custom text-custom">Submit</button>
                         </div>
                     </form>
@@ -165,7 +165,7 @@
                 }]
             },
             options: {
-                // Add options if needed
+                
             }
         });
     </script>

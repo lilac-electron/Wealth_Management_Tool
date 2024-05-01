@@ -27,7 +27,7 @@ import yfinance as yfin
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 import pandas as pd
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import os
 import io
 import base64
@@ -264,16 +264,6 @@ class MortgageAffordabilityForm(FlaskForm):
 def clearAttribute():
     DynamicForm = [attr for attr in DynamicForm if  not(attr.startswith('field_'))]
 
-#def CreditsForm(inputs_list):
-#    for item in inputs_list:
- #       setattr(DynamicForm, f'field_{item}', IntegerField(f'Enter monthly payment for {item}'))
-        #print(item)
-    #DynamicForm.submit = SubmitField('Submit')   
-
-#def AssetForm(inputs_list):
- #   for item in inputs_list:
-  #      setattr(DynamicForm2, f'field_{item}', IntegerField(f'Enter asset value for {item}'))
-   #     #print(item)   
 
 def list_files(directory):
     file_names = [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
@@ -341,53 +331,6 @@ def write_dict_to_excel(file_path, sheet_name, data_dict):
     # Save the workbook
     wb.save(file_path)
 
-"""def create_csv_file(file_path, column_names, data_dict):
-    with open(file_path, 'w', newline='') as file:
-        writer = csv.DictWriter(file, fieldnames=column_names)
-        writer.writeheader()
-        writer.writerow(data_dict)
-
-def read_csv_file(file_path):
-    data_dict = {}
-    with open(file_path, 'r') as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            data_dict.update(row)
-    return data_dict
-
-def write_csv_file(upload_folder_path, data):
-    # Ensure the folder exists (create it if it doesn't)
-    #os.makedirs(upload_folder_path, exist_ok=True)
-
-    column_names = list(data.keys())
-    print("THESE ARE COLUMN NAMES")
-    print(column_names)
-    print(type(data))
-
-    # Open the CSV file for writing
-    with open(upload_folder_path, 'w', newline='') as file:
-        writer = csv.writer(file)
-
-        # Write the header row (keys)
-        writer.writerow(data.keys())
-
-        # Write the data row (values)
-        writer.writerow(data.values())
-
-def read_user_data(username, upload_folder_path):
-    # Create asset and credit file paths
-    csv_asset_upload_folder_path = os.path.join(upload_folder_path, f'{username}_assetValue.csv')
-    csv_credit_upload_folder_path = os.path.join(upload_folder_path, f'{username}_credits.csv')
-
-    # Read values from asset and credit CSV files
-    asset_data = read_csv_file(csv_asset_upload_folder_path)
-    credit_data = read_csv_file(csv_credit_upload_folder_path)
-
-    # Create dictionaries for assets and credits
-    #assets_dict = {'assets': asset_data}
-    #credits_dict = {'credits': credit_data}
-
-    return asset_data, credit_data"""
 
 def fetch_stock_data(ticker, start_date, end_date):
     yfin.pdr_override()
@@ -670,7 +613,6 @@ def double_form():
             old_retirement = app.config['RETIREMENT']['Retirement Age']
             card_content1 = f'Previous retirement goal: {old_retirement}'
 
-    ### INSERT FUNCTION TO SAVE THE FORM INPUTS, AND SET THE OPPOSITE CARD TO THE SUBMISSION OF PREVIOUSLY SAVED IF APPLICABLE
     
     return render_template('pages/doubleForm.html', form1=form1, form2=form2, card_content1=card_content1, card_content2=card_content2)
 
@@ -728,8 +670,7 @@ def register():
             db.session.commit()
             username = form.username.data
             upload_folder_path = os.path.join('Wealth_Managment_Tool/upload_folder', username)
-            #csv_asset_upload_folder_path = os.path.join(upload_folder_path, f'{username}_assetValue.csv')
-            #csv_credit_upload_folder_path = os.path.join(upload_folder_path, f'{username}_credits.csv')
+            
 
             # Ensure the folder exists (create it if it doesn't)
             os.makedirs(upload_folder_path, exist_ok=True)
@@ -744,9 +685,7 @@ def register():
                 'assets': asset_column_names,      # List for 'assets' sheet
             }
 
-            # Create asset and credit files with dictionaries
-            #create_csv_file(csv_asset_upload_folder_path, asset_column_names, asset_data_dict)
-            #create_csv_file(csv_credit_upload_folder_path, credit_column_names, credit_data_dict)
+            
             create_excel_file(app.config['UPLOAD_FOLDER'], sheet_data=sheet_data)
             finance_path = 'Wealth_Managment_Tool/SimulatedFinanceData/' + username
             os.makedirs(finance_path, exist_ok=True)
@@ -792,15 +731,15 @@ def transactions():
     with open(credits_path, 'r') as f:
         credit_card_data = json.load(f)
 
-    # Extract account information
+    
     account_info = account_data['account']
     account_transactions_data = account_data['transactions']
 
-    # Extract credit card information
+    
     credit_card_info = credit_card_data['account']
     credit_card_transactions_data = credit_card_data['transactions']
 
-    # Instantiate Account object
+    
     account = Account(
         account_number=account_info['account_number'],
         sort_code=account_info['sort_code'],
@@ -810,7 +749,7 @@ def transactions():
         transactions=[Transaction(**txn_data) for txn_data in account_transactions_data],
     )
 
-    # Instantiate Credit Card object
+    
     credit_card = CreditCard(
         card_number=credit_card_info['card_number'],
         expiry_date=credit_card_info['expiry_date'],
@@ -820,7 +759,7 @@ def transactions():
         transactions=[Transaction(**txn_data) for txn_data in credit_card_transactions_data],
     )
 
-    # Convert account and credit card objects to dictionaries
+
     account_dict = account.to_dict()
     credit_card_dict = credit_card.to_dict()
     account_balances = [transaction.balance for transaction in account.transactions] 
@@ -993,7 +932,7 @@ def access_token(authorization_code):
         else:
             return jsonify({"error": "Access token not found"}), 500
     except requests.exceptions.RequestException as e:
-        return jsonify({"error": str(e)}), 500"""
+        return jsonify({"error": str(e)}), 500
 
 @app.route('/testApi', methods=['GET', 'POST'])
 @login_required
@@ -1008,7 +947,7 @@ def testCPIAPI():
     else:
         print("Error:", response.status_code, response.text)
 
-    return redirect(url_for('dashboard'))    
+    return redirect(url_for('dashboard'))"""
 
 
 @app.route('/savingsForm', methods=['GET', 'POST'])
@@ -1059,10 +998,7 @@ def calculate_monthly_contribution(current_age, desired_retirement_age, current_
     future_value = desired_annual_income / expected_annual_return_decimal
     #print(future_value)
     
-    # Use the formula to calculate the monthly contribution
-    #monthly_contribution = (future_value - current_savings * (1 + expected_annual_return_decimal) ** years_until_retirement) / \
-     #                      (((1 + expected_annual_return_decimal) ** (years_until_retirement * 12)) - 1) / \
-      #                     expected_annual_return_decimal
+    
     #how much needed to save
     monthly_contribution = (((future_value/(years_until_retirement*(expected_annual_return_decimal+1)**years_until_retirement))-current_savings)/12)
     
@@ -1254,7 +1190,7 @@ def mortgageCalculator():
 
 def calculate_affordability(annual_income, monthly_debt, interest_rate, loan_term):
     monthly_income = annual_income / 12
-    monthly_debt += 1  # Add a small amount to prevent division by zero
+    monthly_debt += 1  # Don;'t divide by 0
     max_mortgage = (monthly_income - monthly_debt) * (1 - (1 + interest_rate / 12) ** (-loan_term * 12)) / (interest_rate / 12)
     return max_mortgage
 
@@ -1275,7 +1211,6 @@ def mortgageAffordability():
             max_mortgage = calculate_affordability(annual_income, monthly_debt, interest_rate, loan_term)
     return render_template('pages/mortgageAffordability.html', form=form, max_mortgage=max_mortgage, name=current_user.username)
 
-#@app.route('/networth')
 @app.route('/feedbackForm')
 @login_required
 def feedbackForm():

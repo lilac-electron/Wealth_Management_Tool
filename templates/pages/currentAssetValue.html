@@ -30,13 +30,6 @@
 <!-- Content -->
 <div class="content text-custom">
     <div class="container bg-custom mx-auto">
-        <!-- <div class="row">
-            <div class="col-md-12">
-                <section class="text-center mt-4">
-                    <h2>Asset Value</h2>
-                </section>
-            </div>
-        </div>-->
         <div class="row mt-4">
             <div class="col-md-6 mx-auto">
                 <div class="cardTop">
@@ -77,18 +70,18 @@
                                                 {{ field.label }}
                                             </div>
                                             <div class="mb-3">
-                                                {{ field(class="form-control", value=value) }} <!-- Add "form-control" class here -->
+                                                {{ field(class="form-control", value=value) }} 
                                             </div>
                                         </div>
                                     {% endif %}
                                     {% if loop.last %}
                                         <div class="col-md-7">
-                                            {{ field(class="form-control") }} <!-- Add "form-control" class here -->
+                                            {{ field(class="form-control") }} 
                                         </div>
                                     {% endif %}
                                 {% endfor %}
                             </div>
-                            <div class="text-center"> <!-- Center the submit button -->
+                            <div class="text-center"> 
                                 <button class="btn btn-custom border-0 bg-custom text-custom w-50" type="submit">Submit</button>
                             </div>
                         </form>
